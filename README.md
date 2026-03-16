@@ -28,7 +28,7 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Functions   | ![#2EE5B2](https://placehold.co/16x16/2EE5B2/2EE5B2.png)   | `#2EE5B2` |
 | Strings     | ![#F0C24E](https://placehold.co/16x16/F0C24E/F0C24E.png)   | `#F0C24E` |
 | Types       | ![#C28BFF](https://placehold.co/16x16/C28BFF/C28BFF.png)   | `#C28BFF` |
-| Numbers     | ![#D4B46A](https://placehold.co/16x16/D4B46A/D4B46A.png)   | `#D4B46A` |
+| Numbers     | ![#D0A050](https://placehold.co/16x16/D0A050/D0A050.png)   | `#D0A050` |
 | Operators   | ![#7FC7F4](https://placehold.co/16x16/7FC7F4/7FC7F4.png)   | `#7FC7F4` |
 | Decorators  | ![#C28BFF](https://placehold.co/16x16/C28BFF/C28BFF.png)   | `#C28BFF` |
 
@@ -47,7 +47,7 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Functions   | ![#3CB898](https://placehold.co/16x16/3CB898/3CB898.png)   | `#3CB898` |
 | Strings     | ![#DBAC3B](https://placehold.co/16x16/DBAC3B/DBAC3B.png)   | `#DBAC3B` |
 | Types       | ![#AF85E6](https://placehold.co/16x16/AF85E6/AF85E6.png)   | `#AF85E6` |
-| Numbers     | ![#C8A85C](https://placehold.co/16x16/C8A85C/C8A85C.png)   | `#C8A85C` |
+| Numbers     | ![#C49A4A](https://placehold.co/16x16/C49A4A/C49A4A.png)   | `#C49A4A` |
 | Operators   | ![#6CA9D6](https://placehold.co/16x16/6CA9D6/6CA9D6.png)   | `#6CA9D6` |
 
 ### Terracotta Light
@@ -184,7 +184,7 @@ Every color in every variant has been validated against WCAG accessibility stand
 
 ### Design Choices
 
-**Warm color harmony over maximum separation.** Dark variants use a unified warm-gold palette for strings and numbers. This reduces hue clutter and eye strain during long sessions. Context and semantic highlighting handle the disambiguation that raw hue alone would otherwise need to provide.
+**Warm color harmony with clear separation.** Dark variants use a yellow-gold for strings and a distinct amber for numbers. This retains the warm palette while ensuring each token type is visually distinguishable at a glance. Semantic highlighting adds further context-aware coloring when supported.
 
 **Deep grey backgrounds.** The dark variants use `#141414` and `#1A1A1A` rather than pure black. This reduces halation (the neon glow effect around bright text on black backgrounds) and is easier on eyes with astigmatism.
 

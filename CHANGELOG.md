@@ -2,6 +2,22 @@
 
 All notable changes to the Terracotta theme will be documented in this file.
 
+## [1.3.0] - 2026-03-16
+
+### Changed
+- **String vs Number separation** -- shifted number/constant colors in Dark (`#D0A050`) and Dark Dimmed (`#C49A4A`) to amber, creating clear visual distance from gold strings
+- **Light theme variable visibility** -- shifted variable colors to warm brown (`#4A3F38` / `#3D3530`) in both light variants so variables no longer blend with foreground text
+- Updated all 5 theme screenshots
+
+### Added
+- **Go language support** -- added builtin type scopes (`error`, `string`, `bool`, `byte`, `rune`, numeric types) colored as types, and `chan` keyword styled as italic operator across all 5 themes
+- Complex showcase files for Python, React/TSX, and Go
+
+## [1.2.0] - 2026-03-16
+
+### Added
+- **Java language support** -- added Java-specific token rules for primitive types, annotations, and `this`/`super` across all 5 themes
+
 ## [1.1.0] - 2026-03-16
 
 ### Changed

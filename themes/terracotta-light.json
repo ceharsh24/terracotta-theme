@@ -78,7 +78,7 @@
     "activityBarBadge.background": "#C15F3C",
     "activityBarBadge.foreground": "#FFFFFF",
     "sideBar.background": "#F0EFEA",
-    "sideBar.foreground": "#3D3C44",
+    "sideBar.foreground": "#4A3F38",
     "sideBar.border": "#E2E0D8",
     "sideBarTitle.foreground": "#2C2B31",
     "sideBarSectionHeader.background": "#F4F3EE",
@@ -679,7 +679,7 @@
         "variable.other"
       ],
       "settings": {
-        "foreground": "#3D3C44"
+        "foreground": "#4A3F38"
       }
     },
     {
@@ -816,7 +816,7 @@
         "meta.property-value.css"
       ],
       "settings": {
-        "foreground": "#3D3C44"
+        "foreground": "#4A3F38"
       }
     },
     {
@@ -921,7 +921,7 @@
         "string.unquoted.yaml"
       ],
       "settings": {
-        "foreground": "#3D3C44"
+        "foreground": "#4A3F38"
       }
     },
     {
@@ -1090,7 +1090,7 @@
         "variable.other.bracket.shell"
       ],
       "settings": {
-        "foreground": "#3D3C44"
+        "foreground": "#4A3F38"
       }
     },
     {
@@ -1109,6 +1109,30 @@
       ],
       "settings": {
         "foreground": "#6530B8"
+      }
+    },
+    {
+      "name": "Go builtin types",
+      "scope": [
+        "storage.type.error.go",
+        "storage.type.numeric.go",
+        "storage.type.string.go",
+        "storage.type.boolean.go",
+        "storage.type.byte.go",
+        "storage.type.rune.go"
+      ],
+      "settings": {
+        "foreground": "#6530B8"
+      }
+    },
+    {
+      "name": "Go channel",
+      "scope": [
+        "keyword.channel.go"
+      ],
+      "settings": {
+        "foreground": "#0057AB",
+        "fontStyle": "italic"
       }
     },
     {
@@ -1223,8 +1247,8 @@
       "foreground": "#8D3500",
       "italic": true
     },
-    "variable": "#242424",
-    "variable.readonly": "#242424",
+    "variable": "#4A3F38",
+    "variable.readonly": "#4A3F38",
     "variable.defaultLibrary": "#6530B8",
     "property": "#0550AE",
     "property.readonly": "#0550AE",

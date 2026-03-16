@@ -455,7 +455,7 @@
         "constant.numeric"
       ],
       "settings": {
-        "foreground": "#C8A85C"
+        "foreground": "#C49A4A"
       }
     },
     {
@@ -475,7 +475,7 @@
         "variable.other.enummember"
       ],
       "settings": {
-        "foreground": "#C8A85C"
+        "foreground": "#C49A4A"
       }
     },
     {
@@ -854,7 +854,7 @@
         "keyword.other.unit.css"
       ],
       "settings": {
-        "foreground": "#C8A85C"
+        "foreground": "#C49A4A"
       }
     },
     {
@@ -864,7 +864,7 @@
         "punctuation.definition.constant.css"
       ],
       "settings": {
-        "foreground": "#C8A85C"
+        "foreground": "#C49A4A"
       }
     },
     {
@@ -1112,6 +1112,30 @@
       }
     },
     {
+      "name": "Go builtin types",
+      "scope": [
+        "storage.type.error.go",
+        "storage.type.numeric.go",
+        "storage.type.string.go",
+        "storage.type.boolean.go",
+        "storage.type.byte.go",
+        "storage.type.rune.go"
+      ],
+      "settings": {
+        "foreground": "#AF85E6"
+      }
+    },
+    {
+      "name": "Go channel",
+      "scope": [
+        "keyword.channel.go"
+      ],
+      "settings": {
+        "foreground": "#6CA9D6",
+        "fontStyle": "italic"
+      }
+    },
+    {
       "name": "Rust lifetime",
       "scope": [
         "entity.name.type.lifetime.rust",
@@ -1228,7 +1252,7 @@
     "variable.defaultLibrary": "#AF85E6",
     "property": "#CCCCCC",
     "property.readonly": "#CCCCCC",
-    "enumMember": "#C8A85C",
+    "enumMember": "#C49A4A",
     "event": "#CCCCCC",
     "function": "#3CB898",
     "function.defaultLibrary": "#4CC890",
@@ -1252,7 +1276,7 @@
     },
     "string": "#DBAC3B",
     "keyword": "#D06F50",
-    "number": "#C8A85C",
+    "number": "#C49A4A",
     "regexp": "#D890A8",
     "operator": "#6CA9D6",
     "decorator": {
