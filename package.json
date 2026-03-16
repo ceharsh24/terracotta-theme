@@ -2,7 +2,7 @@
   "name": "terracotta-theme",
   "displayName": "Terracotta Theme",
   "description": "A Claude-inspired warm theme with 5 variants: 2 dark, 2 light, and a color-blind accessible high-contrast mode. Built around Claude AI's terra cotta palette with carefully tuned syntax highlighting.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "publisher": "terracotta-theme",
   "license": "MIT",
   "engines": {

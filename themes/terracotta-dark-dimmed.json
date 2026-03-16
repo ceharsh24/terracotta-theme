@@ -1156,6 +1156,36 @@
       }
     },
     {
+      "name": "Java primitive types",
+      "scope": [
+        "storage.type.primitive.java"
+      ],
+      "settings": {
+        "foreground": "#AF85E6"
+      }
+    },
+    {
+      "name": "Java annotation",
+      "scope": [
+        "storage.type.annotation.java",
+        "punctuation.definition.annotation.java"
+      ],
+      "settings": {
+        "foreground": "#B88EE4",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Java this/super",
+      "scope": [
+        "variable.language.java"
+      ],
+      "settings": {
+        "foreground": "#D06F50",
+        "fontStyle": "italic"
+      }
+    },
+    {
       "name": "Invalid",
       "scope": [
         "invalid"
