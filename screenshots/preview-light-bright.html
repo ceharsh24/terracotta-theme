@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#F5F5F5}
+.window{width:960px;height:620px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,sans-serif;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.titlebar{height:36px;background:#F5F5F5;display:flex;align-items:center;padding:0 12px}
+.dots{display:flex;gap:7px}.dot{width:12px;height:12px;border-radius:50%}.dot-r{background:#FF5F57}.dot-y{background:#FFBD2E}.dot-g{background:#28C840}
+.title{flex:1;text-align:center;color:#1F2028;font-size:12px;opacity:.7}
+.main{display:flex;height:calc(100% - 36px)}
+.sidebar{width:48px;background:#F5F5F5;display:flex;flex-direction:column;align-items:center;padding-top:12px;gap:18px}
+.filetree{width:200px;background:#F5F5F5;padding:12px 0;font-size:12px;color:#30303A;border-right:1px solid rgba(128,128,128,.08)}
+.filetree-header{padding:4px 16px;text-transform:uppercase;font-size:10px;letter-spacing:1px;opacity:.6;font-weight:600}
+.filetree-item{padding:3px 16px 3px 24px;white-space:nowrap}
+.filetree-item.active{background:rgba(218,119,86,0.31);border-left:2px solid #DA7756;padding-left:22px}
+.filetree-folder{padding:3px 16px;font-weight:500}
+.editor-area{flex:1;display:flex;flex-direction:column}
+.tabs{height:35px;background:#EDEAE2;display:flex;align-items:stretch}
+.tab{padding:0 16px;display:flex;align-items:center;font-size:12px;border-right:1px solid rgba(128,128,128,.1)}
+.tab.active{background:#FFFFFF;color:#1F2028;border-top:1px solid #DA7756}
+.tab.inactive{background:#EDEAE2;color:#5E5E68}
+.editor{flex:1;background:#FFFFFF;overflow:hidden;padding:4px 0}
+.line{display:flex;height:19px;line-height:19px;font-family:"SF Mono","Fira Code",Menlo,monospace;font-size:13px}
+.linenum{width:48px;text-align:right;padding-right:16px;user-select:none;flex-shrink:0}
+.code{white-space:pre;color:#141414}
+.statusbar{height:24px;background:#F5F5F5;display:flex;align-items:center;padding:0 12px;font-size:11px;color:#4A4A54}
+.statusbar span{margin-right:16px}.accent{color:#DA7756;font-weight:500}
+svg{fill:#1F2028;opacity:.5}svg.active{opacity:1}
+</style></head><body>
+<div class="window">
+  <div class="titlebar"><div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div><div class="title">server.py — Terracotta Theme</div></div>
+  <div class="main">
+    <div class="sidebar">
+      <svg class="active" width="24" height="24" viewBox="0 0 24 24"><path d="M17.5 0h-9L7 1.5V6H2.5L1 7.5v15.07L2.5 24h12.07L16 22.57V18h4.7l1.3-1.43V4.5L17.5 0zm0 2.12l2.38 2.38H17.5V2.12zm-3 20.38h-12v-15H7v9.07L8.5 18h6v4.5zm6-6h-12v-15H16V6h4.5v10.5z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.25 0a8.25 8.25 0 00-6.18 13.72L1 22.88l1.12 1.12 8.05-7.87A8.25 8.25 0 1015.25 0zm0 15a6.75 6.75 0 110-13.5 6.75 6.75 0 010 13.5z"/></svg>
+    </div>
+    <div class="filetree">
+      <div class="filetree-header">Explorer</div>
+      <div class="filetree-folder">▾ src</div>
+      <div class="filetree-item active">server.py</div>
+      <div class="filetree-item">models.py</div>
+      <div class="filetree-item">database.py</div>
+      <div class="filetree-folder">▾ tests</div>
+      <div class="filetree-item">test_server.py</div>
+      <div class="filetree-folder">▸ config</div>
+    </div>
+    <div class="editor-area">
+      <div class="tabs"><div class="tab active">server.py</div><div class="tab inactive">models.py</div></div>
+      <div class="editor"><div class="line" style=""><span class="linenum" style="color:#A0A0A0">  1</span><span class="code"><span style="color:#AA381C">from</span>&nbsp;<span style="color:#5E29AD">typing</span>&nbsp;<span style="color:#AA381C">import</span>&nbsp;<span style="color:#5E29AD">Optional</span><span style="color:#4D5560">,&nbsp;</span><span style="color:#5E29AD">List</span><span style="color:#4D5560">,&nbsp;</span><span style="color:#5E29AD">Dict</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0">  2</span><span class="code"><span style="color:#AA381C">import</span>&nbsp;<span style="color:#5E29AD">asyncio</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0">  3</span><span class="code">&nbsp;</span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0">  4</span><span class="code"><span style="color:#5E29AD;font-style:italic">@</span><span style="color:#5E29AD;font-style:italic">dataclass</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0">  5</span><span class="code"><span style="color:#AA381C">class</span>&nbsp;<span style="color:#5E29AD">ServerConfig</span><span style="color:#4D5560">:</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0">  6</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8A5800">"""Configuration&nbsp;for&nbsp;the&nbsp;API&nbsp;server."""</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0">  7</span><span class="code">&nbsp;</span></div>
+<div class="line" style="background:rgba(218,119,86,0.25);"><span class="linenum" style="color:#A0A0A0">  8</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#141414">host</span><span style="color:#4D5560">:</span>&nbsp;<span style="color:#141414">str</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#8A5800">"localhost"</span></span></div>
+<div class="line" style="background:rgba(218,119,86,0.25);"><span class="linenum" style="color:#A0A0A0">  9</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#141414">port</span><span style="color:#4D5560">:</span>&nbsp;<span style="color:#141414">int</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#B30F58">8080</span></span></div>
+<div class="line" style="background:rgba(218,119,86,0.25);"><span class="linenum" style="color:#A0A0A0"> 10</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#141414">max_connections</span><span style="color:#4D5560">:</span>&nbsp;<span style="color:#141414">int</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#B30F58">100</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 11</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#141414">debug</span><span style="color:#4D5560">:</span>&nbsp;<span style="color:#141414">bool</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#B30F58;font-style:italic">False</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 12</span><span class="code">&nbsp;</span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 13</span><span class="code"><span style="color:#AA381C">class</span>&nbsp;<span style="color:#5E29AD">ConnectionPool</span><span style="color:#4D5560">:</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 14</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#525962;font-style:italic">#&nbsp;Manages&nbsp;database&nbsp;connection&nbsp;pooling</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 15</span><span class="code">&nbsp;</span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 16</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">def</span>&nbsp;<span style="color:#006B52">__init__</span><span style="color:#4D5560">(</span><span style="color:#5E29AD;font-style:italic">self</span><span style="color:#4D5560">,&nbsp;</span><span style="color:#141414">config</span><span style="color:#4D5560">:</span>&nbsp;<span style="color:#5E29AD">ServerConfig</span><span style="color:#4D5560">)</span>&nbsp;<span style="color:#0055A8">-&gt;</span>&nbsp;<span style="color:#B30F58;font-style:italic">None</span><span style="color:#4D5560">:</span></span></div>
+<div class="line" style="background:#F5F5F5;"><span class="linenum" style="color:#505050"> 17</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#5E29AD;font-style:italic">self</span><span style="color:#4D5560">.</span><span style="color:#141414">_config</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#141414">config</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 18</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#5E29AD;font-style:italic">self</span><span style="color:#4D5560">.</span><span style="color:#141414">_pool</span><span style="color:#4D5560">:</span>&nbsp;<span style="color:#5E29AD">List</span><span style="color:#4D5560">[</span><span style="color:#5E29AD">Dict</span><span style="color:#4D5560">[</span><span style="color:#141414">str</span><span style="color:#4D5560">,&nbsp;</span><span style="color:#5E29AD">Any</span><span style="color:#4D5560">]</span><span style="color:#4D5560">]</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#4D5560">[]</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 19</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#5E29AD;font-style:italic">self</span><span style="color:#4D5560">.</span><span style="color:#141414">_active</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#B30F58">0</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 20</span><span class="code">&nbsp;</span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 21</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">async</span>&nbsp;<span style="color:#AA381C">def</span>&nbsp;<span style="color:#006B52">connect</span><span style="color:#4D5560">(</span><span style="color:#5E29AD;font-style:italic">self</span><span style="color:#4D5560">,&nbsp;</span><span style="color:#141414">timeout</span><span style="color:#4D5560">:</span>&nbsp;<span style="color:#141414">float</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#B30F58">30.0</span><span style="color:#4D5560">)</span>&nbsp;<span style="color:#0055A8">-&gt;</span>&nbsp;<span style="color:#141414">bool</span><span style="color:#4D5560">:</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 22</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8A5800">"""Establish&nbsp;connection&nbsp;with&nbsp;retry&nbsp;logic."""</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 23</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#141414">retries</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#B30F58">3</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 24</span><span class="code">&nbsp;</span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 25</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">for</span>&nbsp;<span style="color:#141414">attempt</span>&nbsp;<span style="color:#AA381C">in</span>&nbsp;<span style="color:#0E5A2A">range</span><span style="color:#4D5560">(</span><span style="color:#141414">retries</span><span style="color:#4D5560">)</span><span style="color:#4D5560">:</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 26</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">try</span><span style="color:#4D5560">:</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 27</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#141414">conn</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#AA381C">await</span>&nbsp;<span style="color:#5E29AD;font-style:italic">self</span><span style="color:#4D5560">.</span><span style="color:#006B52">_create_connection</span><span style="color:#4D5560">(</span><span style="color:#141414">timeout</span><span style="color:#4D5560">)</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 28</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">if</span>&nbsp;<span style="color:#141414">conn</span>&nbsp;<span style="color:#0055A8">is</span>&nbsp;<span style="color:#0055A8">not</span>&nbsp;<span style="color:#B30F58;font-style:italic">None</span><span style="color:#4D5560">:</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 29</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#5E29AD;font-style:italic">self</span><span style="color:#4D5560">.</span><span style="color:#141414">_pool</span><span style="color:#4D5560">.</span><span style="color:#006B52">append</span><span style="color:#4D5560">(</span><span style="color:#141414">conn</span><span style="color:#4D5560">)</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 30</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#5E29AD;font-style:italic">self</span><span style="color:#4D5560">.</span><span style="color:#141414">_active</span><span style="color:#0055A8">&nbsp;+=&nbsp;</span><span style="color:#B30F58">1</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 31</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">return</span>&nbsp;<span style="color:#B30F58;font-style:italic">True</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 32</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">except</span>&nbsp;<span style="color:#5E29AD">ConnectionError</span>&nbsp;<span style="color:#AA381C">as</span>&nbsp;<span style="color:#141414">e</span><span style="color:#4D5560">:</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 33</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#525962;font-style:italic">#&nbsp;Log&nbsp;retry&nbsp;with&nbsp;f-string&nbsp;interpolation</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 34</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#141414">msg</span><span style="color:#0055A8">&nbsp;=&nbsp;</span><span style="color:#8A5800">f"Retry&nbsp;</span><span style="color:#8A5800">{</span><span style="color:#8A5800">attempt+1</span><span style="color:#8A5800">}</span><span style="color:#8A5800">/{retries}:&nbsp;</span><span style="color:#8A5800">{</span><span style="color:#8A5800">e</span><span style="color:#8A5800">}</span><span style="color:#8A5800">"</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 35</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">await</span>&nbsp;<span style="color:#5E29AD">asyncio</span><span style="color:#4D5560">.</span><span style="color:#006B52">sleep</span><span style="color:#4D5560">(</span><span style="color:#B30F58">2</span><span style="color:#0055A8">&nbsp;**&nbsp;</span><span style="color:#141414">attempt</span><span style="color:#4D5560">)</span></span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 36</span><span class="code">&nbsp;</span></div>
+<div class="line" style=""><span class="linenum" style="color:#A0A0A0"> 37</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#AA381C">return</span>&nbsp;<span style="color:#B30F58;font-style:italic">False</span></span></div></div>
+      <div class="statusbar"><span class="accent">Terracotta Light Bright</span><span>Python</span><span>UTF-8</span><span>Ln 17, Col 1</span><span>Spaces: 4</span></div>
+    </div>
+  </div>
+</div></body></html>

@@ -1,0 +1,64 @@
+{
+  "name": "terracotta-theme",
+  "displayName": "Terracotta",
+  "description": "A Claude-inspired warm theme with 5 variants: 2 dark, 2 light, and a color-blind accessible high-contrast mode. Built around Claude AI's terra cotta palette with carefully tuned syntax highlighting.",
+  "version": "1.1.0",
+  "publisher": "terracotta",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "light",
+    "color-blind",
+    "accessible",
+    "claude",
+    "terracotta",
+    "warm",
+    "high-contrast",
+    "color theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ceharsh24/terracotta-theme"
+  },
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#141414",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Terracotta Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/terracotta-dark.json"
+      },
+      {
+        "label": "Terracotta Dark Dimmed",
+        "uiTheme": "vs-dark",
+        "path": "./themes/terracotta-dark-dimmed.json"
+      },
+      {
+        "label": "Terracotta Light",
+        "uiTheme": "vs",
+        "path": "./themes/terracotta-light.json"
+      },
+      {
+        "label": "Terracotta Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/terracotta-light-bright.json"
+      },
+      {
+        "label": "Terracotta High Contrast (Color Blind)",
+        "uiTheme": "hc-dark",
+        "path": "./themes/terracotta-high-contrast-cb.json"
+      }
+    ]
+  }
+}

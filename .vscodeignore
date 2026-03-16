@@ -1,0 +1,7 @@
+.vscode/**
+.git/**
+.gitignore
+*.md
+!README.md
+!CHANGELOG.md
+screenshots/*.html
