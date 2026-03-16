@@ -2,9 +2,9 @@
 
 A strikingly vibrant, carefully crafted VS Code theme. Five variants for every environment and every pair of eyes.
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/terracotta.terracotta-theme?label=Version&color=FF6E59)](https://marketplace.visualstudio.com/items?itemName=terracotta.terracotta-theme)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/terracotta.terracotta-theme?label=Installs&color=2EE5B2)](https://marketplace.visualstudio.com/items?itemName=terracotta.terracotta-theme)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/terracotta.terracotta-theme?label=Rating&color=75CAFF)](https://marketplace.visualstudio.com/items?itemName=terracotta.terracotta-theme)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/terracotta-theme.terracotta-theme?label=Version&color=FF6E59)](https://marketplace.visualstudio.com/items?itemName=terracotta-theme.terracotta-theme)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/terracotta-theme.terracotta-theme?label=Installs&color=2EE5B2)](https://marketplace.visualstudio.com/items?itemName=terracotta-theme.terracotta-theme)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/terracotta-theme.terracotta-theme?label=Rating&color=75CAFF)](https://marketplace.visualstudio.com/items?itemName=terracotta-theme.terracotta-theme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-FFC940.svg)](LICENSE)
 
 **Zero WCAG AA failures. Up to 100% AAA compliance.**
