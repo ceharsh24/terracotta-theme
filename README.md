@@ -63,7 +63,7 @@ A warm paper-like light theme using a beautifully soft off-white background (`#F
 | Accent      | ![#C15F3C](https://placehold.co/16x16/C15F3C/C15F3C.png)   | `#C15F3C` |
 | Keywords    | ![#AB3D1E](https://placehold.co/16x16/AB3D1E/AB3D1E.png)   | `#AB3D1E` |
 | Functions   | ![#007157](https://placehold.co/16x16/007157/007157.png)   | `#007157` |
-| Strings     | ![#8E5C00](https://placehold.co/16x16/8E5C00/8E5C00.png)   | `#8E5C00` |
+| Strings     | ![#7A5000](https://placehold.co/16x16/7A5000/7A5000.png)   | `#7A5000` |
 | Types       | ![#6530B8](https://placehold.co/16x16/6530B8/6530B8.png)   | `#6530B8` |
 | Numbers     | ![#B4135B](https://placehold.co/16x16/B4135B/B4135B.png)   | `#B4135B` |
 | Operators   | ![#0057AB](https://placehold.co/16x16/0057AB/0057AB.png)   | `#0057AB` |
@@ -178,7 +178,7 @@ Every color in every variant has been validated against WCAG accessibility stand
 |---------|--------|---------|---------|----------|--------|--------|
 | Dark | 12.43 | 7.43 | 5.93 | 11.38 | 10.99 | 9.24 |
 | Dark Dimmed | 10.84 | 6.25 | 5.03 | 7.05 | 8.27 | 7.63 |
-| Light | 14.60 | 7.46 | 5.78 | 5.64 | 5.37 | 6.20 |
+| Light | 14.60 | 7.46 | 5.78 | 5.64 | 6.64 | 6.20 |
 | Light Bright | 18.42 | 7.08 | 7.09 | 7.07 | 7.06 | 7.25 |
 | HC (Color Blind) | 21.00 | 8.03 | 9.04 | 13.65 | 15.85 | 11.46 |
 

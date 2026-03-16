@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terracotta Theme Playground</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ui-bg: #1a1a1a;
+    --ui-fg: #e0e0e0;
+    --ui-border: #333;
+    --ui-accent: #DA7756;
+    --ui-muted: #888;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--ui-bg);
+    color: var(--ui-fg);
+    min-height: 100vh;
+  }
+
+  header {
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--ui-border);
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--ui-accent);
+  }
+
+  header p {
+    color: var(--ui-muted);
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  .controls {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--ui-border);
+  }
+
+  .theme-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--ui-border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--ui-fg);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+  }
+
+  .theme-btn:hover { border-color: var(--ui-accent); }
+
+  .theme-btn.active {
+    background: var(--ui-accent);
+    color: #fff;
+    border-color: var(--ui-accent);
+  }
+
+  .editor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 900px) {
+    .editor-container { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--ui-border);
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .panel-label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+  }
+
+  .lang-select {
+    background: transparent;
+    border: 1px solid var(--ui-border);
+    border-radius: 4px;
+    color: inherit;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .editor-wrapper {
+    position: relative;
+  }
+
+  .code-input {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: transparent;
+    caret-color: var(--ui-fg);
+    border: none;
+    padding: 1rem 1rem 1rem 3.5rem;
+    font-family: "JetBrains Mono", "Fira Code", "SF Mono", "Cascadia Code", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+    white-space: pre;
+    overflow: auto;
+    tab-size: 2;
+    -moz-tab-size: 2;
+    z-index: 2;
+  }
+
+  .code-display {
+    padding: 1rem 1rem 1rem 3.5rem;
+    font-family: "JetBrains Mono", "Fira Code", "SF Mono", "Cascadia Code", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre;
+    overflow: auto;
+    min-height: 400px;
+    pointer-events: none;
+    position: relative;
+    z-index: 0;
+  }
+
+  .line-numbers {
+    position: absolute;
+    top: 0; left: 0;
+    width: 3rem;
+    height: 100%;
+    padding: 1rem 0.5rem 1rem 0;
+    text-align: right;
+    font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow: hidden;
+    white-space: pre;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .install-bar {
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid var(--ui-border);
+  }
+
+  .install-btn {
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    background: var(--ui-accent);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .install-btn:hover { opacity: 0.85; }
+
+  .color-palette {
+    padding: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .palette-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ui-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.5rem;
+    padding: 0.75rem 0.75rem 2rem;
+    border-radius: 6px;
+    row-gap: 2rem;
+  }
+
+  .swatch {
+    width: 3rem;
+    height: 2rem;
+    border-radius: 4px;
+    border: 1px solid var(--ui-border);
+    position: relative;
+    cursor: default;
+  }
+
+  .swatch::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -1.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    color: var(--ui-muted);
+    white-space: nowrap;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--ui-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--ui-border);
+  }
+
+  footer a { color: var(--ui-accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Terracotta Theme Playground</h1>
+  <p>Preview all 5 theme variants with your own code before installing</p>
+</header>
+
+<div class="controls" id="themeButtons"></div>
+
+<div class="editor-container">
+  <div class="panel" id="panel-left">
+    <div class="panel-header">
+      <span class="panel-label">Preview</span>
+      <select class="lang-select" id="langSelect">
+        <option value="javascript">JavaScript</option>
+        <option value="typescript">TypeScript</option>
+        <option value="python">Python</option>
+        <option value="rust">Rust</option>
+        <option value="go">Go</option>
+        <option value="java">Java</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="custom">Custom (JS rules)</option>
+      </select>
+    </div>
+    <div class="editor-wrapper">
+      <div class="line-numbers" id="lineNumbers"></div>
+      <div class="code-display" id="codeDisplay"></div>
+      <textarea class="code-input" id="codeInput" spellcheck="false" aria-label="Code editor - left panel. Press Escape to exit."></textarea>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-right">
+    <div class="panel-header">
+      <span class="panel-label">Side by Side</span>
+      <select class="lang-select" id="langSelect2">
+        <option value="javascript">JavaScript</option>
+        <option value="typescript">TypeScript</option>
+        <option value="python">Python</option>
+        <option value="rust">Rust</option>
+        <option value="go">Go</option>
+        <option value="java">Java</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="custom">Custom (JS rules)</option>
+      </select>
+    </div>
+    <div class="editor-wrapper">
+      <div class="line-numbers" id="lineNumbers2"></div>
+      <div class="code-display" id="codeDisplay2"></div>
+      <textarea class="code-input" id="codeInput2" spellcheck="false" aria-label="Code editor - right panel. Press Escape to exit."></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="color-palette">
+  <div class="palette-title">Token Color Palette</div>
+  <div class="swatches" id="swatches"></div>
+</div>
+
+<div class="install-bar">
+  <a class="install-btn" href="https://marketplace.visualstudio.com/items?itemName=terracotta-theme.terracotta-theme" target="_blank" rel="noopener">
+    Install from VS Code Marketplace
+  </a>
+</div>
+
+<footer>
+  <a href="https://github.com/ceharsh24/terracotta-theme">GitHub</a>
+  &nbsp;&middot;&nbsp; WCAG AA compliant &nbsp;&middot;&nbsp; MIT License
+</footer>
+
+<script>
+// ── Theme definitions ────────────────────────────────────────────
+const THEMES = {
+  "Dark": {
+    bg: "#141414", fg: "#D4D4D4", selection: "#DA775640", lineHighlight: "#202020",
+    lineNum: "#555555", lineNumActive: "#A0A0A0", headerBg: "#0e0e0e",
+    tokens: {
+      comment: { color: "#9DA5B4", italic: true },
+      string: { color: "#F0C24E" },
+      keyword: { color: "#DA7756" },
+      function: { color: "#2EE5B2" },
+      variable: { color: "#D0CCBE" },
+      number: { color: "#D0A050" },
+      type: { color: "#C28BFF" },
+      operator: { color: "#7FC7F4" },
+      constant: { color: "#F36EA6", italic: true },
+      tag: { color: "#DA7756" },
+      attribute: { color: "#F0C24E", italic: true },
+      property: { color: "#D0CCBE" },
+      punctuation: { color: "#9DA5B4" },
+      builtin: { color: "#6ACB9E" },
+      regex: { color: "#E1ABC1" },
+    }
+  },
+  "Dark Dimmed": {
+    bg: "#1A1A1A", fg: "#CCCCCC", selection: "#D0705040", lineHighlight: "#242424",
+    lineNum: "#5C5C5C", lineNumActive: "#A3A3A3", headerBg: "#121212",
+    tokens: {
+      comment: { color: "#929BB0", italic: true },
+      string: { color: "#DBAC3B" },
+      keyword: { color: "#D06F50" },
+      function: { color: "#3CB898" },
+      variable: { color: "#BAB8AC" },
+      number: { color: "#C49A4A" },
+      type: { color: "#AF85E6" },
+      operator: { color: "#6CA9D6" },
+      constant: { color: "#E673A6", italic: true },
+      tag: { color: "#D06F50" },
+      attribute: { color: "#DBAC3B", italic: true },
+      property: { color: "#BAB8AC" },
+      punctuation: { color: "#8A90A0" },
+      builtin: { color: "#4CC890" },
+      regex: { color: "#D890A8" },
+    }
+  },
+  "Light": {
+    bg: "#F8F8F6", fg: "#242424", selection: "#DA775635", lineHighlight: "#F0EFEA",
+    lineNum: "#A8A39C", lineNumActive: "#605C55", headerBg: "#EEEEE8",
+    tokens: {
+      comment: { color: "#4A525A", italic: true },
+      string: { color: "#7A5000" },
+      keyword: { color: "#AB3D1E" },
+      function: { color: "#007157" },
+      variable: { color: "#4A3F38" },
+      number: { color: "#B4135B" },
+      type: { color: "#6530B8" },
+      operator: { color: "#0057AB" },
+      constant: { color: "#B4135B", italic: true },
+      tag: { color: "#AB3D1E" },
+      attribute: { color: "#8E5C00", italic: true },
+      property: { color: "#4A3F38" },
+      punctuation: { color: "#787068" },
+      builtin: { color: "#105E26" },
+      regex: { color: "#AB2B85" },
+    }
+  },
+  "Light Bright": {
+    bg: "#FFFFFF", fg: "#141414", selection: "#DA775640", lineHighlight: "#F5F5F5",
+    lineNum: "#A0A0A0", lineNumActive: "#505050", headerBg: "#F5F5F5",
+    tokens: {
+      comment: { color: "#4A525A", italic: true },
+      string: { color: "#8E5C00" },
+      keyword: { color: "#AB3D1E" },
+      function: { color: "#007157" },
+      variable: { color: "#3D3530" },
+      number: { color: "#B4135B" },
+      type: { color: "#6530B8" },
+      operator: { color: "#0057AB" },
+      constant: { color: "#B4135B", italic: true },
+      tag: { color: "#AB3D1E" },
+      attribute: { color: "#8E5C00", italic: true },
+      property: { color: "#3D3530" },
+      punctuation: { color: "#787068" },
+      builtin: { color: "#105E26" },
+      regex: { color: "#AB2B85" },
+    }
+  },
+  "High Contrast CB": {
+    bg: "#000000", fg: "#FFFFFF", selection: "#FF8A5C55", lineHighlight: "#111111",
+    lineNum: "#7A7A7A", lineNumActive: "#FFFFFF", headerBg: "#080808",
+    tokens: {
+      comment: { color: "#A0A0A0", italic: true },
+      string: { color: "#FFDF33" },
+      keyword: { color: "#FF8A5C" },
+      function: { color: "#00E5FF" },
+      variable: { color: "#D8D4C8" },
+      number: { color: "#FFB000" },
+      type: { color: "#D580FF" },
+      operator: { color: "#80BFFF" },
+      constant: { color: "#FF66C4", italic: true },
+      tag: { color: "#FF8A5C" },
+      attribute: { color: "#FFDF33", italic: true },
+      property: { color: "#D8D4C8" },
+      punctuation: { color: "#A0A0B0" },
+      builtin: { color: "#94B0EC" },
+      regex: { color: "#E1D4F2" },
+    }
+  }
+};
+
+// ── Sample code ──────────────────────────────────────────────────
+const SAMPLES = {
+  javascript: `// Terracotta Theme - JavaScript Preview
+import { readFile } from "node:fs/promises";
+
+const CACHE_TTL = 60_000;
+
+class ThemeLoader {
+  #cache = new Map();
+
+  constructor(basePath) {
+    this.basePath = basePath;
+  }
+
+  async load(name) {
+    if (this.#cache.has(name)) {
+      const { data, ts } = this.#cache.get(name);
+      if (Date.now() - ts < CACHE_TTL) return data;
+    }
+
+    const raw = await readFile(
+      \`\${this.basePath}/\${name}.json\`, "utf-8"
+    );
+    const data = JSON.parse(raw);
+    this.#cache.set(name, { data, ts: Date.now() });
+    return data;
+  }
+
+  get size() {
+    return this.#cache.size;
+  }
+}
+
+const loader = new ThemeLoader("./themes");
+const theme = await loader.load("terracotta-dark");
+console.log(\`Loaded \${theme.name} with \${theme.colors.length} colors\`);`,
+
+  python: `# Terracotta Theme - Python Preview
+from dataclasses import dataclass, field
+from pathlib import Path
+import json
+import time
+
+CACHE_TTL: float = 60.0
+
+@dataclass
+class ThemeLoader:
+    """Load and cache VS Code theme files."""
+    base_path: Path
+    _cache: dict = field(default_factory=dict, repr=False)
+
+    def load(self, name: str) -> dict:
+        if name in self._cache:
+            data, ts = self._cache[name]
+            if time.monotonic() - ts < CACHE_TTL:
+                return data
+
+        path = self.base_path / f"{name}.json"
+        with open(path) as f:
+            data = json.load(f)
+
+        self._cache[name] = (data, time.monotonic())
+        return data
+
+    @property
+    def cached_themes(self) -> list[str]:
+        return list(self._cache.keys())
+
+    def clear_expired(self) -> int:
+        now = time.monotonic()
+        expired = [
+            k for k, (_, ts) in self._cache.items()
+            if now - ts >= CACHE_TTL
+        ]
+        for key in expired:
+            del self._cache[key]
+        return len(expired)
+
+
+loader = ThemeLoader(Path("./themes"))
+theme = loader.load("terracotta-dark")
+print(f"Loaded {theme['name']} ({len(theme['colors'])} colors)")`,
+
+  rust: `// Terracotta Theme - Rust Preview
+use std::collections::HashMap;
+use std::fs;
+use std::path::PathBuf;
+use std::time::{Duration, Instant};
+
+const CACHE_TTL: Duration = Duration::from_secs(60);
+
+#[derive(Debug)]
+struct CacheEntry {
+    data: serde_json::Value,
+    loaded_at: Instant,
+}
+
+pub struct ThemeLoader {
+    base_path: PathBuf,
+    cache: HashMap<String, CacheEntry>,
+}
+
+impl ThemeLoader {
+    pub fn new(base_path: impl Into<PathBuf>) -> Self {
+        Self {
+            base_path: base_path.into(),
+            cache: HashMap::new(),
+        }
+    }
+
+    pub fn load(&mut self, name: &str) -> Result<&serde_json::Value> {
+        if let Some(entry) = self.cache.get(name) {
+            if entry.loaded_at.elapsed() < CACHE_TTL {
+                return Ok(&entry.data);
+            }
+        }
+
+        let path = self.base_path.join(format!("{name}.json"));
+        let raw = fs::read_to_string(&path)?;
+        let data: serde_json::Value = serde_json::from_str(&raw)?;
+
+        self.cache.insert(name.to_owned(), CacheEntry {
+            data,
+            loaded_at: Instant::now(),
+        });
+
+        Ok(&self.cache[name].data)
+    }
+
+    pub fn cache_size(&self) -> usize {
+        self.cache.len()
+    }
+}
+
+fn main() -> Result<()> {
+    let mut loader = ThemeLoader::new("./themes");
+    let theme = loader.load("terracotta-dark")?;
+    println!("Loaded: {}", theme["name"]);
+    Ok(())
+}`,
+
+  html: `<!-- Terracotta Theme - HTML Preview -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terracotta Theme</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <nav aria-label="Main navigation">
+      <a href="/" class="logo">Terracotta</a>
+      <ul class="nav-links">
+        <li><a href="/themes">Themes</a></li>
+        <li><a href="/docs">Documentation</a></li>
+        <li><a href="/playground" aria-current="page">Playground</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <h1>Warm, accessible color themes</h1>
+      <p>WCAG AA compliant with 5 variants including color-blind mode.</p>
+      <button type="button" onclick="installTheme()">
+        Install Extension
+      </button>
+    </section>
+
+    <article data-theme="dark" hidden>
+      <h2>Dark Variant</h2>
+      <img src="/screenshots/dark.png" alt="Dark theme preview"
+           width="800" height="500" loading="lazy">
+    </article>
+  </main>
+
+  <script src="/scripts/app.js" type="module"><\/script>
+</body>
+</html>`,
+
+  css: `/* Terracotta Theme - CSS Preview */
+:root {
+  --bg-primary: #141414;
+  --fg-primary: #D4D4D4;
+  --accent: #DA7756;
+  --accent-hover: #E08866;
+  --border: #333333;
+  --radius: 8px;
+  --transition: 150ms ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
+  line-height: 1.6;
+}
+
+.theme-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform var(--transition),
+              box-shadow var(--transition);
+}
+
+.theme-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.theme-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: #F8F8F6;
+    --fg-primary: #242424;
+    --border: #E0DDD5;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}`,
+
+  typescript: `// Terracotta Theme - TypeScript Preview
+import { readFileSync } from "node:fs";
+
+interface ThemeColors {
+  readonly bg: string;
+  readonly fg: string;
+  readonly accent: string;
+}
+
+type ThemeVariant = "dark" | "light" | "high-contrast";
+
+interface Theme {
+  name: string;
+  variant: ThemeVariant;
+  colors: ThemeColors;
+  tokenColors: Record<string, string>;
+}
+
+class ThemeRegistry {
+  private themes = new Map<string, Theme>();
+
+  register(theme: Theme): void {
+    this.themes.set(theme.name, theme);
+  }
+
+  get(name: string): Theme | undefined {
+    return this.themes.get(name);
+  }
+
+  findByVariant(variant: ThemeVariant): Theme[] {
+    return [...this.themes.values()]
+      .filter((t) => t.variant === variant);
+  }
+
+  get size(): number {
+    return this.themes.size;
+  }
+}
+
+const registry = new ThemeRegistry();
+const raw = readFileSync("./themes/dark.json", "utf-8");
+const theme: Theme = JSON.parse(raw);
+registry.register(theme);
+console.log(\`Registered \${registry.size} themes\`);`,
+
+  go: `// Terracotta Theme - Go Preview
+package main
+
+import (
+\t"encoding/json"
+\t"fmt"
+\t"os"
+\t"sync"
+\t"time"
+)
+
+const cacheTTL = 60 * time.Second
+
+type CacheEntry struct {
+\tData     map[string]interface{}
+\tLoadedAt time.Time
+}
+
+type ThemeLoader struct {
+\tmu       sync.RWMutex
+\tbasePath string
+\tcache    map[string]*CacheEntry
+}
+
+func NewThemeLoader(basePath string) *ThemeLoader {
+\treturn &ThemeLoader{
+\t\tbasePath: basePath,
+\t\tcache:    make(map[string]*CacheEntry),
+\t}
+}
+
+func (tl *ThemeLoader) Load(name string) (map[string]interface{}, error) {
+\ttl.mu.RLock()
+\tif entry, ok := tl.cache[name]; ok {
+\t\tif time.Since(entry.LoadedAt) < cacheTTL {
+\t\t\ttl.mu.RUnlock()
+\t\t\treturn entry.Data, nil
+\t\t}
+\t}
+\ttl.mu.RUnlock()
+
+\traw, err := os.ReadFile(tl.basePath + "/" + name + ".json")
+\tif err != nil {
+\t\treturn nil, err
+\t}
+
+\tvar data map[string]interface{}
+\tif err := json.Unmarshal(raw, &data); err != nil {
+\t\treturn nil, err
+\t}
+
+\ttl.mu.Lock()
+\ttl.cache[name] = &CacheEntry{Data: data, LoadedAt: time.Now()}
+\ttl.mu.Unlock()
+
+\treturn data, nil
+}
+
+func main() {
+\tloader := NewThemeLoader("./themes")
+\ttheme, err := loader.Load("terracotta-dark")
+\tif err != nil {
+\t\tfmt.Fprintf(os.Stderr, "error: %v\\n", err)
+\t\tos.Exit(1)
+\t}
+\tfmt.Printf("Loaded: %s\\n", theme["name"])
+}`,
+
+  java: `// Terracotta Theme - Java Preview
+package com.terracotta.theme;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ThemeLoader {
+    private static final Duration CACHE_TTL = Duration.ofSeconds(60);
+    private final Path basePath;
+    private final Map<String, CacheEntry> cache = new ConcurrentHashMap<>();
+
+    private record CacheEntry(String data, Instant loadedAt) {
+        boolean isExpired() {
+            return Duration.between(loadedAt, Instant.now()).compareTo(CACHE_TTL) > 0;
+        }
+    }
+
+    public ThemeLoader(Path basePath) {
+        this.basePath = basePath;
+    }
+
+    public Optional<String> load(String name) {
+        var entry = cache.get(name);
+        if (entry != null && !entry.isExpired()) {
+            return Optional.of(entry.data());
+        }
+
+        try {
+            var path = basePath.resolve(name + ".json");
+            var data = Files.readString(path);
+            cache.put(name, new CacheEntry(data, Instant.now()));
+            return Optional.of(data);
+        } catch (IOException e) {
+            System.err.println("Failed to load theme: " + e.getMessage());
+            return Optional.empty();
+        }
+    }
+
+    public int cacheSize() {
+        return cache.size();
+    }
+
+    public static void main(String[] args) {
+        var loader = new ThemeLoader(Path.of("./themes"));
+        loader.load("terracotta-dark")
+              .ifPresent(theme -> System.out.println("Loaded theme successfully"));
+    }
+}`,
+
+  custom: `// Paste your own code here to preview it
+// with any Terracotta theme variant!
+
+function hello() {
+  console.log("Hello, Terracotta!");
+}`
+};
+
+// ── Tokenizer (simple regex-based, no lookbehinds for Safari compat) ─
+const TOKEN_RULES = {
+  javascript: [
+    { type: "comment", re: /\/\/.*$/gm },
+    { type: "comment", re: /\/\*[\s\S]*?\*\//gm },
+    { type: "string", re: /`(?:[^`\\]|\\.)*`/gm },
+    { type: "string", re: /"(?:[^"\\]|\\.)*"/gm },
+    { type: "string", re: /'(?:[^'\\]|\\.)*'/gm },
+    { type: "regex", re: /\/(?![*/])(?:[^\\/\n]|\\.)+\/[gimsuy]*/g },
+    { type: "number", re: /\b\d[\d_]*\.?\d*(?:e[+-]?\d+)?\b/gi },
+    { type: "keyword", re: /\b(?:import|from|export|default|const|let|var|function|async|await|return|if|else|for|while|do|switch|case|break|continue|new|delete|typeof|instanceof|in|of|class|extends|constructor|static|get|set|try|catch|finally|throw|yield)\b/g },
+    { type: "constant", re: /\b(?:true|false|null|undefined|NaN|Infinity)\b/g },
+    { type: "builtin", re: /\b(?:console|Math|JSON|Date|Promise|Array|Object|Map|Set|RegExp|Error)\b/g },
+    { type: "type", re: /\b(?:String|Number|Boolean|Symbol|BigInt)\b/g },
+    { type: "function", re: /\b[a-zA-Z_$][\w$]*(?=\s*\()/g },
+    { type: "property", re: /\.[a-zA-Z_$][\w$]*/g, strip: 1 },
+    { type: "operator", re: /[+\-*/%=!<>&|^~?]+|=>/g },
+    { type: "punctuation", re: /[{}()\[\];,.:]/g },
+  ],
+  typescript: [
+    { type: "comment", re: /\/\/.*$/gm },
+    { type: "comment", re: /\/\*[\s\S]*?\*\//gm },
+    { type: "string", re: /`(?:[^`\\]|\\.)*`/gm },
+    { type: "string", re: /"(?:[^"\\]|\\.)*"/gm },
+    { type: "string", re: /'(?:[^'\\]|\\.)*'/gm },
+    { type: "regex", re: /\/(?![*/])(?:[^\\/\n]|\\.)+\/[gimsuy]*/g },
+    { type: "number", re: /\b\d[\d_]*\.?\d*(?:e[+-]?\d+)?\b/gi },
+    { type: "keyword", re: /\b(?:import|from|export|default|const|let|var|function|async|await|return|if|else|for|while|do|switch|case|break|continue|new|delete|typeof|instanceof|in|of|class|extends|constructor|static|get|set|try|catch|finally|throw|yield|interface|type|enum|namespace|declare|abstract|implements|readonly|keyof|infer|as|is|satisfies)\b/g },
+    { type: "constant", re: /\b(?:true|false|null|undefined|NaN|Infinity)\b/g },
+    { type: "builtin", re: /\b(?:console|Math|JSON|Date|Promise|Array|Object|Map|Set|RegExp|Error|Partial|Required|Readonly|Record|Pick|Omit|Exclude|Extract|ReturnType)\b/g },
+    { type: "type", re: /\b(?:string|number|boolean|void|never|any|unknown|symbol|bigint|String|Number|Boolean|Symbol|BigInt)\b/g },
+    { type: "function", re: /\b[a-zA-Z_$][\w$]*(?=\s*[(<])/g },
+    { type: "property", re: /\.[a-zA-Z_$][\w$]*/g, strip: 1 },
+    { type: "operator", re: /[+\-*/%=!<>&|^~?]+|=>/g },
+    { type: "punctuation", re: /[{}()\[\];,.:]/g },
+  ],
+  python: [
+    { type: "comment", re: /#.*$/gm },
+    { type: "string", re: /"""[\s\S]*?"""/gm },
+    { type: "string", re: /'''[\s\S]*?'''/gm },
+    { type: "string", re: /[frbFRB]{0,2}"(?:[^"\\]|\\.)*"/gm },
+    { type: "string", re: /[frbFRB]{0,2}'(?:[^'\\]|\\.)*'/gm },
+    { type: "number", re: /\b\d[\d_]*\.?\d*(?:e[+-]?\d+)?\b/gi },
+    { type: "keyword", re: /\b(?:import|from|as|def|class|return|if|elif|else|for|while|with|try|except|finally|raise|yield|async|await|pass|break|continue|del|in|not|and|or|is|lambda|global|nonlocal)\b/g },
+    { type: "constant", re: /\b(?:True|False|None)\b/g },
+    { type: "builtin", re: /\b(?:print|len|range|list|dict|set|tuple|int|str|float|bool|open|type|super|property|staticmethod|classmethod|isinstance|hasattr|getattr|setattr|enumerate|zip|map|filter|sorted|reversed)\b/g },
+    { type: "type", re: /\b[A-Z][a-zA-Z]*\b/g },
+    { type: "function", re: /\b[a-zA-Z_][\w]*(?=\s*\()/g },
+    { type: "attribute", re: /\.[a-zA-Z_][\w]*/g, strip: 1 },
+    { type: "operator", re: /[+\-*/%=!<>&|^~@:]+|->/g },
+    { type: "punctuation", re: /[{}()\[\];,.:]/g },
+  ],
+  rust: [
+    { type: "comment", re: /\/\/.*$/gm },
+    { type: "comment", re: /\/\*[\s\S]*?\*\//gm },
+    { type: "string", re: /"(?:[^"\\]|\\.)*"/gm },
+    { type: "constant", re: /'static\b/g },
+    { type: "constant", re: /'[a-z_]\w*/g },
+    { type: "number", re: /\b\d[\d_]*\.?\d*(?:e[+-]?\d+)?\b/gi },
+    { type: "keyword", re: /\b(?:use|mod|pub|fn|struct|impl|enum|trait|type|const|static|let|mut|ref|if|else|for|while|loop|match|return|break|continue|move|async|await|unsafe|where|in|as|self|super|crate|Self|dyn)\b/g },
+    { type: "constant", re: /\b(?:true|false|None|Some|Ok|Err)\b/g },
+    { type: "builtin", re: /\b(?:println|eprintln|format|vec|todo|unimplemented|unreachable|assert|debug_assert|cfg)\b/g },
+    { type: "type", re: /\b(?:String|Vec|HashMap|Option|Result|Box|Rc|Arc|Cell|RefCell|Duration|Instant|PathBuf|usize|u8|u16|u32|u64|i8|i16|i32|i64|f32|f64|bool|char|str)\b/g },
+    { type: "function", re: /\b[a-z_][\w]*(?=\s*[(<])/g },
+    { type: "operator", re: /[+\-*/%=!<>&|^~?]+|::|=>/g },
+    { type: "punctuation", re: /[{}()\[\];,.:]/g },
+  ],
+  go: [
+    { type: "comment", re: /\/\/.*$/gm },
+    { type: "comment", re: /\/\*[\s\S]*?\*\//gm },
+    { type: "string", re: /`[^`]*`/gm },
+    { type: "string", re: /"(?:[^"\\]|\\.)*"/gm },
+    { type: "string", re: /'(?:[^'\\]|\\.)*'/gm },
+    { type: "number", re: /\b\d[\d_]*\.?\d*(?:e[+-]?\d+)?\b/gi },
+    { type: "keyword", re: /\b(?:break|case|chan|const|continue|default|defer|else|fallthrough|for|func|go|goto|if|import|interface|map|package|range|return|select|struct|switch|type|var)\b/g },
+    { type: "constant", re: /\b(?:true|false|nil|iota)\b/g },
+    { type: "builtin", re: /\b(?:append|cap|close|complex|copy|delete|imag|len|make|new|panic|print|println|real|recover)\b/g },
+    { type: "type", re: /\b(?:bool|byte|complex64|complex128|error|float32|float64|int|int8|int16|int32|int64|rune|string|uint|uint8|uint16|uint32|uint64|uintptr|any)\b/g },
+    { type: "function", re: /\b[a-zA-Z_][\w]*(?=\s*\()/g },
+    { type: "property", re: /\.[a-zA-Z_][\w]*/g, strip: 1 },
+    { type: "operator", re: /[+\-*/%=!<>&|^]+|:=|<-/g },
+    { type: "punctuation", re: /[{}()\[\];,.:]/g },
+  ],
+  java: [
+    { type: "comment", re: /\/\/.*$/gm },
+    { type: "comment", re: /\/\*[\s\S]*?\*\//gm },
+    { type: "string", re: /"(?:[^"\\]|\\.)*"/gm },
+    { type: "string", re: /'(?:[^'\\]|\\.)*'/gm },
+    { type: "number", re: /\b\d[\d_]*\.?\d*(?:e[+-]?\d+)?[fFdDlL]?\b/gi },
+    { type: "keyword", re: /\b(?:abstract|assert|break|case|catch|class|continue|default|do|else|enum|extends|final|finally|for|if|implements|import|instanceof|interface|native|new|package|private|protected|public|return|static|strictfp|super|switch|synchronized|this|throw|throws|transient|try|volatile|while|var|record|sealed|permits|yield)\b/g },
+    { type: "constant", re: /\b(?:true|false|null)\b/g },
+    { type: "builtin", re: /\b(?:System|Override|Deprecated|SuppressWarnings|FunctionalInterface)\b/g },
+    { type: "type", re: /\b(?:void|int|long|short|byte|float|double|char|boolean|String|Integer|Long|Double|Float|Boolean|List|Map|Set|Optional|Stream|Object|Class|Iterable|Collection)\b/g },
+    { type: "function", re: /\b[a-zA-Z_][\w]*(?=\s*\()/g },
+    { type: "property", re: /\.[a-zA-Z_][\w]*/g, strip: 1 },
+    { type: "operator", re: /[+\-*/%=!<>&|^~?]+|->/g },
+    { type: "punctuation", re: /[{}()\[\];,.:@]/g },
+  ],
+  html: [
+    { type: "comment", re: /<!--[\s\S]*?-->/gm },
+    { type: "string", re: /"[^"]*"/gm },
+    { type: "string", re: /'[^']*'/gm },
+    { type: "tag", re: /<\/?[a-zA-Z][\w-]*/gm, strip: -1 },
+    { type: "attribute", re: /\b[a-zA-Z-]+(?==)/gm },
+    { type: "keyword", re: /<!DOCTYPE/gi },
+    { type: "punctuation", re: /[<>\/=]/g },
+  ],
+  css: [
+    { type: "comment", re: /\/\*[\s\S]*?\*\//gm },
+    { type: "string", re: /"[^"]*"/gm },
+    { type: "string", re: /'[^']*'/gm },
+    { type: "constant", re: /#[0-9a-fA-F]{3,8}\b/g },
+    { type: "number", re: /\b\d[\d_]*\.?\d*(%|px|rem|em|vh|vw|s|ms)?\b/gi },
+    { type: "keyword", re: /@(?:media|import|keyframes|supports|font-face|layer)\b/g },
+    { type: "constant", re: /\b(?:none|auto|inherit|initial|unset|revert|transparent|currentColor)\b/g },
+    { type: "builtin", re: /\b(?:var|calc|min|max|clamp|rgb|rgba|hsl|hsla|url|repeat|minmax)\b/g },
+    { type: "variable", re: /--[\w-]+/g },
+    { type: "function", re: /\b[a-zA-Z-]+(?=\()/g },
+    { type: "property", re: /[\w-]+(?=\s*:)/gm },
+    { type: "operator", re: /[+\-*/>~,]/g },
+    { type: "punctuation", re: /[{}()\[\];:]/g },
+  ],
+  custom: [] // Will use javascript rules as fallback
+};
+TOKEN_RULES.custom = TOKEN_RULES.javascript;
+
+function tokenize(code, lang) {
+  const rules = TOKEN_RULES[lang] || TOKEN_RULES.javascript;
+  const spans = [];
+
+  for (const rule of rules) {
+    const re = new RegExp(rule.re.source, rule.re.flags);
+    let m;
+    while ((m = re.exec(code)) !== null) {
+      let start = m.index, text = m[0];
+      // strip: N strips leading chars (positive) or keeps only after prefix (negative like HTML tags)
+      if (rule.strip > 0) { start += rule.strip; text = text.slice(rule.strip); }
+      else if (rule.strip < 0) { const n = -rule.strip; start += n; text = text.slice(n); }
+      spans.push({ start, end: start + text.length, type: rule.type, text });
+    }
+  }
+
+  // Sort by start, longest first for overlaps
+  spans.sort((a, b) => a.start - b.start || b.end - a.end);
+
+  // Remove overlapping spans (first wins)
+  const filtered = [];
+  let lastEnd = 0;
+  for (const s of spans) {
+    if (s.start >= lastEnd) {
+      filtered.push(s);
+      lastEnd = s.end;
+    }
+  }
+
+  return filtered;
+}
+
+function highlight(code, lang, tokens) {
+  const spans = tokenize(code, lang);
+  let result = "";
+  let pos = 0;
+
+  for (const span of spans) {
+    if (span.start > pos) {
+      result += escapeHtml(code.slice(pos, span.start));
+    }
+    const token = tokens[span.type] || {};
+    const color = token.color || "";
+    const italic = token.italic ? "font-style:italic;" : "";
+    if (color) {
+      result += `<span style="color:${color};${italic}">${escapeHtml(span.text)}</span>`;
+    } else {
+      result += escapeHtml(span.text);
+    }
+    pos = span.end;
+  }
+
+  if (pos < code.length) {
+    result += escapeHtml(code.slice(pos));
+  }
+
+  return result;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// ── State ────────────────────────────────────────────────────────
+let activeTheme = "Dark";
+let leftLang = "javascript";
+let rightLang = "python";
+
+// ── Render ───────────────────────────────────────────────────────
+function applyTheme(themeName) {
+  activeTheme = themeName;
+  const t = THEMES[themeName];
+
+  // Buttons
+  document.querySelectorAll(".theme-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.theme === themeName);
+  });
+
+  // Panels
+  for (const panel of ["panel-left", "panel-right"]) {
+    const el = document.getElementById(panel);
+    el.style.background = t.bg;
+    el.style.borderColor = t.bg;
+    el.querySelector(".panel-header").style.background = t.headerBg;
+    el.querySelector(".panel-header").style.color = t.fg;
+    el.querySelector(".lang-select").style.color = t.fg;
+    el.querySelector(".lang-select").style.borderColor = t.lineNum;
+    el.querySelector(".code-display").style.color = t.fg;
+    el.querySelector(".code-input").style.caretColor = t.fg;
+    el.querySelector(".line-numbers").style.color = t.lineNum;
+  }
+
+  // Selection color
+  updateSelectionStyle(t.selection);
+
+  // Swatches (adapt palette background to theme)
+  const palette = document.getElementById("swatches");
+  palette.style.background = t.bg;
+  renderSwatches(t);
+  renderCode();
+}
+
+function renderCode() {
+  const t = THEMES[activeTheme];
+
+  // Left panel
+  const leftCode = document.getElementById("codeInput").value;
+  document.getElementById("codeDisplay").innerHTML = highlight(leftCode, leftLang, t.tokens);
+  renderLineNumbers("lineNumbers", leftCode);
+
+  // Right panel
+  const rightCode = document.getElementById("codeInput2").value;
+  document.getElementById("codeDisplay2").innerHTML = highlight(rightCode, rightLang, t.tokens);
+  renderLineNumbers("lineNumbers2", rightCode);
+}
+
+function renderLineNumbers(id, code) {
+  const count = code.split("\n").length;
+  const nums = Array.from({ length: count }, (_, i) => i + 1).join("\n");
+  document.getElementById(id).textContent = nums;
+}
+
+function renderSwatches(t) {
+  const container = document.getElementById("swatches");
+  container.innerHTML = "";
+  const labels = { comment: "Comment", string: "String", keyword: "Keyword", function: "Function",
+    variable: "Variable", number: "Number", type: "Type", operator: "Operator",
+    constant: "Constant", builtin: "Built-in", tag: "Tag", attribute: "Attr",
+    property: "Property", punctuation: "Punct", regex: "Regex" };
+
+  for (const [key, label] of Object.entries(labels)) {
+    if (!t.tokens[key]) continue;
+    const el = document.createElement("div");
+    el.className = "swatch";
+    el.style.background = t.tokens[key].color;
+    el.dataset.label = label;
+    el.title = `${label}: ${t.tokens[key].color}`;
+    container.appendChild(el);
+  }
+}
+
+// ── Selection style (dynamic per theme) ─────────────────────────
+let selectionStyleEl = null;
+function updateSelectionStyle(selectionColor) {
+  if (!selectionStyleEl) {
+    selectionStyleEl = document.createElement("style");
+    document.head.appendChild(selectionStyleEl);
+  }
+  selectionStyleEl.textContent = `
+    .code-input::selection { background: ${selectionColor}; }
+    .code-input::-moz-selection { background: ${selectionColor}; }
+  `;
+}
+
+// ── Init ─────────────────────────────────────────────────────────
+function init() {
+  // Theme buttons
+  const btnContainer = document.getElementById("themeButtons");
+  for (const name of Object.keys(THEMES)) {
+    const btn = document.createElement("button");
+    btn.className = "theme-btn";
+    btn.textContent = name;
+    btn.dataset.theme = name;
+    btn.addEventListener("click", () => applyTheme(name));
+    btnContainer.appendChild(btn);
+  }
+
+  // Set initial code
+  document.getElementById("codeInput").value = SAMPLES.javascript;
+  document.getElementById("codeInput2").value = SAMPLES.python;
+
+  // Language selects
+  document.getElementById("langSelect").addEventListener("change", (e) => {
+    const textarea = document.getElementById("codeInput");
+    const isCustom = textarea.value && textarea.value !== SAMPLES[leftLang];
+    if (isCustom && !confirm("Replace your code with the sample for " + e.target.value + "?")) {
+      e.target.value = leftLang;
+      return;
+    }
+    leftLang = e.target.value;
+    textarea.value = SAMPLES[leftLang];
+    renderCode();
+  });
+
+  document.getElementById("langSelect2").addEventListener("change", (e) => {
+    const textarea = document.getElementById("codeInput2");
+    const isCustom = textarea.value && textarea.value !== SAMPLES[rightLang];
+    if (isCustom && !confirm("Replace your code with the sample for " + e.target.value + "?")) {
+      e.target.value = rightLang;
+      return;
+    }
+    rightLang = e.target.value;
+    textarea.value = SAMPLES[rightLang];
+    renderCode();
+  });
+
+  // Live editing
+  document.getElementById("codeInput").addEventListener("input", renderCode);
+  document.getElementById("codeInput2").addEventListener("input", renderCode);
+
+  // Tab support in textareas (Escape releases focus)
+  for (const id of ["codeInput", "codeInput2"]) {
+    document.getElementById(id).addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        e.target.blur();
+        return;
+      }
+      if (e.key === "Tab") {
+        e.preventDefault();
+        const ta = e.target;
+        const start = ta.selectionStart;
+        ta.value = ta.value.slice(0, start) + "  " + ta.value.slice(ta.selectionEnd);
+        ta.selectionStart = ta.selectionEnd = start + 2;
+        renderCode();
+      }
+    });
+  }
+
+  // Sync scroll
+  for (const [inputId, displayId, lineId] of [
+    ["codeInput", "codeDisplay", "lineNumbers"],
+    ["codeInput2", "codeDisplay2", "lineNumbers2"]
+  ]) {
+    document.getElementById(inputId).addEventListener("scroll", (e) => {
+      const display = document.getElementById(displayId);
+      const lines = document.getElementById(lineId);
+      display.scrollTop = e.target.scrollTop;
+      display.scrollLeft = e.target.scrollLeft;
+      lines.scrollTop = e.target.scrollTop;
+    });
+  }
+
+  applyTheme("Dark");
+}
+
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>

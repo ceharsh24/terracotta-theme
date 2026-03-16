@@ -1,3 +1,6 @@
 .DS_Store
 *.vsix
+*.log
 node_modules/
+package-lock.json
+.claude/

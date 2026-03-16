@@ -721,7 +721,8 @@
       "name": "Variable property",
       "scope": [
         "variable.other.property",
-        "variable.other.object.property"
+        "variable.other.object.property",
+        "meta.object-literal.key"
       ],
       "settings": {
         "foreground": "#D8D4C8"
@@ -961,16 +962,38 @@
       }
     },
     {
-      "name": "Markdown heading",
+      "name": "Markdown heading H1-H2",
       "scope": [
         "markup.heading",
         "markup.heading entity.name.section",
         "heading.1.markdown entity.name",
-        "heading.2.markdown entity.name"
+        "heading.2.markdown entity.name",
+        "punctuation.definition.heading.markdown"
       ],
       "settings": {
         "foreground": "#FF8A5C",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown heading H3-H4",
+      "scope": [
+        "heading.3.markdown entity.name",
+        "heading.4.markdown entity.name"
+      ],
+      "settings": {
+        "foreground": "#FFA544",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown heading H5-H6",
+      "scope": [
+        "heading.5.markdown entity.name",
+        "heading.6.markdown entity.name"
+      ],
+      "settings": {
+        "foreground": "#FFB000"
       }
     },
     {
@@ -979,6 +1002,7 @@
         "markup.bold"
       ],
       "settings": {
+        "foreground": "#D8D4C8",
         "fontStyle": "bold"
       }
     },
@@ -988,7 +1012,18 @@
         "markup.italic"
       ],
       "settings": {
+        "foreground": "#D8D4C8",
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown strikethrough",
+      "scope": [
+        "markup.strikethrough"
+      ],
+      "settings": {
+        "foreground": "#A0A0A0",
+        "fontStyle": "strikethrough"
       }
     },
     {
@@ -1013,6 +1048,16 @@
       }
     },
     {
+      "name": "Markdown image",
+      "scope": [
+        "markup.underline.link.image.markdown"
+      ],
+      "settings": {
+        "foreground": "#D580FF",
+        "fontStyle": "italic"
+      }
+    },
+    {
       "name": "Markdown code/inline",
       "scope": [
         "markup.inline.raw",
@@ -1021,6 +1066,15 @@
       ],
       "settings": {
         "foreground": "#FFDF33"
+      }
+    },
+    {
+      "name": "Markdown fenced code language",
+      "scope": [
+        "fenced_code.block.language.markdown"
+      ],
+      "settings": {
+        "foreground": "#FF8A5C"
       }
     },
     {
@@ -1041,6 +1095,15 @@
       "settings": {
         "foreground": "#9898A8",
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown separator",
+      "scope": [
+        "meta.separator.markdown"
+      ],
+      "settings": {
+        "foreground": "#A0A0B0"
       }
     },
     {
@@ -1081,6 +1144,46 @@
       ],
       "settings": {
         "foreground": "#94B0EC"
+      }
+    },
+    {
+      "name": "SQL alias",
+      "scope": [
+        "keyword.other.alias.sql"
+      ],
+      "settings": {
+        "foreground": "#FF8A5C"
+      }
+    },
+    {
+      "name": "SQL order/group/join",
+      "scope": [
+        "keyword.other.order.sql",
+        "keyword.other.DML.II.sql"
+      ],
+      "settings": {
+        "foreground": "#FFA544",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "SQL table/database name",
+      "scope": [
+        "constant.other.database-name.sql",
+        "constant.other.table-name.sql"
+      ],
+      "settings": {
+        "foreground": "#D580FF"
+      }
+    },
+    {
+      "name": "SQL operator",
+      "scope": [
+        "keyword.operator.star.sql",
+        "keyword.operator.comparison.sql"
+      ],
+      "settings": {
+        "foreground": "#80BFFF"
       }
     },
     {
@@ -1187,6 +1290,46 @@
       }
     },
     {
+      "name": "Rust borrow/reference",
+      "scope": [
+        "keyword.operator.borrow.rust",
+        "keyword.operator.dereference.rust"
+      ],
+      "settings": {
+        "foreground": "#80BFFF"
+      }
+    },
+    {
+      "name": "Rust unsafe",
+      "scope": [
+        "keyword.other.unsafe.rust"
+      ],
+      "settings": {
+        "foreground": "#FF8A5C",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Rust type alias",
+      "scope": [
+        "entity.name.type.alias.rust"
+      ],
+      "settings": {
+        "foreground": "#D580FF"
+      }
+    },
+    {
+      "name": "Rust attribute",
+      "scope": [
+        "meta.attribute.rust",
+        "punctuation.definition.attribute.rust"
+      ],
+      "settings": {
+        "foreground": "#BEAAEC",
+        "fontStyle": "italic"
+      }
+    },
+    {
       "name": "Python magic method",
       "scope": [
         "support.function.magic.python"
@@ -1238,6 +1381,50 @@
       }
     },
     {
+      "name": "C/C++ preprocessor",
+      "scope": [
+        "meta.preprocessor",
+        "keyword.control.directive",
+        "keyword.control.import.include",
+        "punctuation.definition.directive"
+      ],
+      "settings": {
+        "foreground": "#FF8A5C",
+        "fontStyle": "bold italic"
+      }
+    },
+    {
+      "name": "C/C++ preprocessor macro",
+      "scope": [
+        "entity.name.function.preprocessor"
+      ],
+      "settings": {
+        "foreground": "#00E5FF",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "C/C++ pointer/address operator",
+      "scope": [
+        "keyword.operator.address.c",
+        "keyword.operator.address.cpp",
+        "keyword.operator.arrow.cpp"
+      ],
+      "settings": {
+        "foreground": "#80BFFF"
+      }
+    },
+    {
+      "name": "C/C++ primitive types",
+      "scope": [
+        "storage.type.built-in.primitive.c",
+        "storage.type.built-in.primitive.cpp"
+      ],
+      "settings": {
+        "foreground": "#D580FF"
+      }
+    },
+    {
       "name": "Invalid",
       "scope": [
         "invalid"
@@ -1276,19 +1463,53 @@
       "foreground": "#FFFFFF",
       "italic": true
     },
-    "variable": "#FFFFFF",
-    "variable.readonly": "#FFFFFF",
+    "variable": "#D8D4C8",
+    "variable.readonly": "#D8D4C8",
     "variable.defaultLibrary": "#D580FF",
+    "variable.declaration": {
+      "foreground": "#D8D4C8",
+      "bold": true
+    },
+    "variable.modification": {
+      "foreground": "#FFFFFF",
+      "underline": true
+    },
+    "parameter.declaration": {
+      "foreground": "#FFFFFF",
+      "italic": true,
+      "bold": true
+    },
+    "parameter.modification": {
+      "foreground": "#FFFFFF",
+      "italic": true,
+      "underline": true
+    },
     "property": "#FFFFFF",
-    "property.readonly": "#FFFFFF",
+    "property.readonly": {
+      "foreground": "#FFFFFF",
+      "underline": true
+    },
+    "property.modification": {
+      "foreground": "#FFFFFF",
+      "underline": true
+    },
     "enumMember": "#FFB000",
     "event": "#FFFFFF",
     "function": "#00E5FF",
     "function.defaultLibrary": "#94B0EC",
+    "function.declaration": {
+      "foreground": "#00E5FF",
+      "bold": true
+    },
     "method": "#00E5FF",
+    "method.defaultLibrary": "#94B0EC",
     "method.static": {
       "foreground": "#00E5FF",
       "italic": true
+    },
+    "class.declaration": {
+      "foreground": "#D580FF",
+      "bold": true
     },
     "property.static": {
       "foreground": "#FFFFFF",

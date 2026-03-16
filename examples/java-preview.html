@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #1A1A1A;
+    --line-highlight: #242424;
+    --gutter: #5C5C5C;
+    --gutter-active: #A3A3A3;
+    --comment: #929BB0;
+    --doc-comment: #8E96A4;
+    --string: #DBAC3B;
+    --number: #C8A85C;
+    --keyword: #D06F50;
+    --operator: #6CA9D6;
+    --function: #3CB898;
+    --builtin-fn: #4CC890;
+    --class: #AF85E6;
+    --inherited: #60A4E8;
+    --constant: #C8A85C;
+    --builtin-const: #E673A6;
+    --variable: #CCCCCC;
+    --param: #CCCCCC;
+    --punctuation: #8A90A0;
+    --annotation: #AF85E6;
+    --foreground: #CCCCCC;
+    --sidebar: #141414;
+    --border: #2D2D2D;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0E0E0E;
+    color: var(--foreground);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    color: #D06F50;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    color: #929BB0;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .editor {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .tab-bar {
+    background: #1A1C24;
+    display: flex;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab {
+    padding: 8px 16px;
+    color: #C8C4B8;
+    font-size: 12px;
+    border-top: 2px solid #C4785E;
+    background: #22242E;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .code-area {
+    display: flex;
+    overflow-x: auto;
+    padding: 8px 0;
+  }
+
+  .gutter {
+    color: var(--gutter);
+    text-align: right;
+    padding: 0 12px 0 16px;
+    user-select: none;
+    min-width: 48px;
+  }
+
+  .gutter .active { color: var(--gutter-active); }
+
+  .code {
+    padding: 0 16px;
+    white-space: pre;
+    flex: 1;
+  }
+
+  .line { min-height: 1.65em; }
+  .line.hl { background: var(--line-highlight); }
+
+  .kw { color: var(--keyword); }
+  .op { color: var(--operator); }
+  .fn { color: var(--function); }
+  .bfn { color: var(--builtin-fn); }
+  .cls { color: var(--class); }
+  .inh { color: var(--inherited); font-style: italic; }
+  .iface { color: var(--class); font-style: italic; }
+  .tp { color: var(--class); font-style: italic; }
+  .str { color: var(--string); }
+  .num { color: var(--number); }
+  .cmt { color: var(--comment); font-style: italic; }
+  .doc { color: var(--doc-comment); font-style: italic; }
+  .ann { color: var(--annotation); font-style: italic; }
+  .con { color: var(--constant); }
+  .bcon { color: var(--builtin-const); font-style: italic; }
+  .var { color: var(--variable); }
+  .par { color: var(--param); font-style: italic; }
+  .pun { color: var(--punctuation); }
+  .self { color: var(--class); font-style: italic; }
+
+  .legend {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #9E9B92;
+  }
+
+  .swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .issue-section {
+    margin-top: 28px;
+    padding: 20px;
+    background: #141414;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .issue-section h2 {
+    font-size: 1.1rem;
+    color: #C8C4B8;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .issue {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 3px solid;
+  }
+
+  .issue.warn { background: #D09A5810; border-color: #D09A58; }
+  .issue.info { background: #72A8C810; border-color: #72A8C8; }
+  .issue.good { background: #72B49010; border-color: #72B490; }
+
+  .issue h3 { font-size: 0.9rem; margin-bottom: 4px; }
+  .issue.warn h3 { color: #D09A58; }
+  .issue.info h3 { color: #72A8C8; }
+  .issue.good h3 { color: #72B490; }
+
+  .issue p { font-size: 0.82rem; color: #9E9B92; line-height: 1.5; }
+
+  .issue code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: #22242E;
+  }
+
+  .compare {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin: 6px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+
+  .compare .label {
+    color: #555768;
+    font-size: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    min-width: 80px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Terracotta Theme — Java Syntax Audit</h1>
+<p class="subtitle">Dark Dimmed variant · Color mapping analysis for Java language constructs</p>
+
+<div class="editor">
+  <div class="tab-bar">
+    <div class="tab">JavaShowcase.java</div>
+  </div>
+  <div class="code-area">
+    <div class="gutter">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br><span class="active">12</span><br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60
+    </div>
+    <div class="code">
+<span class="line"><span class="kw">package</span> <span class="cls">com.terracotta.showcase</span><span class="pun">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="kw">import</span> <span class="cls">java.util</span><span class="pun">.*;</span></span>
+<span class="line"><span class="kw">import</span> <span class="cls">java.util.concurrent</span><span class="pun">.*;</span></span>
+<span class="line"><span class="kw">import</span> <span class="cls">java.util.function</span><span class="pun">.*;</span></span>
+<span class="line"><span class="kw">import</span> <span class="cls">java.io.Serializable</span><span class="pun">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="doc">/**</span></span>
+<span class="line"><span class="doc"> * A comprehensive Java showcase to test theme rendering.</span></span>
+<span class="line"><span class="doc"> * @author Terracotta Theme</span></span>
+<span class="line"><span class="doc"> */</span></span>
+<span class="line hl"><span class="ann">@SuppressWarnings</span><span class="pun">(</span><span class="str">"unchecked"</span><span class="pun">)</span></span>
+<span class="line"><span class="kw">public class</span> <span class="cls">JavaShowcase</span><span class="pun">&lt;</span><span class="tp">T</span> <span class="kw">extends</span> <span class="inh">Comparable</span><span class="pun">&lt;</span><span class="tp">T</span><span class="pun">&gt;</span> <span class="op">&amp;</span> <span class="inh">Serializable</span><span class="pun">&gt;</span> <span class="kw">implements</span> <span class="inh">Iterable</span><span class="pun">&lt;</span><span class="tp">T</span><span class="pun">&gt; {</span></span>
+<span class="line"></span>
+<span class="line">    <span class="cmt">// ── Constants and static fields ───────────</span></span>
+<span class="line"></span>
+<span class="line">    <span class="kw">public static final</span> <span class="kw">int</span> <span class="con">MAX_CAPACITY</span> <span class="op">=</span> <span class="num">1024</span><span class="pun">;</span></span>
+<span class="line">    <span class="kw">public static final</span> <span class="cls">String</span> <span class="con">DEFAULT_NAME</span> <span class="op">=</span> <span class="str">"Terracotta"</span><span class="pun">;</span></span>
+<span class="line">    <span class="kw">private static final</span> <span class="kw">double</span> <span class="con">PI_APPROX</span> <span class="op">=</span> <span class="num">3.14159265</span><span class="pun">;</span></span>
+<span class="line">    <span class="kw">private static volatile</span> <span class="kw">boolean</span> <span class="var">isRunning</span> <span class="op">=</span> <span class="bcon">false</span><span class="pun">;</span></span>
+<span class="line">    <span class="kw">protected static</span> <span class="kw">int</span> <span class="var">instanceCount</span> <span class="op">=</span> <span class="num">0</span><span class="pun">;</span></span>
+<span class="line"></span>
+<span class="line">    <span class="kw">private final</span> <span class="cls">List</span><span class="pun">&lt;</span><span class="tp">T</span><span class="pun">&gt;</span> <span class="var">elements</span><span class="pun">;</span></span>
+<span class="line">    <span class="kw">private final</span> <span class="cls">Map</span><span class="pun">&lt;</span><span class="cls">String</span><span class="pun">,</span> <span class="cls">Function</span><span class="pun">&lt;</span><span class="tp">T</span><span class="pun">,</span> <span class="cls">Boolean</span><span class="pun">&gt;&gt;</span> <span class="var">validators</span><span class="pun">;</span></span>
+<span class="line"></span>
+<span class="line">    <span class="cmt">// ── Enum with fields ─────────────────────</span></span>
+<span class="line"></span>
+<span class="line">    <span class="kw">public enum</span> <span class="cls">Priority</span> <span class="pun">{</span></span>
+<span class="line">        <span class="con">LOW</span><span class="pun">(</span><span class="num">1</span><span class="pun">,</span> <span class="str">"Low priority"</span><span class="pun">),</span></span>
+<span class="line">        <span class="con">MEDIUM</span><span class="pun">(</span><span class="num">5</span><span class="pun">,</span> <span class="str">"Medium priority"</span><span class="pun">),</span></span>
+<span class="line">        <span class="con">HIGH</span><span class="pun">(</span><span class="num">10</span><span class="pun">,</span> <span class="str">"High priority"</span><span class="pun">),</span></span>
+<span class="line">        <span class="con">CRITICAL</span><span class="pun">(</span><span class="num">100</span><span class="pun">,</span> <span class="str">"Critical"</span><span class="pun">);</span></span>
+<span class="line"></span>
+<span class="line">        <span class="kw">private final</span> <span class="kw">int</span> <span class="var">level</span><span class="pun">;</span></span>
+<span class="line">        <span class="kw">private final</span> <span class="cls">String</span> <span class="var">description</span><span class="pun">;</span></span>
+<span class="line"></span>
+<span class="line">        <span class="cls">Priority</span><span class="pun">(</span><span class="kw">int</span> <span class="par">level</span><span class="pun">,</span> <span class="cls">String</span> <span class="par">description</span><span class="pun">) {</span></span>
+<span class="line">            <span class="self">this</span><span class="pun">.</span><span class="var">level</span> <span class="op">=</span> <span class="par">level</span><span class="pun">;</span></span>
+<span class="line">            <span class="self">this</span><span class="pun">.</span><span class="var">description</span> <span class="op">=</span> <span class="par">description</span><span class="pun">;</span></span>
+<span class="line">        <span class="pun">}</span></span>
+<span class="line">    <span class="pun">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="cmt">// ── Interface with default method ─────────</span></span>
+<span class="line"></span>
+<span class="line">    <span class="kw">public interface</span> <span class="iface">Transformer</span><span class="pun">&lt;</span><span class="tp">I</span><span class="pun">,</span> <span class="tp">O</span><span class="pun">&gt; {</span></span>
+<span class="line">        <span class="tp">O</span> <span class="fn">transform</span><span class="pun">(</span><span class="tp">I</span> <span class="par">input</span><span class="pun">)</span> <span class="kw">throws</span> <span class="cls">IllegalArgumentException</span><span class="pun">;</span></span>
+<span class="line"></span>
+<span class="line">        <span class="kw">default</span> <span class="tp">O</span> <span class="fn">transformOrDefault</span><span class="pun">(</span><span class="tp">I</span> <span class="par">input</span><span class="pun">,</span> <span class="tp">O</span> <span class="par">defaultValue</span><span class="pun">) {</span></span>
+<span class="line">            <span class="kw">try</span> <span class="pun">{</span></span>
+<span class="line">                <span class="tp">O</span> <span class="var">result</span> <span class="op">=</span> <span class="fn">transform</span><span class="pun">(</span><span class="par">input</span><span class="pun">);</span></span>
+<span class="line">                <span class="kw">return</span> <span class="var">result</span> <span class="op">!=</span> <span class="bcon">null</span> <span class="op">?</span> <span class="var">result</span> <span class="op">:</span> <span class="par">defaultValue</span><span class="pun">;</span></span>
+<span class="line">            <span class="pun">}</span> <span class="kw">catch</span> <span class="pun">(</span><span class="cls">Exception</span> <span class="par">e</span><span class="pun">) {</span></span>
+<span class="line">                <span class="kw">return</span> <span class="par">defaultValue</span><span class="pun">;</span></span>
+<span class="line">            <span class="pun">}</span></span>
+<span class="line">        <span class="pun">}</span></span>
+<span class="line">    <span class="pun">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="ann">@Validate</span><span class="pun">(</span><span class="var">value</span> <span class="op">=</span> <span class="str">"element"</span><span class="pun">,</span> <span class="var">nullable</span> <span class="op">=</span> <span class="bcon">false</span><span class="pun">)</span></span>
+<span class="line">    <span class="kw">public synchronized</span> <span class="kw">boolean</span> <span class="fn">addElement</span><span class="pun">(</span><span class="tp">T</span> <span class="par">element</span><span class="pun">) {</span></span>
+<span class="line">        <span class="kw">if</span> <span class="pun">(</span><span class="var">elements</span><span class="pun">.</span><span class="fn">size</span><span class="pun">()</span> <span class="op">&gt;=</span> <span class="con">MAX_CAPACITY</span><span class="pun">)</span> <span class="pun">{</span></span>
+<span class="line">            <span class="kw">throw new</span> <span class="cls">IllegalStateException</span><span class="pun">(</span><span class="str">"Capacity exceeded"</span><span class="pun">);</span></span>
+<span class="line">        <span class="pun">}</span></span>
+<span class="line">        <span class="kw">return</span> <span class="var">elements</span><span class="pun">.</span><span class="fn">add</span><span class="pun">(</span><span class="par">element</span><span class="pun">);</span></span>
+<span class="line">    <span class="pun">}</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="swatch" style="background:#D06F50"></div> Keywords — <code style="color:#D06F50;background:none;padding:0">public static final class</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#AF85E6"></div> Types/Classes — <code style="color:#AF85E6;background:none;padding:0">String List Map</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#3CB898"></div> Functions — <code style="color:#3CB898;background:none;padding:0">transform() size()</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#DBAC3B"></div> Strings — <code style="color:#DBAC3B;background:none;padding:0">"Terracotta"</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#C8A85C"></div> Numbers/Const — <code style="color:#C8A85C;background:none;padding:0">1024 MAX_CAPACITY</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#6CA9D6"></div> Operators — <code style="color:#6CA9D6;background:none;padding:0">= != ? : &amp;</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#AF85E6"></div> <span style="font-style:italic">Annotations</span> — <code style="color:#AF85E6;background:none;padding:0;font-style:italic">@Override @Validate</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#E673A6"></div> <span style="font-style:italic">Built-in const</span> — <code style="color:#E673A6;background:none;padding:0;font-style:italic">null false true</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#60A4E8"></div> <span style="font-style:italic">Inherited</span> — <code style="color:#60A4E8;background:none;padding:0;font-style:italic">Comparable Iterable</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#929BB0"></div> <span style="font-style:italic">Comments</span> — <code style="color:#929BB0;background:none;padding:0;font-style:italic">// comment</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#CCCCCC"></div> Variables — <code style="color:#CCCCCC;background:none;padding:0">elements name</code></div>
+  <div class="legend-item"><div class="swatch" style="background:#8A90A0"></div> Punctuation — <code style="color:#8A90A0;background:none;padding:0">{ } ( ) ; .</code></div>
+</div>
+
+<div class="issue-section">
+  <h2>Java-Specific Findings</h2>
+
+  <div class="issue warn">
+    <h3>Issue 1: Terracotta Keyword Overload</h3>
+    <p>Java is keyword-heavy. On lines like <code style="color:#D06F50">public static final int</code>, four consecutive tokens share the same terracotta color. Access modifiers (<code style="color:#D06F50">public</code>/<code style="color:#D06F50">private</code>), storage modifiers (<code style="color:#D06F50">static</code>/<code style="color:#D06F50">final</code>/<code style="color:#D06F50">volatile</code>), primitive types (<code style="color:#D06F50">int</code>/<code style="color:#D06F50">boolean</code>/<code style="color:#D06F50">double</code>), and control flow (<code style="color:#D06F50">if</code>/<code style="color:#D06F50">return</code>/<code style="color:#D06F50">try</code>) ALL share <code style="color:#D06F50">#D06F50</code>. This doesn't happen in Python or JS because those languages have fewer keywords per line.</p>
+    <div class="compare">
+      <span class="label">Current:</span>
+      <span style="color:#D06F50">public</span> <span style="color:#D06F50">static</span> <span style="color:#D06F50">final</span> <span style="color:#D06F50">int</span> <span style="color:#C8A85C">MAX</span> <span style="color:#6CA9D6">=</span> <span style="color:#C8A85C">1024</span><span style="color:#8A90A0">;</span>
+    </div>
+    <div class="compare">
+      <span class="label">Suggested:</span>
+      <span style="color:#D06F50">public</span> <span style="color:#D06F50">static</span> <span style="color:#D06F50">final</span> <span style="color:#AF85E6">int</span> <span style="color:#C8A85C">MAX</span> <span style="color:#6CA9D6">=</span> <span style="color:#C8A85C">1024</span><span style="color:#8A90A0">;</span>
+    </div>
+    <p style="margin-top:6px">Consider coloring primitive type keywords (<code>int</code>, <code>double</code>, <code>boolean</code>, <code>void</code>) as purple to match class type names and break up the orange runs.</p>
+  </div>
+
+  <div class="issue warn">
+    <h3>Issue 2: Purple Collision — Annotations vs Types vs <code style="color:#AF85E6;font-style:italic">this</code></h3>
+    <p>Three semantically distinct constructs share the exact same <code style="color:#AF85E6">#AF85E6</code> italic:</p>
+    <div class="compare">
+      <span class="label">Annotation:</span>
+      <span style="color:#AF85E6;font-style:italic">@Override</span>
+    </div>
+    <div class="compare">
+      <span class="label">Interface:</span>
+      <span style="color:#AF85E6;font-style:italic">Transformer</span>
+    </div>
+    <div class="compare">
+      <span class="label">this kw:</span>
+      <span style="color:#AF85E6;font-style:italic">this</span>
+    </div>
+    <p style="margin-top:6px">In Java, annotations drive frameworks (Spring <code style="color:#AF85E6;font-style:italic">@Autowired</code>, JUnit <code style="color:#AF85E6;font-style:italic">@Test</code>). Consider: annotations → <code style="color:#B88EE4">#B88EE4</code> bold italic, or <code style="color:#AF85E6;font-style:italic">this</code> → <code style="color:#D06F50;font-style:italic">terracotta italic</code> (since it's a keyword).</p>
+  </div>
+
+  <div class="issue warn">
+    <h3>Issue 3: Strings vs Numbers — Warm Gold Collision</h3>
+    <div class="compare">
+      <span class="label">String:</span>
+      <span style="color:#DBAC3B">"Terracotta"</span>
+      <span style="color:#555768;font-size:0.7rem;margin-left:8px">#DBAC3B</span>
+    </div>
+    <div class="compare">
+      <span class="label">Number:</span>
+      <span style="color:#C8A85C">3.14159265</span>
+      <span style="color:#555768;font-size:0.7rem;margin-left:8px">#C8A85C</span>
+    </div>
+    <div class="compare">
+      <span class="label">Constant:</span>
+      <span style="color:#C8A85C">MAX_CAPACITY</span>
+      <span style="color:#555768;font-size:0.7rem;margin-left:8px">#C8A85C</span>
+    </div>
+    <p style="margin-top:6px">Both are warm gold. In Java, distinguishing string literals from numeric values and named constants is important for type safety. The difference is visible but can blur at a glance.</p>
+  </div>
+
+  <div class="issue info">
+    <h3>Missing: Java-Specific Token Rules</h3>
+    <p>The theme has dedicated scopes for Python, Rust, Go, and Shell but nothing Java-specific. Recommended additions:</p>
+    <p style="margin-top:4px;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6CA9D6">
+      storage.type.primitive.java → #AF85E6 (purple)<br>
+      storage.type.annotation.java → #B88EE4 italic bold<br>
+      variable.language.this.java → #D06F50 italic
+    </p>
+  </div>
+
+  <div class="issue good">
+    <h3>What Works Well</h3>
+    <p><strong>Functions</strong> (<code style="color:#3CB898">#3CB898</code> teal) pop beautifully against the warm background. <strong>Inherited types</strong> (<code style="color:#60A4E8;font-style:italic">#60A4E8</code> blue italic) are clearly distinct from declared types. <strong>Built-in constants</strong> (<code style="color:#E673A6;font-style:italic">null</code>/<code style="color:#E673A6;font-style:italic">false</code> pink italic) stand out — great for null-safety awareness. <strong>Operators</strong> (<code style="color:#6CA9D6">#6CA9D6</code> blue) provide clean visual separation. <strong>Enum members</strong> (<code style="color:#C8A85C">LOW</code>, <code style="color:#C8A85C">CRITICAL</code>) read as constants, which is semantically correct. The <strong>doc comment</strong> shade is subtly different from regular comments — a nice touch for Javadoc.</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,14 @@
 .vscode/**
 .git/**
+.github/**
+.claude/**
 .gitignore
+.DS_Store
 *.md
 !README.md
-!CHANGELOG.md
+docs/**
+examples/**
+scripts/**
+screenshots/**
+node_modules/**
+package-lock.json

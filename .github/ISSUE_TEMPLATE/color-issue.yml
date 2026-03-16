@@ -1,0 +1,62 @@
+name: Color Issue
+description: Report incorrect, low-contrast, or unexpected syntax highlighting colors
+labels: ["color", "bug"]
+body:
+  - type: dropdown
+    id: theme-variant
+    attributes:
+      label: Theme Variant
+      description: Which Terracotta variant are you using?
+      options:
+        - Terracotta Dark
+        - Terracotta Dark Dimmed
+        - Terracotta Light
+        - Terracotta Light Bright
+        - Terracotta High Contrast (Color Blind)
+    validations:
+      required: true
+
+  - type: input
+    id: language
+    attributes:
+      label: Programming Language
+      description: Which language is affected?
+      placeholder: e.g. TypeScript, Python, Rust
+    validations:
+      required: true
+
+  - type: textarea
+    id: code-sample
+    attributes:
+      label: Code Sample
+      description: Paste a minimal code snippet that shows the issue.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Paste a screenshot showing the actual colors. Drag and drop an image here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs Actual Colors
+      description: Describe what you expected and what you see instead.
+      placeholder: |
+        Expected: Function names should be green (#2EE5B2)
+        Actual: Function names appear as default foreground color
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: VS Code version, other extensions that might interfere, etc.
+    validations:
+      required: false

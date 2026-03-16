@@ -1,10 +1,15 @@
 {
   "name": "terracotta-theme",
   "displayName": "Terracotta Theme",
-  "description": "A Claude-inspired warm theme with 5 variants: 2 dark, 2 light, and a color-blind accessible high-contrast mode. Built around Claude AI's terra cotta palette with carefully tuned syntax highlighting.",
-  "version": "1.3.0",
+  "description": "Warm, WCAG-compliant theme with 5 variants including a color-blind mode",
+  "version": "1.4.0",
   "publisher": "terracotta-theme",
   "license": "MIT",
+  "author": "Harsh Choudhary (https://github.com/ceharsh24)",
+  "homepage": "https://github.com/ceharsh24/terracotta-theme",
+  "bugs": {
+    "url": "https://github.com/ceharsh24/terracotta-theme/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -13,24 +18,25 @@
   ],
   "keywords": [
     "theme",
-    "dark",
-    "light",
     "color-blind",
     "accessible",
-    "claude",
     "terracotta",
-    "warm",
-    "high-contrast",
-    "color theme"
+    "wcag"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ceharsh24/terracotta-theme"
   },
+  "extensionKind": [
+    "ui"
+  ],
   "icon": "icon.png",
   "galleryBanner": {
     "color": "#141414",
     "theme": "dark"
+  },
+  "scripts": {
+    "test": "node scripts/check-contrast.js"
   },
   "contributes": {
     "themes": [

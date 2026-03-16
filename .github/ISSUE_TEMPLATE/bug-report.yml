@@ -1,0 +1,41 @@
+name: Bug Report
+description: Report a general bug with the theme
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: theme-variant
+    attributes:
+      label: Theme Variant
+      description: Which Terracotta variant are you using?
+      options:
+        - Terracotta Dark
+        - Terracotta Dark Dimmed
+        - Terracotta Light
+        - Terracotta Light Bright
+        - Terracotta High Contrast (Color Blind)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this?
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: VS Code version, screenshots, etc.
+    validations:
+      required: false
