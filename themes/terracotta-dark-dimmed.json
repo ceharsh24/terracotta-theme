@@ -116,7 +116,7 @@
     "editor.foreground": "#CCCCCC",
     "editorLineNumber.foreground": "#5C5C5C",
     "editorLineNumber.activeForeground": "#A3A3A3",
-    "editorCursor.foreground": "#D06F50",
+    "editorCursor.foreground": "#D47A5C",
     "editor.selectionBackground": "#D0705040",
     "editor.selectionHighlightBackground": "#D0705025",
     "editor.inactiveSelectionBackground": "#D0705030",
@@ -275,22 +275,22 @@
     "keybindingLabel.foreground": "#C8C4B8",
     "keybindingLabel.border": "#3A3A3A",
     "keybindingLabel.bottomBorder": "#3A3A3A",
-    "terminal.background": "#222222",
+    "terminal.background": "#1A1A1A",
     "terminal.foreground": "#C8C4B8",
-    "terminal.ansiBlack": "#1E1E1E",
-    "terminal.ansiRed": "#BF6B66",
-    "terminal.ansiGreen": "#72B490",
-    "terminal.ansiYellow": "#C09860",
-    "terminal.ansiBlue": "#72A8C8",
-    "terminal.ansiMagenta": "#A088C0",
+    "terminal.ansiBlack": "#2C2C2C",
+    "terminal.ansiRed": "#D47A5C",
+    "terminal.ansiGreen": "#3CB898",
+    "terminal.ansiYellow": "#DBAC3B",
+    "terminal.ansiBlue": "#6CA9D6",
+    "terminal.ansiMagenta": "#AF85E6",
     "terminal.ansiCyan": "#60B0C0",
-    "terminal.ansiWhite": "#C8C4B8",
+    "terminal.ansiWhite": "#CCCCCC",
     "terminal.ansiBrightBlack": "#5D5D5D",
-    "terminal.ansiBrightRed": "#D07E78",
-    "terminal.ansiBrightGreen": "#88C4A0",
-    "terminal.ansiBrightYellow": "#D0AE78",
-    "terminal.ansiBrightBlue": "#8DBDD6",
-    "terminal.ansiBrightMagenta": "#B49CD0",
+    "terminal.ansiBrightRed": "#E08A68",
+    "terminal.ansiBrightGreen": "#60C8A8",
+    "terminal.ansiBrightYellow": "#EEC455",
+    "terminal.ansiBrightBlue": "#88C0E0",
+    "terminal.ansiBrightMagenta": "#C898F0",
     "terminal.ansiBrightCyan": "#78C4D4",
     "terminal.ansiBrightWhite": "#DCD8CC",
     "terminal.selectionBackground": "#3A3A3A",
@@ -363,7 +363,7 @@
     "charts.orange": "#D09A58",
     "charts.green": "#72B490",
     "charts.purple": "#A088C0",
-    "list.focusHighlightForeground": "#D06F50",
+    "list.focusHighlightForeground": "#D47A5C",
     "editorUnnecessaryCode.opacity": "#00000077",
     "editor.linkedEditingBackground": "#D0705030",
     "editorBracketPairGuide.background1": "#E0706820",
@@ -455,7 +455,7 @@
         "constant.numeric"
       ],
       "settings": {
-        "foreground": "#C49A4A"
+        "foreground": "#BF9040"
       }
     },
     {
@@ -475,7 +475,7 @@
         "variable.other.enummember"
       ],
       "settings": {
-        "foreground": "#C49A4A"
+        "foreground": "#BF9040"
       }
     },
     {
@@ -485,7 +485,7 @@
         "keyword.control"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -497,7 +497,7 @@
         "keyword.control.loop"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -539,7 +539,7 @@
         "keyword.operator.expression"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -549,7 +549,7 @@
         "storage.type"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -558,7 +558,7 @@
         "storage.modifier"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -769,7 +769,7 @@
         "keyword.control.as"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -778,7 +778,7 @@
         "entity.name.tag"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -855,7 +855,7 @@
         "keyword.other.unit.css"
       ],
       "settings": {
-        "foreground": "#C49A4A"
+        "foreground": "#BF9040"
       }
     },
     {
@@ -865,7 +865,7 @@
         "punctuation.definition.constant.css"
       ],
       "settings": {
-        "foreground": "#C49A4A"
+        "foreground": "#BF9040"
       }
     },
     {
@@ -945,7 +945,7 @@
         "punctuation.definition.heading.markdown"
       ],
       "settings": {
-        "foreground": "#D06F50",
+        "foreground": "#D47A5C",
         "fontStyle": "bold"
       }
     },
@@ -967,7 +967,7 @@
         "heading.6.markdown entity.name"
       ],
       "settings": {
-        "foreground": "#C49A4A"
+        "foreground": "#BF9040"
       }
     },
     {
@@ -1047,7 +1047,7 @@
         "fenced_code.block.language.markdown"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -1124,7 +1124,7 @@
         "keyword.other.alias.sql"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -1172,7 +1172,7 @@
         "markup.deleted"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -1276,7 +1276,7 @@
         "keyword.other.unsafe.rust"
       ],
       "settings": {
-        "foreground": "#D06F50",
+        "foreground": "#D47A5C",
         "fontStyle": "bold"
       }
     },
@@ -1347,7 +1347,7 @@
         "variable.language.java"
       ],
       "settings": {
-        "foreground": "#D06F50",
+        "foreground": "#D47A5C",
         "fontStyle": "italic"
       }
     },
@@ -1360,7 +1360,7 @@
         "punctuation.definition.directive"
       ],
       "settings": {
-        "foreground": "#D06F50",
+        "foreground": "#D47A5C",
         "fontStyle": "italic"
       }
     },
@@ -1401,7 +1401,7 @@
         "invalid"
       ],
       "settings": {
-        "foreground": "#D06F50"
+        "foreground": "#D47A5C"
       }
     },
     {
@@ -1410,7 +1410,7 @@
         "invalid.deprecated"
       ],
       "settings": {
-        "foreground": "#D06F50",
+        "foreground": "#D47A5C",
         "fontStyle": "strikethrough"
       }
     }
@@ -1463,7 +1463,7 @@
       "foreground": "#CCCCCC",
       "underline": true
     },
-    "enumMember": "#C49A4A",
+    "enumMember": "#BF9040",
     "event": "#CCCCCC",
     "function": "#3CB898",
     "function.defaultLibrary": "#4CC890",
@@ -1486,7 +1486,7 @@
       "italic": true
     },
     "macro": {
-      "foreground": "#D06F50",
+      "foreground": "#D47A5C",
       "bold": true
     },
     "label": "#CCCCCC",
@@ -1495,8 +1495,8 @@
       "italic": true
     },
     "string": "#DBAC3B",
-    "keyword": "#D06F50",
-    "number": "#C49A4A",
+    "keyword": "#D47A5C",
+    "number": "#BF9040",
     "regexp": "#D890A8",
     "operator": "#6CA9D6",
     "decorator": {

@@ -18,8 +18,11 @@
   ],
   "keywords": [
     "theme",
+    "dark",
+    "light",
     "color-blind",
     "accessible",
+    "warm",
     "terracotta",
     "wcag"
   ],
@@ -27,6 +30,7 @@
     "type": "git",
     "url": "https://github.com/ceharsh24/terracotta-theme"
   },
+  "qna": false,
   "extensionKind": [
     "ui"
   ],

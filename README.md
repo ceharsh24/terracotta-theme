@@ -28,7 +28,7 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Functions   | ![#2EE5B2](https://placehold.co/16x16/2EE5B2/2EE5B2.png)   | `#2EE5B2` |
 | Strings     | ![#F0C24E](https://placehold.co/16x16/F0C24E/F0C24E.png)   | `#F0C24E` |
 | Types       | ![#C28BFF](https://placehold.co/16x16/C28BFF/C28BFF.png)   | `#C28BFF` |
-| Numbers     | ![#D0A050](https://placehold.co/16x16/D0A050/D0A050.png)   | `#D0A050` |
+| Numbers     | ![#C88040](https://placehold.co/16x16/C88040/C88040.png)   | `#C88040` |
 | Operators   | ![#7FC7F4](https://placehold.co/16x16/7FC7F4/7FC7F4.png)   | `#7FC7F4` |
 | Decorators  | ![#C28BFF](https://placehold.co/16x16/C28BFF/C28BFF.png)   | `#C28BFF` |
 
@@ -43,11 +43,11 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Background  | ![#1A1A1A](https://placehold.co/16x16/1A1A1A/1A1A1A.png)   | `#1A1A1A` |
 | Foreground  | ![#CCCCCC](https://placehold.co/16x16/CCCCCC/CCCCCC.png)   | `#CCCCCC` |
 | Accent      | ![#C4785E](https://placehold.co/16x16/C4785E/C4785E.png)   | `#C4785E` |
-| Keywords    | ![#D06F50](https://placehold.co/16x16/D06F50/D06F50.png)   | `#D06F50` |
+| Keywords    | ![#D47A5C](https://placehold.co/16x16/D47A5C/D47A5C.png)   | `#D47A5C` |
 | Functions   | ![#3CB898](https://placehold.co/16x16/3CB898/3CB898.png)   | `#3CB898` |
 | Strings     | ![#DBAC3B](https://placehold.co/16x16/DBAC3B/DBAC3B.png)   | `#DBAC3B` |
 | Types       | ![#AF85E6](https://placehold.co/16x16/AF85E6/AF85E6.png)   | `#AF85E6` |
-| Numbers     | ![#C49A4A](https://placehold.co/16x16/C49A4A/C49A4A.png)   | `#C49A4A` |
+| Numbers     | ![#BF9040](https://placehold.co/16x16/BF9040/BF9040.png)   | `#BF9040` |
 | Operators   | ![#6CA9D6](https://placehold.co/16x16/6CA9D6/6CA9D6.png)   | `#6CA9D6` |
 
 ### Terracotta Light
@@ -61,11 +61,11 @@ A warm paper-like light theme using a beautifully soft off-white background (`#F
 | Background  | ![#F8F8F6](https://placehold.co/16x16/F8F8F6/F8F8F6.png)   | `#F8F8F6` |
 | Foreground  | ![#242424](https://placehold.co/16x16/242424/242424.png)   | `#242424` |
 | Accent      | ![#C15F3C](https://placehold.co/16x16/C15F3C/C15F3C.png)   | `#C15F3C` |
-| Keywords    | ![#AB3D1E](https://placehold.co/16x16/AB3D1E/AB3D1E.png)   | `#AB3D1E` |
-| Functions   | ![#007157](https://placehold.co/16x16/007157/007157.png)   | `#007157` |
+| Keywords    | ![#9E341A](https://placehold.co/16x16/9E341A/9E341A.png)   | `#9E341A` |
+| Functions   | ![#00654D](https://placehold.co/16x16/00654D/00654D.png)   | `#00654D` |
 | Strings     | ![#7A5000](https://placehold.co/16x16/7A5000/7A5000.png)   | `#7A5000` |
 | Types       | ![#6530B8](https://placehold.co/16x16/6530B8/6530B8.png)   | `#6530B8` |
-| Numbers     | ![#B4135B](https://placehold.co/16x16/B4135B/B4135B.png)   | `#B4135B` |
+| Numbers     | ![#AA0E53](https://placehold.co/16x16/AA0E53/AA0E53.png)   | `#AA0E53` |
 | Operators   | ![#0057AB](https://placehold.co/16x16/0057AB/0057AB.png)   | `#0057AB` |
 | Decorators  | ![#6530B8](https://placehold.co/16x16/6530B8/6530B8.png)   | `#6530B8` |
 
@@ -144,7 +144,11 @@ Syntax highlighting has been meticulously mapped for:
 | YAML           | SQL            | Shell / Bash  |
 | Markdown       | Dockerfile     | TOML          |
 
-Semantic highlighting is enabled out-of-the-box for richer, context-aware coloring when supported by language servers.
+Semantic highlighting is enabled out-of-the-box for richer, context-aware coloring when supported by language servers. If colors look off, ensure it is enabled in your settings:
+
+```json
+"editor.semanticHighlighting.enabled": true
+```
 
 ---
 
@@ -176,9 +180,9 @@ Every color in every variant has been validated against WCAG accessibility stand
 
 | Variant | Editor | Comment | Keyword | Function | String | Number |
 |---------|--------|---------|---------|----------|--------|--------|
-| Dark | 12.43 | 7.43 | 5.93 | 11.38 | 10.99 | 9.24 |
-| Dark Dimmed | 10.84 | 6.25 | 5.03 | 7.05 | 8.27 | 7.63 |
-| Light | 14.60 | 7.46 | 5.78 | 5.64 | 6.64 | 6.20 |
+| Dark | 12.43 | 7.43 | 5.93 | 11.38 | 10.99 | 5.81 |
+| Dark Dimmed | 10.84 | 6.25 | 5.58 | 7.05 | 8.27 | 6.03 |
+| Light | 14.60 | 7.46 | 6.67 | 6.65 | 6.64 | 6.82 |
 | Light Bright | 18.42 | 7.08 | 7.09 | 7.07 | 7.06 | 7.25 |
 | HC (Color Blind) | 21.00 | 8.03 | 9.04 | 13.65 | 15.85 | 11.46 |
 
