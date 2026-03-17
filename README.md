@@ -130,6 +130,32 @@ Restart VS Code and select a Terracotta variant from **Preferences: Color Theme*
 
 ---
 
+## Recommended settings
+
+To get the most out of Terracotta, use a font with solid italic and bold support (e.g. **JetBrains Mono**, **Fira Code**, **Cascadia Code**). The theme uses italics for comments and doc blocks, and bold for markdown headings, string escapes, and a few language-specific tokens.
+
+The extension sets these defaults when you install it (you can override any in your user settings):
+
+| Setting | Default | Why |
+|--------|---------|-----|
+| `editor.semanticHighlighting.enabled` | `true` | Enables context-aware colors (functions, types, parameters) that the theme is tuned for. |
+| `editor.bracketPairColorization.enabled` | `true` | Uses the theme’s bracket colors for matching pairs. |
+| `editor.guides.bracketPairs` | `true` | Shows vertical guides for bracket scope. |
+| `editor.renderLineHighlight` | `"line"` | Highlights the current line with the theme’s line highlight. |
+| `editor.cursorBlinking` | `"smooth"` | Matches the theme’s smooth, low-distraction feel. |
+
+Optional: for a closer match to the repo screenshots and the theme’s design, set a monospace font and size in your user `settings.json`:
+
+```json
+{
+  "editor.fontFamily": "JetBrains Mono, Fira Code, Cascadia Code, monospace",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6
+}
+```
+
+---
+
 ## Supported Languages
 
 Syntax highlighting has been meticulously mapped for:

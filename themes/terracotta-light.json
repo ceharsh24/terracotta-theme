@@ -1255,8 +1255,7 @@
         "support.macro.rust"
       ],
       "settings": {
-        "foreground": "#006149",
-        "fontStyle": "bold"
+        "foreground": "#006149"
       }
     },
     {
@@ -1275,8 +1274,7 @@
         "keyword.other.unsafe.rust"
       ],
       "settings": {
-        "foreground": "#9A3016",
-        "fontStyle": "bold"
+        "foreground": "#9A3016"
       }
     },
     {
@@ -1369,8 +1367,7 @@
         "entity.name.function.preprocessor"
       ],
       "settings": {
-        "foreground": "#006149",
-        "fontStyle": "bold"
+        "foreground": "#006149"
       }
     },
     {
