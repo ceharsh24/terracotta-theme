@@ -19,7 +19,7 @@
     "textPreformat.foreground": "#7A5A08",
     "toolbar.hoverBackground": "#E8E6E0",
     "button.background": "#DA7756",
-    "button.foreground": "#FFFFFF",
+    "button.foreground": "#141414",
     "button.hoverBackground": "#C06840",
     "button.secondaryBackground": "#E4E2DC",
     "button.secondaryForeground": "#1F2028",
@@ -49,7 +49,7 @@
     "scrollbarSlider.background": "#BDB8AC30",
     "scrollbarSlider.hoverBackground": "#BDB8AC60",
     "badge.background": "#DA7756",
-    "badge.foreground": "#FFFFFF",
+    "badge.foreground": "#141414",
     "progressBar.background": "#DA7756",
     "list.activeSelectionBackground": "#DA775650",
     "list.activeSelectionForeground": "#1A1A1A",
@@ -76,7 +76,7 @@
     "activityBar.border": "#EAEAEA",
     "activityBar.activeBorder": "#DA7756",
     "activityBarBadge.background": "#DA7756",
-    "activityBarBadge.foreground": "#FFFFFF",
+    "activityBarBadge.foreground": "#141414",
     "sideBar.background": "#F5F5F5",
     "sideBar.foreground": "#3D3530",
     "sideBar.border": "#EAEAEA",
@@ -216,7 +216,7 @@
     "statusBar.foreground": "#4A4A54",
     "statusBar.border": "#EAEAEA",
     "statusBar.debuggingBackground": "#DA7756",
-    "statusBar.debuggingForeground": "#FFFFFF",
+    "statusBar.debuggingForeground": "#141414",
     "statusBar.noFolderBackground": "#F6F4EE",
     "statusBar.noFolderForeground": "#4A4A54",
     "statusBarItem.activeBackground": "#DA775620",
@@ -225,7 +225,7 @@
     "statusBarItem.prominentForeground": "#1F2028",
     "statusBarItem.prominentHoverBackground": "#CCC8BC",
     "statusBarItem.remoteBackground": "#DA7756",
-    "statusBarItem.remoteForeground": "#FFFFFF",
+    "statusBarItem.remoteForeground": "#141414",
     "statusBarItem.errorBackground": "#C03030",
     "statusBarItem.errorForeground": "#FFFFFF",
     "statusBarItem.warningBackground": "#94450A",
@@ -259,10 +259,10 @@
     "banner.foreground": "#1F2028",
     "banner.iconForeground": "#DA7756",
     "extensionButton.prominentBackground": "#DA7756",
-    "extensionButton.prominentForeground": "#FFFFFF",
+    "extensionButton.prominentForeground": "#141414",
     "extensionButton.prominentHoverBackground": "#C06840",
     "extensionBadge.remoteBackground": "#DA7756",
-    "extensionBadge.remoteForeground": "#FFFFFF",
+    "extensionBadge.remoteForeground": "#141414",
     "pickerGroup.border": "#CCC8BC",
     "pickerGroup.foreground": "#DA7756",
     "quickInput.background": "#F6F4EE",
@@ -797,7 +797,7 @@
         "punctuation.definition.tag"
       ],
       "settings": {
-        "foreground": "#6B757F"
+        "foreground": "#505A64"
       }
     },
     {

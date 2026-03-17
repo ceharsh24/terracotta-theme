@@ -11,7 +11,7 @@
     --ui-bg: #1a1a1a;
     --ui-fg: #e0e0e0;
     --ui-border: #333;
-    --ui-accent: #DA7756;
+    --ui-accent: #E98665;
     --ui-muted: #888;
   }
 
@@ -312,29 +312,29 @@
 
 <footer>
   <a href="https://github.com/ceharsh24/terracotta-theme">GitHub</a>
-  &nbsp;&middot;&nbsp; WCAG AA compliant &nbsp;&middot;&nbsp; MIT License
+  &nbsp;&middot;&nbsp; WCAG AAA compliant &nbsp;&middot;&nbsp; MIT License
 </footer>
 
 <script>
 // ── Theme definitions ────────────────────────────────────────────
 const THEMES = {
   "Dark": {
-    bg: "#141414", fg: "#D4D4D4", selection: "#DA775640", lineHighlight: "#202020",
+    bg: "#141414", fg: "#D4D4D4", selection: "#E9866540", lineHighlight: "#202020",
     lineNum: "#555555", lineNumActive: "#A0A0A0", headerBg: "#0e0e0e",
     tokens: {
       comment: { color: "#9DA5B4", italic: true },
       string: { color: "#F0C24E" },
-      keyword: { color: "#DA7756" },
+      keyword: { color: "#E98665" },
       function: { color: "#2EE5B2" },
       variable: { color: "#D0CCBE" },
-      number: { color: "#C88040" },
+      number: { color: "#D89050" },
       type: { color: "#C28BFF" },
       operator: { color: "#7FC7F4" },
-      constant: { color: "#F36EA6", italic: true },
-      tag: { color: "#DA7756" },
+      constant: { color: "#F873AB", italic: true },
+      tag: { color: "#E98665" },
       attribute: { color: "#F0C24E", italic: true },
       property: { color: "#D0CCBE" },
-      punctuation: { color: "#9DA5B4" },
+      punctuation: { color: "#999FB5" },
       builtin: { color: "#6ACB9E" },
       regex: { color: "#E1ABC1" },
     }
@@ -343,46 +343,47 @@ const THEMES = {
     bg: "#1A1A1A", fg: "#CCCCCC", selection: "#D0705040", lineHighlight: "#242424",
     lineNum: "#5C5C5C", lineNumActive: "#A3A3A3", headerBg: "#121212",
     tokens: {
-      comment: { color: "#929BB0", italic: true },
+      comment: { color: "#9CA5BA", italic: true },
       string: { color: "#DBAC3B" },
-      keyword: { color: "#D47A5C" },
+      keyword: { color: "#E88E70" },
       function: { color: "#3CB898" },
       variable: { color: "#BAB8AC" },
-      number: { color: "#BF9040" },
-      type: { color: "#AF85E6" },
-      operator: { color: "#6CA9D6" },
-      constant: { color: "#E673A6", italic: true },
-      tag: { color: "#D47A5C" },
+      number: { color: "#CC9D4D" },
+      type: { color: "#BC92F3" },
+      operator: { color: "#6EABD8" },
+      constant: { color: "#F27FB2", italic: true },
+      tag: { color: "#E88E70" },
       attribute: { color: "#DBAC3B", italic: true },
       property: { color: "#BAB8AC" },
-      punctuation: { color: "#8A90A0" },
+      punctuation: { color: "#9FA5B5" },
       builtin: { color: "#4CC890" },
       regex: { color: "#D890A8" },
     }
   },
   "Light": {
-    bg: "#F8F8F6", fg: "#242424", selection: "#DA775635", lineHighlight: "#F0EFEA",
+    bg: "#F8F8F6", fg: "#242424", selection: "#C15F3C35", lineHighlight: "#F0EFEA",
     lineNum: "#A8A39C", lineNumActive: "#605C55", headerBg: "#EEEEE8",
     tokens: {
       comment: { color: "#4A525A", italic: true },
-      string: { color: "#7A5000" },
-      keyword: { color: "#9E341A" },
-      function: { color: "#00654D" },
+      string: { color: "#764C00" },
+      keyword: { color: "#9A3016" },
+      function: { color: "#006149" },
       variable: { color: "#4A3F38" },
-      number: { color: "#AA0E53" },
+      number: { color: "#A70B50" },
       type: { color: "#6530B8" },
-      operator: { color: "#0057AB" },
-      constant: { color: "#AA0E53", italic: true },
-      tag: { color: "#9E341A" },
-      attribute: { color: "#7A5000", italic: true },
+      operator: { color: "#0053A7" },
+      constant: { color: "#A70B50", italic: true },
+      tag: { color: "#9A3016" },
+      attribute: { color: "#764C00", italic: true },
       property: { color: "#4A3F38" },
-      punctuation: { color: "#787068" },
+      punctuation: { color: "#4D5660" },
       builtin: { color: "#105E26" },
-      regex: { color: "#AB2B85" },
+      regex: { color: "#9B1B75" },
     }
   },
   "Light Bright": {
     bg: "#FFFFFF", fg: "#141414", selection: "#DA775640", lineHighlight: "#F5F5F5",
+
     lineNum: "#A0A0A0", lineNumActive: "#505050", headerBg: "#F5F5F5",
     tokens: {
       comment: { color: "#525962", italic: true },
@@ -590,7 +591,7 @@ fn main() -> Result<()> {
   <main id="content">
     <section class="hero">
       <h1>Warm, accessible color themes</h1>
-      <p>WCAG AA compliant with 5 variants including color-blind mode.</p>
+      <p>WCAG AAA compliant with 5 variants including color-blind mode.</p>
       <button type="button" onclick="installTheme()">
         Install Extension
       </button>
@@ -611,8 +612,8 @@ fn main() -> Result<()> {
 :root {
   --bg-primary: #141414;
   --fg-primary: #D4D4D4;
-  --accent: #DA7756;
-  --accent-hover: #E08866;
+  --accent: #E98665;
+  --accent-hover: #F09575;
   --border: #333333;
   --radius: 8px;
   --transition: 150ms ease;

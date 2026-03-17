@@ -2,6 +2,20 @@
 
 All notable changes to the Terracotta theme will be documented in this file.
 
+## [1.6.0] - 2026-03-16
+
+### Changed
+- **Full WCAG AAA compliance** — all 95 syntax color pairs across all 5 variants now meet the 7:1 AAA contrast threshold (previously some were AA-only at 4.5:1+)
+- **UI contrast audit** — 235 workbench UI foreground/background pairs validated against WCAG AA (4.5:1); all active UI text now passes
+- Contrast checker upgraded: threshold raised to AAA (7:1) for syntax, added UI pair validation with WCAG SC 1.4.3 exempt handling for inactive/decorative elements
+- Light themes: button, badge, and status bar foregrounds switched from white to dark text on accent backgrounds for proper contrast
+- Dark Dimmed: status bar error background lightened (`#BF6B66` → `#C06C67`) to clear AA threshold
+- Key syntax color updates for AAA compliance:
+  - **Dark**: keyword `#DA7756` → `#E98665`, numbers `#C88040` → `#D89050`, punctuation slightly lightened
+  - **Dark Dimmed**: keyword `#D47A5C` → `#E88E70`, types `#AF85E6` → `#BC92F3`, numbers `#BF9040` → `#CC9D4D`, and 11 other minor lightening adjustments
+  - **Light**: keywords, strings, regex, numbers, operators, functions, punctuation all darkened ~2–4 steps to clear 7:1
+  - **Light Bright**: tag punctuation `#6B757F` → `#505A64`
+
 ## [1.3.0] - 2026-03-16
 
 ### Changed
