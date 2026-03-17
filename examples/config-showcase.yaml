@@ -1,0 +1,218 @@
+# Terracotta Theme - YAML Showcase
+# Covers: anchors, aliases, tags, block scalars, flow sequences, nested maps
+
+---
+# ── Application Configuration ────────────────────────────────────
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: terracotta-config
+  namespace: themes
+  labels:
+    app: terracotta-theme
+    version: "2.1.0"
+    environment: production
+  annotations:
+    description: "Theme configuration for all 5 variants"
+    maintainer: team@terracotta.dev
+
+# ── Theme Definitions ────────────────────────────────────────────
+
+themes:
+  # Anchor definition for shared settings
+  defaults: &defaults
+    semanticHighlighting: true
+    wcagLevel: AAA
+    minContrastRatio: 4.5
+    targetContrastRatio: 7.0
+    features:
+      - syntax-highlighting
+      - semantic-tokens
+      - bracket-colorization
+    supportedLanguages:
+      - javascript
+      - typescript
+      - python
+      - rust
+      - go
+      - java
+
+  dark:
+    <<: *defaults  # Merge key (alias)
+    name: Terracotta Dark
+    type: dark
+    colors:
+      background: "#141414"
+      foreground: "#D4D4D4"
+      accent: "#E98665"
+      selection: "#E9866540"
+    tokens:
+      keyword: "#E98665"
+      function: "#4EC9A0"
+      string: "#F0C24E"
+      type: "#C28BFF"
+      variable: "#C8C0A8"
+      property: "#B0C4DE"
+      comment: "#9DA5B4"
+      number: "#D89050"
+      operator: "#7FC7F4"
+
+  dark-dimmed:
+    <<: *defaults
+    name: Terracotta Dark Dimmed
+    type: dark
+    colors:
+      background: "#1A1A1A"
+      foreground: "#CCCCCC"
+      accent: "#C4785E"
+
+  light:
+    <<: *defaults
+    name: Terracotta Light
+    type: light
+    colors:
+      background: "#F8F8F6"
+      foreground: "#242424"
+      accent: "#C15F3C"
+
+  light-bright:
+    <<: *defaults
+    name: Terracotta Light Bright
+    type: light
+    colors:
+      background: "#FFFFFF"
+      foreground: "#141414"
+      accent: "#DA7756"
+
+  high-contrast-cb:
+    <<: *defaults
+    name: Terracotta High Contrast (Color Blind)
+    type: hc
+    minContrastRatio: 7.0
+    targetContrastRatio: 12.0
+    colors:
+      background: "#000000"
+      foreground: "#FFFFFF"
+      accent: "#FE6100"
+
+# ── CI/CD Pipeline ───────────────────────────────────────────────
+
+pipeline:
+  stages:
+    - name: lint
+      image: node:20-alpine
+      commands:
+        - npm ci
+        - npm run lint
+      timeout: 300
+      retry: 2
+
+    - name: test
+      image: node:20-alpine
+      commands:
+        - npm run test:contrast
+        - npm run test:json-valid
+      artifacts:
+        paths:
+          - coverage/
+          - reports/
+      when:
+        branches:
+          include: [main, "release/*"]
+          exclude: ["hotfix/*"]
+
+    - name: build
+      image: node:20-alpine
+      commands:
+        - npm run build
+        - npm run package
+      depends_on: [lint, test]
+      environment:
+        NODE_ENV: production
+        CI: true
+
+    - name: publish
+      image: node:20-alpine
+      commands:
+        - npx vsce publish
+      when:
+        event: tag
+        tags: ["v*"]
+      secrets:
+        - VSCE_TOKEN
+        - OVSX_TOKEN
+
+# ── Block Scalars ────────────────────────────────────────────────
+
+description: |
+  Terracotta Theme is a warm, accessible VS Code theme
+  that prioritizes readability and WCAG AAA compliance.
+
+  Features:
+    - 5 theme variants (dark, dimmed, light, bright, HC)
+    - Color-blind friendly high contrast variant
+    - 140+ TextMate rules per theme
+    - 43+ semantic tokens per theme
+    - Full JSX/TSX, GraphQL, TOML, YAML coverage
+
+changelog: >
+  Version 2.1.0 brings comprehensive TextMate rule coverage
+  for GraphQL, TOML, Dockerfile, and Shell/Bash, along with
+  fixes for semantic token consistency across all variants.
+
+# ── Complex Nested Structures ────────────────────────────────────
+
+contrast_matrix:
+  - &dark_bg
+    background: "#141414"
+    tests:
+      - { foreground: "#D4D4D4", ratio: 13.50, pass: true }
+      - { foreground: "#E98665", ratio: 6.80, pass: true }
+      - { foreground: "#4EC9A0", ratio: 8.94, pass: true }
+      - { foreground: "#C28BFF", ratio: 6.59, pass: true }
+      - { foreground: "#F0C24E", ratio: 10.42, pass: true }
+
+  - background: "#000000"
+    tests:
+      - { foreground: "#FFFFFF", ratio: 21.00, pass: true }
+      - { foreground: "#FF8A5C", ratio: 6.20, pass: true }
+      - { foreground: "#00BFCC", ratio: 9.32, pass: true }
+      - { foreground: "#D580FF", ratio: 8.36, pass: true }
+
+# ── Tags and Typed Values ────────────────────────────────────────
+
+typed_values:
+  count: 140
+  ratio: 4.5
+  enabled: true
+  disabled: false
+  nothing: null
+  nothing_alt: ~
+  date: 2024-12-15
+  datetime: 2024-12-15T10:30:00Z
+  binary: !!binary |
+    R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+  set: !!set
+    ? dark
+    ? light
+    ? dimmed
+
+# ── Flow Style ───────────────────────────────────────────────────
+
+quick_reference:
+  families: {purple: types, green: functions, terracotta: keywords, gold: strings}
+  priorities: [critical, high, medium, low]
+  empty_map: {}
+  empty_list: []
+
+# ── Multi-document separator ─────────────────────────────────────
+---
+# Second document in the same file
+kind: Secret
+metadata:
+  name: theme-tokens
+type: Opaque
+data:
+  vsce-token: BASE64_ENCODED_TOKEN
+  ovsx-token: BASE64_ENCODED_TOKEN

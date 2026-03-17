@@ -1,0 +1,242 @@
+# Terracotta Theme - GraphQL Showcase
+# Covers: types, queries, mutations, fragments, directives, enums, inputs
+
+"""
+A comprehensive GraphQL schema for testing theme rendering.
+Includes all major GraphQL constructs.
+"""
+
+# ── Enums ──────────────────────────────────────────────────────────
+
+enum Role {
+  ADMIN
+  EDITOR
+  VIEWER
+  GUEST
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  PENDING_REVIEW
+}
+
+# ── Input types ────────────────────────────────────────────────────
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  role: Role = VIEWER
+  tags: [String!]
+  preferences: PreferencesInput
+}
+
+input PreferencesInput {
+  theme: String
+  language: String
+  notifications: Boolean = true
+}
+
+input PaginationInput {
+  first: Int = 20
+  after: String
+  orderBy: String
+  direction: SortDirection = ASC
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+
+# ── Types ──────────────────────────────────────────────────────────
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  role: Role!
+  status: Status!
+  avatar: String
+  posts(pagination: PaginationInput): PostConnection!
+  preferences: Preferences!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type Preferences {
+  theme: String!
+  language: String!
+  notifications: Boolean!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  published: Boolean!
+  author: User!
+  tags: [String!]!
+  comments(first: Int = 10): [Comment!]!
+  createdAt: DateTime!
+}
+
+type Comment {
+  id: ID!
+  body: String!
+  author: User!
+  post: Post!
+  createdAt: DateTime!
+}
+
+# ── Connections (pagination) ───────────────────────────────────────
+
+type PostConnection {
+  edges: [PostEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type PostEdge {
+  node: Post!
+  cursor: String!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+# ── Union and Interface ────────────────────────────────────────────
+
+interface Node {
+  id: ID!
+}
+
+interface Timestamped {
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+union SearchResult = User | Post | Comment
+
+# ── Custom scalars ─────────────────────────────────────────────────
+
+scalar DateTime
+scalar JSON
+scalar Upload
+
+# ── Fragments ──────────────────────────────────────────────────────
+
+fragment UserBasic on User {
+  id
+  name
+  email
+  role
+}
+
+fragment PostSummary on Post {
+  id
+  title
+  published
+  createdAt
+  author {
+    ...UserBasic
+  }
+}
+
+# ── Queries ────────────────────────────────────────────────────────
+
+type Query {
+  """Fetch a user by ID"""
+  user(id: ID!): User
+
+  """List users with pagination and filtering"""
+  users(
+    pagination: PaginationInput
+    role: Role
+    status: Status
+  ): [User!]! @deprecated(reason: "Use usersConnection instead")
+
+  usersConnection(
+    first: Int!
+    after: String
+    filter: UserFilter
+  ): UserConnection!
+
+  """Search across all entities"""
+  search(query: String!, limit: Int = 25): [SearchResult!]!
+
+  """Get current authenticated user"""
+  me: User @auth(requires: VIEWER)
+
+  post(id: ID!): Post
+  posts(published: Boolean, authorId: ID): [Post!]!
+}
+
+# ── Mutations ──────────────────────────────────────────────────────
+
+type Mutation {
+  createUser(input: CreateUserInput!): User! @auth(requires: ADMIN)
+  updateUser(id: ID!, input: UpdateUserInput!): User! @auth(requires: EDITOR)
+  deleteUser(id: ID!): Boolean! @auth(requires: ADMIN)
+
+  createPost(
+    title: String!
+    content: String!
+    tags: [String!]
+    published: Boolean = false
+  ): Post! @auth(requires: EDITOR)
+
+  publishPost(id: ID!): Post! @auth(requires: EDITOR)
+  addComment(postId: ID!, body: String!): Comment! @auth(requires: VIEWER)
+
+  uploadAvatar(file: Upload!): String! @auth(requires: VIEWER)
+}
+
+# ── Subscriptions ──────────────────────────────────────────────────
+
+type Subscription {
+  postPublished: Post!
+  commentAdded(postId: ID!): Comment!
+  userStatusChanged(userId: ID!): User!
+}
+
+# ── Directives ─────────────────────────────────────────────────────
+
+directive @auth(requires: Role!) on FIELD_DEFINITION
+directive @cacheControl(maxAge: Int!) on FIELD_DEFINITION | OBJECT
+directive @deprecated(reason: String) on FIELD_DEFINITION | ENUM_VALUE
+
+# ── Additional filter input ────────────────────────────────────────
+
+input UserFilter {
+  name: String
+  email: String
+  role: [Role!]
+  status: [Status!]
+  createdAfter: DateTime
+  createdBefore: DateTime
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  role: Role
+  status: Status
+  preferences: PreferencesInput
+}
+
+type UserConnection {
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}

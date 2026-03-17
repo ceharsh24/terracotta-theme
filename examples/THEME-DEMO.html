@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terracotta Theme - Comprehensive Token Demo</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #111;
+    color: #ddd;
+    padding: 1.5rem;
+  }
+  h1 { text-align: center; color: #E98665; margin-bottom: 0.3rem; font-size: 1.5rem; }
+  .subtitle { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .controls {
+    display: flex; gap: 0.4rem; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 1.5rem;
+  }
+  .theme-btn {
+    padding: 0.4rem 0.9rem; border: 1px solid #444; border-radius: 5px;
+    background: transparent; color: #ccc; cursor: pointer; font-size: 0.8rem;
+  }
+  .theme-btn:hover { border-color: #E98665; }
+  .theme-btn.active { background: #E98665; color: #000; border-color: #E98665; }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(580px, 1fr));
+    gap: 1rem; max-width: 1600px; margin: 0 auto;
+  }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+  .panel {
+    border-radius: 6px; overflow: hidden; border: 1px solid #333;
+  }
+  .panel-header {
+    padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .panel-header .lang { opacity: 0.6; font-weight: 400; }
+  .code {
+    padding: 0.8rem 1rem; font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+    font-size: 12px; line-height: 1.55; white-space: pre; overflow-x: auto;
+    min-height: 180px;
+  }
+  .legend {
+    max-width: 1600px; margin: 2rem auto 0; padding: 1rem;
+    border: 1px solid #333; border-radius: 6px;
+  }
+  .legend h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.8rem; }
+  .swatches {
+    display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem;
+  }
+  .swatch-item {
+    display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem;
+  }
+  .swatch-dot {
+    width: 14px; height: 14px; border-radius: 3px; border: 1px solid #555; flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>Terracotta Theme Token Coverage Demo</h1>
+<p class="subtitle">Every panel targets specific token scopes. Switch themes to compare.</p>
+
+<div class="controls" id="themeButtons"></div>
+<div class="grid" id="grid"></div>
+<div class="legend" id="legend">
+  <h3>Token Legend</h3>
+  <div class="swatches" id="swatches"></div>
+</div>
+
+<script>
+const THEMES = {
+  "Dark": {
+    bg: "#141414", fg: "#D4D4D4", headerBg: "#0e0e0e",
+    tokens: {
+      comment:    { color: "#9DA5B4", style: "italic" },
+      string:     { color: "#F0C24E" },
+      keyword:    { color: "#E98665" },
+      function:   { color: "#4EC9A0" },
+      variable:   { color: "#C8C0A8" },
+      number:     { color: "#D89050" },
+      type:       { color: "#C28BFF" },
+      operator:   { color: "#7FC7F4" },
+      constant:   { color: "#E1948F", style: "italic" },
+      tag:        { color: "#E1948F" },
+      attribute:  { color: "#F0C24E", style: "italic" },
+      property:   { color: "#B0C4DE" },
+      punctuation:{ color: "#999FB5" },
+      builtin:    { color: "#6ACB9E" },
+      regex:      { color: "#E1ABC1" },
+      parameter:  { color: "#C8C0A8", style: "italic" },
+      macro:      { color: "#4EC9A0", style: "bold" },
+      enumMember: { color: "#D4A96A" },
+      label:      { color: "#7FC7F4" },
+      module:     { color: "#C28BFF" },
+      decorator:  { color: "#E1948F", style: "italic" },
+      docComment: { color: "#7A8C9E", style: "italic" },
+    }
+  },
+  "Dark Dimmed": {
+    bg: "#1A1A1A", fg: "#CCCCCC", headerBg: "#121212",
+    tokens: {
+      comment:    { color: "#9CA5BA", style: "italic" },
+      string:     { color: "#DBAC3B" },
+      keyword:    { color: "#E88E70" },
+      function:   { color: "#33A886" },
+      variable:   { color: "#B5AD9E" },
+      number:     { color: "#CC9D4D" },
+      type:       { color: "#BC92F3" },
+      operator:   { color: "#6EABD8" },
+      constant:   { color: "#CC8474", style: "italic" },
+      tag:        { color: "#D87A6A" },
+      attribute:  { color: "#DBAC3B", style: "italic" },
+      property:   { color: "#8FAEC8" },
+      punctuation:{ color: "#9FA5B5" },
+      builtin:    { color: "#4CC890" },
+      regex:      { color: "#D890A8" },
+      parameter:  { color: "#B5AD9E", style: "italic" },
+      macro:      { color: "#33A886", style: "bold" },
+      enumMember: { color: "#C0A055" },
+      label:      { color: "#6EABD8" },
+      module:     { color: "#BC92F3" },
+      decorator:  { color: "#CC8474", style: "italic" },
+      docComment: { color: "#7A8490", style: "italic" },
+    }
+  },
+  "Light": {
+    bg: "#F8F8F6", fg: "#242424", headerBg: "#EEEEE8",
+    tokens: {
+      comment:    { color: "#687078", style: "italic" },
+      string:     { color: "#764C00" },
+      keyword:    { color: "#9A3016" },
+      function:   { color: "#006149" },
+      variable:   { color: "#4A3F38" },
+      number:     { color: "#A70B50" },
+      type:       { color: "#6530B8" },
+      operator:   { color: "#0053A7" },
+      constant:   { color: "#A85A00", style: "italic" },
+      tag:        { color: "#7D4035" },
+      attribute:  { color: "#764C00", style: "italic" },
+      property:   { color: "#2E5A88" },
+      punctuation:{ color: "#4D5660" },
+      builtin:    { color: "#105E26" },
+      regex:      { color: "#9B1B75" },
+      parameter:  { color: "#8D3500", style: "italic" },
+      macro:      { color: "#006149", style: "bold" },
+      enumMember: { color: "#7D4000" },
+      label:      { color: "#0053A7" },
+      module:     { color: "#6530B8" },
+      decorator:  { color: "#A85A00", style: "italic" },
+      docComment: { color: "#5E6672", style: "italic" },
+    }
+  },
+  "Light Bright": {
+    bg: "#FFFFFF", fg: "#141414", headerBg: "#F5F5F5",
+    tokens: {
+      comment:    { color: "#656D77", style: "italic" },
+      string:     { color: "#7C4F00" },
+      keyword:    { color: "#9E341A" },
+      function:   { color: "#00654D" },
+      variable:   { color: "#3D3530" },
+      number:     { color: "#AA0E53" },
+      type:       { color: "#5E29AD" },
+      operator:   { color: "#0055A8" },
+      constant:   { color: "#AA5A00", style: "italic" },
+      tag:        { color: "#7E3020" },
+      attribute:  { color: "#7C4F00", style: "italic" },
+      property:   { color: "#2E5A88" },
+      punctuation:{ color: "#787068" },
+      builtin:    { color: "#105E26" },
+      regex:      { color: "#AB2B85" },
+      parameter:  { color: "#8A4500", style: "italic" },
+      macro:      { color: "#00654D", style: "bold" },
+      enumMember: { color: "#805000" },
+      label:      { color: "#0055A8" },
+      module:     { color: "#5E29AD" },
+      decorator:  { color: "#AA5A00", style: "italic" },
+      docComment: { color: "#5E6672", style: "italic" },
+    }
+  },
+  "High Contrast CB": {
+    bg: "#000000", fg: "#FFFFFF", headerBg: "#080808",
+    tokens: {
+      comment:    { color: "#A0A0A0", style: "italic" },
+      string:     { color: "#FFDF33" },
+      keyword:    { color: "#FF8A5C" },
+      function:   { color: "#00BFCC" },
+      variable:   { color: "#C8C4B4" },
+      number:     { color: "#FFB000" },
+      type:       { color: "#D580FF" },
+      operator:   { color: "#80BFFF" },
+      constant:   { color: "#FF9070", style: "italic" },
+      tag:        { color: "#E07050" },
+      attribute:  { color: "#FFDF33", style: "italic" },
+      property:   { color: "#A0D0FF" },
+      punctuation:{ color: "#A0A0B0" },
+      builtin:    { color: "#94B0EC" },
+      regex:      { color: "#E1D4F2" },
+      parameter:  { color: "#C8C4B4", style: "italic" },
+      macro:      { color: "#00BFCC", style: "bold" },
+      enumMember: { color: "#FFD060" },
+      label:      { color: "#80BFFF" },
+      module:     { color: "#D580FF" },
+      decorator:  { color: "#FF9070", style: "italic" },
+      docComment: { color: "#B0B0B0", style: "italic" },
+    }
+  }
+};
+
+function s(text, token) { return { text, token }; }
+function nl() { return s("\n", null); }
+
+const PANELS = [
+  {
+    title: "Keywords, Functions & Variables",
+    lang: "JavaScript",
+    code: () => [
+      s("// Function declarations, calls, params, variables", "comment"), nl(),
+      s("import", "keyword"), s(" { ", "punctuation"),
+      s("readFile", "function"), s(", ", "punctuation"),
+      s("writeFile", "function"),
+      s(" } ", "punctuation"), s("from", "keyword"), s(" ", null),
+      s("\"node:fs/promises\"", "string"), s(";", "punctuation"), nl(),
+      nl(),
+      s("const", "keyword"), s(" ", null), s("MAX_SIZE", "constant"), s(" = ", "operator"),
+      s("1024", "number"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("count", "variable"), s(" = ", "operator"),
+      s("0", "number"), s(";", "punctuation"), nl(),
+      nl(),
+      s("async", "keyword"), s(" ", null), s("function", "keyword"), s(" ", null),
+      s("processFile", "function"), s("(", "punctuation"),
+      s("path", "parameter"), s(", ", "punctuation"),
+      s("options", "parameter"), s(")", "punctuation"), s(" {", "punctuation"), nl(),
+      s("  ", null), s("const", "keyword"), s(" ", null), s("data", "variable"),
+      s(" = ", "operator"), s("await", "keyword"), s(" ", null),
+      s("readFile", "function"), s("(", "punctuation"), s("path", "variable"),
+      s(", ", "punctuation"), s("\"utf-8\"", "string"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("  ", null), s("if", "keyword"), s(" (", "punctuation"),
+      s("data", "variable"), s(".", "punctuation"), s("length", "property"),
+      s(" > ", "operator"), s("MAX_SIZE", "constant"), s(")", "punctuation"),
+      s(" {", "punctuation"), nl(),
+      s("    ", null), s("throw", "keyword"), s(" ", null), s("new", "keyword"),
+      s(" ", null), s("Error", "type"), s("(", "punctuation"),
+      s("\"File too large\"", "string"), s(")", "punctuation"), s(";", "punctuation"), nl(),
+      s("  }", "punctuation"), nl(),
+      s("  ", null), s("return", "keyword"), s(" ", null),
+      s("JSON", "builtin"), s(".", "punctuation"), s("parse", "function"),
+      s("(", "punctuation"), s("data", "variable"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("}", "punctuation"),
+    ]
+  },
+  {
+    title: "Classes, Types & Properties",
+    lang: "TypeScript",
+    code: () => [
+      s("// Interfaces, classes, generics, properties", "comment"), nl(),
+      s("interface", "keyword"), s(" ", null), s("Theme", "type"),
+      s("<", "operator"), s("T", "type"), s(">", "operator"),
+      s(" {", "punctuation"), nl(),
+      s("  ", null), s("name", "property"), s(": ", "punctuation"),
+      s("string", "type"), s(";", "punctuation"), nl(),
+      s("  ", null), s("variant", "property"), s(": ", "punctuation"),
+      s("\"dark\"", "string"), s(" | ", "operator"), s("\"light\"", "string"),
+      s(";", "punctuation"), nl(),
+      s("  ", null), s("colors", "property"), s(": ", "punctuation"),
+      s("Record", "type"), s("<", "operator"), s("string", "type"),
+      s(", ", "punctuation"), s("T", "type"), s(">", "operator"),
+      s(";", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s("class", "keyword"), s(" ", null), s("ThemeRegistry", "type"),
+      s(" ", null), s("implements", "keyword"), s(" ", null),
+      s("Iterable", "type"), s("<", "operator"), s("Theme", "type"),
+      s("<", "operator"), s("string", "type"), s(">", "operator"),
+      s(">", "operator"), s(" {", "punctuation"), nl(),
+      s("  ", null), s("private", "keyword"), s(" ", null),
+      s("themes", "property"), s(" = ", "operator"), s("new", "keyword"),
+      s(" ", null), s("Map", "type"), s("<", "operator"),
+      s("string", "type"), s(", ", "punctuation"), s("Theme", "type"),
+      s("<", "operator"), s("string", "type"), s(">>", "operator"),
+      s("()", "punctuation"), s(";", "punctuation"), nl(),
+      nl(),
+      s("  ", null), s("register", "function"), s("(", "punctuation"),
+      s("theme", "parameter"), s(": ", "punctuation"),
+      s("Theme", "type"), s("<", "operator"), s("string", "type"),
+      s(">", "operator"), s(")", "punctuation"), s(": ", "punctuation"),
+      s("void", "type"), s(" {", "punctuation"), nl(),
+      s("    ", null), s("this", "keyword"), s(".", "punctuation"),
+      s("themes", "property"), s(".", "punctuation"),
+      s("set", "function"), s("(", "punctuation"),
+      s("theme", "variable"), s(".", "punctuation"),
+      s("name", "property"), s(", ", "punctuation"),
+      s("theme", "variable"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("  }", "punctuation"), nl(),
+      nl(),
+      s("  ", null), s("get", "keyword"), s(" ", null),
+      s("size", "property"), s("()", "punctuation"), s(": ", "punctuation"),
+      s("number", "type"), s(" {", "punctuation"), nl(),
+      s("    ", null), s("return", "keyword"), s(" ", null),
+      s("this", "keyword"), s(".", "punctuation"),
+      s("themes", "property"), s(".", "punctuation"),
+      s("size", "property"), s(";", "punctuation"), nl(),
+      s("  }", "punctuation"), nl(),
+      s("}", "punctuation"),
+    ]
+  },
+  {
+    title: "Decorators, Enums & Doc Comments",
+    lang: "Python",
+    code: () => [
+      s("# Decorators, dataclasses, enums, doc comments", "comment"), nl(),
+      s("from", "keyword"), s(" ", null), s("enum", "module"),
+      s(" ", null), s("import", "keyword"), s(" ", null),
+      s("Enum", "type"), s(", ", "punctuation"), s("auto", "builtin"), nl(),
+      s("from", "keyword"), s(" ", null), s("dataclasses", "module"),
+      s(" ", null), s("import", "keyword"), s(" ", null),
+      s("dataclass", "decorator"), s(", ", "punctuation"), s("field", "function"), nl(),
+      nl(),
+      s("class", "keyword"), s(" ", null), s("Color", "type"),
+      s("(", "punctuation"), s("Enum", "type"), s(")", "punctuation"),
+      s(":", "punctuation"), nl(),
+      s('    """Color options for themes."""', "docComment"), nl(),
+      s("    ", null), s("RED", "enumMember"), s(" = ", "operator"),
+      s("auto", "builtin"), s("()", "punctuation"), nl(),
+      s("    ", null), s("BLUE", "enumMember"), s(" = ", "operator"),
+      s("auto", "builtin"), s("()", "punctuation"), nl(),
+      s("    ", null), s("GREEN", "enumMember"), s(" = ", "operator"),
+      s("auto", "builtin"), s("()", "punctuation"), nl(),
+      nl(),
+      s("CACHE_TTL", "constant"), s(": ", "punctuation"),
+      s("float", "type"), s(" = ", "operator"),
+      s("60.0", "number"), nl(),
+      nl(),
+      s("@", "decorator"), s("dataclass", "decorator"), nl(),
+      s("class", "keyword"), s(" ", null), s("ThemeConfig", "type"),
+      s(":", "punctuation"), nl(),
+      s('    """', "docComment"), nl(),
+      s("    Configuration for a theme variant.", "docComment"), nl(),
+      s("    Supports caching and hot reload.", "docComment"), nl(),
+      s('    """', "docComment"), nl(),
+      s("    ", null), s("name", "property"), s(": ", "punctuation"),
+      s("str", "type"), nl(),
+      s("    ", null), s("color", "property"), s(": ", "punctuation"),
+      s("Color", "type"), s(" = ", "operator"),
+      s("Color", "type"), s(".", "punctuation"), s("RED", "enumMember"), nl(),
+      nl(),
+      s("    ", null), s("@", "decorator"), s("property", "decorator"), nl(),
+      s("    ", null), s("def", "keyword"), s(" ", null),
+      s("is_dark", "function"), s("(", "punctuation"),
+      s("self", "parameter"), s(")", "punctuation"),
+      s(" -> ", "operator"), s("bool", "type"), s(":", "punctuation"), nl(),
+      s("        ", null), s("return", "keyword"), s(" ", null),
+      s("self", "variable"), s(".", "punctuation"),
+      s("name", "property"), s(".", "punctuation"),
+      s("startswith", "function"), s("(", "punctuation"),
+      s("\"dark\"", "string"), s(")", "punctuation"),
+    ]
+  },
+  {
+    title: "Pattern Matching & Lifetimes",
+    lang: "Rust",
+    code: () => [
+      s("// Structs, enums, lifetimes, pattern matching", "comment"), nl(),
+      s("use", "keyword"), s(" ", null), s("std", "module"),
+      s("::", "operator"), s("collections", "module"),
+      s("::", "operator"), s("HashMap", "type"), s(";", "punctuation"), nl(),
+      nl(),
+      s("#[", "punctuation"), s("derive", "macro"),
+      s("(", "punctuation"), s("Debug", "type"), s(", ", "punctuation"),
+      s("Clone", "type"), s(")]", "punctuation"), nl(),
+      s("enum", "keyword"), s(" ", null), s("Token", "type"),
+      s("<", "operator"), s("'a", "variable"), s(">", "operator"),
+      s(" {", "punctuation"), nl(),
+      s("    ", null), s("Keyword", "enumMember"), s("(", "punctuation"),
+      s("&'a", "variable"), s(" ", null), s("str", "type"),
+      s(")", "punctuation"), s(",", "punctuation"), nl(),
+      s("    ", null), s("Number", "enumMember"), s("(", "punctuation"),
+      s("f64", "type"), s(")", "punctuation"), s(",", "punctuation"), nl(),
+      s("    ", null), s("Ident", "enumMember"), s("(", "punctuation"),
+      s("String", "type"), s(")", "punctuation"), s(",", "punctuation"), nl(),
+      s("    ", null), s("Eof", "enumMember"), s(",", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s("impl", "keyword"), s("<", "operator"), s("'a", "variable"),
+      s(">", "operator"), s(" ", null), s("Token", "type"),
+      s("<", "operator"), s("'a", "variable"), s(">", "operator"),
+      s(" {", "punctuation"), nl(),
+      s("    ", null), s("pub", "keyword"), s(" ", null),
+      s("fn", "keyword"), s(" ", null), s("describe", "function"),
+      s("(&", "operator"), s("self", "parameter"), s(")", "punctuation"),
+      s(" -> ", "operator"), s("&", "operator"), s("str", "type"),
+      s(" {", "punctuation"), nl(),
+      s("        ", null), s("match", "keyword"), s(" ", null),
+      s("self", "variable"), s(" {", "punctuation"), nl(),
+      s("            ", null), s("Token", "type"), s("::", "operator"),
+      s("Keyword", "enumMember"), s("(", "punctuation"),
+      s("kw", "variable"), s(")", "punctuation"),
+      s(" => ", "operator"), s("kw", "variable"), s(",", "punctuation"), nl(),
+      s("            ", null), s("Token", "type"), s("::", "operator"),
+      s("Number", "enumMember"), s("(", "punctuation"),
+      s("_", "variable"), s(")", "punctuation"),
+      s(" => ", "operator"), s("\"number\"", "string"), s(",", "punctuation"), nl(),
+      s("            ", null), s("Token", "type"), s("::", "operator"),
+      s("Ident", "enumMember"), s("(", "punctuation"),
+      s("_", "variable"), s(")", "punctuation"),
+      s(" => ", "operator"), s("\"ident\"", "string"), s(",", "punctuation"), nl(),
+      s("            ", null), s("Token", "type"), s("::", "operator"),
+      s("Eof", "enumMember"),
+      s(" => ", "operator"), s("\"eof\"", "string"), s(",", "punctuation"), nl(),
+      s("        }", "punctuation"), nl(),
+      s("    }", "punctuation"), nl(),
+      s("}", "punctuation"),
+    ]
+  },
+  {
+    title: "Macros, Labels & Control Flow",
+    lang: "Rust",
+    code: () => [
+      s("// Macros, labels, loops, closures", "comment"), nl(),
+      s("macro_rules!", "macro"), s(" ", null), s("log_if", "macro"),
+      s(" {", "punctuation"), nl(),
+      s("    (", "punctuation"), s("$cond", "variable"),
+      s(":", "punctuation"), s("expr", "keyword"),
+      s(", ", "punctuation"), s("$msg", "variable"),
+      s(":", "punctuation"), s("expr", "keyword"),
+      s(")", "punctuation"), s(" => ", "operator"), s("{", "punctuation"), nl(),
+      s("        ", null), s("if", "keyword"), s(" ", null),
+      s("$cond", "variable"), s(" {", "punctuation"), nl(),
+      s("            ", null), s("println!", "macro"),
+      s("(", "punctuation"), s("\"{}: {}\"", "string"),
+      s(", ", "punctuation"), s("file!", "macro"),
+      s("()", "punctuation"), s(", ", "punctuation"),
+      s("$msg", "variable"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("        }", "punctuation"), nl(),
+      s("    }", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s("fn", "keyword"), s(" ", null), s("search", "function"),
+      s("(", "punctuation"), s("items", "parameter"), s(": ", "punctuation"),
+      s("&[", "operator"), s("i32", "type"), s("]", "punctuation"),
+      s(", ", "punctuation"), s("target", "parameter"), s(": ", "punctuation"),
+      s("i32", "type"), s(")", "punctuation"), s(" -> ", "operator"),
+      s("Option", "type"), s("<", "operator"), s("usize", "type"),
+      s(">", "operator"), s(" {", "punctuation"), nl(),
+      s("    ", null), s("'outer", "label"), s(": ", "punctuation"),
+      s("for", "keyword"), s(" ", null), s("i", "variable"),
+      s(" in ", "keyword"), s("0", "number"), s("..", "operator"),
+      s("items", "variable"), s(".", "punctuation"),
+      s("len", "function"), s("()", "punctuation"),
+      s(" {", "punctuation"), nl(),
+      s("        ", null), s("if", "keyword"), s(" ", null),
+      s("items", "variable"), s("[", "punctuation"),
+      s("i", "variable"), s("]", "punctuation"),
+      s(" == ", "operator"), s("target", "variable"),
+      s(" {", "punctuation"), nl(),
+      s("            ", null), s("log_if!", "macro"),
+      s("(", "punctuation"), s("true", "constant"),
+      s(", ", "punctuation"), s("\"found\"", "string"),
+      s(")", "punctuation"), s(";", "punctuation"), nl(),
+      s("            ", null), s("return", "keyword"), s(" ", null),
+      s("Some", "constant"), s("(", "punctuation"),
+      s("i", "variable"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("        }", "punctuation"), nl(),
+      s("    }", "punctuation"), nl(),
+      s("    ", null), s("None", "constant"), nl(),
+      s("}", "punctuation"),
+    ]
+  },
+  {
+    title: "HTML Tags & Attributes",
+    lang: "HTML",
+    code: () => [
+      s("<!-- Semantic HTML with attributes -->", "comment"), nl(),
+      s("<", "punctuation"), s("!DOCTYPE", "keyword"),
+      s(" html", "tag"), s(">", "punctuation"), nl(),
+      s("<", "punctuation"), s("html", "tag"), s(" ", null),
+      s("lang", "attribute"), s("=", "operator"),
+      s("\"en\"", "string"), s(">", "punctuation"), nl(),
+      s("<", "punctuation"), s("head", "tag"), s(">", "punctuation"), nl(),
+      s("  <", "punctuation"), s("meta", "tag"), s(" ", null),
+      s("charset", "attribute"), s("=", "operator"),
+      s("\"UTF-8\"", "string"), s(">", "punctuation"), nl(),
+      s("  <", "punctuation"), s("meta", "tag"), s(" ", null),
+      s("name", "attribute"), s("=", "operator"),
+      s("\"viewport\"", "string"), s(" ", null),
+      s("content", "attribute"), s("=", "operator"),
+      s("\"width=device-width\"", "string"), s(">", "punctuation"), nl(),
+      s("  <", "punctuation"), s("title", "tag"), s(">", "punctuation"),
+      s("Terracotta Theme", null),
+      s("</", "punctuation"), s("title", "tag"), s(">", "punctuation"), nl(),
+      s("  <", "punctuation"), s("link", "tag"), s(" ", null),
+      s("rel", "attribute"), s("=", "operator"),
+      s("\"stylesheet\"", "string"), s(" ", null),
+      s("href", "attribute"), s("=", "operator"),
+      s("\"/styles/main.css\"", "string"), s(">", "punctuation"), nl(),
+      s("</", "punctuation"), s("head", "tag"), s(">", "punctuation"), nl(),
+      s("<", "punctuation"), s("body", "tag"), s(">", "punctuation"), nl(),
+      s("  <", "punctuation"), s("header", "tag"), s(" ", null),
+      s("class", "attribute"), s("=", "operator"),
+      s("\"site-header\"", "string"), s(" ", null),
+      s("role", "attribute"), s("=", "operator"),
+      s("\"banner\"", "string"), s(">", "punctuation"), nl(),
+      s("    <", "punctuation"), s("nav", "tag"), s(" ", null),
+      s("aria-label", "attribute"), s("=", "operator"),
+      s("\"Main\"", "string"), s(">", "punctuation"), nl(),
+      s("      <", "punctuation"), s("a", "tag"), s(" ", null),
+      s("href", "attribute"), s("=", "operator"),
+      s("\"/\"", "string"), s(" ", null),
+      s("class", "attribute"), s("=", "operator"),
+      s("\"logo\"", "string"), s(">", "punctuation"),
+      s("Home", null),
+      s("</", "punctuation"), s("a", "tag"), s(">", "punctuation"), nl(),
+      s("    </", "punctuation"), s("nav", "tag"), s(">", "punctuation"), nl(),
+      s("  </", "punctuation"), s("header", "tag"), s(">", "punctuation"), nl(),
+      s("  <", "punctuation"), s("main", "tag"), s(" ", null),
+      s("id", "attribute"), s("=", "operator"),
+      s("\"content\"", "string"), s(">", "punctuation"), nl(),
+      s("    <", "punctuation"), s("button", "tag"), s(" ", null),
+      s("type", "attribute"), s("=", "operator"),
+      s("\"button\"", "string"), s(" ", null),
+      s("onclick", "attribute"), s("=", "operator"),
+      s("\"install()\"", "string"), s(">", "punctuation"),
+      s("Install", null),
+      s("</", "punctuation"), s("button", "tag"), s(">", "punctuation"), nl(),
+      s("  </", "punctuation"), s("main", "tag"), s(">", "punctuation"), nl(),
+      s("</", "punctuation"), s("body", "tag"), s(">", "punctuation"), nl(),
+      s("</", "punctuation"), s("html", "tag"), s(">", "punctuation"),
+    ]
+  },
+  {
+    title: "CSS Properties & Functions",
+    lang: "CSS",
+    code: () => [
+      s("/* Custom properties, selectors, media queries */", "comment"), nl(),
+      s(":root", "keyword"), s(" {", "punctuation"), nl(),
+      s("  ", null), s("--bg-primary", "variable"), s(": ", "punctuation"),
+      s("#141414", "constant"), s(";", "punctuation"), nl(),
+      s("  ", null), s("--accent", "variable"), s(": ", "punctuation"),
+      s("#E98665", "constant"), s(";", "punctuation"), nl(),
+      s("  ", null), s("--radius", "variable"), s(": ", "punctuation"),
+      s("8", "number"), s("px", "keyword"), s(";", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s(".theme-card", "tag"), s(" {", "punctuation"), nl(),
+      s("  ", null), s("background", "property"), s(": ", "punctuation"),
+      s("var", "builtin"), s("(", "punctuation"),
+      s("--bg-primary", "variable"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("  ", null), s("border-radius", "property"), s(": ", "punctuation"),
+      s("var", "builtin"), s("(", "punctuation"),
+      s("--radius", "variable"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("  ", null), s("padding", "property"), s(": ", "punctuation"),
+      s("1.5", "number"), s("rem", "keyword"), s(";", "punctuation"), nl(),
+      s("  ", null), s("transition", "property"), s(": ", "punctuation"),
+      s("transform", "constant"), s(" ", null),
+      s("150", "number"), s("ms", "keyword"), s(" ", null),
+      s("ease", "constant"), s(";", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s(".theme-card", "tag"), s(":hover", "keyword"),
+      s(" {", "punctuation"), nl(),
+      s("  ", null), s("transform", "property"), s(": ", "punctuation"),
+      s("translateY", "function"), s("(", "punctuation"),
+      s("-2", "number"), s("px", "keyword"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("  ", null), s("box-shadow", "property"), s(": ", "punctuation"),
+      s("0", "number"), s(" ", null), s("8", "number"), s("px", "keyword"),
+      s(" ", null), s("24", "number"), s("px", "keyword"), s(" ", null),
+      s("rgba", "builtin"), s("(", "punctuation"),
+      s("0", "number"), s(", ", "punctuation"),
+      s("0", "number"), s(", ", "punctuation"),
+      s("0", "number"), s(", ", "punctuation"),
+      s("0.4", "number"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s("@media", "keyword"), s(" (", "punctuation"),
+      s("min-width", "property"), s(": ", "punctuation"),
+      s("768", "number"), s("px", "keyword"), s(")", "punctuation"),
+      s(" {", "punctuation"), nl(),
+      s("  ", null), s(".grid", "tag"), s(" {", "punctuation"), nl(),
+      s("    ", null), s("display", "property"), s(": ", "punctuation"),
+      s("grid", "constant"), s(";", "punctuation"), nl(),
+      s("    ", null), s("gap", "property"), s(": ", "punctuation"),
+      s("1.5", "number"), s("rem", "keyword"), s(";", "punctuation"), nl(),
+      s("  }", "punctuation"), nl(),
+      s("}", "punctuation"),
+    ]
+  },
+  {
+    title: "Regex, Templates & Builtins",
+    lang: "JavaScript",
+    code: () => [
+      s("// Regex, template literals, builtins", "comment"), nl(),
+      s("const", "keyword"), s(" ", null), s("EMAIL_RE", "constant"),
+      s(" = ", "operator"), s("/^[\\w.+-]+@[\\w-]+\\.[a-z]{2,}$/i", "regex"),
+      s(";", "punctuation"), nl(),
+      s("const", "keyword"), s(" ", null), s("ISO_DATE", "constant"),
+      s(" = ", "operator"), s("/\\d{4}-\\d{2}-\\d{2}/g", "regex"),
+      s(";", "punctuation"), nl(),
+      nl(),
+      s("function", "keyword"), s(" ", null),
+      s("validate", "function"), s("(", "punctuation"),
+      s("input", "parameter"), s(")", "punctuation"),
+      s(" {", "punctuation"), nl(),
+      s("  ", null), s("const", "keyword"), s(" ", null),
+      s("trimmed", "variable"), s(" = ", "operator"),
+      s("input", "variable"), s(".", "punctuation"),
+      s("trim", "function"), s("()", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("  ", null), s("const", "keyword"), s(" ", null),
+      s("isValid", "variable"), s(" = ", "operator"),
+      s("EMAIL_RE", "constant"), s(".", "punctuation"),
+      s("test", "function"), s("(", "punctuation"),
+      s("trimmed", "variable"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      nl(),
+      s("  ", null), s("const", "keyword"), s(" ", null),
+      s("msg", "variable"), s(" = ", "operator"),
+      s("`Result: ${", "string"),
+      s("isValid", "variable"),
+      s(" ? ", "operator"), s("\"ok\"", "string"),
+      s(" : ", "operator"), s("\"fail\"", "string"),
+      s("}`", "string"),
+      s(";", "punctuation"), nl(),
+      nl(),
+      s("  ", null), s("console", "builtin"), s(".", "punctuation"),
+      s("log", "function"), s("(", "punctuation"),
+      s("msg", "variable"), s(")", "punctuation"), s(";", "punctuation"), nl(),
+      s("  ", null), s("return", "keyword"), s(" ", null),
+      s("isValid", "variable"), s(" !== ", "operator"),
+      s("false", "constant"), s(" && ", "operator"),
+      s("trimmed", "variable"), s(".", "punctuation"),
+      s("length", "property"), s(" > ", "operator"),
+      s("0", "number"), s(";", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s("const", "keyword"), s(" ", null), s("results", "variable"),
+      s(" = ", "operator"), s("[", "punctuation"),
+      s("\"a@b.co\"", "string"), s(", ", "punctuation"),
+      s("\"bad\"", "string"), s(", ", "punctuation"),
+      s("null", "constant"), s("]", "punctuation"), nl(),
+      s("  .", "punctuation"), s("filter", "function"), s("(", "punctuation"),
+      s("Boolean", "type"), s(")", "punctuation"), nl(),
+      s("  .", "punctuation"), s("map", "function"), s("(", "punctuation"),
+      s("validate", "function"), s(")", "punctuation"),
+      s(";", "punctuation"),
+    ]
+  },
+  {
+    title: "Go Structs & Interfaces",
+    lang: "Go",
+    code: () => [
+      s("// Goroutines, interfaces, struct methods", "comment"), nl(),
+      s("package", "keyword"), s(" ", null), s("main", "module"), nl(),
+      nl(),
+      s("import", "keyword"), s(" (", "punctuation"), nl(),
+      s("    ", null), s("\"fmt\"", "string"), nl(),
+      s("    ", null), s("\"sync\"", "string"), nl(),
+      s(")", "punctuation"), nl(),
+      nl(),
+      s("type", "keyword"), s(" ", null), s("Logger", "type"),
+      s(" ", null), s("interface", "keyword"), s(" {", "punctuation"), nl(),
+      s("    ", null), s("Log", "function"), s("(", "punctuation"),
+      s("msg", "parameter"), s(" ", null), s("string", "type"),
+      s(")", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s("type", "keyword"), s(" ", null), s("FileLogger", "type"),
+      s(" ", null), s("struct", "keyword"), s(" {", "punctuation"), nl(),
+      s("    ", null), s("mu", "property"), s("   ", null),
+      s("sync", "module"), s(".", "punctuation"),
+      s("Mutex", "type"), nl(),
+      s("    ", null), s("path", "property"), s(" ", null),
+      s("string", "type"), nl(),
+      s("    ", null), s("count", "property"), s(" ", null),
+      s("int", "type"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s("func", "keyword"), s(" (", "punctuation"),
+      s("fl", "parameter"), s(" *", "operator"),
+      s("FileLogger", "type"), s(")", "punctuation"),
+      s(" ", null), s("Log", "function"), s("(", "punctuation"),
+      s("msg", "parameter"), s(" ", null), s("string", "type"),
+      s(")", "punctuation"), s(" {", "punctuation"), nl(),
+      s("    ", null), s("fl", "variable"), s(".", "punctuation"),
+      s("mu", "property"), s(".", "punctuation"),
+      s("Lock", "function"), s("()", "punctuation"), nl(),
+      s("    ", null), s("defer", "keyword"), s(" ", null),
+      s("fl", "variable"), s(".", "punctuation"),
+      s("mu", "property"), s(".", "punctuation"),
+      s("Unlock", "function"), s("()", "punctuation"), nl(),
+      s("    ", null), s("fl", "variable"), s(".", "punctuation"),
+      s("count", "property"), s("++", "operator"), nl(),
+      s("    ", null), s("fmt", "module"), s(".", "punctuation"),
+      s("Printf", "function"), s("(", "punctuation"),
+      s("\"[%d] %s\\n\"", "string"), s(", ", "punctuation"),
+      s("fl", "variable"), s(".", "punctuation"),
+      s("count", "property"), s(", ", "punctuation"),
+      s("msg", "variable"), s(")", "punctuation"), nl(),
+      s("}", "punctuation"),
+    ]
+  },
+  {
+    title: "Java Records & Streams",
+    lang: "Java",
+    code: () => [
+      s("// Records, generics, streams, lambdas", "comment"), nl(),
+      s("package", "keyword"), s(" ", null),
+      s("com.terracotta", "module"), s(";", "punctuation"), nl(),
+      nl(),
+      s("import", "keyword"), s(" ", null),
+      s("java.util", "module"), s(".", "punctuation"),
+      s("*", "operator"), s(";", "punctuation"), nl(),
+      nl(),
+      s("public", "keyword"), s(" ", null),
+      s("record", "keyword"), s(" ", null),
+      s("Theme", "type"), s("(", "punctuation"),
+      s("String", "type"), s(" ", null), s("name", "property"),
+      s(", ", "punctuation"),
+      s("int", "type"), s(" ", null), s("priority", "property"),
+      s(")", "punctuation"), nl(),
+      s("    ", null), s("implements", "keyword"), s(" ", null),
+      s("Comparable", "type"), s("<", "operator"),
+      s("Theme", "type"), s(">", "operator"),
+      s(" {", "punctuation"), nl(),
+      nl(),
+      s("    ", null), s("static", "keyword"), s(" ", null),
+      s("final", "keyword"), s(" ", null),
+      s("int", "type"), s(" ", null), s("MAX", "constant"),
+      s(" = ", "operator"), s("100", "number"), s(";", "punctuation"), nl(),
+      nl(),
+      s("    ", null), s("@", "decorator"), s("Override", "decorator"), nl(),
+      s("    ", null), s("public", "keyword"), s(" ", null),
+      s("int", "type"), s(" ", null),
+      s("compareTo", "function"), s("(", "punctuation"),
+      s("Theme", "type"), s(" ", null), s("other", "parameter"),
+      s(")", "punctuation"), s(" {", "punctuation"), nl(),
+      s("        ", null), s("return", "keyword"), s(" ", null),
+      s("Integer", "type"), s(".", "punctuation"),
+      s("compare", "function"), s("(", "punctuation"), nl(),
+      s("            ", null), s("this", "keyword"), s(".", "punctuation"),
+      s("priority", "property"), s("()", "punctuation"),
+      s(",", "punctuation"), nl(),
+      s("            ", null), s("other", "variable"),
+      s(".", "punctuation"), s("priority", "property"),
+      s("()", "punctuation"), s(")", "punctuation"),
+      s(";", "punctuation"), nl(),
+      s("    }", "punctuation"), nl(),
+      s("}", "punctuation"), nl(),
+      nl(),
+      s("List", "type"), s("<", "operator"),
+      s("Theme", "type"), s(">", "operator"), s(" ", null),
+      s("sorted", "variable"), s(" = ", "operator"),
+      s("themes", "variable"), s(".", "punctuation"),
+      s("stream", "function"), s("()", "punctuation"), nl(),
+      s("    .", "punctuation"), s("filter", "function"),
+      s("(", "punctuation"), s("t", "parameter"),
+      s(" -> ", "operator"), s("t", "variable"), s(".", "punctuation"),
+      s("priority", "property"), s("()", "punctuation"),
+      s(" > ", "operator"), s("0", "number"),
+      s(")", "punctuation"), nl(),
+      s("    .", "punctuation"), s("sorted", "function"),
+      s("()", "punctuation"), nl(),
+      s("    .", "punctuation"), s("toList", "function"),
+      s("()", "punctuation"), s(";", "punctuation"),
+    ]
+  },
+  {
+    title: "Numbers & Operators",
+    lang: "Mixed",
+    code: () => [
+      s("// Number formats", "comment"), nl(),
+      s("let", "keyword"), s(" ", null), s("dec", "variable"),
+      s(" = ", "operator"), s("42", "number"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("flt", "variable"),
+      s(" = ", "operator"), s("3.14159", "number"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("hex", "variable"),
+      s(" = ", "operator"), s("0xFF00AA", "number"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("bin", "variable"),
+      s(" = ", "operator"), s("0b1010_1100", "number"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("sci", "variable"),
+      s(" = ", "operator"), s("1.5e10", "number"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("neg", "variable"),
+      s(" = ", "operator"), s("-273.15", "number"), s(";", "punctuation"), nl(),
+      nl(),
+      s("// Operator variety", "comment"), nl(),
+      s("let", "keyword"), s(" ", null), s("a", "variable"),
+      s(" = ", "operator"), s("x", "variable"),
+      s(" + ", "operator"), s("y", "variable"),
+      s(" * ", "operator"), s("z", "variable"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("b", "variable"),
+      s(" = ", "operator"), s("a", "variable"),
+      s(" ?? ", "operator"), s("fallback", "variable"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("c", "variable"),
+      s(" = ", "operator"), s("flag", "variable"),
+      s(" ? ", "operator"), s("\"yes\"", "string"),
+      s(" : ", "operator"), s("\"no\"", "string"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("d", "variable"),
+      s(" = ", "operator"), s("a", "variable"),
+      s(" === ", "operator"), s("b", "variable"),
+      s(" && ", "operator"), s("!", "operator"),
+      s("c", "variable"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("e", "variable"),
+      s(" = ", "operator"), s("bits", "variable"),
+      s(" >> ", "operator"), s("4", "number"),
+      s(" | ", "operator"), s("mask", "variable"),
+      s(" & ", "operator"), s("0xFF", "number"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("f", "variable"),
+      s(" = ", "operator"), s("arr", "variable"), s("?.", "operator"),
+      s("length", "property"), s(" ?? ", "operator"),
+      s("0", "number"), s(";", "punctuation"), nl(),
+      nl(),
+      s("// Arrow & assignment", "comment"), nl(),
+      s("count", "variable"), s(" += ", "operator"),
+      s("1", "number"), s(";", "punctuation"), nl(),
+      s("const", "keyword"), s(" ", null), s("sq", "variable"),
+      s(" = ", "operator"), s("(", "punctuation"),
+      s("x", "parameter"), s(")", "punctuation"),
+      s(" => ", "operator"), s("x", "variable"),
+      s(" ** ", "operator"), s("2", "number"), s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("g", "variable"),
+      s(" = ", "operator"), s("a", "variable"),
+      s(" >= ", "operator"), s("b", "variable"),
+      s(" || ", "operator"), s("a", "variable"),
+      s(" <= ", "operator"), s("c", "variable"), s(";", "punctuation"),
+    ]
+  },
+  {
+    title: "Strings & Escape Sequences",
+    lang: "Mixed",
+    code: () => [
+      s("// JavaScript strings", "comment"), nl(),
+      s("const", "keyword"), s(" ", null), s("s1", "variable"),
+      s(" = ", "operator"), s("'single quotes'", "string"),
+      s(";", "punctuation"), nl(),
+      s("const", "keyword"), s(" ", null), s("s2", "variable"),
+      s(" = ", "operator"), s("\"with \\\"escapes\\\"\"", "string"),
+      s(";", "punctuation"), nl(),
+      s("const", "keyword"), s(" ", null), s("s3", "variable"),
+      s(" = ", "operator"), s("`template ${", "string"),
+      s("count", "variable"), s("}`", "string"),
+      s(";", "punctuation"), nl(),
+      nl(),
+      s("# Python strings", "comment"), nl(),
+      s("simple", "variable"), s(" = ", "operator"),
+      s("\"standard string\"", "string"), nl(),
+      s("raw_str", "variable"), s(" = ", "operator"),
+      s("r\"no \\escape\"", "string"), nl(),
+      s("f_str", "variable"), s(" = ", "operator"),
+      s("f\"Hello {", "string"), s("name", "variable"),
+      s("}\"", "string"), nl(),
+      s("byte_str", "variable"), s(" = ", "operator"),
+      s("b\"\\x48\\x65\\x6c\\x6c\\x6f\"", "string"), nl(),
+      s("multi", "variable"), s(" = ", "operator"),
+      s("\"\"\"", "string"), nl(),
+      s("    Multi-line string", "string"), nl(),
+      s("\"\"\"", "string"), nl(),
+      nl(),
+      s("// Rust strings", "comment"), nl(),
+      s("let", "keyword"), s(" ", null), s("s", "variable"),
+      s(" = ", "operator"), s("\"hello \\u{1F525}\"", "string"),
+      s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("raw", "variable"),
+      s(" = ", "operator"), s("r#\"contains \"quotes\"\"#", "string"),
+      s(";", "punctuation"), nl(),
+      s("let", "keyword"), s(" ", null), s("byte", "variable"),
+      s(" = ", "operator"), s("b\"bytes\"", "string"),
+      s(";", "punctuation"),
+    ]
+  },
+];
+
+// ── RENDER ──────────────────────────────────────────────────────
+function escHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function renderPanel(panel, tokens, bg, fg, headerBg) {
+  const segments = panel.code();
+  let html = "";
+  for (const seg of segments) {
+    const t = seg.token ? tokens[seg.token] : null;
+    const color = t ? t.color : fg;
+    const style = t && t.style === "italic" ? "font-style:italic;" :
+                  t && t.style === "bold" ? "font-weight:bold;" : "";
+    html += `<span style="color:${color};${style}">${escHtml(seg.text)}</span>`;
+  }
+  return `<div class="panel">
+    <div class="panel-header" style="background:${headerBg};color:${fg}">
+      <span>${panel.title}</span>
+      <span class="lang">${panel.lang}</span>
+    </div>
+    <div class="code" style="background:${bg};color:${fg}">${html}</div>
+  </div>`;
+}
+
+let activeTheme = "Dark";
+
+function applyTheme(name) {
+  activeTheme = name;
+  const t = THEMES[name];
+  document.querySelectorAll(".theme-btn").forEach(b =>
+    b.classList.toggle("active", b.dataset.theme === name)
+  );
+
+  document.getElementById("grid").innerHTML =
+    PANELS.map(p => renderPanel(p, t.tokens, t.bg, t.fg, t.headerBg)).join("");
+
+  const legendEl = document.getElementById("legend");
+  legendEl.style.background = t.bg;
+  legendEl.style.borderColor = t.headerBg;
+  legendEl.querySelector("h3").style.color = t.fg;
+
+  const sw = document.getElementById("swatches");
+  sw.innerHTML = "";
+  const labels = {
+    keyword:"Keyword", function:"Function", variable:"Variable", parameter:"Parameter",
+    property:"Property", type:"Type", constant:"Constant", enumMember:"Enum Member",
+    string:"String", number:"Number", operator:"Operator", comment:"Comment",
+    docComment:"Doc Comment", builtin:"Built-in", tag:"Tag", attribute:"Attribute",
+    regex:"Regex", macro:"Macro", label:"Label", module:"Module",
+    decorator:"Decorator", punctuation:"Punctuation"
+  };
+  for (const [key, lbl] of Object.entries(labels)) {
+    if (!t.tokens[key]) continue;
+    const item = document.createElement("div");
+    item.className = "swatch-item";
+    const dot = document.createElement("div");
+    dot.className = "swatch-dot";
+    dot.style.background = t.tokens[key].color;
+    const text = document.createElement("span");
+    text.textContent = `${lbl} ${t.tokens[key].color}`;
+    text.style.color = t.fg;
+    text.style.opacity = "0.8";
+    item.appendChild(dot);
+    item.appendChild(text);
+    sw.appendChild(item);
+  }
+}
+
+function init() {
+  const btns = document.getElementById("themeButtons");
+  for (const name of Object.keys(THEMES)) {
+    const b = document.createElement("button");
+    b.className = "theme-btn";
+    b.textContent = name;
+    b.dataset.theme = name;
+    b.addEventListener("click", () => applyTheme(name));
+    btns.appendChild(b);
+  }
+  applyTheme("Dark");
+}
+
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>

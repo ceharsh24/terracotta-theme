@@ -1,0 +1,98 @@
+# Terracotta Theme - Dockerfile Showcase
+# Covers: instructions, multi-stage builds, args, env, healthcheck
+
+# ── Stage 1: Build ────────────────────────────────────────────────
+FROM node:20-alpine AS builder
+
+# Build arguments
+ARG NODE_ENV=production
+ARG APP_VERSION=1.0.0
+
+# Labels for metadata
+LABEL maintainer="terracotta-theme@example.com"
+LABEL version="${APP_VERSION}"
+LABEL description="Terracotta Theme build image"
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    git \
+    && rm -rf /var/cache/apk/*
+
+# Copy package files first for better layer caching
+COPY package.json package-lock.json tsconfig.json ./
+COPY patches/ ./patches/
+
+# Install dependencies
+RUN npm ci --ignore-scripts \
+    && npm run postinstall \
+    && npm cache clean --force
+
+# Copy source code
+COPY src/ ./src/
+COPY public/ ./public/
+
+# Set environment variables
+ENV NODE_ENV=${NODE_ENV} \
+    NEXT_TELEMETRY_DISABLED=1 \
+    APP_VERSION=${APP_VERSION}
+
+# Build the application
+RUN npm run build \
+    && npm prune --production
+
+# ── Stage 2: Production ──────────────────────────────────────────
+FROM node:20-alpine AS runner
+
+# Security: run as non-root user
+RUN addgroup --system --gid 1001 nodejs \
+    && adduser --system --uid 1001 appuser
+
+WORKDIR /app
+
+# Copy built artifacts from builder stage
+COPY --from=builder --chown=appuser:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=appuser:nodejs /app/.next ./.next
+COPY --from=builder --chown=appuser:nodejs /app/public ./public
+COPY --from=builder --chown=appuser:nodejs /app/package.json ./
+
+# Runtime environment
+ENV NODE_ENV=production \
+    PORT=3000 \
+    HOSTNAME="0.0.0.0"
+
+# Expose the application port
+EXPOSE 3000
+
+# Switch to non-root user
+USER appuser
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:3000/api/health || exit 1
+
+# Volume for persistent data
+VOLUME ["/app/data", "/app/logs"]
+
+# Start the application
+ENTRYPOINT ["node"]
+CMD ["server.js"]
+
+# ── Stage 3: Development ─────────────────────────────────────────
+FROM builder AS development
+
+ENV NODE_ENV=development
+
+# Install dev dependencies
+RUN npm install
+
+# Expose debugger port
+EXPOSE 3000 9229
+
+# Use nodemon for hot reload
+CMD ["npx", "nodemon", "--inspect=0.0.0.0:9229", "src/index.ts"]

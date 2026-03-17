@@ -1,0 +1,192 @@
+# Terracotta Theme - TOML Showcase
+# Covers: tables, inline tables, arrays, strings, numbers, dates, booleans
+
+[package]
+name = "terracotta-theme"
+version = "2.1.0"
+edition = "2024"
+description = "Warm, accessible VS Code theme with WCAG AAA compliance"
+license = "MIT"
+authors = ["Terracotta Team <team@terracotta.dev>"]
+readme = "README.md"
+repository = "https://github.com/ceharsh24/terracotta-theme"
+keywords = ["vscode", "theme", "accessibility", "wcag", "color-blind"]
+categories = ["development-tools"]
+
+[package.metadata]
+msrv = "1.75.0"
+build-date = 2024-12-15T10:30:00Z
+
+# ── Dependencies ──────────────────────────────────────────────────
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.35", features = ["full"] }
+tracing = "0.1"
+anyhow = "1.0"
+thiserror = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+
+[dependencies.reqwest]
+version = "0.11"
+default-features = false
+features = ["json", "rustls-tls", "gzip"]
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.4"
+tokio-test = "0.4"
+insta = { version = "1.34", features = ["yaml"] }
+
+# ── Build configuration ──────────────────────────────────────────
+
+[build]
+target-dir = "target"
+incremental = true
+jobs = 8
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true
+panic = "abort"
+overflow-checks = false
+
+[profile.dev]
+opt-level = 0
+debug = true
+overflow-checks = true
+incremental = true
+
+[profile.bench]
+inherits = "release"
+debug = true
+
+# ── Features ─────────────────────────────────────────────────────
+
+[features]
+default = ["color-blind", "wcag-aaa"]
+color-blind = []
+wcag-aaa = []
+experimental = ["color-blind", "wcag-aaa", "ai-suggestions"]
+ai-suggestions = ["dep:ollama-rs"]
+full = ["experimental", "telemetry"]
+telemetry = []
+
+# ── Binary targets ───────────────────────────────────────────────
+
+[[bin]]
+name = "terracotta"
+path = "src/main.rs"
+required-features = ["default"]
+
+[[bin]]
+name = "theme-validator"
+path = "src/bin/validator.rs"
+
+[[bench]]
+name = "contrast_bench"
+harness = false
+
+[[example]]
+name = "generate_theme"
+path = "examples/generate.rs"
+
+# ── Workspace configuration ──────────────────────────────────────
+
+[workspace]
+members = [
+    "crates/core",
+    "crates/cli",
+    "crates/vscode-ext",
+    "crates/contrast-checker",
+]
+resolver = "2"
+default-members = ["crates/core", "crates/cli"]
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1.35", features = ["full"] }
+
+# ── Theme configuration (custom section) ─────────────────────────
+
+[theme]
+name = "Terracotta"
+variants = ["dark", "dark-dimmed", "light", "light-bright", "high-contrast-cb"]
+min_contrast_ratio = 4.5
+target_contrast_ratio = 7.0
+
+[theme.colors]
+accent = "#E98665"
+background_dark = "#141414"
+background_light = "#F8F8F6"
+foreground_dark = "#D4D4D4"
+foreground_light = "#242424"
+
+[theme.palette]
+terracotta = ["#E98665", "#E88E70", "#9A3016", "#9E341A", "#FF8A5C"]
+purple = ["#C28BFF", "#BC92F3", "#6530B8", "#5E29AD", "#D580FF"]
+green = ["#4EC9A0", "#33A886", "#006149", "#00654D", "#00BFCC"]
+gold = ["#F0C24E", "#DBAC3B", "#764C00", "#7C4F00", "#FFDF33"]
+
+# ── Server config (demonstrates nested tables) ────────────────────
+
+[server]
+host = "127.0.0.1"
+port = 8080
+workers = 4
+keep_alive = 75
+max_connections = 1024
+request_timeout = 30_000
+
+[server.tls]
+enabled = true
+cert_path = "/etc/ssl/certs/server.pem"
+key_path = "/etc/ssl/private/server.key"
+min_version = "1.2"
+
+[server.cors]
+allowed_origins = ["https://marketplace.visualstudio.com", "https://terracotta.dev"]
+allowed_methods = ["GET", "POST", "PUT", "DELETE"]
+max_age = 3600
+credentials = true
+
+[server.rate_limit]
+enabled = true
+requests_per_second = 100
+burst_size = 250
+
+# ── Logging ──────────────────────────────────────────────────────
+
+[logging]
+level = "info"
+format = "json"
+file = "/var/log/terracotta/app.log"
+max_size_mb = 100
+max_backups = 5
+compress = true
+
+# ── Inline table examples ────────────────────────────────────────
+
+[[tests]]
+name = "contrast_dark"
+background = "#141414"
+foreground = "#D4D4D4"
+expected_ratio = 13.5
+pass = true
+
+[[tests]]
+name = "contrast_light"
+background = "#F8F8F6"
+foreground = "#242424"
+expected_ratio = 14.2
+pass = true
+
+[[tests]]
+name = "accent_on_dark"
+background = "#141414"
+foreground = "#E98665"
+expected_ratio = 6.8
+pass = true
