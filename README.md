@@ -7,7 +7,7 @@ A strikingly vibrant, carefully crafted VS Code theme. Five variants for every e
 [![Rating](https://img.shields.io/visual-studio-marketplace/r/terracotta-theme.terracotta-theme?label=Rating&color=75CAFF)](https://marketplace.visualstudio.com/items?itemName=terracotta-theme.terracotta-theme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-FFC940.svg)](LICENSE)
 
-**100% WCAG AAA compliance across all 5 variants. 330 color pairs validated.**
+**WCAG AAA (7:1) core syntax + WCAG AA (4.5:1) supporting tokens across all 5 variants. 350+ color pairs validated.**
 
 ---
 
@@ -25,7 +25,7 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Foreground  | ![#D4D4D4](https://placehold.co/16x16/D4D4D4/D4D4D4.png)   | `#D4D4D4` |
 | Accent      | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
 | Keywords    | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
-| Functions   | ![#2EE5B2](https://placehold.co/16x16/2EE5B2/2EE5B2.png)   | `#2EE5B2` |
+| Functions   | ![#4EC9A0](https://placehold.co/16x16/4EC9A0/4EC9A0.png)   | `#4EC9A0` |
 | Strings     | ![#F0C24E](https://placehold.co/16x16/F0C24E/F0C24E.png)   | `#F0C24E` |
 | Types       | ![#C28BFF](https://placehold.co/16x16/C28BFF/C28BFF.png)   | `#C28BFF` |
 | Numbers     | ![#D89050](https://placehold.co/16x16/D89050/D89050.png)   | `#D89050` |
@@ -44,7 +44,7 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Foreground  | ![#CCCCCC](https://placehold.co/16x16/CCCCCC/CCCCCC.png)   | `#CCCCCC` |
 | Accent      | ![#C4785E](https://placehold.co/16x16/C4785E/C4785E.png)   | `#C4785E` |
 | Keywords    | ![#E88E70](https://placehold.co/16x16/E88E70/E88E70.png)   | `#E88E70` |
-| Functions   | ![#3CB898](https://placehold.co/16x16/3CB898/3CB898.png)   | `#3CB898` |
+| Functions   | ![#45B892](https://placehold.co/16x16/45B892/45B892.png)   | `#45B892` |
 | Strings     | ![#DBAC3B](https://placehold.co/16x16/DBAC3B/DBAC3B.png)   | `#DBAC3B` |
 | Types       | ![#BC92F3](https://placehold.co/16x16/BC92F3/BC92F3.png)   | `#BC92F3` |
 | Numbers     | ![#CC9D4D](https://placehold.co/16x16/CC9D4D/CC9D4D.png)   | `#CC9D4D` |
@@ -71,7 +71,7 @@ A warm paper-like light theme using a beautifully soft off-white background (`#F
 
 ### Terracotta Light Bright
 
-Maximum accessibility on a pure white background (`#FFFFFF`). Every syntax token meets WCAG AAA (7:1+). Bold borders and the sharpest contrast profile for bright environments and high-resolution displays.
+Maximum accessibility on a pure white background (`#FFFFFF`). Core syntax tokens meet WCAG AAA (7:1+), supporting tokens meet AA (4.5:1+). Bold borders and the sharpest contrast profile for bright environments and high-resolution displays.
 
 ![Terracotta Light Bright](screenshots/screenshot-light-bright.png)
 
@@ -89,7 +89,7 @@ Maximum accessibility on a pure white background (`#FFFFFF`). Every syntax token
 
 ### Terracotta High Contrast (Color Blind)
 
-Built for pure accessibility on a true black (`#000000`) background. Uses a scientifically validated palette avoiding red/green combinations entirely. Every syntax element passes WCAG AAA (7:1+), with contrasts reaching 16:1.
+Built for pure accessibility on a true black (`#000000`) background. Uses a scientifically validated palette avoiding red/green combinations entirely. Every syntax element passes WCAG AAA (7:1+), with contrasts reaching 21:1.
 
 ![Terracotta High Contrast Color Blind](screenshots/screenshot-high-contrast-cb.png)
 
@@ -98,7 +98,7 @@ Built for pure accessibility on a true black (`#000000`) background. Uses a scie
 | Background  | ![#000000](https://placehold.co/16x16/000000/000000.png)   | `#000000` | N/A         |
 | Foreground  | ![#FFFFFF](https://placehold.co/16x16/FFFFFF/FFFFFF.png)   | `#FFFFFF` | 21.0:1      |
 | Keywords    | ![#FF8A5C](https://placehold.co/16x16/FF8A5C/FF8A5C.png)   | `#FF8A5C` | 9.0:1       |
-| Functions   | ![#00E5FF](https://placehold.co/16x16/00E5FF/00E5FF.png)   | `#00E5FF` | 13.7:1      |
+| Functions   | ![#00BFCC](https://placehold.co/16x16/00BFCC/00BFCC.png)   | `#00BFCC` | 9.3:1       |
 | Strings     | ![#FFDF33](https://placehold.co/16x16/FFDF33/FFDF33.png)   | `#FFDF33` | 15.9:1      |
 | Types       | ![#D580FF](https://placehold.co/16x16/D580FF/D580FF.png)   | `#D580FF` | 8.4:1       |
 | Numbers     | ![#FFB000](https://placehold.co/16x16/FFB000/FFB000.png)   | `#FFB000` | 11.5:1      |
@@ -183,22 +183,28 @@ Semantic highlighting is enabled out-of-the-box for richer, context-aware colori
 Each variant provides:
 
 - **200+ workbench colors** — precise styling for the editor, sidebar, terminal, diffs, menus, inputs, and every nook of the IDE.
-- **75+ TextMate token rules** — comprehensive coverage across all standard grammars.
-- **30+ semantic token rules** — deep integration with language servers.
+- **140 TextMate token rules** — comprehensive coverage across all standard grammars, including JSX/TSX, GraphQL, TOML, Dockerfile, Shell/Bash, and YAML.
+- **43+ semantic token rules** — deep integration with language servers.
 
 ---
 
 ## Accessibility & Design
 
-330 color pairs across all 5 variants are validated against WCAG 2.1 standards using an automated contrast checker (`npm test`).
+350+ color pairs across all 5 variants are validated against WCAG 2.1 standards using an automated contrast checker (`npm test`).
 
 ### WCAG Compliance
 
+A tiered system ensures the best balance of readability and color differentiation:
+
 | Category | Pairs | Standard | Result |
 |----------|-------|----------|--------|
-| Syntax tokens | 95 | AAA (7:1) | 100% pass |
-| UI text (active) | 202 | AA (4.5:1) | 100% pass |
-| UI text (exempt) | 33 | — | Intentionally subdued |
+| Core syntax (Tier 1) | ~35 | AAA (7:1) | 100% pass |
+| Supporting syntax (Tier 2) | ~80 | AA (4.5:1) | 100% pass |
+| UI text (active) | ~200 | AA (4.5:1) | 100% pass |
+| UI text (exempt) | ~33 | — | Intentionally subdued |
+
+**Tier 1** — keyword, function, string, variable, type, number, operator — the tokens you read thousands of times a day.
+**Tier 2** — comment, constant, parameter, property, tag, attribute, punctuation, regex, macro, decorator — supporting tokens where color differentiation matters more than raw contrast.
 
 **Exempt elements** — line numbers, inactive tabs/icons/titles, input placeholders, CodeLens, and inlay hints — are intentionally low-contrast per WCAG SC 1.4.3 (inactive user interface components).
 
@@ -206,15 +212,15 @@ Each variant provides:
 
 | Variant | Editor | Comment | Keyword | Function | String | Number |
 |---------|--------|---------|---------|----------|--------|--------|
-| Dark | 12.43 | 7.43 | 7.07 | 11.38 | 10.99 | 7.04 |
-| Dark Dimmed | 10.84 | 7.05 | 7.07 | 7.05 | 8.27 | 7.04 |
-| Light | 14.60 | 7.46 | 7.03 | 7.04 | 7.04 | 7.04 |
-| Light Bright | 18.42 | 7.08 | 7.09 | 7.07 | 7.06 | 7.25 |
-| HC (Color Blind) | 21.00 | 8.03 | 9.04 | 13.65 | 15.85 | 11.46 |
+| Dark | 12.4 | 7.4 | 7.1 | 8.9 | 11.0 | 7.0 |
+| Dark Dimmed | 10.8 | 5.4 | 7.1 | 7.1 | 8.3 | 7.0 |
+| Light | 14.6 | 4.6 | 7.0 | 7.0 | 7.0 | 7.0 |
+| Light Bright | 18.4 | 4.9 | 7.1 | 7.1 | 7.1 | 7.3 |
+| HC (Color Blind) | 21.0 | 8.0 | 9.0 | 9.3 | 15.9 | 11.5 |
 
 ### Design Choices
 
-**Warm color harmony with clear separation.** Dark variants use a yellow-gold for strings and a distinct amber for numbers. This retains the warm palette while ensuring each token type is visually distinguishable at a glance. Semantic highlighting adds further context-aware coloring when supported.
+**Warm color harmony with clear separation.** Each color family has a dedicated role: terracotta for keywords, green for functions, gold for strings, purple for types, blue for operators, and warm neutrals for variables. Supporting tokens like parameters, properties, and enum members use distinct hues (plum, rose, amber) to avoid brown-mud clustering. Semantic highlighting adds further context-aware coloring when supported.
 
 **Deep grey backgrounds.** The dark variants use `#141414` and `#1A1A1A` rather than pure black. This reduces halation (the neon glow effect around bright text on black backgrounds) and is easier on eyes with astigmatism.
 

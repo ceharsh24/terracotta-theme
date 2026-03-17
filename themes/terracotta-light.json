@@ -394,7 +394,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#687078",
+        "foreground": "#6B7280",
         "fontStyle": "italic"
       }
     },
@@ -405,7 +405,7 @@
         "comment.block.javadoc"
       ],
       "settings": {
-        "foreground": "#5E6672",
+        "foreground": "#5C6670",
         "fontStyle": "italic"
       }
     },
@@ -463,7 +463,7 @@
         "constant.language"
       ],
       "settings": {
-        "foreground": "#A85A00",
+        "foreground": "#8B3045",
         "fontStyle": "italic"
       }
     },
@@ -687,7 +687,7 @@
         "variable.parameter"
       ],
       "settings": {
-        "foreground": "#8D3500",
+        "foreground": "#7B4020",
         "fontStyle": "italic"
       }
     },
@@ -735,7 +735,7 @@
         "punctuation"
       ],
       "settings": {
-        "foreground": "#4D5660"
+        "foreground": "#707070"
       }
     },
     {
@@ -747,7 +747,7 @@
         "meta.brace"
       ],
       "settings": {
-        "foreground": "#4D5660"
+        "foreground": "#707070"
       }
     },
     {
@@ -796,7 +796,7 @@
         "punctuation.definition.tag"
       ],
       "settings": {
-        "foreground": "#4A5565"
+        "foreground": "#636B74"
       }
     },
     {
@@ -955,7 +955,7 @@
         "heading.4.markdown entity.name"
       ],
       "settings": {
-        "foreground": "#A35015",
+        "foreground": "#8B5A20",
         "fontStyle": "bold"
       }
     },
@@ -995,7 +995,7 @@
         "markup.strikethrough"
       ],
       "settings": {
-        "foreground": "#4A525A",
+        "foreground": "#6B7280",
         "fontStyle": "strikethrough"
       }
     },
@@ -1075,7 +1075,7 @@
         "meta.separator.markdown"
       ],
       "settings": {
-        "foreground": "#4D5660"
+        "foreground": "#707070"
       }
     },
     {
@@ -1493,7 +1493,7 @@
       "name": "GraphQL comment",
       "scope": "comment.line.graphql, comment.block.graphql",
       "settings": {
-        "foreground": "#687078",
+        "foreground": "#6B7280",
         "fontStyle": "italic"
       }
     },
@@ -1509,7 +1509,7 @@
       "name": "TOML key",
       "scope": "variable.key.toml, support.type.property-name.toml",
       "settings": {
-        "foreground": "#2E5A88"
+        "foreground": "#2E6090"
       }
     },
     {
@@ -1544,7 +1544,7 @@
       "name": "TOML punctuation",
       "scope": "punctuation.definition.table.toml, punctuation.definition.array.toml, punctuation.separator.toml",
       "settings": {
-        "foreground": "#4D5660"
+        "foreground": "#707070"
       }
     },
     {
@@ -1587,7 +1587,7 @@
       "name": "Dockerfile comment",
       "scope": "comment.line.number-sign.dockerfile",
       "settings": {
-        "foreground": "#687078",
+        "foreground": "#6B7280",
         "fontStyle": "italic"
       }
     },
@@ -1705,7 +1705,7 @@
       "foreground": "#6530B8"
     },
     "parameter": {
-      "foreground": "#8D3500"
+      "foreground": "#7B4020"
     },
     "variable": "#4A3F38",
     "variable.readonly": "#4A3F38",
@@ -1713,16 +1713,16 @@
     "variable.declaration": "#4A3F38",
     "variable.modification": "#4A3F38",
     "parameter.declaration": {
-      "foreground": "#8D3500"
+      "foreground": "#7B4020"
     },
     "parameter.modification": {
-      "foreground": "#8D3500"
+      "foreground": "#7B4020"
     },
-    "property": "#2E5A88",
-    "property.readonly": "#2E5A88",
-    "property.modification": "#2E5A88",
-    "enumMember": "#7D4000",
-    "event": "#7D4000",
+    "property": "#2E6090",
+    "property.readonly": "#2E6090",
+    "property.modification": "#2E6090",
+    "enumMember": "#8A4580",
+    "event": "#8A4580",
     "function": "#006149",
     "function.defaultLibrary": "#105E26",
     "function.declaration": {
@@ -1736,14 +1736,14 @@
     "class.declaration": {
       "foreground": "#6530B8"
     },
-    "property.static": "#2E5A88",
+    "property.static": "#2E6090",
     "macro": {
       "foreground": "#006149",
       "fontStyle": "bold"
     },
     "label": "#0053A7",
     "comment": {
-      "foreground": "#687078"
+      "foreground": "#6B7280"
     },
     "string": "#764C00",
     "keyword": "#9A3016",

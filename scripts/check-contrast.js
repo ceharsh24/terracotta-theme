@@ -167,9 +167,37 @@ const UI_PAIRS = [
   ["errorForeground", "editor.background", "Error text", false],
 ];
 
+// ── Tier classification ──────────────────────────────────────────────
+
+/**
+ * Tier 1 (AAA 7:1): Core tokens you read thousands of times per day.
+ * Tier 2 (AA 4.5:1): Supporting tokens — comments, constants, decorative, language-specific.
+ */
+const TIER1_PATTERNS = [
+  /\bkeyword\b/i,
+  /\bfunction\b/i,
+  /\bstring\b/i,
+  /\bvariable\b(?!.*(?:parameter|property|constant|enum))/i,
+  /\bclass.name\b/i,
+  /\btype\b(?!.*property)/i,
+  /\bnumber\b/i,
+  /\bnumeric\b/i,
+  /\boperator\b/i,
+  /\bforeground\b/i,
+];
+
+function getTier(label) {
+  for (const pat of TIER1_PATTERNS) {
+    if (pat.test(label)) return 1;
+  }
+  return 2;
+}
+
+const TIER1_THRESHOLD = 7.0;   // WCAG AAA for core syntax
+const TIER2_THRESHOLD = 4.5;   // WCAG AA for supporting syntax
+
 // ── Main ─────────────────────────────────────────────────────────────
 
-const SYNTAX_THRESHOLD = 7.0;  // WCAG AAA for syntax
 const UI_THRESHOLD = 4.5;      // WCAG AA for UI text
 const themesDir = path.resolve(__dirname, "..", "themes");
 
@@ -228,14 +256,17 @@ for (const file of themeFiles) {
     }
 
     const ratio = contrastRatio([r, g, b], [bgR, bgG, bgB]);
+    const tier = getTier(label);
+    const threshold = tier === 1 ? TIER1_THRESHOLD : TIER2_THRESHOLD;
+    const tierTag = tier === 1 ? "T1" : "T2";
     syntaxChecks++;
 
-    if (ratio < SYNTAX_THRESHOLD) {
+    if (ratio < threshold) {
       syntaxFailures++;
-      failures.push({ file, label, color, bgHex, ratio, tier: "AAA" });
-      console.log(`   FAIL  ${color}  ${ratio.toFixed(2)}:1  ${label}`);
+      failures.push({ file, label, color, bgHex, ratio, tier: tierTag });
+      console.log(`   FAIL  ${color}  ${ratio.toFixed(2)}:1  [${tierTag}] ${label}`);
     } else {
-      console.log(`   PASS  ${color}  ${ratio.toFixed(2)}:1  ${label}`);
+      console.log(`   PASS  ${color}  ${ratio.toFixed(2)}:1  [${tierTag}] ${label}`);
     }
   }
 
@@ -287,7 +318,7 @@ for (const file of themeFiles) {
 // ── Summary ──────────────────────────────────────────────────────────
 
 console.log(`\n${"═".repeat(60)}`);
-console.log(`Syntax: ${syntaxChecks} pairs checked (AAA ${SYNTAX_THRESHOLD}:1)`);
+console.log(`Syntax: ${syntaxChecks} pairs checked (Tier 1 AAA ${TIER1_THRESHOLD}:1 / Tier 2 AA ${TIER2_THRESHOLD}:1)`);
 console.log(`UI:     ${uiChecks} pairs checked (AA ${UI_THRESHOLD}:1)`);
 if (uiExempt > 0) {
   console.log(`        ${uiExempt} exempt (inactive/decorative per WCAG SC 1.4.3)`);
@@ -306,7 +337,8 @@ if (totalFailures > 0) {
   }
   process.exit(1);
 } else {
-  console.log(`\n✅ All syntax colors meet WCAG AAA ${SYNTAX_THRESHOLD}:1.`);
+  console.log(`\n✅ All Tier 1 syntax colors meet WCAG AAA ${TIER1_THRESHOLD}:1.`);
+  console.log(`✅ All Tier 2 syntax colors meet WCAG AA ${TIER2_THRESHOLD}:1.`);
   console.log(`✅ All UI text colors meet WCAG AA ${UI_THRESHOLD}:1.`);
   process.exit(0);
 }

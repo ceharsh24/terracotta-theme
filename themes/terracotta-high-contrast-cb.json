@@ -803,7 +803,7 @@
         "entity.name.tag"
       ],
       "settings": {
-        "foreground": "#E07050"
+        "foreground": "#E2785A"
       }
     },
     {
@@ -1735,7 +1735,7 @@
       "foreground": "#D580FF"
     },
     "parameter": {
-      "foreground": "#C8C4B4",
+      "foreground": "#DDB880",
       "fontStyle": "italic"
     },
     "variable": "#C8C4B4",
