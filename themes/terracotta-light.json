@@ -426,8 +426,7 @@
         "constant.character.escape"
       ],
       "settings": {
-        "foreground": "#764C00",
-        "fontStyle": "bold"
+        "foreground": "#764C00"
       }
     },
     {
@@ -956,7 +955,8 @@
         "heading.4.markdown entity.name"
       ],
       "settings": {
-        "foreground": "#9A3016"
+        "foreground": "#9A3016",
+        "fontStyle": "bold"
       }
     },
     {

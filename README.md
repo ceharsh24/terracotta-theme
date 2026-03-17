@@ -132,7 +132,7 @@ Restart VS Code and select a Terracotta variant from **Preferences: Color Theme*
 
 ## Recommended settings
 
-To get the most out of Terracotta, use a font with solid italic and bold support (e.g. **JetBrains Mono**, **Fira Code**, **Cascadia Code**). The theme uses italics for comments and doc blocks, and bold for markdown headings, string escapes, and a few language-specific tokens.
+To get the most out of Terracotta, use a font with solid italic and bold support (e.g. **JetBrains Mono**, **Fira Code**, **Cascadia Code**). The theme uses italics for comments and doc blocks, and bold for markdown headings and bold markup.
 
 The extension sets these defaults when you install it (you can override any in your user settings):
 

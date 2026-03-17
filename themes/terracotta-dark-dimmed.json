@@ -426,8 +426,7 @@
         "constant.character.escape"
       ],
       "settings": {
-        "foreground": "#DBAC3B",
-        "fontStyle": "bold"
+        "foreground": "#DBAC3B"
       }
     },
     {
