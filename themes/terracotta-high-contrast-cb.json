@@ -1,7 +1,7 @@
 {
   "$schema": "vscode://schemas/color-theme",
   "name": "Terracotta High Contrast (Color Blind)",
-  "type": "hc",
+  "type": "hc-dark",
   "semanticHighlighting": true,
   "colors": {
     "focusBorder": "#FE6100",
