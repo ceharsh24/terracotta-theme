@@ -2,7 +2,26 @@
 
 All notable changes to the Terracotta theme will be documented in this file.
 
-## [1.6.0] - 2026-03-16
+## [1.9.2] - 2026-03-18
+
+### Changed
+- **Number colors upgraded to WCAG AAA** — all 4 non-HC variants now meet 7:1 contrast for numbers (previously some were below). Shifted from orange toward dusty rose for better hue separation from keywords
+  - Dark: `#D89050` → `#D49288` (7.3:1)
+  - Dark Dimmed: `#CC9D4D` → `#D49888` (7.2:1)
+  - Light: `#A70B50` → `#80441E` (7.1:1)
+  - Light Bright: `#AA0E53` → `#86461E` (7.2:1)
+- **Variable color identity improved** — warmer golden-sand tones for better separation from comments and foreground text
+  - Dark: `#BFB799` → `#C4B890`, Dark Dimmed: `#B5A78C` → `#C0AC88`, Light Bright: `#3D3530` → `#4A3828`
+- **Comment colors** shifted to warm earth tones across all variants for cohesive palette identity
+- Function colors refined across all variants for consistency
+- Contrast checker regex fix: `\bnumber\b` → `\bnumbers?\b` to correctly classify numbers as Tier 1
+
+### Fixed
+- Light theme git added color adjusted (`#1A7A4C` → `#187548`) after sidebar background change
+- Playground (`docs/index.html`) synced with all theme color changes
+- All HTML examples and screenshots regenerated
+
+## [1.6.1] - 2026-03-16
 
 ### Changed
 - **Full WCAG AAA compliance** — all 95 syntax color pairs across all 5 variants now meet the 7:1 AAA contrast threshold (previously some were AA-only at 4.5:1+)
@@ -16,7 +35,7 @@ All notable changes to the Terracotta theme will be documented in this file.
   - **Light**: keywords, strings, regex, numbers, operators, functions, punctuation all darkened ~2–4 steps to clear 7:1
   - **Light Bright**: tag punctuation `#6B757F` → `#505A64`
 
-## [1.3.0] - 2026-03-16
+## [1.4.0] - 2026-03-16
 
 ### Changed
 - **String vs Number separation** -- shifted number/constant colors in Dark (`#D0A050`) and Dark Dimmed (`#C49A4A`) to amber, creating clear visual distance from gold strings
@@ -27,12 +46,7 @@ All notable changes to the Terracotta theme will be documented in this file.
 - **Go language support** -- added builtin type scopes (`error`, `string`, `bool`, `byte`, `rune`, numeric types) colored as types, and `chan` keyword styled as italic operator across all 5 themes
 - Complex showcase files for Python, React/TSX, and Go
 
-## [1.2.0] - 2026-03-16
-
-### Added
-- **Java language support** -- added Java-specific token rules for primitive types, annotations, and `this`/`super` across all 5 themes
-
-## [1.1.0] - 2026-03-16
+## [1.3.0] - 2026-03-16
 
 ### Changed
 - **Complete color palette overhaul** -- switched to "Neo-Terracotta" palette for maximum syntax distinctness
@@ -48,7 +62,12 @@ All notable changes to the Terracotta theme will be documented in this file.
 - Benchmark contrast matrix in README documenting exact WCAG contrast ratios per token per theme
 - Perceptual Distinctness and Eye Strain documentation sections in README
 
-## [1.0.0] - 2026-03-16
+## [1.2.0] - 2026-03-16
+
+### Added
+- **Java language support** -- added Java-specific token rules for primitive types, annotations, and `this`/`super` across all 5 themes
+
+## [1.1.0] - 2026-03-16
 
 ### Added
 - **Terracotta Dark** -- primary warm dark theme with terracotta accents

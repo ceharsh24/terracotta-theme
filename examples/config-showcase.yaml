@@ -49,13 +49,13 @@ themes:
       selection: "#E9866540"
     tokens:
       keyword: "#E98665"
-      function: "#4EC9A0"
+      function: "#3DBB92"
       string: "#F0C24E"
       type: "#C28BFF"
-      variable: "#C8C0A8"
-      property: "#B0C4DE"
-      comment: "#9DA5B4"
-      number: "#D89050"
+      variable: "#C4B890"
+      property: "#C4B890"
+      comment: "#8A8578"
+      number: "#D49288"
       operator: "#7FC7F4"
 
   dark-dimmed:
@@ -169,7 +169,7 @@ contrast_matrix:
     tests:
       - { foreground: "#D4D4D4", ratio: 13.50, pass: true }
       - { foreground: "#E98665", ratio: 6.80, pass: true }
-      - { foreground: "#4EC9A0", ratio: 8.94, pass: true }
+      - { foreground: "#3DBB92", ratio: 7.68, pass: true }
       - { foreground: "#C28BFF", ratio: 6.59, pass: true }
       - { foreground: "#F0C24E", ratio: 10.42, pass: true }
 
@@ -177,7 +177,7 @@ contrast_matrix:
     tests:
       - { foreground: "#FFFFFF", ratio: 21.00, pass: true }
       - { foreground: "#FF8A5C", ratio: 6.20, pass: true }
-      - { foreground: "#00BFCC", ratio: 9.32, pass: true }
+      - { foreground: "#00B4BD", ratio: 8.96, pass: true }
       - { foreground: "#D580FF", ratio: 8.36, pass: true }
 
 # ── Tags and Typed Values ────────────────────────────────────────

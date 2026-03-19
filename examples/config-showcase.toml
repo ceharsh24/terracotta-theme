@@ -128,8 +128,8 @@ foreground_light = "#242424"
 [theme.palette]
 terracotta = ["#E98665", "#E88E70", "#9A3016", "#9E341A", "#FF8A5C"]
 purple = ["#C28BFF", "#BC92F3", "#6530B8", "#5E29AD", "#D580FF"]
-green = ["#4EC9A0", "#33A886", "#006149", "#00654D", "#00BFCC"]
-gold = ["#F0C24E", "#DBAC3B", "#764C00", "#7C4F00", "#FFDF33"]
+green = ["#3DBB92", "#48BD94", "#00594A", "#005C48", "#00B4BD"]
+gold = ["#F0C24E", "#DBAC3B", "#764C00", "#7C4F00", "#F0D050"]
 
 # ── Server config (demonstrates nested tables) ────────────────────
 
