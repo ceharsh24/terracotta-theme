@@ -180,7 +180,7 @@ const TIER1_PATTERNS = [
   /\bvariable\b(?!.*(?:parameter|property|constant|enum))/i,
   /\bclass.name\b/i,
   /\btype\b(?!.*property)/i,
-  /\bnumber\b/i,
+  /\bnumbers?\b/i,
   /\bnumeric\b/i,
   /\boperator\b/i,
   /\bforeground\b/i,

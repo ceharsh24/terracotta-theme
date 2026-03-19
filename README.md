@@ -25,10 +25,10 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Foreground  | ![#D4D4D4](https://placehold.co/16x16/D4D4D4/D4D4D4.png)   | `#D4D4D4` |
 | Accent      | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
 | Keywords    | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
-| Functions   | ![#4EC9A0](https://placehold.co/16x16/4EC9A0/4EC9A0.png)   | `#4EC9A0` |
+| Functions   | ![#3DBB92](https://placehold.co/16x16/3DBB92/3DBB92.png)   | `#3DBB92` |
 | Strings     | ![#F0C24E](https://placehold.co/16x16/F0C24E/F0C24E.png)   | `#F0C24E` |
 | Types       | ![#C28BFF](https://placehold.co/16x16/C28BFF/C28BFF.png)   | `#C28BFF` |
-| Numbers     | ![#D89050](https://placehold.co/16x16/D89050/D89050.png)   | `#D89050` |
+| Numbers     | ![#D49288](https://placehold.co/16x16/D49288/D49288.png)   | `#D49288` |
 | Operators   | ![#7FC7F4](https://placehold.co/16x16/7FC7F4/7FC7F4.png)   | `#7FC7F4` |
 | Decorators  | ![#C28BFF](https://placehold.co/16x16/C28BFF/C28BFF.png)   | `#C28BFF` |
 
@@ -44,10 +44,10 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Foreground  | ![#CCCCCC](https://placehold.co/16x16/CCCCCC/CCCCCC.png)   | `#CCCCCC` |
 | Accent      | ![#C4785E](https://placehold.co/16x16/C4785E/C4785E.png)   | `#C4785E` |
 | Keywords    | ![#E88E70](https://placehold.co/16x16/E88E70/E88E70.png)   | `#E88E70` |
-| Functions   | ![#45B892](https://placehold.co/16x16/45B892/45B892.png)   | `#45B892` |
+| Functions   | ![#48BD94](https://placehold.co/16x16/48BD94/48BD94.png)   | `#48BD94` |
 | Strings     | ![#DBAC3B](https://placehold.co/16x16/DBAC3B/DBAC3B.png)   | `#DBAC3B` |
 | Types       | ![#BC92F3](https://placehold.co/16x16/BC92F3/BC92F3.png)   | `#BC92F3` |
-| Numbers     | ![#CC9D4D](https://placehold.co/16x16/CC9D4D/CC9D4D.png)   | `#CC9D4D` |
+| Numbers     | ![#D49888](https://placehold.co/16x16/D49888/D49888.png)   | `#D49888` |
 | Operators   | ![#6EABD8](https://placehold.co/16x16/6EABD8/6EABD8.png)   | `#6EABD8` |
 
 ### Terracotta Light
@@ -62,10 +62,10 @@ A warm paper-like light theme using a beautifully soft off-white background (`#F
 | Foreground  | ![#242424](https://placehold.co/16x16/242424/242424.png)   | `#242424` |
 | Accent      | ![#C15F3C](https://placehold.co/16x16/C15F3C/C15F3C.png)   | `#C15F3C` |
 | Keywords    | ![#9A3016](https://placehold.co/16x16/9A3016/9A3016.png)   | `#9A3016` |
-| Functions   | ![#006149](https://placehold.co/16x16/006149/006149.png)   | `#006149` |
+| Functions   | ![#00594A](https://placehold.co/16x16/00594A/00594A.png)   | `#00594A` |
 | Strings     | ![#764C00](https://placehold.co/16x16/764C00/764C00.png)   | `#764C00` |
 | Types       | ![#6530B8](https://placehold.co/16x16/6530B8/6530B8.png)   | `#6530B8` |
-| Numbers     | ![#A70B50](https://placehold.co/16x16/A70B50/A70B50.png)   | `#A70B50` |
+| Numbers     | ![#80441E](https://placehold.co/16x16/80441E/80441E.png)   | `#80441E` |
 | Operators   | ![#0053A7](https://placehold.co/16x16/0053A7/0053A7.png)   | `#0053A7` |
 | Decorators  | ![#6530B8](https://placehold.co/16x16/6530B8/6530B8.png)   | `#6530B8` |
 
@@ -81,10 +81,10 @@ Maximum accessibility on a pure white background (`#FFFFFF`). Core syntax tokens
 | Foreground  | ![#141414](https://placehold.co/16x16/141414/141414.png)   | `#141414` |
 | Accent      | ![#DA7756](https://placehold.co/16x16/DA7756/DA7756.png)   | `#DA7756` |
 | Keywords    | ![#9E341A](https://placehold.co/16x16/9E341A/9E341A.png)   | `#9E341A` |
-| Functions   | ![#00654D](https://placehold.co/16x16/00654D/00654D.png)   | `#00654D` |
+| Functions   | ![#005C48](https://placehold.co/16x16/005C48/005C48.png)   | `#005C48` |
 | Strings     | ![#7C4F00](https://placehold.co/16x16/7C4F00/7C4F00.png)   | `#7C4F00` |
 | Types       | ![#5E29AD](https://placehold.co/16x16/5E29AD/5E29AD.png)   | `#5E29AD` |
-| Numbers     | ![#AA0E53](https://placehold.co/16x16/AA0E53/AA0E53.png)   | `#AA0E53` |
+| Numbers     | ![#86461E](https://placehold.co/16x16/86461E/86461E.png)   | `#86461E` |
 | Operators   | ![#0055A8](https://placehold.co/16x16/0055A8/0055A8.png)   | `#0055A8` |
 
 ### Terracotta High Contrast (Color Blind)
@@ -98,14 +98,16 @@ Built for pure accessibility on a true black (`#000000`) background. Uses a scie
 | Background  | ![#000000](https://placehold.co/16x16/000000/000000.png)   | `#000000` | N/A         |
 | Foreground  | ![#FFFFFF](https://placehold.co/16x16/FFFFFF/FFFFFF.png)   | `#FFFFFF` | 21.0:1      |
 | Keywords    | ![#FF8A5C](https://placehold.co/16x16/FF8A5C/FF8A5C.png)   | `#FF8A5C` | 9.0:1       |
-| Functions   | ![#00BFCC](https://placehold.co/16x16/00BFCC/00BFCC.png)   | `#00BFCC` | 9.3:1       |
-| Strings     | ![#FFDF33](https://placehold.co/16x16/FFDF33/FFDF33.png)   | `#FFDF33` | 15.9:1      |
+| Functions   | ![#00B4BD](https://placehold.co/16x16/00B4BD/00B4BD.png)   | `#00B4BD` | 8.3:1       |
+| Strings     | ![#F0D050](https://placehold.co/16x16/F0D050/F0D050.png)   | `#F0D050` | 13.8:1      |
 | Types       | ![#D580FF](https://placehold.co/16x16/D580FF/D580FF.png)   | `#D580FF` | 8.4:1       |
 | Numbers     | ![#FFB000](https://placehold.co/16x16/FFB000/FFB000.png)   | `#FFB000` | 11.5:1      |
 | Operators   | ![#80BFFF](https://placehold.co/16x16/80BFFF/80BFFF.png)   | `#80BFFF` | 10.8:1      |
 | Self/this   | ![#D580FF](https://placehold.co/16x16/D580FF/D580FF.png)   | `#D580FF` | 8.4:1       |
 
 Accessible to deuteranopia, protanopia, and tritanopia.
+
+> **Note:** The High Contrast (Color Blind) variant intentionally uses **blue** for "added" and **cyan** for "modified" in git decorations instead of the traditional green/blue. This avoids red-green color pairs that are indistinguishable with deuteranopia or protanopia. If you're used to green meaning "added," this is by design, not a bug.
 
 ---
 
@@ -212,11 +214,11 @@ A tiered system ensures the best balance of readability and color differentiatio
 
 | Variant | Editor | Comment | Keyword | Function | String | Number |
 |---------|--------|---------|---------|----------|--------|--------|
-| Dark | 12.4 | 7.4 | 7.1 | 8.9 | 11.0 | 7.0 |
-| Dark Dimmed | 10.8 | 5.4 | 7.1 | 7.1 | 8.3 | 7.0 |
-| Light | 14.6 | 4.6 | 7.0 | 7.0 | 7.0 | 7.0 |
-| Light Bright | 18.4 | 4.9 | 7.1 | 7.1 | 7.1 | 7.3 |
-| HC (Color Blind) | 21.0 | 8.0 | 9.0 | 9.3 | 15.9 | 11.5 |
+| Dark | 12.4 | 5.0 | 7.1 | 7.7 | 11.0 | 7.3 |
+| Dark Dimmed | 10.8 | 5.1 | 7.1 | 7.4 | 8.3 | 7.2 |
+| Light | 14.6 | 5.4 | 7.0 | 7.8 | 7.0 | 7.1 |
+| Light Bright | 18.4 | 6.2 | 7.1 | 8.0 | 7.1 | 7.2 |
+| HC (Color Blind) | 21.0 | 7.0 | 9.0 | 8.3 | 13.8 | 11.5 |
 
 ### Design Choices
 
