@@ -41,11 +41,11 @@ body {
 .iface { color: var(--iface); font-style: italic; }
 .str { color: var(--str); }
 .num { color: var(--num); }
-.cmt { color: var(--cmt); font-style: italic; }
+.cmt { color: var(--cmt); }
 .con { color: var(--con); }
 .bcon { color: var(--bcon); font-style: italic; }
 .var { color: var(--var-color); }
-.par { color: var(--par); font-style: italic; }
+.par { color: var(--par); }
 .pun { color: var(--pun); }
 .prop { color: var(--prop); }
 .tag { color: var(--tag); }
@@ -96,37 +96,37 @@ const themes = {
   'dark': {
     bg: '#141414', 'line-num': '#555555', 'line-num-active': '#A0A0A0',
     'line-highlight': '#202020', cmt: '#8A8578', str: '#F0C24E', num: '#D890A0',
-    kw: '#E98665', op: '#7FC7F4', fn: '#3DBB92', cls: '#C28BFF', iface: '#C28BFF',
-    'var-color': '#CABFA6', par: '#D4A870', con: '#CC8858', bcon: '#D4A090',
-    pun: '#999FB5', prop: '#8DB5DD', tag: '#E1948F', attr: '#F0C24E'
+    kw: '#E98665', op: '#B89DAE', fn: '#3DBB92', cls: '#C28BFF', iface: '#C28BFF',
+    'var-color': '#CABFA6', par: '#D4A870', con: '#C4A468', bcon: '#D4A090',
+    pun: '#999FB5', prop: '#ADA876', tag: '#E1948F', attr: '#F0C24E'
   },
   'dark-dimmed': {
     bg: '#1A1A1A', 'line-num': '#5C5C5C', 'line-num-active': '#A3A3A3',
     'line-highlight': '#242424', cmt: '#918A7E', str: '#DBAC3B', num: '#D892A2',
-    kw: '#E88E70', op: '#6EABD8', fn: '#48BD94', cls: '#BC92F3', iface: '#BC92F3',
-    'var-color': '#C2B89A', par: '#CCA068', con: '#C08050', bcon: '#E8A090',
-    pun: '#9FA5B5', prop: '#88AED0', tag: '#D87A6A', attr: '#DBAC3B'
+    kw: '#E88E70', op: '#B89DAE', fn: '#48BD94', cls: '#BC92F3', iface: '#BC92F3',
+    'var-color': '#C2B89A', par: '#CCA068', con: '#BCA060', bcon: '#E8A090',
+    pun: '#9FA5B5', prop: '#AAA471', tag: '#D87A6A', attr: '#DBAC3B'
   },
   'light': {
-    bg: '#F8F8F6', 'line-num': '#AAAAAA', 'line-num-active': '#666666',
-    'line-highlight': '#F5F0E8', cmt: '#746C58', str: '#764C00', num: '#7A3050',
-    kw: '#9A3016', op: '#1A5878', fn: '#00594A', cls: '#6530B8', iface: '#6530B8',
-    'var-color': '#3D3530', par: '#8B5028', con: '#944A10', bcon: '#A32E42',
-    pun: '#707070', prop: '#0550AE', tag: '#8A4A5A', attr: '#764C00'
+    bg: '#F8F8F6', 'line-num': '#A8A39C', 'line-num-active': '#605C55',
+    'line-highlight': '#F0EFEA', cmt: '#746C58', str: '#764C00', num: '#7A3050',
+    kw: '#9A3016', op: '#654658', fn: '#00594A', cls: '#6530B8', iface: '#6530B8',
+    'var-color': '#3D3530', par: '#8B5028', con: '#685020', bcon: '#A32E42',
+    pun: '#707070', prop: '#66602D', tag: '#8A4A5A', attr: '#764C00'
   },
   'light-bright': {
-    bg: '#FAF9F4', 'line-num': '#B0B0B0', 'line-num-active': '#777777',
-    'line-highlight': '#F0EDE8', cmt: '#787060', str: '#7C4F00', num: '#7E3454',
-    kw: '#9E341A', op: '#1C5A7A', fn: '#005C48', cls: '#5E29AD', iface: '#5E29AD',
-    'var-color': '#3A3230', par: '#8A4E26', con: '#984E14', bcon: '#A42C3E',
-    pun: '#6E6E6E', prop: '#0349A4', tag: '#8C4856', attr: '#7C4F00'
+    bg: '#F4EEE4', 'line-num': '#A0A0A0', 'line-num-active': '#505050',
+    'line-highlight': '#E9E1D4', cmt: '#746C58', str: '#7C4F00', num: '#7E3454',
+    kw: '#9E341A', op: '#654658', fn: '#00594A', cls: '#5E29AD', iface: '#5E29AD',
+    'var-color': '#3A3230', par: '#8A4E26', con: '#6A5222', bcon: '#A42C3E',
+    pun: '#636B74', prop: '#625C2B', tag: '#8C4856', attr: '#7C4F00'
   },
   'high-contrast-cb': {
-    bg: '#000000', 'line-num': '#666666', 'line-num-active': '#BBBBBB',
-    'line-highlight': '#1A1A1A', cmt: '#9A9488', str: '#F0D050', num: '#FFB000',
+    bg: '#000000', 'line-num': '#7A7A7A', 'line-num-active': '#FFFFFF',
+    'line-highlight': '#111111', cmt: '#9A9488', str: '#F0D050', num: '#FFB000',
     kw: '#FF8A5C', op: '#80BFFF', fn: '#00B4BD', cls: '#D580FF', iface: '#D580FF',
-    'var-color': '#C8C4B4', par: '#C8C4B4', con: '#FFB000', bcon: '#FF9070',
-    pun: '#A0A0B0', prop: '#C8C4B4', tag: '#E07050', attr: '#F0D050'
+    'var-color': '#C8C4B4', par: '#DDB880', con: '#FFB000', bcon: '#FF9070',
+    pun: '#A0A0B0', prop: '#8AA8E0', tag: '#E2785A', attr: '#F0D050'
   }
 };
 const name = new URLSearchParams(location.search).get('theme') || 'dark';

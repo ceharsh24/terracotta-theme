@@ -2,6 +2,16 @@
 
 All notable changes to the Terracotta theme will be documented in this file.
 
+## [1.9.5] - 2026-03-27
+
+### Changed
+- **Light Bright softened again for marathon sessions** — the editor parchment stepped from `#F6F2EA` to `#F4EEE4`, with tabs, panels, menus, widgets, and line highlight surfaces warmed and lowered slightly to reduce glare without sacrificing readability
+- **Example surfaces fully synced with the shipped themes** — `THEME-DEMO`, screenshot generation, and theme analysis views now reflect the warm no-blue standard palettes, non-italic comments/parameters, and the high-contrast property split
+
+### Fixed
+- Regenerated all bundled screenshots after the final Light Bright tuning pass
+- Package metadata is now aligned for the release version
+
 ## [1.9.4] - 2026-03-27
 
 ### Changed
