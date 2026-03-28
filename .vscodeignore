@@ -6,6 +6,7 @@
 .DS_Store
 *.md
 !README.md
+!CHANGELOG.md
 docs/**
 examples/**
 scripts/**

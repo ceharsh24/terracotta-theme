@@ -2,7 +2,44 @@
 
 All notable changes to the Terracotta theme will be documented in this file.
 
-## [1.9.2] - 2026-03-18
+## [1.9.4] - 2026-03-27
+
+### Changed
+- **String escape characters now visually distinct** — escape sequences (`\n`, `\t`, `\\`) use a shifted hue from their surrounding string color, making them identifiable without relying on bold
+  - Light: `#764C00` → `#824020` (terracotta red-brown vs golden amber strings)
+  - Light Bright: `#7C4F00` → `#844222`
+  - Dark: `#F0C24E` → `#E8A050` (warm amber vs bright gold strings)
+  - Dark Dimmed: `#DBAC3B` → `#E8A850` (orange-amber vs golden strings)
+- **Operator/property color collision resolved in light themes** — operators shifted from near-identical deep blue to a muted blue-gray, creating clear separation from property accesses
+  - Light: `#0053A7` → `#1A5878` (teal-blue operators) vs `#0550AE` (pure blue properties, unchanged)
+  - Light Bright: `#0052A3` → `#1C5A7A` vs `#0349A4` (unchanged)
+- **Built-in constants separated from numbers in light themes** — constants (`true`, `false`, `null`) shifted to burgundy, away from the plum used for numeric literals
+  - Light: `#8B3045` → `#A32E42`
+  - Light Bright: `#8A2C42` → `#A42C3E`
+- **Dark theme built-in constants moved away from error red** — constants now use warm clay/peach instead of the salmon that was too close to error highlighting
+  - Dark: `#E1948F` → `#D4A090`
+  - Dark Dimmed TOML/YAML booleans aligned with general constant color `#E8A090`
+
+### Fixed
+- Dark Dimmed CSS property color `#65A9ED` (over-saturated) corrected to `#88AED0` to match the dimmed property palette
+- Dark Dimmed TOML boolean, YAML null/boolean/merge colors corrected from tag color (`#D87A6A`) to constant color (`#E8A090`)
+- All example files, playground, and documentation updated
+
+## [1.9.3] - 2026-03-27
+
+### Changed
+- **Dark theme constants shifted to amber** — constants now use `#CC8858` (Dark) and `#C08050` (Dark Dimmed), creating clear hue separation from keywords which remain orange
+- **Light theme comments darkened** — improved WCAG headroom above the 4.5:1 floor
+  - Light: `#78705E` → `#746C58` (4.9:1), doc comments `#706656` → `#6C6252` (5.6:1)
+  - Light Bright: `#7C7466` → `#787060` (4.7:1), doc comments `#746A5C` → `#706658` (5.3:1)
+- **Light Bright background warmed** — `#FDFCFA` → `#FAF9F4`, subtle parchment tone instead of near-white
+- **Light Bright colors adjusted** for new background — operator `#0055A8` → `#0052A3`, punctuation `#737373` → `#6E6E6E`, SQL keyword `#AC1923` → `#A5151E`
+
+### Fixed
+- All 353 WCAG contrast pairs still pass (118 syntax + 235 UI)
+- All example files, screenshots, and documentation updated
+
+## [1.9.2] - 2026-03-27
 
 ### Changed
 - **Number colors upgraded to WCAG AAA** — all 4 non-HC variants now meet 7:1 contrast for numbers (previously some were below). Shifted from orange toward dusty rose for better hue separation from keywords

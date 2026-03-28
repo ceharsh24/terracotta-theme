@@ -426,7 +426,7 @@
         "constant.character.escape"
       ],
       "settings": {
-        "foreground": "#DBAC3B"
+        "foreground": "#E8A850"
       }
     },
     {
@@ -454,7 +454,7 @@
         "constant.numeric"
       ],
       "settings": {
-        "foreground": "#D49888"
+        "foreground": "#D892A2"
       }
     },
     {
@@ -474,7 +474,7 @@
         "variable.other.enummember"
       ],
       "settings": {
-        "foreground": "#D49888"
+        "foreground": "#C08050"
       }
     },
     {
@@ -678,7 +678,7 @@
         "variable.other"
       ],
       "settings": {
-        "foreground": "#C0AC88"
+        "foreground": "#C2B89A"
       }
     },
     {
@@ -687,7 +687,7 @@
         "variable.parameter"
       ],
       "settings": {
-        "foreground": "#C0AC88",
+        "foreground": "#CCA068",
         "fontStyle": "italic"
       }
     },
@@ -699,7 +699,7 @@
         "meta.object-literal.key"
       ],
       "settings": {
-        "foreground": "#C0AC88"
+        "foreground": "#88AED0"
       }
     },
     {
@@ -806,7 +806,7 @@
         "support.type.vendored.property-name.css"
       ],
       "settings": {
-        "foreground": "#65A9ED"
+        "foreground": "#88AED0"
       }
     },
     {
@@ -854,7 +854,7 @@
         "keyword.other.unit.css"
       ],
       "settings": {
-        "foreground": "#D49888"
+        "foreground": "#D892A2"
       }
     },
     {
@@ -864,7 +864,7 @@
         "punctuation.definition.constant.css"
       ],
       "settings": {
-        "foreground": "#D49888"
+        "foreground": "#D892A2"
       }
     },
     {
@@ -1191,7 +1191,7 @@
         "variable.other.bracket.shell"
       ],
       "settings": {
-        "foreground": "#C0AC88"
+        "foreground": "#C2B89A"
       }
     },
     {
@@ -1449,7 +1449,7 @@
       "name": "GraphQL field",
       "scope": "variable.graphql, variable.other.graphql",
       "settings": {
-        "foreground": "#C0AC88"
+        "foreground": "#C2B89A"
       }
     },
     {
@@ -1509,21 +1509,21 @@
       "name": "TOML key",
       "scope": "variable.key.toml, support.type.property-name.toml",
       "settings": {
-        "foreground": "#C0AC88"
+        "foreground": "#88AED0"
       }
     },
     {
       "name": "TOML datetime",
       "scope": "constant.other.datetime.toml, constant.other.date.toml, constant.other.time.toml",
       "settings": {
-        "foreground": "#D49888"
+        "foreground": "#D892A2"
       }
     },
     {
       "name": "TOML boolean",
       "scope": "constant.language.boolean.toml",
       "settings": {
-        "foreground": "#D87A6A"
+        "foreground": "#E8A090"
       }
     },
     {
@@ -1537,7 +1537,7 @@
       "name": "TOML number",
       "scope": "constant.numeric.toml, constant.numeric.integer.toml, constant.numeric.float.toml, constant.numeric.hex.toml, constant.numeric.oct.toml, constant.numeric.bin.toml, constant.numeric.inf.toml, constant.numeric.nan.toml",
       "settings": {
-        "foreground": "#D49888"
+        "foreground": "#D892A2"
       }
     },
     {
@@ -1573,7 +1573,7 @@
       "name": "Dockerfile variable",
       "scope": "variable.other.dockerfile",
       "settings": {
-        "foreground": "#C0AC88"
+        "foreground": "#C2B89A"
       }
     },
     {
@@ -1667,21 +1667,21 @@
       "name": "YAML merge key",
       "scope": "constant.language.merge.yaml",
       "settings": {
-        "foreground": "#D87A6A"
+        "foreground": "#E8A090"
       }
     },
     {
       "name": "YAML null/boolean",
       "scope": "constant.language.null.yaml, constant.language.boolean.yaml",
       "settings": {
-        "foreground": "#D87A6A"
+        "foreground": "#E8A090"
       }
     },
     {
       "name": "YAML number",
       "scope": "constant.numeric.yaml, constant.numeric.integer.yaml, constant.numeric.float.yaml",
       "settings": {
-        "foreground": "#D49888"
+        "foreground": "#D892A2"
       }
     },
     {
@@ -1705,22 +1705,22 @@
       "foreground": "#BC92F3"
     },
     "parameter": {
-      "foreground": "#C4A882",
+      "foreground": "#CCA068",
       "fontStyle": "italic"
     },
-    "variable": "#C0AC88",
-    "variable.readonly": "#C0AC88",
+    "variable": "#C2B89A",
+    "variable.readonly": "#C2B89A",
     "variable.defaultLibrary": "#BC92F3",
-    "variable.declaration": "#C0AC88",
-    "variable.modification": "#C0AC88",
+    "variable.declaration": "#C2B89A",
+    "variable.modification": "#C2B89A",
     "parameter.declaration": {
-      "foreground": "#C0AC88",
+      "foreground": "#CCA068",
       "fontStyle": "italic"
     },
-    "parameter.modification": "#C0AC88",
-    "property": "#C0AC88",
-    "property.readonly": "#C0AC88",
-    "property.modification": "#C0AC88",
+    "parameter.modification": "#CCA068",
+    "property": "#88AED0",
+    "property.readonly": "#88AED0",
+    "property.modification": "#88AED0",
     "enumMember": "#D4B870",
     "event": "#D4B870",
     "function": "#48BD94",
@@ -1737,7 +1737,7 @@
       "foreground": "#BC92F3"
     },
     "property.static": {
-      "foreground": "#C0AC88"
+      "foreground": "#88AED0"
     },
     "macro": {
       "foreground": "#48BD94",
@@ -1749,7 +1749,7 @@
     },
     "string": "#DBAC3B",
     "keyword": "#E88E70",
-    "number": "#D49888",
+    "number": "#D892A2",
     "regexp": "#D890A8",
     "operator": "#6EABD8",
     "decorator": {
@@ -1764,7 +1764,7 @@
     },
     "formatSpecifier": "#DBAC3B",
     "escapeSequence": {
-      "foreground": "#DBAC3B"
+      "foreground": "#E8A850"
     },
     "module": "#BC92F3"
   }
