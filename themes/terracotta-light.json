@@ -453,7 +453,7 @@
         "constant.numeric"
       ],
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -504,7 +504,7 @@
         "keyword.operator"
       ],
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -516,7 +516,7 @@
         "keyword.operator.ternary"
       ],
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -526,7 +526,7 @@
         "keyword.operator.arithmetic"
       ],
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -615,7 +615,7 @@
         "entity.other.inherited-class"
       ],
       "settings": {
-        "foreground": "#66602D",
+        "foreground": "#6E4E94",
         "fontStyle": "italic"
       }
     },
@@ -697,7 +697,7 @@
         "meta.object-literal.key"
       ],
       "settings": {
-        "foreground": "#66602D"
+        "foreground": "#4A6928"
       }
     },
     {
@@ -802,7 +802,7 @@
         "support.type.vendored.property-name.css"
       ],
       "settings": {
-        "foreground": "#66602D"
+        "foreground": "#4A6928"
       }
     },
     {
@@ -821,7 +821,7 @@
         "entity.other.attribute-name.id.css"
       ],
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -850,7 +850,7 @@
         "keyword.other.unit.css"
       ],
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -860,7 +860,7 @@
         "punctuation.definition.constant.css"
       ],
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -890,7 +890,7 @@
         "support.type.property-name.json"
       ],
       "settings": {
-        "foreground": "#66602D"
+        "foreground": "#4A6928"
       }
     },
     {
@@ -908,7 +908,7 @@
         "entity.name.tag.yaml"
       ],
       "settings": {
-        "foreground": "#66602D"
+        "foreground": "#4A6928"
       }
     },
     {
@@ -1052,7 +1052,7 @@
         "markup.list"
       ],
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -1089,7 +1089,7 @@
         "keyword.operator.quantifier.regexp"
       ],
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -1149,7 +1149,7 @@
         "keyword.operator.comparison.sql"
       ],
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -1261,7 +1261,7 @@
         "keyword.operator.dereference.rust"
       ],
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -1374,7 +1374,7 @@
         "keyword.operator.arrow.cpp"
       ],
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -1424,7 +1424,7 @@
       "name": "JSX spread operator",
       "scope": "keyword.operator.spread.tsx, keyword.operator.spread.jsx",
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -1475,7 +1475,7 @@
       "name": "GraphQL operator",
       "scope": "keyword.operator.graphql",
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -1505,14 +1505,14 @@
       "name": "TOML key",
       "scope": "variable.key.toml, support.type.property-name.toml",
       "settings": {
-        "foreground": "#66602D"
+        "foreground": "#4A6928"
       }
     },
     {
       "name": "TOML datetime",
       "scope": "constant.other.datetime.toml, constant.other.date.toml, constant.other.time.toml",
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -1533,7 +1533,7 @@
       "name": "TOML number",
       "scope": "constant.numeric.toml, constant.numeric.integer.toml, constant.numeric.float.toml, constant.numeric.hex.toml, constant.numeric.oct.toml, constant.numeric.bin.toml, constant.numeric.inf.toml, constant.numeric.nan.toml",
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -1613,14 +1613,14 @@
       "name": "Shell redirect operator",
       "scope": "keyword.operator.redirect.shell, keyword.operator.pipe.shell, keyword.operator.herestring.shell",
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
       "name": "Shell logical operator",
       "scope": "keyword.operator.logical.shell",
       "settings": {
-        "foreground": "#654658"
+        "foreground": "#245A76"
       }
     },
     {
@@ -1677,7 +1677,7 @@
       "name": "YAML number",
       "scope": "constant.numeric.yaml, constant.numeric.integer.yaml, constant.numeric.float.yaml",
       "settings": {
-        "foreground": "#7A3050"
+        "foreground": "#9C2040"
       }
     },
     {
@@ -1714,9 +1714,9 @@
     "parameter.modification": {
       "foreground": "#8B5028"
     },
-    "property": "#66602D",
-    "property.readonly": "#66602D",
-    "property.modification": "#66602D",
+    "property": "#4A6928",
+    "property.readonly": "#4A6928",
+    "property.modification": "#4A6928",
     "enumMember": "#8A4580",
     "event": "#8A4580",
     "function": "#00594A",
@@ -1732,7 +1732,7 @@
     "class.declaration": {
       "foreground": "#6530B8"
     },
-    "property.static": "#66602D",
+    "property.static": "#4A6928",
     "macro": {
       "foreground": "#00594A",
       "fontStyle": "bold"
@@ -1743,9 +1743,9 @@
     },
     "string": "#764C00",
     "keyword": "#9A3016",
-    "number": "#7A3050",
+    "number": "#9C2040",
     "regexp": "#9B1B75",
-    "operator": "#654658",
+    "operator": "#245A76",
     "decorator": {
       "foreground": "#8A4580"
     },

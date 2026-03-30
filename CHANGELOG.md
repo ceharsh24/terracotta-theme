@@ -2,6 +2,36 @@
 
 All notable changes to the Terracotta theme will be documented in this file.
 
+## [1.9.6] - 2026-03-30
+
+### Changed
+- **Light Bright background brightened** — editor background shifted from warm cream `#F4EEE4` (luminance 0.86) to warm near-white `#FDFCFA` (luminance 0.97), making it genuinely brighter than the Light theme while retaining a subtle warm tint that's easy on the eyes
+- **Light Bright token colors now vibrant and saturated** — all syntax colors updated to take advantage of the brighter background:
+  - Keywords: `#9E341A` → `#B84420` (vibrant terracotta orange)
+  - Functions: `#00594A` → `#006048` (brighter teal)
+  - Strings: `#7C4F00` → `#8B5800` (rich warm amber)
+  - Types/Classes: `#5E29AD` → `#6530B0` (richer purple)
+  - Numbers: `#7E3454` → `#9E2040` (vivid rose-red)
+  - Decorators: `#854078` → `#9A4888` (vibrant magenta)
+  - Regex: `#9B2080` → `#A82090` (more vibrant pink)
+- **Light Bright UI surfaces updated** — sidebar, activity bar, panel, status bar, and all widget backgrounds shifted to lighter warm tones to match the new editor background
+- **Operators shifted to steel blue in both light themes** — resolves collision with comments (both were muted brownish-purple)
+  - Light: `#654658` → `#245A76` (steel blue)
+  - Light Bright: `#654658` → `#265888` (crisp blue)
+- **Properties shifted to earthy green in both light themes** — resolves collision with user constants (both were olive-brown) and identical match with inherited class
+  - Light: `#66602D` → `#4A6928`
+  - Light Bright: `#625C2B` → `#446828`
+- **Inherited class gets its own purple hue** — was identical to properties in both themes
+  - Light: `#66602D` → `#6E4E94` (muted purple)
+  - Light Bright: `#625C2B` → `#7555A0` (light purple)
+- **Numbers shifted to rose-red** — resolves collision with decorators (both were mauve-purple)
+  - Light: `#7A3050` → `#9C2040`
+  - Light Bright: `#7E3454` → `#9E2040`
+
+### Fixed
+- All 361 WCAG contrast pairs pass (Tier 1 AAA 7:1, Tier 2 AA 4.5:1, UI AA 4.5:1)
+- 12 distinct hue families now clearly separated in both light themes: terracotta keywords, teal functions, gold strings, purple types, rose-red numbers, steel blue operators, earthy green properties, muted purple inherited class, warm brown params, magenta decorators, dark variables, warm gray comments
+
 ## [1.9.5] - 2026-03-27
 
 ### Changed
