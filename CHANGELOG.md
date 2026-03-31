@@ -2,6 +2,30 @@
 
 All notable changes to the Terracotta theme will be documented in this file.
 
+## [Unreleased]
+
+### Changed
+- **Comprehensive terracotta-family palette overhaul** — replaced 6 non-terracotta accent colors (bright green, bright violet, cool blue, neon pink, mauve, cool gray-purple) with warm earthy alternatives across all 4 theme variants:
+  - **Functions**: bright green → oxidized-copper teal (`#5AAFA0` dark, `#1E5848` light)
+  - **Types/Classes**: bright violet → dusty rose-plum (`#CC90A2` dark, `#7A3860` light)
+  - **Operators**: mauve/cool blue → warm taupe/brown (`#B0A090` dark, `#604838` light)
+  - **Numbers**: rosy pink → warm amber-ochre (`#DCA068` dark, `#8A3050` light)
+  - **Punctuation**: cool gray-purple → warm neutral gray (`#9C9290` dark, `#5A5248` light)
+  - **Decorators**: lavender → warm apricot (`#E0A080` dark, `#985840` light)
+- **Improved adjacent-token distinguishability** — increased color distance between commonly side-by-side tokens:
+  - Variables vs Parameters: 150% more distinct
+  - Strings vs Escape chars: 125% more distinct
+  - Comments vs Punctuation (light): 200% more distinct
+  - Decorators vs Types: 617% more distinct
+  - Keywords vs Numbers (light): from near-identical hue to 33deg separation
+- **Light theme readability dramatically improved** — comments and punctuation now have strong contrast; operators changed from hard-to-see cool blue to warm dark brown
+- Synced all documentation (README, playground, theme-analysis) with new palette values
+
+### Fixed
+- Synced `README.md`, `docs/index.html`, and `examples/theme-analysis.html` to the live palette values in `themes/*.json`
+- Removed stale palette duplication from `CLAUDE.md` and pointed documentation maintenance back to the theme JSON source of truth
+- Added `scripts/check-doc-sync.js` and wired it into `npm test` so doc/demo palette drift fails CI before release
+
 ## [1.9.6] - 2026-03-30
 
 ### Changed

@@ -206,22 +206,14 @@ The `terracotta-high-contrast-cb.json` theme follows the **IBM/Wong scientifical
 
 ---
 
-## Semantic Color Palette
+## Palette Source of Truth
 
-Consistent token-to-color mapping across all dark variants:
+The canonical palette lives in `themes/*.json`.
 
-| Token Type | Dark Theme Color | Role |
-|-----------|-----------------|------|
-| Keywords | `#E98665` (terracotta/rust) | Brand accent |
-| Functions | `#3DBB92` (teal/green) | Actions |
-| Strings | `#E5B45A` (gold/amber) | Data/values |
-| Types/Classes | `#B48EAD` (purple/lavender) | Structures |
-| Numbers | `#D98A8A` (rose/dusty pink) | Literals |
-| Operators | `#7BA7C7` (steel blue) | Logic |
-| Comments | `#706050` (warm brown) | Documentation |
-| Variables | `#D4D4D4` (light gray) | Identifiers |
-
-Light theme uses higher-contrast, darker equivalents of these colors against the warm white background.
+- Treat the theme JSON files as the only source of truth for published hex values
+- Keep `README.md`, `docs/index.html`, and `examples/theme-analysis.html` aligned with those files
+- Use `npm test` after palette-related edits; it now includes both contrast validation and documentation sync checks
+- Do not treat hard-coded hex values in secondary docs as authoritative unless they are confirmed against the theme JSON files
 
 ---
 
