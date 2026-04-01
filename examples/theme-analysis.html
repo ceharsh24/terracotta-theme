@@ -21,30 +21,30 @@
 
     [data-theme="dark"] {
       --bg: #141414; --fg: #D4D4D4;
-      --comment: #9A9588; --doc: #949184;
+      --comment: #86867E; --doc: #8E8A82;
       --string: #E8B830; --number: #DCA068; --constant: #C4A468;
-      --keyword: #E98665; --operator: #B0A090;
+      --keyword: #E98665; --operator: #B8A48E;
       --function: #5AAFA0; --builtin-fn: #7DBCAA;
       --class: #CC90A2; --interface: #CC90A2; --inherited: #D09888;
       --variable: #CABFA6; --param: #D4986C; --property: #A8A060;
-      --annotation: #D8907A; --punctuation: #9C9290;
+      --annotation: #D8907A; --punctuation: #A09498;
       --builtin-const: #D4A090; --self: #D4A96A;
-      --tag-color: #D8907A;
+      --tag-color: #D8907A; --attribute: #A8A060;
       --tab-bg: #181818; --gutter: #555555; --title-bg: #181818;
       --kw-weight: 400; --self-weight: 400; --inh-decoration: none;
     }
 
     [data-theme="dark-dimmed"] {
       --bg: #1A1A1A; --fg: #CCCCCC;
-      --comment: #9E9690; --doc: #98918A;
+      --comment: #88867E; --doc: #908A84;
       --string: #DBAC3B; --number: #D4A068; --constant: #BCA060;
-      --keyword: #E88E70; --operator: #B4A494;
+      --keyword: #E88E70; --operator: #BCA88C;
       --function: #52C4A8; --builtin-fn: #7AD0BC;
       --class: #E090B0; --interface: #E090B0; --inherited: #C89080;
       --variable: #C2B89A; --param: #D49E64; --property: #B4A468;
-      --annotation: #D09888; --punctuation: #9E988E;
+      --annotation: #D09888; --punctuation: #A49698;
       --builtin-const: #E8A090; --self: #D4B870;
-      --tag-color: #D87A6A;
+      --tag-color: #D87A6A; --attribute: #B4A468;
       --tab-bg: #1E1E1E; --gutter: #5C5C5C; --title-bg: #1E1E1E;
       --kw-weight: 400; --self-weight: 400; --inh-decoration: none;
     }
@@ -59,7 +59,7 @@
       --variable: #453830; --param: #8B5028; --property: #546028;
       --annotation: #985840; --punctuation: #5A5248;
       --builtin-const: #943840; --self: #943840;
-      --tag-color: #984848;
+      --tag-color: #984848; --attribute: #546028;
       --tab-bg: #EDEADE; --gutter: #A8A39C; --title-bg: #EDEADE;
       --kw-weight: 400; --self-weight: 400; --inh-decoration: none;
     }
@@ -74,7 +74,7 @@
       --variable: #3A3230; --param: #9A5520; --property: #506020;
       --annotation: #945038; --punctuation: #636B74;
       --builtin-const: #903438; --self: #903438;
-      --tag-color: #984040;
+      --tag-color: #984040; --attribute: #506020;
       --tab-bg: #F0EDE8; --gutter: #A0A0A0; --title-bg: #F0EDE8;
       --kw-weight: 400; --self-weight: 400; --inh-decoration: none;
     }
@@ -82,14 +82,14 @@
     [data-theme="high-contrast-cb"] {
       --bg: #000000; --fg: #FFFFFF;
       --comment: #9A9488; --doc: #908A80;
-      --string: #F0D050; --number: #FFB000; --constant: #FFB000;
+      --string: #F0D050; --number: #FFB000; --constant: #E0A040;
       --keyword: #FF8A5C; --operator: #80BFFF;
       --function: #00B4BD; --builtin-fn: #8AA8E0;
       --class: #D580FF; --interface: #D580FF; --inherited: #50D0F0;
       --variable: #C8C4B4; --param: #DDB880; --property: #8AA8E0;
       --annotation: #FF9070; --punctuation: #A0A0B0;
       --builtin-const: #FF9070; --self: #FFD060;
-      --tag-color: #E2785A;
+      --tag-color: #E2785A; --attribute: #8AA8E0;
       --tab-bg: #08090E; --gutter: #7A7A7A; --title-bg: #08090E;
       --kw-weight: 700; --self-weight: 700; --inh-decoration: underline;
     }
@@ -117,7 +117,7 @@
     .self { color: var(--self); font-weight: var(--self-weight); }
     .prop { color: var(--property); }
     .tag { color: var(--tag-color); }
-    .attr { color: var(--string); font-style: italic; }
+    .attr { color: var(--attribute); font-style: italic; }
 
     /* ── Layout ── */
 
@@ -708,7 +708,7 @@
         <div class="finding-card">
           <span class="severity info">INFO</span>
           <div class="finding-text">
-            <strong>Contrast ratios:</strong> Keyword <code>#E98665</code> on <code>#141414</code> = <strong>7.1:1</strong> (AAA). Function <code>#5AAFA0</code> on <code>#141414</code> = <strong>7.7:1</strong> (AAA). String <code>#E8B830</code> on <code>#141414</code> = <strong>11.0:1</strong> (AAA). Comment <code>#9A9588</code> on <code>#141414</code> = <strong>6.2:1</strong> (AA).
+            <strong>Contrast ratios:</strong> Keyword <code>#E98665</code> on <code>#141414</code> = <strong>7.1:1</strong> (AAA). Function <code>#5AAFA0</code> on <code>#141414</code> = <strong>7.7:1</strong> (AAA). String <code>#E8B830</code> on <code>#141414</code> = <strong>11.0:1</strong> (AAA). Comment <code>#86867E</code> on <code>#141414</code> = <strong>5.0:1</strong> (AA).
           </div>
         </div>
       </div>
@@ -739,7 +739,7 @@
         <div class="finding-card">
           <span class="severity info">INFO</span>
           <div class="finding-text">
-            <strong>Contrast ratios:</strong> Keyword <code>#E88E70</code> on <code>#1A1A1A</code> = <strong>7.1:1</strong> (AAA). Function <code>#52C4A8</code> on <code>#1A1A1A</code> = <strong>8.1:1</strong> (AAA). String <code>#DBAC3B</code> on <code>#1A1A1A</code> = <strong>8.3:1</strong> (AAA). Comment <code>#9E9690</code> on <code>#1A1A1A</code> = <strong>6.0:1</strong> (AA).
+            <strong>Contrast ratios:</strong> Keyword <code>#E88E70</code> on <code>#1A1A1A</code> = <strong>7.1:1</strong> (AAA). Function <code>#52C4A8</code> on <code>#1A1A1A</code> = <strong>8.1:1</strong> (AAA). String <code>#DBAC3B</code> on <code>#1A1A1A</code> = <strong>8.3:1</strong> (AAA). Comment <code>#88867E</code> on <code>#1A1A1A</code> = <strong>4.8:1</strong> (AA).
           </div>
         </div>
       </div>
@@ -812,13 +812,13 @@
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>Excellent differentiation:</strong> All token types are clearly distinguishable. Bold keywords <code>#FF8A5C</code> <span class="color-pair"><span class="dot" style="background:#FF8A5C"></span></span>, cyan functions <code>#00B4BD</code> <span class="color-pair"><span class="dot" style="background:#00B4BD"></span></span>, and purple classes <code>#D580FF</code> <span class="color-pair"><span class="dot" style="background:#D580FF"></span></span> occupy distinct hue bands with no collisions.
+            <strong>High-contrast structure is now more consistent:</strong> Keywords <code>#FF8A5C</code> <span class="color-pair"><span class="dot" style="background:#FF8A5C"></span></span>, functions <code>#00B4BD</code> <span class="color-pair"><span class="dot" style="background:#00B4BD"></span></span>, classes <code>#D580FF</code> <span class="color-pair"><span class="dot" style="background:#D580FF"></span></span>, and properties/attributes <code>#8AA8E0</code> <span class="color-pair"><span class="dot" style="background:#8AA8E0"></span></span> now stay in distinct semantic lanes instead of collapsing at declaration sites.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>String vs Number resolved:</strong> String <code>#F0D050</code> <span class="color-pair"><span class="dot" style="background:#F0D050"></span></span> (bright yellow) vs Number <code>#FFB000</code> <span class="color-pair"><span class="dot" style="background:#FFB000"></span></span> (warm amber) are well-distinguished — the hue gap is wide enough even for color vision deficiencies.
+            <strong>Literal lanes are cleaner:</strong> Strings <code>#F0D050</code> <span class="color-pair"><span class="dot" style="background:#F0D050"></span></span>, numbers <code>#FFB000</code> <span class="color-pair"><span class="dot" style="background:#FFB000"></span></span>, and user constants <code>#E0A040</code> <span class="color-pair"><span class="dot" style="background:#E0A040"></span></span> now read as separate categories, which helps high-contrast code avoid the old amber pile-up.
           </div>
         </div>
         <div class="finding-card">
@@ -845,13 +845,13 @@
       <div class="summary-card">
         <div class="sc-num">01</div>
         <div class="sc-title">Number / Constant: Collision Resolved</div>
-        <div class="sc-body">All themes now separate numbers from user constants using a distinct literal lane. Dark: <code>#DCA068</code> vs <code>#C4A468</code>. Dark Dimmed: <code>#D4A068</code> vs <code>#BCA060</code>. Light: <code>#8A3050</code> vs <code>#685020</code>. Light Bright: <code>#882E4C</code> vs <code>#705818</code>. The light themes in particular keep numerics warm, but no longer let them collapse into the old operator/property palette.
+        <div class="sc-body">All themes now separate numbers from user constants using a distinct literal lane. Dark: <code>#DCA068</code> vs <code>#C4A468</code>. Dark Dimmed: <code>#D4A068</code> vs <code>#BCA060</code>. Light: <code>#8A3050</code> vs <code>#685020</code>. Light Bright: <code>#882E4C</code> vs <code>#705818</code>. High Contrast CB: <code>#FFB000</code> vs <code>#E0A040</code>. The palette stays warm without letting literals collapse into one amber band.
         </div>
       </div>
       <div class="summary-card">
         <div class="sc-num">02</div>
-        <div class="sc-title">HTML Tag / Keyword: Separation Added</div>
-        <div class="sc-body">Light themes keep HTML and JSX tags in their own clay-rose lane: <code>#984848</code> in Light and <code>#984040</code> in Light Bright, distinct from keywords <code>#9A3016</code> and <code>#9C3418</code>. In React-heavy code, component names stay readable without blending into control flow.</div>
+        <div class="sc-title">Attribute / String: Separation Added</div>
+        <div class="sc-body">Attributes no longer share the string lane. Dark uses <code>#A8A060</code> against strings <code>#E8B830</code>, Dark Dimmed uses <code>#B4A468</code> against <code>#DBAC3B</code>, Light uses <code>#546028</code> against <code>#764C00</code>, Light Bright uses <code>#506020</code> against <code>#724A00</code>, and High Contrast CB uses <code>#8AA8E0</code> against <code>#F0D050</code>. JSX and HTML now stay readable even with italics disabled.</div>
       </div>
       <div class="summary-card">
         <div class="sc-num">03</div>

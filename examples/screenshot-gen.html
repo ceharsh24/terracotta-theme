@@ -63,7 +63,7 @@ body {
 <div class="line"><span class="line-number">7</span><span class="line-content"></span></div>
 <div class="line"><span class="line-number">8</span><span class="line-content"><span class="kw">interface</span> <span class="iface">ThemePalette</span> <span class="pun">{</span></span></div>
 <div class="line"><span class="line-number">9</span><span class="line-content">  <span class="prop">name</span><span class="pun">:</span> <span class="cls">string</span><span class="pun">;</span></span></div>
-<div class="line"><span class="line-number">10</span><span class="line-content">  <span class="prop">variant</span><span class="pun">:</span> <span class="str">"dark"</span> <span class="op">|</span> <span class="str">"light"</span> <span class="op">|</span> <span class="str">"high-contrast"</span><span class="pun">;</span></span></div>
+<div class="line"><span class="line-number">10</span><span class="line-content">  <span class="prop">variant</span><span class="pun">:</span> <span class="str">"dark"</span> <span class="op">|</span> <span class="str">"dark-dimmed"</span> <span class="op">|</span> <span class="str">"light"</span> <span class="op">|</span> <span class="str">"light-bright"</span> <span class="op">|</span> <span class="str">"high-contrast-cb"</span><span class="pun">;</span></span></div>
 <div class="line"><span class="line-number">11</span><span class="line-content">  <span class="prop">colors</span><span class="pun">:</span> <span class="cls">Record</span><span class="pun">&lt;</span><span class="cls">string</span><span class="pun">,</span> <span class="cls">string</span><span class="pun">&gt;;</span></span></div>
 <div class="line"><span class="line-number">12</span><span class="line-content">  <span class="prop">contrast</span><span class="pun">:</span> <span class="cls">number</span><span class="pun">;</span></span></div>
 <div class="line"><span class="line-number">13</span><span class="line-content"><span class="pun">}</span></span></div>
@@ -95,38 +95,38 @@ body {
 const themes = {
   'dark': {
     bg: '#141414', 'line-num': '#555555', 'line-num-active': '#A0A0A0',
-    'line-highlight': '#202020', cmt: '#8A8578', str: '#F0C24E', num: '#D890A0',
-    kw: '#E98665', op: '#B89DAE', fn: '#3DBB92', cls: '#C28BFF', iface: '#C28BFF',
-    'var-color': '#CABFA6', par: '#D4A870', con: '#C4A468', bcon: '#D4A090',
-    pun: '#999FB5', prop: '#ADA876', tag: '#E1948F', attr: '#F0C24E'
+    'line-highlight': '#202020', cmt: '#86867E', str: '#E8B830', num: '#DCA068',
+    kw: '#E98665', op: '#B8A48E', fn: '#5AAFA0', cls: '#CC90A2', iface: '#CC90A2',
+    'var-color': '#CABFA6', par: '#D4986C', con: '#C4A468', bcon: '#D4A090',
+    pun: '#A09498', prop: '#A8A060', tag: '#D8907A', attr: '#A8A060'
   },
   'dark-dimmed': {
     bg: '#1A1A1A', 'line-num': '#5C5C5C', 'line-num-active': '#A3A3A3',
-    'line-highlight': '#242424', cmt: '#918A7E', str: '#DBAC3B', num: '#D892A2',
-    kw: '#E88E70', op: '#B89DAE', fn: '#48BD94', cls: '#BC92F3', iface: '#BC92F3',
-    'var-color': '#C2B89A', par: '#CCA068', con: '#BCA060', bcon: '#E8A090',
-    pun: '#9FA5B5', prop: '#AAA471', tag: '#D87A6A', attr: '#DBAC3B'
+    'line-highlight': '#242424', cmt: '#88867E', str: '#DBAC3B', num: '#D4A068',
+    kw: '#E88E70', op: '#BCA88C', fn: '#52C4A8', cls: '#E090B0', iface: '#E090B0',
+    'var-color': '#C2B89A', par: '#D49E64', con: '#BCA060', bcon: '#E8A090',
+    pun: '#A49698', prop: '#B4A468', tag: '#D87A6A', attr: '#B4A468'
   },
   'light': {
     bg: '#F8F8F6', 'line-num': '#A8A39C', 'line-num-active': '#605C55',
-    'line-highlight': '#F0EFEA', cmt: '#746C58', str: '#764C00', num: '#7A3050',
-    kw: '#9A3016', op: '#654658', fn: '#00594A', cls: '#6530B8', iface: '#6530B8',
-    'var-color': '#3D3530', par: '#8B5028', con: '#685020', bcon: '#A32E42',
-    pun: '#707070', prop: '#66602D', tag: '#8A4A5A', attr: '#764C00'
+    'line-highlight': '#F0EFEA', cmt: '#706450', str: '#764C00', num: '#8A3050',
+    kw: '#9A3016', op: '#604838', fn: '#1E5848', cls: '#7A3860', iface: '#7A3860',
+    'var-color': '#453830', par: '#8B5028', con: '#685020', bcon: '#943840',
+    pun: '#5A5248', prop: '#546028', tag: '#984848', attr: '#546028'
   },
   'light-bright': {
-    bg: '#F4EEE4', 'line-num': '#A0A0A0', 'line-num-active': '#505050',
-    'line-highlight': '#E9E1D4', cmt: '#746C58', str: '#7C4F00', num: '#7E3454',
-    kw: '#9E341A', op: '#654658', fn: '#00594A', cls: '#5E29AD', iface: '#5E29AD',
-    'var-color': '#3A3230', par: '#8A4E26', con: '#6A5222', bcon: '#A42C3E',
-    pun: '#636B74', prop: '#625C2B', tag: '#8C4856', attr: '#7C4F00'
+    bg: '#FDFCFA', 'line-num': '#A0A0A0', 'line-num-active': '#505050',
+    'line-highlight': '#E9E1D4', cmt: '#746C58', str: '#724A00', num: '#882E4C',
+    kw: '#9C3418', op: '#5A4434', fn: '#1A5444', cls: '#722E58', iface: '#722E58',
+    'var-color': '#3A3230', par: '#9A5520', con: '#705818', bcon: '#903438',
+    pun: '#636B74', prop: '#506020', tag: '#984040', attr: '#506020'
   },
   'high-contrast-cb': {
     bg: '#000000', 'line-num': '#7A7A7A', 'line-num-active': '#FFFFFF',
     'line-highlight': '#111111', cmt: '#9A9488', str: '#F0D050', num: '#FFB000',
     kw: '#FF8A5C', op: '#80BFFF', fn: '#00B4BD', cls: '#D580FF', iface: '#D580FF',
-    'var-color': '#C8C4B4', par: '#DDB880', con: '#FFB000', bcon: '#FF9070',
-    pun: '#A0A0B0', prop: '#8AA8E0', tag: '#E2785A', attr: '#F0D050'
+    'var-color': '#C8C4B4', par: '#DDB880', con: '#E0A040', bcon: '#FF9070',
+    pun: '#A0A0B0', prop: '#8AA8E0', tag: '#E2785A', attr: '#8AA8E0'
   }
 };
 const name = new URLSearchParams(location.search).get('theme') || 'dark';

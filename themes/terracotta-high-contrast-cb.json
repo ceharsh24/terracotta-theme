@@ -297,11 +297,11 @@
     "terminal.background": "#0D0E14",
     "terminal.foreground": "#F0EDE4",
     "terminal.ansiBlack": "#08090E",
-    "terminal.ansiRed": "#DC267F",
+    "terminal.ansiRed": "#E05A5A",
     "terminal.ansiGreen": "#648FFF",
     "terminal.ansiYellow": "#FFB000",
-    "terminal.ansiBlue": "#785EF0",
-    "terminal.ansiMagenta": "#DC267F",
+    "terminal.ansiBlue": "#6F7CFF",
+    "terminal.ansiMagenta": "#B66AE0",
     "terminal.ansiCyan": "#33BBEE",
     "terminal.ansiWhite": "#F0EDE4",
     "terminal.ansiBrightBlack": "#8A8A9A",
@@ -492,7 +492,7 @@
         "variable.other.enummember"
       ],
       "settings": {
-        "foreground": "#FFB000"
+        "foreground": "#E0A040"
       }
     },
     {
@@ -808,7 +808,7 @@
         "entity.other.attribute-name"
       ],
       "settings": {
-        "foreground": "#F0D050",
+        "foreground": "#8AA8E0",
         "fontStyle": "italic"
       }
     },
@@ -1787,7 +1787,7 @@
     "escapeSequence": {
       "foreground": "#F0D050"
     },
-    "property.declaration": "#C8C4B4",
+    "property.declaration": "#8AA8E0",
     "module": "#D580FF"
   }
 }

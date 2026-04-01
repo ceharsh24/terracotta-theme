@@ -322,19 +322,19 @@ const THEMES = {
     bg: "#141414", fg: "#D4D4D4", selection: "#E9866540", lineHighlight: "#202020",
     lineNum: "#555555", lineNumActive: "#A0A0A0", headerBg: "#181818",
     tokens: {
-      comment: { color: "#9A9588", italic: true },
+      comment: { color: "#86867E", italic: true },
       string: { color: "#E8B830" },
       keyword: { color: "#E98665" },
       function: { color: "#5AAFA0" },
       variable: { color: "#CABFA6" },
       number: { color: "#DCA068" },
       type: { color: "#CC90A2" },
-      operator: { color: "#B0A090" },
+      operator: { color: "#B8A48E" },
       constant: { color: "#D4A090", italic: true },
       tag: { color: "#D8907A" },
-      attribute: { color: "#E8B830", italic: true },
+      attribute: { color: "#A8A060", italic: true },
       property: { color: "#A8A060" },
-      punctuation: { color: "#9C9290" },
+      punctuation: { color: "#A09498" },
       builtin: { color: "#7DBCAA" },
       regex: { color: "#D4A898" },
     }
@@ -343,19 +343,19 @@ const THEMES = {
     bg: "#1A1A1A", fg: "#CCCCCC", selection: "#D0705040", lineHighlight: "#242424",
     lineNum: "#5C5C5C", lineNumActive: "#A3A3A3", headerBg: "#1E1E1E",
     tokens: {
-      comment: { color: "#9E9690", italic: true },
+      comment: { color: "#88867E", italic: true },
       string: { color: "#DBAC3B" },
       keyword: { color: "#E88E70" },
       function: { color: "#52C4A8" },
       variable: { color: "#C2B89A" },
       number: { color: "#D4A068" },
       type: { color: "#E090B0" },
-      operator: { color: "#B4A494" },
+      operator: { color: "#BCA88C" },
       constant: { color: "#E8A090", italic: true },
       tag: { color: "#D87A6A" },
-      attribute: { color: "#DBAC3B", italic: true },
+      attribute: { color: "#B4A468", italic: true },
       property: { color: "#B4A468" },
-      punctuation: { color: "#9E988E" },
+      punctuation: { color: "#A49698" },
       builtin: { color: "#7AD0BC" },
       regex: { color: "#D09888" },
     }
@@ -374,7 +374,7 @@ const THEMES = {
       operator: { color: "#604838" },
       constant: { color: "#943840", italic: true },
       tag: { color: "#984848" },
-      attribute: { color: "#764C00", italic: true },
+      attribute: { color: "#546028", italic: true },
       property: { color: "#546028" },
       punctuation: { color: "#5A5248" },
       builtin: { color: "#3B6040" },
@@ -395,7 +395,7 @@ const THEMES = {
       operator: { color: "#5A4434" },
       constant: { color: "#903438", italic: true },
       tag: { color: "#984040" },
-      attribute: { color: "#724A00", italic: true },
+      attribute: { color: "#506020", italic: true },
       property: { color: "#506020" },
       punctuation: { color: "#636B74" },
       builtin: { color: "#386038" },
@@ -416,7 +416,7 @@ const THEMES = {
       operator: { color: "#80BFFF" },
       constant: { color: "#FF9070", italic: true },
       tag: { color: "#E2785A" },
-      attribute: { color: "#F0D050", italic: true },
+      attribute: { color: "#8AA8E0", italic: true },
       property: { color: "#8AA8E0" },
       punctuation: { color: "#A0A0B0" },
       builtin: { color: "#8AA8E0" },
@@ -676,7 +676,7 @@ interface ThemeColors {
   readonly accent: string;
 }
 
-type ThemeVariant = "dark" | "light" | "high-contrast";
+type ThemeVariant = "dark" | "dark-dimmed" | "light" | "light-bright" | "high-contrast-cb";
 
 interface Theme {
   name: string;

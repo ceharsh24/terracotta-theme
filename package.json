@@ -2,7 +2,7 @@
   "name": "terracotta-theme",
   "displayName": "Terracotta Theme",
   "description": "Warm, WCAG-compliant theme with 5 variants including a color-blind mode",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "publisher": "terracotta-theme",
   "license": "MIT",
   "author": "Harsh Shah (https://github.com/ceharsh24)",
@@ -40,7 +40,7 @@
     "theme": "dark"
   },
   "scripts": {
-    "test": "node scripts/check-contrast.js && node scripts/check-doc-sync.js",
+    "test": "node scripts/check-contrast.js && node scripts/check-doc-sync.js && node scripts/check-terminal-palette.js",
     "test:docs": "node scripts/check-doc-sync.js",
     "screenshots": "node scripts/screenshot.js"
   },
@@ -75,7 +75,7 @@
       },
       {
         "label": "Terracotta High Contrast (Color Blind)",
-        "uiTheme": "hc-dark",
+        "uiTheme": "hc-black",
         "path": "./themes/terracotta-high-contrast-cb.json"
       }
     ]

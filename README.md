@@ -7,7 +7,7 @@ A strikingly vibrant, carefully crafted VS Code theme. Five variants for every e
 [![Rating](https://img.shields.io/visual-studio-marketplace/r/terracotta-theme.terracotta-theme?label=Rating&color=75CAFF)](https://marketplace.visualstudio.com/items?itemName=terracotta-theme.terracotta-theme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-FFC940.svg)](LICENSE)
 
-**WCAG-validated syntax and UI contrast across all 5 variants. 361 color pairs validated automatically.**
+**WCAG-validated syntax and UI contrast across all 5 variants. 364 color pairs validated automatically.**
 
 ---
 
@@ -25,12 +25,12 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Foreground  | ![#D4D4D4](https://placehold.co/16x16/D4D4D4/D4D4D4.png)   | `#D4D4D4` |
 | Accent      | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
 | Keywords    | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
-| Functions   | ![#5AAFA0](https://placehold.co/16x16/3DBB92/3DBB92.png)   | `#5AAFA0` |
-| Strings     | ![#E8B830](https://placehold.co/16x16/F0C24E/F0C24E.png)   | `#E8B830` |
-| Types       | ![#CC90A2](https://placehold.co/16x16/C28BFF/C28BFF.png)   | `#CC90A2` |
-| Numbers     | ![#DCA068](https://placehold.co/16x16/D890A0/D890A0.png)   | `#DCA068` |
-| Operators   | ![#B0A090](https://placehold.co/16x16/B89DAE/B89DAE.png)   | `#B0A090` |
-| Decorators  | ![#D8907A](https://placehold.co/16x16/E1948F/E1948F.png)   | `#D8907A` |
+| Functions   | ![#5AAFA0](https://placehold.co/16x16/5AAFA0/5AAFA0.png)   | `#5AAFA0` |
+| Strings     | ![#E8B830](https://placehold.co/16x16/E8B830/E8B830.png)   | `#E8B830` |
+| Types       | ![#CC90A2](https://placehold.co/16x16/CC90A2/CC90A2.png)   | `#CC90A2` |
+| Numbers     | ![#DCA068](https://placehold.co/16x16/DCA068/DCA068.png)   | `#DCA068` |
+| Operators   | ![#B8A48E](https://placehold.co/16x16/B8A48E/B8A48E.png)   | `#B8A48E` |
+| Decorators  | ![#D8907A](https://placehold.co/16x16/D8907A/D8907A.png)   | `#D8907A` |
 
 ### Terracotta Dark Dimmed
 
@@ -47,8 +47,8 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Functions   | ![#52C4A8](https://placehold.co/16x16/52C4A8/52C4A8.png)   | `#52C4A8` |
 | Strings     | ![#DBAC3B](https://placehold.co/16x16/DBAC3B/DBAC3B.png)   | `#DBAC3B` |
 | Types       | ![#E090B0](https://placehold.co/16x16/E090B0/E090B0.png)   | `#E090B0` |
-| Numbers     | ![#D4A068](https://placehold.co/16x16/D892A2/D892A2.png)   | `#D4A068` |
-| Operators   | ![#B4A494](https://placehold.co/16x16/B4A494/B4A494.png)   | `#B4A494` |
+| Numbers     | ![#D4A068](https://placehold.co/16x16/D4A068/D4A068.png)   | `#D4A068` |
+| Operators   | ![#BCA88C](https://placehold.co/16x16/BCA88C/BCA88C.png)   | `#BCA88C` |
 
 ### Terracotta Light
 
@@ -62,12 +62,12 @@ A warm paper-like light theme using a beautifully soft off-white background (`#F
 | Foreground  | ![#242424](https://placehold.co/16x16/242424/242424.png)   | `#242424` |
 | Accent      | ![#C15F3C](https://placehold.co/16x16/C15F3C/C15F3C.png)   | `#C15F3C` |
 | Keywords    | ![#9A3016](https://placehold.co/16x16/9A3016/9A3016.png)   | `#9A3016` |
-| Functions   | ![#1E5848](https://placehold.co/16x16/00594A/00594A.png)   | `#1E5848` |
+| Functions   | ![#1E5848](https://placehold.co/16x16/1E5848/1E5848.png)   | `#1E5848` |
 | Strings     | ![#764C00](https://placehold.co/16x16/764C00/764C00.png)   | `#764C00` |
-| Types       | ![#7A3860](https://placehold.co/16x16/6530B8/6530B8.png)   | `#7A3860` |
-| Numbers     | ![#8A3050](https://placehold.co/16x16/9C2040/9C2040.png)   | `#8A3050` |
-| Operators   | ![#604838](https://placehold.co/16x16/245A76/245A76.png)   | `#604838` |
-| Decorators  | ![#985840](https://placehold.co/16x16/8A4580/8A4580.png)   | `#985840` |
+| Types       | ![#7A3860](https://placehold.co/16x16/7A3860/7A3860.png)   | `#7A3860` |
+| Numbers     | ![#8A3050](https://placehold.co/16x16/8A3050/8A3050.png)   | `#8A3050` |
+| Operators   | ![#604838](https://placehold.co/16x16/604838/604838.png)   | `#604838` |
+| Decorators  | ![#985840](https://placehold.co/16x16/985840/985840.png)   | `#985840` |
 
 ### Terracotta Light Bright
 
@@ -81,11 +81,11 @@ The highest-energy light variant. A warm near-white background (`#FDFCFA`) with 
 | Foreground  | ![#1E1E1E](https://placehold.co/16x16/1E1E1E/1E1E1E.png)   | `#1E1E1E` |
 | Accent      | ![#DA7756](https://placehold.co/16x16/DA7756/DA7756.png)   | `#DA7756` |
 | Keywords    | ![#9C3418](https://placehold.co/16x16/B84420/B84420.png)   | `#9C3418` |
-| Functions   | ![#1A5444](https://placehold.co/16x16/006048/006048.png)   | `#1A5444` |
-| Strings     | ![#724A00](https://placehold.co/16x16/8B5800/8B5800.png)   | `#724A00` |
-| Types       | ![#722E58](https://placehold.co/16x16/6530B0/6530B0.png)   | `#722E58` |
-| Numbers     | ![#882E4C](https://placehold.co/16x16/9E2040/9E2040.png)   | `#882E4C` |
-| Operators   | ![#5A4434](https://placehold.co/16x16/265888/265888.png)   | `#5A4434` |
+| Functions   | ![#1A5444](https://placehold.co/16x16/1A5444/1A5444.png)   | `#1A5444` |
+| Strings     | ![#724A00](https://placehold.co/16x16/724A00/724A00.png)   | `#724A00` |
+| Types       | ![#722E58](https://placehold.co/16x16/722E58/722E58.png)   | `#722E58` |
+| Numbers     | ![#882E4C](https://placehold.co/16x16/882E4C/882E4C.png)   | `#882E4C` |
+| Operators   | ![#5A4434](https://placehold.co/16x16/5A4434/5A4434.png)   | `#5A4434` |
 
 ### Terracotta High Contrast (Color Blind)
 
@@ -192,7 +192,7 @@ Each variant provides:
 
 ## Accessibility & Design
 
-361 color pairs across all 5 variants are validated against WCAG 2.1 standards using an automated contrast checker (`npm test`).
+364 color pairs across all 5 variants are validated against WCAG 2.1 standards using an automated contrast checker (`npm test`).
 
 ### WCAG Compliance
 
@@ -215,14 +215,14 @@ A tiered system ensures the best balance of readability and color differentiatio
 | Variant | Editor | Comment | Keyword | Function | String | Number |
 |---------|--------|---------|---------|----------|--------|--------|
 | Dark | 12.4 | 5.0 | 7.1 | 7.7 | 11.0 | 7.4 |
-| Dark Dimmed | 10.8 | 5.1 | 7.1 | 7.4 | 8.3 | 7.1 |
+| Dark Dimmed | 10.8 | 4.8 | 7.1 | 7.4 | 8.3 | 7.1 |
 | Light | 14.6 | 4.9 | 7.0 | 7.8 | 7.0 | 7.3 |
 | Light Bright | 16.3 | 5.1 | 5.3 | 7.4 | 5.9 | 7.5 |
 | HC (Color Blind) | 21.0 | 7.0 | 9.0 | 8.3 | 13.8 | 11.5 |
 
 ### Design Choices
 
-**Warm color harmony with clear separation.** Each color family has a dedicated role: terracotta for keywords, green for functions, gold for strings, purple for types, warm neutrals for variables, and deliberate structural accents for operators and properties. The dark themes keep operators in dusty plum, while the light themes shift operators to steel blue and properties to earthy green so structural syntax stays readable against the warmer background.
+**Warm color harmony with clear separation.** Each color family has a dedicated role: terracotta for keywords, green for functions, gold for strings, purple for types, warm neutrals for variables, and deliberate structural accents for operators and properties. The dark themes keep operators in a sandy structural lane, while the light themes shift operators to a drier brown-neutral and properties to earthy green so structural syntax stays readable against the warmer background.
 
 **Distinct variables, properties, and parameters.** In the dark themes, variables use a bright warm sand (`#CABFA6`), properties use an olive-clay accent (`#A8A060`), and parameters have their own amber tone (`#D4986C`). This separation improves scan speed in object-heavy JavaScript/TypeScript, JSON, YAML, and config files without breaking the warm terracotta identity.
 

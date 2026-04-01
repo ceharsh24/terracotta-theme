@@ -281,7 +281,7 @@
     "terminal.ansiRed": "#E98665",
     "terminal.ansiGreen": "#40D4A6",
     "terminal.ansiYellow": "#E8BE58",
-    "terminal.ansiBlue": "#B8A098",
+    "terminal.ansiBlue": "#8CAAB8",
     "terminal.ansiMagenta": "#B88EE8",
     "terminal.ansiCyan": "#6EC4D4",
     "terminal.ansiWhite": "#D4D4D4",
@@ -394,7 +394,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#9A9588"
+        "foreground": "#86867E"
       }
     },
     {
@@ -404,7 +404,7 @@
         "comment.block.javadoc"
       ],
       "settings": {
-        "foreground": "#949184",
+        "foreground": "#8E8A82",
         "fontStyle": "italic"
       }
     },
@@ -504,7 +504,7 @@
         "keyword.operator"
       ],
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -516,7 +516,7 @@
         "keyword.operator.ternary"
       ],
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -526,7 +526,7 @@
         "keyword.operator.arithmetic"
       ],
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -731,7 +731,7 @@
         "punctuation"
       ],
       "settings": {
-        "foreground": "#9C9290"
+        "foreground": "#A09498"
       }
     },
     {
@@ -743,7 +743,7 @@
         "meta.brace"
       ],
       "settings": {
-        "foreground": "#9C9290"
+        "foreground": "#A09498"
       }
     },
     {
@@ -782,7 +782,7 @@
         "entity.other.attribute-name"
       ],
       "settings": {
-        "foreground": "#E8B830",
+        "foreground": "#A8A060",
         "fontStyle": "italic"
       }
     },
@@ -792,7 +792,7 @@
         "punctuation.definition.tag"
       ],
       "settings": {
-        "foreground": "#9C9290"
+        "foreground": "#A09498"
       }
     },
     {
@@ -991,7 +991,7 @@
         "markup.strikethrough"
       ],
       "settings": {
-        "foreground": "#9A9588",
+        "foreground": "#8E8C82",
         "fontStyle": "strikethrough"
       }
     },
@@ -1061,7 +1061,7 @@
         "markup.quote"
       ],
       "settings": {
-        "foreground": "#949184",
+        "foreground": "#928F86",
         "fontStyle": "italic"
       }
     },
@@ -1071,7 +1071,7 @@
         "meta.separator.markdown"
       ],
       "settings": {
-        "foreground": "#9C9290"
+        "foreground": "#A09498"
       }
     },
     {
@@ -1089,7 +1089,7 @@
         "keyword.operator.quantifier.regexp"
       ],
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1149,7 +1149,7 @@
         "keyword.operator.comparison.sql"
       ],
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1176,7 +1176,7 @@
         "markup.changed"
       ],
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1228,7 +1228,7 @@
         "keyword.channel.go"
       ],
       "settings": {
-        "foreground": "#B0A090",
+        "foreground": "#B8A48E",
         "fontStyle": "italic"
       }
     },
@@ -1240,7 +1240,7 @@
         "punctuation.definition.lifetime.rust"
       ],
       "settings": {
-        "foreground": "#B0A090",
+        "foreground": "#B8A48E",
         "fontStyle": "italic"
       }
     },
@@ -1261,7 +1261,7 @@
         "keyword.operator.dereference.rust"
       ],
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1374,7 +1374,7 @@
         "keyword.operator.arrow.cpp"
       ],
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1424,7 +1424,7 @@
       "name": "JSX spread operator",
       "scope": "keyword.operator.spread.tsx, keyword.operator.spread.jsx",
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1475,7 +1475,7 @@
       "name": "GraphQL operator",
       "scope": "keyword.operator.graphql",
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1489,7 +1489,7 @@
       "name": "GraphQL comment",
       "scope": "comment.line.graphql, comment.block.graphql",
       "settings": {
-        "foreground": "#9A9588",
+        "foreground": "#8E8C82",
         "fontStyle": "italic"
       }
     },
@@ -1540,7 +1540,7 @@
       "name": "TOML punctuation",
       "scope": "punctuation.definition.table.toml, punctuation.definition.array.toml, punctuation.separator.toml",
       "settings": {
-        "foreground": "#9C9290"
+        "foreground": "#A09498"
       }
     },
     {
@@ -1562,7 +1562,7 @@
       "name": "Dockerfile flag",
       "scope": "keyword.operator.flag.dockerfile, entity.name.variable.parameter.dockerfile",
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1583,7 +1583,7 @@
       "name": "Dockerfile comment",
       "scope": "comment.line.number-sign.dockerfile",
       "settings": {
-        "foreground": "#9A9588",
+        "foreground": "#8E8C82",
         "fontStyle": "italic"
       }
     },
@@ -1613,14 +1613,14 @@
       "name": "Shell redirect operator",
       "scope": "keyword.operator.redirect.shell, keyword.operator.pipe.shell, keyword.operator.herestring.shell",
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
       "name": "Shell logical operator",
       "scope": "keyword.operator.logical.shell",
       "settings": {
-        "foreground": "#B0A090"
+        "foreground": "#B8A48E"
       }
     },
     {
@@ -1733,15 +1733,15 @@
       "foreground": "#5AAFA0",
       "fontStyle": "bold"
     },
-    "label": "#B0A090",
+    "label": "#B8A48E",
     "comment": {
-      "foreground": "#9A9588"
+      "foreground": "#86867E"
     },
     "string": "#E8B830",
     "keyword": "#E98665",
     "number": "#DCA068",
     "regexp": "#D4A898",
-    "operator": "#B0A090",
+    "operator": "#B8A48E",
     "decorator": {
       "foreground": "#D8907A"
     },
@@ -1750,7 +1750,7 @@
       "foreground": "#D4A96A"
     },
     "lifetime": {
-      "foreground": "#B0A090"
+      "foreground": "#B8A48E"
     },
     "formatSpecifier": "#E8B830",
     "escapeSequence": {

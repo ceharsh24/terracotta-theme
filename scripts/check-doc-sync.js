@@ -156,6 +156,7 @@ const ANALYSIS_VAR_MAP = {
   "builtin-const": "builtInConstant",
   self: "selfKeyword",
   "tag-color": "tag",
+  attribute: "attribute",
   "tab-bg": "headerBg",
   gutter: "lineNum",
   "title-bg": "headerBg",
