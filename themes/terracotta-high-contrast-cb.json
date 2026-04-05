@@ -1757,10 +1757,7 @@
       "foreground": "#D580FF"
     },
     "property.static": "#8AA8E0",
-    "macro": {
-      "foreground": "#00B4BD",
-      "fontStyle": "bold"
-    },
+    "macro": "#00B4BD",
     "label": "#80BFFF",
     "comment": {
       "foreground": "#9A9488"

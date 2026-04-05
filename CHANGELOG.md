@@ -5,6 +5,49 @@ All notable changes to the Terracotta theme will be documented in this file.
 ## [Unreleased]
 
 ### Changed
+- **Light themes rebuilt as distinct personalities** — Terracotta Light now uses a warmer editorial parchment canvas (`#F4EEE4`) with softer chrome, while Terracotta Light Bright moves to a cleaner daylight canvas (`#FCFBF7`) with cooler structure and sharper editor/chrome separation
+- **Light-theme syntax lanes re-architected** — operators moved into a slate lane (`#334E69` / `#315978`), properties stay olive (`#4E6A33` / `#4E7A3B`), class/interface lanes now separate warm plum from cooler indigo-blue, and parameters collapse into the cocoa identifier lane with italics instead of another near-terracotta hue
+- Synced README, playground, theme analysis, static demos, screenshot template, showcase configs, shell showcase, React showcase, and `CLAUDE.md` to the live palette values
+
+### Added
+- `scripts/check-palette-spacing.js` — blocks regressions when the light themes lose internal lane definition, drift too close together, or flatten their workbench surfaces back into the editor background
+
+### Fixed
+- Extended `scripts/check-doc-sync.js` to validate `examples/THEME-DEMO.html` and `examples/screenshot-gen.html` alongside the README and published docs
+- Regenerated all bundled screenshots after the light-theme rewrite
+
+## [1.9.9] - 2026-04-05
+
+### Changed
+- **Light theme vibrancy overhaul** — increased saturation and color identity across both light variants:
+  - **Variables**: near-black brown → warm sienna (`#4A2E20` light, `#422A1C` bright) with visible red-brown hue
+  - **Properties**: muted olive → rich forest-olive green (`#476218` light, `#436016` bright)
+  - **Comments**: gray-brown → warmer tone (`#6B5B42` light, `#685840` bright) with better doc-comment separation
+  - **Doc comments**: shifted to green-gray tint for clear distinction from regular comments (hex distance 30+, was 14)
+  - **Punctuation**: warm slate tone (`#565060` light, `#504C5C` bright) — 40+ hex distance from operators (was 16)
+- **Type family differentiation** — interfaces, enums, and type parameters now get distinct sub-shades within the plum family across all 4 non-HC themes, instead of sharing one color for 25+ scopes:
+  - **Classes/Types**: keep base plum (`#7A3860` light, `#CC90A2` dark)
+  - **Interfaces**: shifted violet (`#6E2878` light, `#B890C0` dark)
+  - **Enums**: shifted rose (`#842E50` light, `#D898A0` dark)
+  - **Type parameters**: shifted purple (`#64306E` light, `#C098C0` dark)
+- **Dark theme brown/tan confusion fixed** — separated 6 tokens that were within 3-10 hex units of each other:
+  - **Parameters**: `#D4986C` → `#D09058` (more distinctly orange)
+  - **This/Self**: `#D4A96A` → `#C8B468` (gold-olive, 25+ distance from neighbors)
+  - **Regex**: `#D4A898` → `#C4A0B0` (cooled to rose-lavender)
+  - **Decorators**: `#D8907A` → `#CC8898` (dusty pink-mauve)
+- **Dark comment gray confusion fixed** — doc comments `#8E8A82` → `#948E88` (hex distance 22, was 8)
+- **Reduced keyword color overuse** — moved diff-deleted, invalid, and invalid-deprecated from keyword-orange to error-red; moved JSX embedded, shell substitution, and markdown code language to escape-sequence color
+- **Dark Dimmed variant harmonized** — applied consistent dimming formula (~10 unit warm shift from Dark base), fixing wildly inconsistent offsets (types was 34 units off, comments was 2)
+- Synced all documentation (README, playground, theme-analysis) with new palette values
+
+### Fixed
+- Removed `fontStyle: "bold"` from 7 token scopes across all 4 non-HC themes (Markdown headings, GraphQL directive, TOML table header, Dockerfile instruction, Shell shebang, semantic macro) — project uses color-only differentiation, not bold
+- TOML table headers and Shell shebangs changed from bold to italic for structural emphasis
+- Removed bold from `semantic:macro` across all 5 themes including HC-CB
+
+## [1.9.8] - 2026-04-05
+
+### Changed
 - **Comprehensive terracotta-family palette overhaul** — replaced 6 non-terracotta accent colors (bright green, bright violet, cool blue, neon pink, mauve, cool gray-purple) with warm earthy alternatives across all 4 theme variants:
   - **Functions**: bright green → oxidized-copper teal (`#5AAFA0` dark, `#1E5848` light)
   - **Types/Classes**: bright violet → dusty rose-plum (`#CC90A2` dark, `#7A3860` light)

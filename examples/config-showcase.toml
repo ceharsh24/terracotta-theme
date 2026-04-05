@@ -121,15 +121,15 @@ target_contrast_ratio = 7.0
 [theme.colors]
 accent = "#E98665"
 background_dark = "#141414"
-background_light = "#F8F8F6"
+background_light = "#F4EEE4"
 foreground_dark = "#D4D4D4"
-foreground_light = "#242424"
+foreground_light = "#2A241F"
 
 [theme.palette]
-terracotta = ["#E98665", "#E88E70", "#9A3016", "#9E341A", "#FF8A5C"]
-purple = ["#C28BFF", "#BC92F3", "#6530B8", "#5E29AD", "#D580FF"]
-green = ["#3DBB92", "#48BD94", "#00594A", "#005C48", "#00B4BD"]
-gold = ["#F0C24E", "#DBAC3B", "#764C00", "#7C4F00", "#F0D050"]
+terracotta = ["#E98665", "#ED8A68", "#944126", "#B14D2E", "#FF8A5C"]
+purple = ["#CC90A2", "#D094A6", "#593F73", "#45538F", "#D580FF"]
+green = ["#5AAFA0", "#5EB4A4", "#1A574D", "#145A52", "#00B4BD"]
+gold = ["#E8B830", "#ECBC34", "#6E6218", "#806A1C", "#F0D050"]
 
 # ── Server config (demonstrates nested tables) ────────────────────
 
@@ -179,9 +179,9 @@ pass = true
 
 [[tests]]
 name = "contrast_light"
-background = "#F8F8F6"
-foreground = "#242424"
-expected_ratio = 14.2
+background = "#F4EEE4"
+foreground = "#2A241F"
+expected_ratio = 13.3
 pass = true
 
 [[tests]]

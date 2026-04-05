@@ -190,7 +190,7 @@ const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
     () =>
       theme === "dark"
         ? { bg: "#1a1a1a", fg: "#cccccc", accent: "#d06f50", muted: "#666" }
-        : { bg: "#fdfaf6", fg: "#242424", accent: "#ab3d1e", muted: "#999" },
+        : { bg: "#f4eee4", fg: "#2a241f", accent: "#b66743", muted: "#8b7f70" },
     [theme]
   );
 

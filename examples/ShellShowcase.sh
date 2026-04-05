@@ -28,8 +28,8 @@ declare -a THEMES=("dark" "dark-dimmed" "light" "light-bright" "high-contrast-cb
 declare -A THEME_COLORS=(
     [dark]="#141414"
     [dark-dimmed]="#1A1A1A"
-    [light]="#F8F8F6"
-    [light-bright]="#FFFFFF"
+    [light]="#F4EEE4"
+    [light-bright]="#FCFBF7"
     [high-contrast-cb]="#000000"
 )
 

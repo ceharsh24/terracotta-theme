@@ -133,6 +133,50 @@ const DOCS_INDEX_TOKEN_MAP = {
   regex: "regex",
 };
 
+const DEMO_TOKEN_MAP = {
+  comment: "comment",
+  string: "string",
+  keyword: "keyword",
+  function: "function",
+  variable: "variable",
+  number: "number",
+  type: "type",
+  operator: "operator",
+  constant: "userConstant",
+  tag: "tag",
+  attribute: "attribute",
+  property: "property",
+  punctuation: "punctuation",
+  builtin: "builtin",
+  regex: "regex",
+  parameter: "parameter",
+  macro: "function",
+  enumMember: "builtInConstant",
+  label: "operator",
+  module: "type",
+  decorator: "decorator",
+  docComment: "doc",
+};
+
+const SCREENSHOT_TOKEN_MAP = {
+  cmt: "comment",
+  str: "string",
+  num: "number",
+  kw: "keyword",
+  op: "operator",
+  fn: "function",
+  cls: "type",
+  iface: "interface",
+  "var-color": "variable",
+  par: "parameter",
+  con: "userConstant",
+  bcon: "builtInConstant",
+  pun: "punctuation",
+  prop: "property",
+  tag: "tag",
+  attr: "attribute",
+};
+
 const ANALYSIS_VAR_MAP = {
   bg: "bg",
   fg: "fg",
@@ -146,7 +190,7 @@ const ANALYSIS_VAR_MAP = {
   function: "function",
   "builtin-fn": "builtin",
   class: "type",
-  interface: "type",
+  interface: "interface",
   inherited: "inherited",
   variable: "variable",
   param: "parameter",
@@ -228,6 +272,9 @@ function extractPalette(themeId) {
     variable: normalizeHex(extractForeground(semantic.variable)),
     number: normalizeHex(extractForeground(semantic.number)),
     type: normalizeHex(extractForeground(semantic.type)),
+    interface: normalizeHex(extractForeground(semantic.interface)),
+    enum: normalizeHex(extractForeground(semantic.enum)),
+    typeParameter: normalizeHex(extractForeground(semantic.typeParameter)),
     operator: normalizeHex(extractForeground(semantic.operator)),
     property: normalizeHex(extractForeground(semantic.property)),
     parameter: normalizeHex(extractForeground(semantic.parameter)),
@@ -261,6 +308,16 @@ function buildAllowedHexSet(palette) {
 
 function collectHexes(text) {
   return [...text.matchAll(/#[0-9A-Fa-f]{6}/g)].map((match) => normalizeHex(match[0]));
+}
+
+function extractJsObject(text, regex, label, issues) {
+  const match = text.match(regex);
+  if (!match) {
+    issues.push(`${label}: unable to locate object literal`);
+    return null;
+  }
+
+  return vm.runInNewContext(`(${match[1]})`);
 }
 
 function compareHex(surface, label, actual, expected, issues) {
@@ -317,15 +374,15 @@ function validateReadmeBackticks(readme, globalAllowedHexes, issues) {
 }
 
 function validateDocsIndex(docsIndex, palettes, issues) {
-  const objectMatch = docsIndex.match(
-    /const THEMES = (\{[\s\S]*?\n\});\n\n\/\/ ── Sample code/
+  const themesObject = extractJsObject(
+    docsIndex,
+    /const THEMES = (\{[\s\S]*?\n\});\n\n\/\/ ── Sample code/,
+    "docs/index.html",
+    issues
   );
-  if (!objectMatch) {
-    issues.push("docs/index.html: unable to locate THEMES object");
+  if (!themesObject) {
     return;
   }
-
-  const themesObject = vm.runInNewContext(`(${objectMatch[1]})`);
 
   for (const [docsName, themeId] of Object.entries(DOCS_INDEX_THEME_MAP)) {
     const actualTheme = themesObject[docsName];
@@ -378,6 +435,106 @@ function validateDocsIndex(docsIndex, palettes, issues) {
         "docs/index.html",
         `${docsName} token:${tokenKey}`,
         actualTheme.tokens?.[tokenKey]?.color,
+        expected[role],
+        issues
+      );
+    }
+  }
+}
+
+function validateThemeDemo(demoHtml, palettes, issues) {
+  const themesObject = extractJsObject(
+    demoHtml,
+    /const THEMES = (\{[\s\S]*?\n\});\n\nfunction s/,
+    "examples/THEME-DEMO.html",
+    issues
+  );
+  if (!themesObject) {
+    return;
+  }
+
+  for (const [docsName, themeId] of Object.entries(DOCS_INDEX_THEME_MAP)) {
+    const actualTheme = themesObject[docsName];
+    if (!actualTheme) {
+      issues.push(`examples/THEME-DEMO.html: missing theme "${docsName}"`);
+      continue;
+    }
+
+    const expected = palettes[themeId];
+    compareHex("examples/THEME-DEMO.html", `${docsName} bg`, actualTheme.bg, expected.bg, issues);
+    compareHex("examples/THEME-DEMO.html", `${docsName} fg`, actualTheme.fg, expected.fg, issues);
+    compareHex(
+      "examples/THEME-DEMO.html",
+      `${docsName} headerBg`,
+      actualTheme.headerBg,
+      expected.headerBg,
+      issues
+    );
+
+    for (const [tokenKey, role] of Object.entries(DEMO_TOKEN_MAP)) {
+      compareHex(
+        "examples/THEME-DEMO.html",
+        `${docsName} token:${tokenKey}`,
+        actualTheme.tokens?.[tokenKey]?.color,
+        expected[role],
+        issues
+      );
+    }
+  }
+}
+
+function validateScreenshotGen(screenshotHtml, palettes, issues) {
+  const themesObject = extractJsObject(
+    screenshotHtml,
+    /const themes = (\{[\s\S]*?\n\});\nconst name/,
+    "examples/screenshot-gen.html",
+    issues
+  );
+  if (!themesObject) {
+    return;
+  }
+
+  for (const [themeId, expected] of Object.entries(palettes)) {
+    const actualTheme = themesObject[themeId];
+    if (!actualTheme) {
+      issues.push(`examples/screenshot-gen.html: missing theme "${themeId}"`);
+      continue;
+    }
+
+    compareHex(
+      "examples/screenshot-gen.html",
+      `${themeId} bg`,
+      actualTheme.bg,
+      expected.bg,
+      issues
+    );
+    compareHex(
+      "examples/screenshot-gen.html",
+      `${themeId} line-num`,
+      actualTheme["line-num"],
+      expected.lineNum,
+      issues
+    );
+    compareHex(
+      "examples/screenshot-gen.html",
+      `${themeId} line-num-active`,
+      actualTheme["line-num-active"],
+      expected.lineNumActive,
+      issues
+    );
+    compareHex(
+      "examples/screenshot-gen.html",
+      `${themeId} line-highlight`,
+      actualTheme["line-highlight"],
+      expected.lineHighlight,
+      issues
+    );
+
+    for (const [tokenKey, role] of Object.entries(SCREENSHOT_TOKEN_MAP)) {
+      compareHex(
+        "examples/screenshot-gen.html",
+        `${themeId} token:${tokenKey}`,
+        actualTheme[tokenKey],
         expected[role],
         issues
       );
@@ -460,6 +617,8 @@ function main() {
   const palettes = loadPalettes();
   const readme = readText("README.md");
   const docsIndex = readText("docs/index.html");
+  const themeDemo = readText("examples/THEME-DEMO.html");
+  const screenshotGen = readText("examples/screenshot-gen.html");
   const analysisHtml = readText("examples/theme-analysis.html");
   const issues = [];
 
@@ -474,6 +633,8 @@ function main() {
 
   validateReadmeBackticks(readme, globalAllowedHexes, issues);
   validateDocsIndex(docsIndex, palettes, issues);
+  validateThemeDemo(themeDemo, palettes, issues);
+  validateScreenshotGen(screenshotGen, palettes, issues);
   validateAnalysisVars(analysisHtml, palettes, issues);
   validateAnalysisNarrative(analysisHtml, palettes, issues);
 

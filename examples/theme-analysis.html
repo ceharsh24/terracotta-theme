@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terracotta Theme — Visual Analysis</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #0B0B0B;
+      background:
+        radial-gradient(circle at top, #1A140F 0%, #0B0B0B 46%, #070707 100%);
       color: #CCCCCC;
-      font-family: 'DM Sans', sans-serif;
+      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
       line-height: 1.6;
       min-height: 100vh;
     }
@@ -21,61 +20,61 @@
 
     [data-theme="dark"] {
       --bg: #141414; --fg: #D4D4D4;
-      --comment: #86867E; --doc: #8E8A82;
+      --comment: #86867E; --doc: #948E88;
       --string: #E8B830; --number: #DCA068; --constant: #C4A468;
       --keyword: #E98665; --operator: #B8A48E;
       --function: #5AAFA0; --builtin-fn: #7DBCAA;
-      --class: #CC90A2; --interface: #CC90A2; --inherited: #D09888;
-      --variable: #CABFA6; --param: #D4986C; --property: #A8A060;
-      --annotation: #D8907A; --punctuation: #A09498;
-      --builtin-const: #D4A090; --self: #D4A96A;
-      --tag-color: #D8907A; --attribute: #A8A060;
+      --class: #CC90A2; --interface: #B890C0; --inherited: #D09888;
+      --variable: #CABFA6; --param: #D09058; --property: #A8A060;
+      --annotation: #CC8898; --punctuation: #A09498;
+      --builtin-const: #D4A090; --self: #C8B468;
+      --tag-color: #CC8898; --attribute: #A8A060;
       --tab-bg: #181818; --gutter: #555555; --title-bg: #181818;
       --kw-weight: 400; --self-weight: 400; --inh-decoration: none;
     }
 
     [data-theme="dark-dimmed"] {
       --bg: #1A1A1A; --fg: #CCCCCC;
-      --comment: #88867E; --doc: #908A84;
-      --string: #DBAC3B; --number: #D4A068; --constant: #BCA060;
-      --keyword: #E88E70; --operator: #BCA88C;
-      --function: #52C4A8; --builtin-fn: #7AD0BC;
-      --class: #E090B0; --interface: #E090B0; --inherited: #C89080;
-      --variable: #C2B89A; --param: #D49E64; --property: #B4A468;
-      --annotation: #D09888; --punctuation: #A49698;
-      --builtin-const: #E8A090; --self: #D4B870;
-      --tag-color: #D87A6A; --attribute: #B4A468;
+      --comment: #8A8A82; --doc: #98928C;
+      --string: #ECBC34; --number: #E0A46C; --constant: #BCA060;
+      --keyword: #ED8A68; --operator: #BCA88C;
+      --function: #5EB4A4; --builtin-fn: #80C0AE;
+      --class: #D094A6; --interface: #BC94C4; --inherited: #C89080;
+      --variable: #CEC3AA; --param: #D49460; --property: #ACA464;
+      --annotation: #C8A4B4; --punctuation: #A49698;
+      --builtin-const: #E8A090; --self: #CCB86C;
+      --tag-color: #D87A6A; --attribute: #ACA464;
       --tab-bg: #1E1E1E; --gutter: #5C5C5C; --title-bg: #1E1E1E;
       --kw-weight: 400; --self-weight: 400; --inh-decoration: none;
     }
 
     [data-theme="light"] {
-      --bg: #F8F8F6; --fg: #242424;
-      --comment: #706450; --doc: #6C6252;
-      --string: #764C00; --number: #8A3050; --constant: #685020;
-      --keyword: #9A3016; --operator: #604838;
-      --function: #1E5848; --builtin-fn: #3B6040;
-      --class: #7A3860; --interface: #7A3860; --inherited: #6A4058;
-      --variable: #453830; --param: #8B5028; --property: #546028;
-      --annotation: #985840; --punctuation: #5A5248;
-      --builtin-const: #943840; --self: #943840;
-      --tag-color: #984848; --attribute: #546028;
-      --tab-bg: #EDEADE; --gutter: #A8A39C; --title-bg: #EDEADE;
+      --bg: #F4EEE4; --fg: #2A241F;
+      --comment: #6C6758; --doc: #5B6A61;
+      --string: #6E6218; --number: #7A3156; --constant: #7A6B2C;
+      --keyword: #944126; --operator: #334E69;
+      --function: #1A574D; --builtin-fn: #2F6759;
+      --class: #593F73; --interface: #2F63A4; --inherited: #6A5387;
+      --variable: #5B4030; --param: #5B4030; --property: #4E6A33;
+      --annotation: #7A4764; --punctuation: #5A6672;
+      --builtin-const: #8E4460; --self: #7A6726;
+      --tag-color: #A14A3A; --attribute: #4E6A33;
+      --tab-bg: #E7DECF; --gutter: #A29483; --title-bg: #E7DECF;
       --kw-weight: 400; --self-weight: 400; --inh-decoration: none;
     }
 
     [data-theme="light-bright"] {
-      --bg: #FDFCFA; --fg: #1E1E1E;
-      --comment: #746C58; --doc: #706658;
-      --string: #724A00; --number: #882E4C; --constant: #705818;
-      --keyword: #9C3418; --operator: #5A4434;
-      --function: #1A5444; --builtin-fn: #386038;
-      --class: #722E58; --interface: #722E58; --inherited: #683856;
-      --variable: #3A3230; --param: #9A5520; --property: #506020;
-      --annotation: #945038; --punctuation: #636B74;
-      --builtin-const: #903438; --self: #903438;
-      --tag-color: #984040; --attribute: #506020;
-      --tab-bg: #F0EDE8; --gutter: #A0A0A0; --title-bg: #F0EDE8;
+      --bg: #FCFBF7; --fg: #1F1F1F;
+      --comment: #666B64; --doc: #5B6862;
+      --string: #806A1C; --number: #7F2E58; --constant: #8A6F28;
+      --keyword: #B14D2E; --operator: #315978;
+      --function: #145A52; --builtin-fn: #1C6A61;
+      --class: #45538F; --interface: #3266AD; --inherited: #4B5D8C;
+      --variable: #4A3528; --param: #4A3528; --property: #4E7A3B;
+      --annotation: #7E4870; --punctuation: #5A6672;
+      --builtin-const: #944569; --self: #7A6724;
+      --tag-color: #B1484A; --attribute: #4E7A3B;
+      --tab-bg: #EEE7DD; --gutter: #A79F95; --title-bg: #EEE7DD;
       --kw-weight: 400; --self-weight: 400; --inh-decoration: none;
     }
 
@@ -112,7 +111,7 @@
     .con { color: var(--constant); }
     .bcon { color: var(--builtin-const); font-style: italic; }
     .var { color: var(--variable); }
-    .par { color: var(--param); }
+    .par { color: var(--param); font-style: italic; }
     .pun { color: var(--punctuation); }
     .self { color: var(--self); font-weight: var(--self-weight); }
     .prop { color: var(--property); }
@@ -213,12 +212,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
+      align-items: start;
       padding: 0 32px;
       max-width: 1600px;
       margin: 0 auto;
     }
 
     .editor {
+      background: var(--bg);
       border-radius: 10px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.06);
@@ -253,33 +254,34 @@
     }
 
     .editor-body {
-      display: flex;
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
       background: var(--bg);
-      overflow-x: auto;
     }
     .line-numbers {
       padding: 14px 0;
       text-align: right;
       user-select: none;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
       font-size: 12.5px;
       line-height: 1.65;
       color: var(--gutter);
-      min-width: 42px;
+      min-width: 56px;
       padding-right: 12px;
       padding-left: 14px;
       border-right: 1px solid rgba(128,128,128,0.08);
-      flex-shrink: 0;
     }
     .code-content {
-      flex: 1;
+      min-width: 0;
       padding: 14px 16px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
       font-size: 12.5px;
       line-height: 1.65;
       color: var(--fg);
       white-space: pre;
       overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-gutter: stable;
     }
 
     /* ── Findings ── */
@@ -425,6 +427,18 @@
       .code-grid { grid-template-columns: 1fr; }
       .summary-grid { grid-template-columns: 1fr; }
     }
+
+    @media (max-width: 720px) {
+      .page-header { padding: 36px 20px 0; }
+      .tab-bar,
+      .theme-label,
+      .code-grid,
+      .findings-section,
+      .summary-section { padding-left: 20px; padding-right: 20px; }
+      .editor-tab { padding: 8px 12px; }
+      .line-numbers { padding-left: 10px; }
+      .code-content { font-size: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -447,6 +461,14 @@
     <!-- Theme Label -->
     <div class="theme-label">
       <h2 id="theme-title">Dark</h2>
+      <div class="colors-row">
+        <span class="color-chip"><span class="swatch" style="background:var(--keyword)"></span>keyword</span>
+        <span class="color-chip"><span class="swatch" style="background:var(--function)"></span>function</span>
+        <span class="color-chip"><span class="swatch" style="background:var(--class)"></span>class</span>
+        <span class="color-chip"><span class="swatch" style="background:var(--interface)"></span>interface</span>
+        <span class="color-chip"><span class="swatch" style="background:var(--property)"></span>property</span>
+        <span class="color-chip"><span class="swatch" style="background:var(--self)"></span>self</span>
+      </div>
     </div>
 
     <!-- Code Grid -->
@@ -603,15 +625,15 @@
     <span class="pun">[</span><span class="var">userId</span><span class="pun">]</span>
   <span class="pun">);</span>
 
-  <span class="kw">if</span> <span class="pun">(</span><span class="var">status</span> <span class="op">===</span> <span class="str">"error"</span><span class="pun">)</span> <span class="kw">return</span> <span class="pun">&lt;</span><span class="tag">div</span> <span class="attr">style</span><span class="op">=</span><span class="pun">{{</span> <span class="prop">color</span><span class="pun">:</span> <span class="str">"#bf6b66"</span> <span class="pun">}}&gt;</span>Error<span class="pun">:</span> <span class="pun">{</span><span class="var">error</span><span class="pun">}&lt;/</span><span class="tag">div</span><span class="pun">&gt;;</span>
+  <span class="kw">if</span> <span class="pun">(</span><span class="var">status</span> <span class="op">===</span> <span class="str">"error"</span><span class="pun">)</span> <span class="kw">return</span> <span class="pun">&lt;</span><span class="tag">div</span> <span class="attr">style</span><span class="op">=</span><span class="pun">{{</span> <span class="prop">color</span><span class="pun">:</span> <span class="str">"#bf6b66"</span> <span class="pun">}}&gt;</span>Error<span class="pun">:</span> <span class="pun">{</span><span class="var">error</span><span class="pun">}</span><span class="tag">&lt;/div&gt;</span><span class="pun">;</span>
   <span class="kw">if</span> <span class="pun">(!</span><span class="var">user</span><span class="pun">)</span> <span class="kw">return</span> <span class="bcon">null</span><span class="pun">;</span>
 
   <span class="kw">return</span> <span class="pun">(</span>
     <span class="pun">&lt;</span><span class="tag">div</span> <span class="attr">style</span><span class="op">=</span><span class="pun">{{</span> <span class="prop">background</span><span class="pun">:</span> <span class="var">colors</span><span class="pun">.</span><span class="prop">bg</span><span class="pun">,</span> <span class="prop">borderRadius</span><span class="pun">:</span> <span class="num">8</span> <span class="pun">}}&gt;</span>
       <span class="pun">&lt;</span><span class="tag">Badge</span> <span class="attr">variant</span><span class="op">=</span><span class="pun">{</span><span class="var">user</span><span class="pun">.</span><span class="prop">role</span> <span class="op">===</span> <span class="str">"admin"</span> <span class="op">?</span> <span class="str">"error"</span> <span class="op">:</span> <span class="str">"info"</span><span class="pun">}&gt;</span>
         <span class="pun">{</span><span class="con">ROLE_LABELS</span><span class="pun">[</span><span class="var">user</span><span class="pun">.</span><span class="prop">role</span><span class="pun">]}</span>
-      <span class="pun">&lt;/</span><span class="tag">Badge</span><span class="pun">&gt;</span>
-    <span class="pun">&lt;/</span><span class="tag">div</span><span class="pun">&gt;</span>
+      <span class="tag">&lt;/Badge&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
   <span class="pun">);</span>
 <span class="pun">});</span></div>
         </div>
@@ -702,13 +724,13 @@
         <div class="finding-card">
           <span class="severity info">INFO</span>
           <div class="finding-text">
-            <strong>Annotation contrast:</strong> Decorators <code>#D8907A</code> <span class="color-pair"><span class="dot" style="background:#D8907A"></span></span> sit near the warm keyword family while still separating cleanly from classes <code>#CC90A2</code> <span class="color-pair"><span class="dot" style="background:#CC90A2"></span></span>, keeping annotations visible without pulling them into the type lane.
+            <strong>Annotation contrast:</strong> Decorators <code>#CC8898</code> <span class="color-pair"><span class="dot" style="background:#CC8898"></span></span> sit near the warm keyword family while still separating cleanly from classes <code>#CC90A2</code> <span class="color-pair"><span class="dot" style="background:#CC90A2"></span></span>, keeping annotations visible without pulling them into the type lane.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity info">INFO</span>
           <div class="finding-text">
-            <strong>Contrast ratios:</strong> Keyword <code>#E98665</code> on <code>#141414</code> = <strong>7.1:1</strong> (AAA). Function <code>#5AAFA0</code> on <code>#141414</code> = <strong>7.7:1</strong> (AAA). String <code>#E8B830</code> on <code>#141414</code> = <strong>11.0:1</strong> (AAA). Comment <code>#86867E</code> on <code>#141414</code> = <strong>5.0:1</strong> (AA).
+            <strong>Contrast ratios:</strong> Keyword <code>#E98665</code> on <code>#141414</code> = <strong>7.1:1</strong> (AAA). Function <code>#5AAFA0</code> on <code>#141414</code> = <strong>7.1:1</strong> (AAA). String <code>#E8B830</code> on <code>#141414</code> = <strong>9.9:1</strong> (AAA). Comment <code>#86867E</code> on <code>#141414</code> = <strong>5.0:1</strong> (AA).
           </div>
         </div>
       </div>
@@ -721,25 +743,25 @@
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>Number / Constant split:</strong> Numbers <code>#D4A068</code> <span class="color-pair"><span class="dot" style="background:#D4A068"></span></span> and user constants <code>#BCA060</code> <span class="color-pair"><span class="dot" style="background:#BCA060"></span></span> are now distinct. Numbers use a warm wine tone while constants use a golden-ochre, creating clear hue separation from both numbers and keywords.
+            <strong>Number / Constant split:</strong> Numbers <code>#E0A46C</code> <span class="color-pair"><span class="dot" style="background:#E0A46C"></span></span> and user constants <code>#BCA060</code> <span class="color-pair"><span class="dot" style="background:#BCA060"></span></span> are now distinct. Numbers use a warm wine tone while constants use a golden-ochre, creating clear hue separation from both numbers and keywords.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>Overall balance:</strong> The dimmed palette reduces saturation uniformly. Function color <code>#52C4A8</code> <span class="color-pair"><span class="dot" style="background:#52C4A8"></span></span> is calmer than the Dark variant, and operator/keyword contrast feels well-tuned for extended reading.
+            <strong>Overall balance:</strong> The dimmed palette reduces saturation uniformly. Function color <code>#5EB4A4</code> <span class="color-pair"><span class="dot" style="background:#5EB4A4"></span></span> is calmer than the Dark variant, and operator/keyword contrast feels well-tuned for extended reading.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>Variable / Property separation:</strong> Variables <code>#C2B89A</code> <span class="color-pair"><span class="dot" style="background:#C2B89A"></span></span> (bright warm sand) vs properties <code>#B4A468</code> <span class="color-pair"><span class="dot" style="background:#B4A468"></span></span> (olive-clay) are well-separated, making member access chains easy to scan while keeping the dimmed palette warm.
+            <strong>Variable / Property separation:</strong> Variables <code>#CEC3AA</code> <span class="color-pair"><span class="dot" style="background:#CEC3AA"></span></span> (bright warm sand) vs properties <code>#ACA464</code> <span class="color-pair"><span class="dot" style="background:#ACA464"></span></span> (olive-clay) are well-separated, making member access chains easy to scan while keeping the dimmed palette warm.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity info">INFO</span>
           <div class="finding-text">
-            <strong>Contrast ratios:</strong> Keyword <code>#E88E70</code> on <code>#1A1A1A</code> = <strong>7.1:1</strong> (AAA). Function <code>#52C4A8</code> on <code>#1A1A1A</code> = <strong>8.1:1</strong> (AAA). String <code>#DBAC3B</code> on <code>#1A1A1A</code> = <strong>8.3:1</strong> (AAA). Comment <code>#88867E</code> on <code>#1A1A1A</code> = <strong>4.8:1</strong> (AA).
+            <strong>Contrast ratios:</strong> Keyword <code>#ED8A68</code> on <code>#1A1A1A</code> = <strong>7.0:1</strong> (AAA). Function <code>#5EB4A4</code> on <code>#1A1A1A</code> = <strong>7.1:1</strong> (AAA). String <code>#ECBC34</code> on <code>#1A1A1A</code> = <strong>9.8:1</strong> (AAA). Comment <code>#8A8A82</code> on <code>#1A1A1A</code> = <strong>5.0:1</strong> (AA).
           </div>
         </div>
       </div>
@@ -752,25 +774,26 @@
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>Cool structural lanes:</strong> Operators <code>#604838</code> <span class="color-pair"><span class="dot" style="background:#604838"></span></span> and properties <code>#546028</code> <span class="color-pair"><span class="dot" style="background:#546028"></span></span> now sit well away from the terracotta keyword lane, so object access and control flow separate quickly in peripheral vision.
-          </div>
-        </div>
-        <div class="finding-card">
-          <span class="severity info">INFO</span>
-          <div class="finding-text">
-            <strong>Warm-role clustering remains intentional:</strong> Keywords <code>#9A3016</code> <span class="color-pair"><span class="dot" style="background:#9A3016"></span></span>, numbers <code>#8A3050</code> <span class="color-pair"><span class="dot" style="background:#8A3050"></span></span>, and built-in constants <code>#943840</code> <span class="color-pair"><span class="dot" style="background:#943840"></span></span> still occupy a related red family, so literal-heavy code keeps a warmer visual center of gravity.
+            <strong>Editorial structure with cooler control flow:</strong> Operators <code>#334E69</code> <span class="color-pair"><span class="dot" style="background:#334E69"></span></span> and properties <code>#4E6A33</code> <span class="color-pair"><span class="dot" style="background:#4E6A33"></span></span> now sit clearly outside the terracotta keyword lane <code>#944126</code> <span class="color-pair"><span class="dot" style="background:#944126"></span></span>, so punctuation, access chains, and control flow stop reading like one warm block.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>Warm tone palette:</strong> The paper-like background <code>#F8F8F6</code> <span class="color-pair"><span class="dot" style="background:#F8F8F6"></span></span> keeps the theme distinctive, while variables <code>#453830</code> <span class="color-pair"><span class="dot" style="background:#453830"></span></span> and tags <code>#984848</code> <span class="color-pair"><span class="dot" style="background:#984848"></span></span> remain dark and readable against the warmer canvas.
+            <strong>Type lane separation:</strong> Classes <code>#593F73</code> <span class="color-pair"><span class="dot" style="background:#593F73"></span></span> stay in a warm plum lane, while interfaces <code>#2F63A4</code> <span class="color-pair"><span class="dot" style="background:#2F63A4"></span></span> and generics <code>#3B4B7A</code> <span class="color-pair"><span class="dot" style="background:#3B4B7A"></span></span> move cooler. TypeScript-heavy code no longer collapses into one red-violet family.
+          </div>
+        </div>
+        <div class="finding-card">
+          <span class="severity good">GOOD</span>
+          <div class="finding-text">
+            <strong>Secondary warm hues reduced:</strong> Parameters now share the cocoa identifier lane <code>#5B4030</code> <span class="color-pair"><span class="dot" style="background:#5B4030"></span></span> with italics carrying the distinction, while decorators keep a separate rose lane at <code>#7A4764</code> <span class="color-pair"><span class="dot" style="background:#7A4764"></span></span>. That removes one more near-terracotta collision from dense signatures.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity info">INFO</span>
           <div class="finding-text">
-            <strong>Contrast ratios:</strong> Keyword <code>#9A3016</code> on <code>#F8F8F6</code> = <strong>7.0:1</strong> (AAA). Function <code>#1E5848</code> on <code>#F8F8F6</code> = <strong>7.8:1</strong> (AAA). String <code>#764C00</code> on <code>#F8F8F6</code> = <strong>7.0:1</strong> (AAA). Comment <code>#706450</code> on <code>#F8F8F6</code> = <strong>4.9:1</strong> (AA).           </div>
+            <strong>Contrast ratios:</strong> Keyword <code>#944126</code> on <code>#F4EEE4</code> = <strong>6.0:1</strong> (AA). Function <code>#1A574D</code> on <code>#F4EEE4</code> = <strong>7.2:1</strong> (AAA). String <code>#6E6218</code> on <code>#F4EEE4</code> = <strong>5.3:1</strong> (AA). Comment <code>#6C6758</code> on <code>#F4EEE4</code> = <strong>4.9:1</strong> (AA).
+          </div>
         </div>
       </div>
     </div>
@@ -782,25 +805,26 @@
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>Brighter canvas, softer foreground:</strong> Editor foreground <code>#1E1E1E</code> <span class="color-pair"><span class="dot" style="background:#1E1E1E"></span></span> now sits on a warm near-white background <code>#FDFCFA</code> <span class="color-pair"><span class="dot" style="background:#FDFCFA"></span></span>, making Light Bright visibly brighter than Light without pushing all the way to a sterile pure white.
+            <strong>Cleaner canvas, sharper chrome split:</strong> Editor foreground <code>#1F1F1F</code> <span class="color-pair"><span class="dot" style="background:#1F1F1F"></span></span> now sits on a mineral near-white background <code>#FCFBF7</code> <span class="color-pair"><span class="dot" style="background:#FCFBF7"></span></span>, with lighter chrome surfaces that read as distinct from the editor instead of blending into it.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity good">GOOD</span>
           <div class="finding-text">
-            <strong>Cool structure stays distinct:</strong> Operators <code>#5A4434</code> <span class="color-pair"><span class="dot" style="background:#5A4434"></span></span> and properties <code>#506020</code> <span class="color-pair"><span class="dot" style="background:#506020"></span></span> carve out separate blue/green lanes, preventing the brighter background from turning object-heavy code into a single warm blur.
+            <strong>Cool type + structure lanes:</strong> Classes <code>#45538F</code> <span class="color-pair"><span class="dot" style="background:#45538F"></span></span>, interfaces <code>#3266AD</code> <span class="color-pair"><span class="dot" style="background:#3266AD"></span></span>, properties <code>#4E7A3B</code> <span class="color-pair"><span class="dot" style="background:#4E7A3B"></span></span>, and operators <code>#315978</code> <span class="color-pair"><span class="dot" style="background:#315978"></span></span> establish a cooler daylight structure than the warmer Light theme.
+          </div>
+        </div>
+        <div class="finding-card">
+          <span class="severity good">GOOD</span>
+          <div class="finding-text">
+            <strong>Terracotta stays singular:</strong> Keywords use <code>#B14D2E</code> <span class="color-pair"><span class="dot" style="background:#B14D2E"></span></span>, tags use <code>#B1484A</code> <span class="color-pair"><span class="dot" style="background:#B1484A"></span></span>, and parameters collapse back to the cocoa identifier lane <code>#4A3528</code> <span class="color-pair"><span class="dot" style="background:#4A3528"></span></span>. The bright theme keeps its energy without spraying near-identical rusts across every secondary role.
           </div>
         </div>
         <div class="finding-card">
           <span class="severity info">INFO</span>
           <div class="finding-text">
-            <strong>Warm-role crowding is the main tradeoff:</strong> Keywords <code>#9C3418</code> <span class="color-pair"><span class="dot" style="background:#9C3418"></span></span>, numbers <code>#882E4C</code> <span class="color-pair"><span class="dot" style="background:#882E4C"></span></span>, built-in constants <code>#903438</code> <span class="color-pair"><span class="dot" style="background:#903438"></span></span>, and tags <code>#984040</code> <span class="color-pair"><span class="dot" style="background:#984040"></span></span> stay intentionally close, so the brighter light variant reads more vivid and a bit louder than Light.
+            <strong>Contrast ratios:</strong> Keyword <code>#B14D2E</code> on <code>#FCFBF7</code> = <strong>5.1:1</strong> (AA). Function <code>#145A52</code> on <code>#FCFBF7</code> = <strong>7.8:1</strong> (AAA). String <code>#806A1C</code> on <code>#FCFBF7</code> = <strong>5.1:1</strong> (AA). Comment <code>#666B64</code> on <code>#FCFBF7</code> = <strong>5.3:1</strong> (AA).
           </div>
-        </div>
-        <div class="finding-card">
-          <span class="severity info">INFO</span>
-          <div class="finding-text">
-            <strong>Contrast ratios:</strong> Keyword <code>#9C3418</code> on <code>#FDFCFA</code> = <strong>5.3:1</strong> (AA). Function <code>#1A5444</code> on <code>#FDFCFA</code> = <strong>7.4:1</strong> (AAA). String <code>#724A00</code> on <code>#FDFCFA</code> = <strong>5.9:1</strong> (AA). Comment <code>#746C58</code> on <code>#FDFCFA</code> = <strong>5.1:1</strong> (AA).           </div>
         </div>
       </div>
     </div>
@@ -836,7 +860,8 @@
       </div>
     </div>
 
-  </div><!-- /app -->
+  </div>
+  <!-- /app -->
 
   <!-- ════ CROSS-THEME SUMMARY ════ -->
   <div class="summary-section">
@@ -845,33 +870,33 @@
       <div class="summary-card">
         <div class="sc-num">01</div>
         <div class="sc-title">Number / Constant: Collision Resolved</div>
-        <div class="sc-body">All themes now separate numbers from user constants using a distinct literal lane. Dark: <code>#DCA068</code> vs <code>#C4A468</code>. Dark Dimmed: <code>#D4A068</code> vs <code>#BCA060</code>. Light: <code>#8A3050</code> vs <code>#685020</code>. Light Bright: <code>#882E4C</code> vs <code>#705818</code>. High Contrast CB: <code>#FFB000</code> vs <code>#E0A040</code>. The palette stays warm without letting literals collapse into one amber band.
+        <div class="sc-body">All themes now separate numbers from user constants using a distinct literal lane. Dark: <code>#DCA068</code> vs <code>#C4A468</code>. Dark Dimmed: <code>#E0A46C</code> vs <code>#BCA060</code>. Light: <code>#7A3156</code> vs <code>#7A6B2C</code>. Light Bright: <code>#7F2E58</code> vs <code>#8A6F28</code>. High Contrast CB: <code>#FFB000</code> vs <code>#E0A040</code>. The palette stays earthy without letting literals collapse into one amber band.
         </div>
       </div>
       <div class="summary-card">
         <div class="sc-num">02</div>
         <div class="sc-title">Attribute / String: Separation Added</div>
-        <div class="sc-body">Attributes no longer share the string lane. Dark uses <code>#A8A060</code> against strings <code>#E8B830</code>, Dark Dimmed uses <code>#B4A468</code> against <code>#DBAC3B</code>, Light uses <code>#546028</code> against <code>#764C00</code>, Light Bright uses <code>#506020</code> against <code>#724A00</code>, and High Contrast CB uses <code>#8AA8E0</code> against <code>#F0D050</code>. JSX and HTML now stay readable even with italics disabled.</div>
+        <div class="sc-body">Attributes no longer share the string lane. Dark uses <code>#A8A060</code> against strings <code>#E8B830</code>, Dark Dimmed uses <code>#ACA464</code> against <code>#ECBC34</code>, Light uses <code>#4E6A33</code> against <code>#6E6218</code>, Light Bright uses <code>#4E7A3B</code> against <code>#806A1C</code>, and High Contrast CB uses <code>#8AA8E0</code> against <code>#F0D050</code>. JSX and HTML now stay readable even with italics disabled.</div>
       </div>
       <div class="summary-card">
         <div class="sc-num">03</div>
-        <div class="sc-title">Variable / Property: Semantic Lanes</div>
-        <div class="sc-body">Dark themes split variables (bright warm sand <code>#CABFA6</code>) from properties (olive-clay <code>#A8A060</code>). Dark Dimmed uses <code>#C2B89A</code> / <code>#B4A468</code>. This warm-on-warm separation preserves Terracotta's identity while keeping member access easy to scan.</div>
+        <div class="sc-title">Light Themes: Type / Interface / Self Split</div>
+        <div class="sc-body">The light variants now separate warm class names from cooler interface/generic lanes and keep <code>self</code>/<code>this</code> in ochre. Light uses <code>#593F73</code> / <code>#2F63A4</code> / <code>#7A6726</code>; Light Bright uses <code>#45538F</code> / <code>#3266AD</code> / <code>#7A6724</code>. This keeps TypeScript, Java, and Python object-heavy code from collapsing into one warm family.</div>
       </div>
       <div class="summary-card">
         <div class="sc-num">04</div>
         <div class="sc-title">WCAG AA Contrast: All Themes Pass</div>
-        <div class="sc-body">All documented syntax tokens meet WCAG AA (4.5:1) against their backgrounds. Comments are the lowest-contrast token at 4.9–7.0:1, keywords range 5.3–9.0:1, functions 7.4–8.3:1, and strings 5.9–13.8:1. High Contrast CB still achieves AAA across the board.</div>
+        <div class="sc-body">All documented syntax tokens meet WCAG AA (4.5:1) against their backgrounds. Comments now range 4.9–7.0:1, keywords 5.1–9.0:1, functions 7.1–8.3:1, and strings 5.1–13.8:1. High Contrast CB still achieves AAA across the board.</div>
       </div>
       <div class="summary-card">
         <div class="sc-num">05</div>
-        <div class="sc-title">Python Decorators: Effective Across All Variants</div>
-        <div class="sc-body">Python decorators use their own rose-to-plum accent across the standard themes (for example <code>#D8907A</code> in Dark and <code>#985840</code> in Light), so annotations stay visually distinct from both types and functions without needing all-day italics.</div>
+        <div class="sc-title">Secondary Warm Roles Reduced</div>
+        <div class="sc-body">The light themes now avoid stacking extra near-terracotta lanes. Parameters collapse into the cocoa identifier lane <code>#5B4030</code> / <code>#4A3528</code>, while decorators keep their own plum-rose lane <code>#7A4764</code> / <code>#7E4870</code>. Dense signatures read cleaner without losing emphasis.</div>
       </div>
       <div class="summary-card">
         <div class="sc-num">06</div>
-        <div class="sc-title">Light Bright: Halation Fix Applied</div>
-        <div class="sc-body">Light Bright now pairs a softened editor foreground <code>#1E1E1E</code> with a warm near-white background <code>#FDFCFA</code>. The brighter canvas makes the variant clearly distinct from Light, while the darker line highlight and cooler structural accents keep it usable for long daytime sessions.</div>
+        <div class="sc-title">Light Bright: Distinct Identity Restored</div>
+        <div class="sc-body">Light Bright now pairs a mineral background <code>#FCFBF7</code> with cooler structure and type lanes <code>#315978</code> / <code>#45538F</code> / <code>#3266AD</code>, while Light stays warmer with parchment surfaces at <code>#F4EEE4</code>. The two light themes read as different tools instead of brightness variants of the same palette.</div>
       </div>
     </div>
   </div>

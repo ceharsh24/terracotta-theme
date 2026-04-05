@@ -12,11 +12,11 @@ This file documents the codebase structure, conventions, and workflows for AI as
 |---------|------|-----------|------|---------|
 | Dark | `terracotta-dark.json` | `#141414` | `vs-dark` | Primary warm dark |
 | Dark Dimmed | `terracotta-dark-dimmed.json` | `#1A1A1A` | `vs-dark` | Softer night variant |
-| Light | `terracotta-light.json` | `#F8F8F6` | `vs` | Warm paper-like light |
-| Light Bright | `terracotta-light-bright.json` | `#FFFFFF` | `vs` | Maximum contrast light |
+| Light | `terracotta-light.json` | `#F4EEE4` | `vs` | Warm editorial parchment light |
+| Light Bright | `terracotta-light-bright.json` | `#FCFBF7` | `vs` | Cleaner daylight light |
 | High Contrast (CB) | `terracotta-high-contrast-cb.json` | `#000000` | `hc-dark` | WCAG AAA + color-blind safe |
 
-Version: `1.9.2` | Publisher: `terracotta-theme` | Author: Harsh Shah
+Version: `1.9.9` | Publisher: `terracotta-theme` | Author: Harsh Shah
 
 ---
 
@@ -48,7 +48,10 @@ terracotta-theme/
 │   ├── java-preview.html      # Java-specific preview
 │   └── screenshot-gen.html    # Puppeteer screenshot template
 ├── scripts/
-│   ├── check-contrast.js   # WCAG contrast validation (runs as npm test)
+│   ├── check-contrast.js   # WCAG contrast validation
+│   ├── check-doc-sync.js   # Keeps README/docs/examples palette values synced to themes/*.json
+│   ├── check-terminal-palette.js # Validates terminal ANSI colors against light/dark backgrounds
+│   ├── check-palette-spacing.js # Guards against collapsed syntax lanes and light-theme drift
 │   └── screenshot.js       # Generates PNG previews using Puppeteer
 ├── screenshots/            # Theme preview PNGs (committed to repo)
 │   ├── screenshot-dark.png
@@ -76,8 +79,8 @@ terracotta-theme/
 
 ```bash
 npm test
-# Runs: node scripts/check-contrast.js
-# Validates WCAG contrast ratios across all 5 themes (~600+ color pairs)
+# Runs: contrast, terminal, palette-spacing, and doc-sync checks
+# Validates WCAG contrast ratios, ANSI terminal colors, light-theme separation, and published docs/examples
 # Exit 0 = all pass, Exit 1 = failures
 ```
 
@@ -211,8 +214,8 @@ The `terracotta-high-contrast-cb.json` theme follows the **IBM/Wong scientifical
 The canonical palette lives in `themes/*.json`.
 
 - Treat the theme JSON files as the only source of truth for published hex values
-- Keep `README.md`, `docs/index.html`, and `examples/theme-analysis.html` aligned with those files
-- Use `npm test` after palette-related edits; it now includes both contrast validation and documentation sync checks
+- Keep `README.md`, `docs/index.html`, `examples/theme-analysis.html`, `examples/THEME-DEMO.html`, and `examples/screenshot-gen.html` aligned with those files
+- Use `npm test` after palette-related edits; it now includes contrast validation, terminal checks, palette-spacing checks, and documentation sync
 - Do not treat hard-coded hex values in secondary docs as authoritative unless they are confirmed against the theme JSON files
 
 ---
@@ -272,7 +275,7 @@ Examples from history:
 ```json
 {
   "name": "terracotta-theme",
-  "version": "1.9.2",
+  "version": "1.9.9",
   "engines": { "vscode": "^1.85.0" },
   "contributes": {
     "themes": [ /* 5 theme entries, each pointing to themes/*.json */ ]
@@ -285,7 +288,7 @@ Examples from history:
     "editor.cursorBlinking": "smooth"
   },
   "scripts": {
-    "test": "node scripts/check-contrast.js",
+    "test": "node scripts/check-contrast.js && node scripts/check-terminal-palette.js && node scripts/check-palette-spacing.js && node scripts/check-doc-sync.js",
     "screenshots": "node scripts/screenshot.js"
   },
   "devDependencies": {
@@ -314,6 +317,8 @@ Coverage is delivered via a combination of TextMate grammar scopes (universal) a
 | Modify light theme colors | `themes/terracotta-light.json` |
 | Modify color-blind theme | `themes/terracotta-high-contrast-cb.json` |
 | Contrast validation logic | `scripts/check-contrast.js` |
+| Palette spacing regression guard | `scripts/check-palette-spacing.js` |
+| Doc/demo sync validation | `scripts/check-doc-sync.js` |
 | Screenshot generation | `scripts/screenshot.js` |
 | Extension manifest | `package.json` |
 | Interactive playground | `docs/index.html` |

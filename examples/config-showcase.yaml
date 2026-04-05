@@ -72,18 +72,18 @@ themes:
     name: Terracotta Light
     type: light
     colors:
-      background: "#F8F8F6"
-      foreground: "#242424"
-      accent: "#C15F3C"
+      background: "#F4EEE4"
+      foreground: "#2A241F"
+      accent: "#B66743"
 
   light-bright:
     <<: *defaults
     name: Terracotta Light Bright
     type: light
     colors:
-      background: "#FFFFFF"
-      foreground: "#141414"
-      accent: "#DA7756"
+      background: "#FCFBF7"
+      foreground: "#1F1F1F"
+      accent: "#D8744E"
 
   high-contrast-cb:
     <<: *defaults
