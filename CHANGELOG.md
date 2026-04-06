@@ -4,17 +4,32 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.9.10] - 2026-04-05
+
 ### Changed
-- **Light themes rebuilt as distinct personalities** — Terracotta Light now uses a warmer editorial parchment canvas (`#F4EEE4`) with softer chrome, while Terracotta Light Bright moves to a cleaner daylight canvas (`#FCFBF7`) with cooler structure and sharper editor/chrome separation
-- **Light-theme syntax lanes re-architected** — operators moved into a slate lane (`#334E69` / `#315978`), properties stay olive (`#4E6A33` / `#4E7A3B`), class/interface lanes now separate warm plum from cooler indigo-blue, and parameters collapse into the cocoa identifier lane with italics instead of another near-terracotta hue
-- Synced README, playground, theme analysis, static demos, screenshot template, showcase configs, shell showcase, React showcase, and `CLAUDE.md` to the live palette values
+- **4-core-theme definition pass completed** — `Dark` and `Dark Dimmed` now read as separate personalities at first glance (Distinct Night for Dimmed), while `Light Bright` stays warm-bright instead of drifting cool
+- **Dark pair syntax lanes de-collided** — operator/variable crowding was removed in both dark themes, with higher lane contrast and stronger role drift between Dark vs Dimmed
+- **Light pair differentiation strengthened** — `Light Bright` now has stronger separation from `Light` in function/operator/number lanes while keeping terracotta as the single primary accent lane
+- **Workbench depth increased across all 4 core themes** — editor, sidebar, panel, and active tab surfaces now have stronger perceptual layering
+- **Number/variable collision resolved** — dark numbers shifted from tan `#DCA068` to salmon-berry `#E0968C` (ΔE 3→19 from variable); dimmed numbers from `#D2A980` to muted rose `#D8929C` (ΔE 3→27)
+- **Decorator identity separated from types** — dark decorators from dusty mauve `#CC8898` to orchid `#B468A0` (ΔE 4→24 from type); dimmed decorators from shared regex color `#C8A4B4` to orchid `#AC749C`
+- **Dimmed operator/function proximity fixed** — dimmed operators from `#A3C0E2` to periwinkle `#A8B4D8` (ΔE 10→15 from function)
+- **Light Bright operator palette cohesion** — replaced disconnected plum `#6A406A` with warm teal-slate `#3A5A6C`, restoring split-complementary harmony with the terracotta keyword
+- **Keyword WCAG AAA compliance** — corrected keywords to meet Tier 1 7:1 contrast in all themes: dimmed `#C96E52`→`#DA956F`, light `#944126`→`#752B20`, light-bright `#B14D2E`→`#8A3D24`
+- Synced README, docs playground, `THEME-DEMO`, `theme-analysis`, and screenshot template palette values to the live theme JSON files
 
 ### Added
-- `scripts/check-palette-spacing.js` — blocks regressions when the light themes lose internal lane definition, drift too close together, or flatten their workbench surfaces back into the editor background
+- `scripts/check-palette-spacing.js` now enforces:
+  - Dark vs Dark Dimmed same-role drift floors and average drift minimum
+  - Operator vs variable minimum spacing in both dark themes
+  - Surface spacing thresholds for all 4 core themes (dark pair + light pair)
+  - Existing light-pair syntax lane spacing checks
 
 ### Fixed
-- Extended `scripts/check-doc-sync.js` to validate `examples/THEME-DEMO.html` and `examples/screenshot-gen.html` alongside the README and published docs
-- Regenerated all bundled screenshots after the light-theme rewrite
+- Fixed keyword tier classification regex in `check-contrast.js` — `/\bkeyword\b/` now matches plural "Keywords" rule names via `/\bkeywords?\b/`, ensuring keywords are correctly validated at AAA 7:1
+- Restored WCAG compliance after the palette split without relaxing contrast thresholds
+- Regenerated all bundled screenshots after the 4-theme quality pass
+- README: palette swatch images now match the hex column; Terracotta Dark Dimmed table includes **Decorators**; design notes match `variable`/`parameter` colors in the theme JSON
 
 ## [1.9.9] - 2026-04-05
 

@@ -174,7 +174,7 @@ const UI_PAIRS = [
  * Tier 2 (AA 4.5:1): Supporting tokens — comments, constants, decorative, language-specific.
  */
 const TIER1_PATTERNS = [
-  /\bkeyword\b/i,
+  /\bkeywords?\b/i,
   /\bfunction\b/i,
   /\bstring\b/i,
   /\bvariable\b(?!.*(?:parameter|property|constant|enum))/i,

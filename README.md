@@ -28,9 +28,9 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Functions   | ![#5AAFA0](https://placehold.co/16x16/5AAFA0/5AAFA0.png)   | `#5AAFA0` |
 | Strings     | ![#E8B830](https://placehold.co/16x16/E8B830/E8B830.png)   | `#E8B830` |
 | Types       | ![#CC90A2](https://placehold.co/16x16/CC90A2/CC90A2.png)   | `#CC90A2` |
-| Numbers     | ![#DCA068](https://placehold.co/16x16/DCA068/DCA068.png)   | `#DCA068` |
-| Operators   | ![#B8A48E](https://placehold.co/16x16/B8A48E/B8A48E.png)   | `#B8A48E` |
-| Decorators  | ![#CC8898](https://placehold.co/16x16/CC8898/CC8898.png)   | `#CC8898` |
+| Numbers     | ![#E0968C](https://placehold.co/16x16/E0968C/E0968C.png)   | `#E0968C` |
+| Operators   | ![#8DA4C4](https://placehold.co/16x16/8DA4C4/8DA4C4.png)   | `#8DA4C4` |
+| Decorators  | ![#B468A0](https://placehold.co/16x16/B468A0/B468A0.png)   | `#B468A0` |
 
 ### Terracotta Dark Dimmed
 
@@ -43,12 +43,13 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Background  | ![#1A1A1A](https://placehold.co/16x16/1A1A1A/1A1A1A.png)   | `#1A1A1A` |
 | Foreground  | ![#CCCCCC](https://placehold.co/16x16/CCCCCC/CCCCCC.png)   | `#CCCCCC` |
 | Accent      | ![#C4785E](https://placehold.co/16x16/C4785E/C4785E.png)   | `#C4785E` |
-| Keywords    | ![#ED8A68](https://placehold.co/16x16/ED8A68/ED8A68.png)   | `#ED8A68` |
-| Functions   | ![#5EB4A4](https://placehold.co/16x16/5EB4A4/5EB4A4.png)   | `#5EB4A4` |
-| Strings     | ![#ECBC34](https://placehold.co/16x16/ECBC34/ECBC34.png)   | `#ECBC34` |
-| Types       | ![#D094A6](https://placehold.co/16x16/D094A6/D094A6.png)   | `#D094A6` |
-| Numbers     | ![#E0A46C](https://placehold.co/16x16/E0A46C/E0A46C.png)   | `#E0A46C` |
-| Operators   | ![#BCA88C](https://placehold.co/16x16/BCA88C/BCA88C.png)   | `#BCA88C` |
+| Keywords    | ![#DA956F](https://placehold.co/16x16/DA956F/DA956F.png)   | `#DA956F` |
+| Functions   | ![#84BFDC](https://placehold.co/16x16/84BFDC/84BFDC.png)   | `#84BFDC` |
+| Strings     | ![#C2A35A](https://placehold.co/16x16/C2A35A/C2A35A.png)   | `#C2A35A` |
+| Types       | ![#B8A6DE](https://placehold.co/16x16/B8A6DE/B8A6DE.png)   | `#B8A6DE` |
+| Numbers     | ![#D8929C](https://placehold.co/16x16/D8929C/D8929C.png)   | `#D8929C` |
+| Operators   | ![#A8B4D8](https://placehold.co/16x16/A8B4D8/A8B4D8.png)   | `#A8B4D8` |
+| Decorators  | ![#AC749C](https://placehold.co/16x16/AC749C/AC749C.png)   | `#AC749C` |
 
 ### Terracotta Light
 
@@ -61,7 +62,7 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Slate ope
 | Background  | ![#F4EEE4](https://placehold.co/16x16/F4EEE4/F4EEE4.png)   | `#F4EEE4` |
 | Foreground  | ![#2A241F](https://placehold.co/16x16/2A241F/2A241F.png)   | `#2A241F` |
 | Accent      | ![#B66743](https://placehold.co/16x16/B66743/B66743.png)   | `#B66743` |
-| Keywords    | ![#944126](https://placehold.co/16x16/944126/944126.png)   | `#944126` |
+| Keywords    | ![#752B20](https://placehold.co/16x16/752B20/752B20.png)   | `#752B20` |
 | Functions   | ![#1A574D](https://placehold.co/16x16/1A574D/1A574D.png)   | `#1A574D` |
 | Strings     | ![#6E6218](https://placehold.co/16x16/6E6218/6E6218.png)   | `#6E6218` |
 | Types       | ![#593F73](https://placehold.co/16x16/593F73/593F73.png)   | `#593F73` |
@@ -80,12 +81,12 @@ A daylight-oriented light variant with a mineral near-white canvas (`#FCFBF7`), 
 | Background  | ![#FCFBF7](https://placehold.co/16x16/FCFBF7/FCFBF7.png)   | `#FCFBF7` |
 | Foreground  | ![#1F1F1F](https://placehold.co/16x16/1F1F1F/1F1F1F.png)   | `#1F1F1F` |
 | Accent      | ![#D8744E](https://placehold.co/16x16/D8744E/D8744E.png)   | `#D8744E` |
-| Keywords    | ![#B14D2E](https://placehold.co/16x16/B14D2E/B14D2E.png)   | `#B14D2E` |
-| Functions   | ![#145A52](https://placehold.co/16x16/145A52/145A52.png)   | `#145A52` |
-| Strings     | ![#806A1C](https://placehold.co/16x16/806A1C/806A1C.png)   | `#806A1C` |
-| Types       | ![#45538F](https://placehold.co/16x16/45538F/45538F.png)   | `#45538F` |
-| Numbers     | ![#7F2E58](https://placehold.co/16x16/7F2E58/7F2E58.png)   | `#7F2E58` |
-| Operators   | ![#315978](https://placehold.co/16x16/315978/315978.png)   | `#315978` |
+| Keywords    | ![#8A3D24](https://placehold.co/16x16/8A3D24/8A3D24.png)   | `#8A3D24` |
+| Functions   | ![#0F503D](https://placehold.co/16x16/0F503D/0F503D.png)   | `#0F503D` |
+| Strings     | ![#876F24](https://placehold.co/16x16/876F24/876F24.png)   | `#876F24` |
+| Types       | ![#3C4A86](https://placehold.co/16x16/3C4A86/3C4A86.png)   | `#3C4A86` |
+| Numbers     | ![#96305F](https://placehold.co/16x16/96305F/96305F.png)   | `#96305F` |
+| Operators   | ![#3A5A6C](https://placehold.co/16x16/315978/315978.png)   | `#3A5A6C` |
 
 ### Terracotta High Contrast (Color Blind)
 
@@ -224,7 +225,7 @@ A tiered system ensures the best balance of readability and color differentiatio
 
 **Warm color harmony with clear separation.** Each color family has a dedicated role: terracotta for keywords, teal for functions, ochre for strings, violet/indigo for types, berry for numbers, cocoa for identifiers, olive for properties, and slate for structural syntax. The two light variants now diverge intentionally: Light keeps warmer editorial surfaces, while Light Bright leans cleaner and cooler in its structure lane.
 
-**Distinct variables, properties, and parameters.** In the dark themes, variables use a bright warm sand (`#CABFA6`), properties use an olive-clay accent (`#A8A060`), and parameters have their own amber tone (`#D09058`). This separation improves scan speed in object-heavy JavaScript/TypeScript, JSON, YAML, and config files without breaking the warm terracotta identity.
+**Distinct identifiers vs properties.** In the dark themes, variables and parameters share a warm sand (`#D9A06D` Dark, `#CFAA86` Dimmed) while properties use an olive-clay accent (`#A8A060` Dark, `#8DA56E` Dimmed). That split improves scan speed in object-heavy JavaScript/TypeScript, JSON, YAML, and config files without breaking the warm terracotta identity.
 
 **Deep grey backgrounds.** The dark variants use `#141414` and `#1A1A1A` rather than pure black. This reduces halation (the neon glow effect around bright text on black backgrounds) and is easier on eyes with astigmatism.
 

@@ -57,6 +57,7 @@ const README_VARIANTS = [
       Types: "type",
       Numbers: "number",
       Operators: "operator",
+      Decorators: "decorator",
     },
   },
   {

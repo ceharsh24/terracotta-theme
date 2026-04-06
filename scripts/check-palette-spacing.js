@@ -5,6 +5,8 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const THEMES = {
+  dark: "terracotta-dark.json",
+  "dark-dimmed": "terracotta-dark-dimmed.json",
   light: "terracotta-light.json",
   "light-bright": "terracotta-light-bright.json",
 };
@@ -30,22 +32,61 @@ const TARGETED_PAIRS = [
   ["parameter", "decorator"],
 ];
 
-const SAME_ROLE_DRIFT_MIN = {
-  bg: 5,
-  accent: 10,
-};
-
-const SURFACE_SPACING_MIN = {
-  "sideBar.background": 4,
-  "panel.background": 2.5,
-  "tab.activeBackground": 2,
-};
+const INTRA_THEME_LANE_CHECKS = new Set(["light", "light-bright"]);
 
 const MIN_CORE_DELTA = 18;
 const MIN_TARGETED_DELTA = 18;
+
 const MIN_AVERAGE_SYNTAX_DRIFT = 7;
 const MIN_SYNTAX_ROLE_DRIFT = 6;
 const MIN_DISTINCT_SYNTAX_ROLES = 6;
+
+const LIGHT_PAIR_DRIFT_MIN = {
+  bg: 5,
+  accent: 10,
+  function: 6,
+  number: 6,
+  operator: 6,
+};
+
+const DARK_PAIR_DRIFT_MIN = {
+  keyword: 10,
+  function: 8,
+  type: 8,
+  string: 8,
+  variable: 6,
+  property: 6,
+  operator: 6,
+  comment: 4,
+  number: 4,
+};
+
+const MIN_DARK_AVERAGE_SYNTAX_DRIFT = 7;
+const MIN_DARK_DISTINCT_ROLES = 7;
+const DARK_OPERATOR_VARIABLE_MIN = 16;
+
+const SURFACE_SPACING_MIN = {
+  dark: {
+    "sideBar.background": 3,
+    "panel.background": 4,
+    "tab.activeBackground": 5,
+  },
+  "dark-dimmed": {
+    "sideBar.background": 3,
+    "panel.background": 4,
+    "tab.activeBackground": 5,
+  },
+  light: {
+    "sideBar.background": 5,
+    "panel.background": 3.5,
+    "tab.activeBackground": 3,
+  },
+  "light-bright": {
+    "sideBar.background": 5,
+    "panel.background": 3.5,
+    "tab.activeBackground": 3,
+  },
+};
 
 function normalizeHex(value) {
   if (typeof value !== "string") return null;
@@ -129,65 +170,61 @@ function formatDelta(value) {
   return value.toFixed(1);
 }
 
-function main() {
-  const loaded = Object.fromEntries(
-    Object.keys(THEMES).map((themeId) => [themeId, loadTheme(themeId)])
-  );
-  const issues = [];
+function checkIntraThemeLanes(themeId, palette, issues) {
+  let minCorePair = null;
 
-  for (const [themeId, { colors, palette }] of Object.entries(loaded)) {
-    let minCorePair = null;
-
-    for (let i = 0; i < CORE_ROLES.length; i += 1) {
-      for (let j = i + 1; j < CORE_ROLES.length; j += 1) {
-        const roleA = CORE_ROLES[i];
-        const roleB = CORE_ROLES[j];
-        const distance = deltaE(palette[roleA], palette[roleB]);
-
-        if (!minCorePair || distance < minCorePair.distance) {
-          minCorePair = { roleA, roleB, distance };
-        }
-
-        if (distance < MIN_CORE_DELTA) {
-          issues.push(
-            `${themeId}: core lanes ${roleA}/${roleB} are too close (ΔE ${formatDelta(distance)} < ${MIN_CORE_DELTA})`
-          );
-        }
-      }
-    }
-
-    for (const [roleA, roleB] of TARGETED_PAIRS) {
+  for (let i = 0; i < CORE_ROLES.length; i += 1) {
+    for (let j = i + 1; j < CORE_ROLES.length; j += 1) {
+      const roleA = CORE_ROLES[i];
+      const roleB = CORE_ROLES[j];
       const distance = deltaE(palette[roleA], palette[roleB]);
-      if (distance < MIN_TARGETED_DELTA) {
+
+      if (!minCorePair || distance < minCorePair.distance) {
+        minCorePair = { roleA, roleB, distance };
+      }
+
+      if (distance < MIN_CORE_DELTA) {
         issues.push(
-          `${themeId}: targeted pair ${roleA}/${roleB} collapsed (ΔE ${formatDelta(distance)} < ${MIN_TARGETED_DELTA})`
+          `${themeId}: core lanes ${roleA}/${roleB} are too close (ΔE ${formatDelta(distance)} < ${MIN_CORE_DELTA})`
         );
       }
     }
-
-    for (const [surfaceKey, threshold] of Object.entries(SURFACE_SPACING_MIN)) {
-      const surface = normalizeHex(colors[surfaceKey]);
-      const editorBg = normalizeHex(colors["editor.background"]);
-      const distance = deltaE(surface, editorBg);
-
-      if (distance < threshold) {
-        issues.push(
-          `${themeId}: ${surfaceKey} is too close to editor.background (ΔE ${formatDelta(distance)} < ${threshold})`
-        );
-      }
-    }
-
-    if (normalizeHex(colors["tab.activeBackground"]) === normalizeHex(colors["editor.background"])) {
-      issues.push(`${themeId}: tab.activeBackground must not equal editor.background`);
-    }
-
-    console.log(
-      `${themeId}: closest core pair ${minCorePair.roleA}/${minCorePair.roleB} at ΔE ${formatDelta(minCorePair.distance)}`
-    );
   }
 
+  for (const [roleA, roleB] of TARGETED_PAIRS) {
+    const distance = deltaE(palette[roleA], palette[roleB]);
+    if (distance < MIN_TARGETED_DELTA) {
+      issues.push(
+        `${themeId}: targeted pair ${roleA}/${roleB} collapsed (ΔE ${formatDelta(distance)} < ${MIN_TARGETED_DELTA})`
+      );
+    }
+  }
+
+  console.log(
+    `${themeId}: closest core pair ${minCorePair.roleA}/${minCorePair.roleB} at ΔE ${formatDelta(minCorePair.distance)}`
+  );
+}
+
+function checkSurfaceSpacing(themeId, colors, issues) {
+  const thresholds = SURFACE_SPACING_MIN[themeId];
+  const editorBg = normalizeHex(colors["editor.background"]);
+
+  for (const [surfaceKey, threshold] of Object.entries(thresholds)) {
+    const surface = normalizeHex(colors[surfaceKey]);
+    const distance = deltaE(surface, editorBg);
+
+    if (distance < threshold) {
+      issues.push(
+        `${themeId}: ${surfaceKey} is too close to editor.background (ΔE ${formatDelta(distance)} < ${threshold})`
+      );
+    }
+  }
+}
+
+function checkLightPair(loaded, issues) {
   const light = loaded.light.palette;
   const bright = loaded["light-bright"].palette;
+
   const syntaxDrifts = CORE_ROLES.map((role) => ({
     role,
     distance: deltaE(light[role], bright[role]),
@@ -198,7 +235,7 @@ function main() {
     (entry) => entry.distance >= MIN_SYNTAX_ROLE_DRIFT
   ).length;
 
-  for (const [role, threshold] of Object.entries(SAME_ROLE_DRIFT_MIN)) {
+  for (const [role, threshold] of Object.entries(LIGHT_PAIR_DRIFT_MIN)) {
     const distance = deltaE(light[role], bright[role]);
     if (distance < threshold) {
       issues.push(
@@ -222,6 +259,81 @@ function main() {
   console.log(
     `light-vs-bright: average syntax drift ΔE ${formatDelta(averageSyntaxDrift)}, ${rolesAboveFloor}/${CORE_ROLES.length} roles clear ΔE ${MIN_SYNTAX_ROLE_DRIFT}`
   );
+}
+
+function checkDarkPair(loaded, issues) {
+  const dark = loaded.dark.palette;
+  const dim = loaded["dark-dimmed"].palette;
+
+  const syntaxDrifts = CORE_ROLES.map((role) => ({
+    role,
+    distance: deltaE(dark[role], dim[role]),
+  }));
+  const averageSyntaxDrift =
+    syntaxDrifts.reduce((sum, entry) => sum + entry.distance, 0) / syntaxDrifts.length;
+  const rolesAboveFloor = syntaxDrifts.filter(
+    (entry) => entry.distance >= MIN_SYNTAX_ROLE_DRIFT
+  ).length;
+
+  for (const [role, threshold] of Object.entries(DARK_PAIR_DRIFT_MIN)) {
+    const distance = deltaE(dark[role], dim[role]);
+    if (distance < threshold) {
+      issues.push(
+        `dark-vs-dimmed: ${role} drift is too small (ΔE ${formatDelta(distance)} < ${threshold})`
+      );
+    }
+  }
+
+  if (averageSyntaxDrift < MIN_DARK_AVERAGE_SYNTAX_DRIFT) {
+    issues.push(
+      `dark-vs-dimmed: average syntax drift is too small (ΔE ${formatDelta(averageSyntaxDrift)} < ${MIN_DARK_AVERAGE_SYNTAX_DRIFT})`
+    );
+  }
+
+  if (rolesAboveFloor < MIN_DARK_DISTINCT_ROLES) {
+    issues.push(
+      `dark-vs-dimmed: only ${rolesAboveFloor} syntax roles clear ΔE ${MIN_SYNTAX_ROLE_DRIFT} (need ${MIN_DARK_DISTINCT_ROLES})`
+    );
+  }
+
+  const darkOperatorVariable = deltaE(dark.operator, dark.variable);
+  const dimOperatorVariable = deltaE(dim.operator, dim.variable);
+
+  if (darkOperatorVariable < DARK_OPERATOR_VARIABLE_MIN) {
+    issues.push(
+      `dark: operator/variable are too close (ΔE ${formatDelta(darkOperatorVariable)} < ${DARK_OPERATOR_VARIABLE_MIN})`
+    );
+  }
+
+  if (dimOperatorVariable < DARK_OPERATOR_VARIABLE_MIN) {
+    issues.push(
+      `dark-dimmed: operator/variable are too close (ΔE ${formatDelta(dimOperatorVariable)} < ${DARK_OPERATOR_VARIABLE_MIN})`
+    );
+  }
+
+  console.log(
+    `dark-vs-dimmed: average syntax drift ΔE ${formatDelta(averageSyntaxDrift)}, ${rolesAboveFloor}/${CORE_ROLES.length} roles clear ΔE ${MIN_SYNTAX_ROLE_DRIFT}`
+  );
+  console.log(
+    `dark operator/variable ΔE ${formatDelta(darkOperatorVariable)}, dark-dimmed operator/variable ΔE ${formatDelta(dimOperatorVariable)}`
+  );
+}
+
+function main() {
+  const loaded = Object.fromEntries(
+    Object.keys(THEMES).map((themeId) => [themeId, loadTheme(themeId)])
+  );
+  const issues = [];
+
+  for (const [themeId, { colors, palette }] of Object.entries(loaded)) {
+    if (INTRA_THEME_LANE_CHECKS.has(themeId)) {
+      checkIntraThemeLanes(themeId, palette, issues);
+    }
+    checkSurfaceSpacing(themeId, colors, issues);
+  }
+
+  checkDarkPair(loaded, issues);
+  checkLightPair(loaded, issues);
 
   if (issues.length > 0) {
     console.error("\n❌ Palette spacing regressions detected:\n");
@@ -231,7 +343,7 @@ function main() {
     process.exit(1);
   }
 
-  console.log("\n✅ Light-theme palette spacing checks passed.");
+  console.log("\n✅ Palette spacing checks passed.");
 }
 
 main();
