@@ -13,10 +13,10 @@ This file documents the codebase structure, conventions, and workflows for AI as
 | Dark | `terracotta-dark.json` | `#141414` | `vs-dark` | Primary warm dark |
 | Dark Dimmed | `terracotta-dark-dimmed.json` | `#1A1A1A` | `vs-dark` | Softer night variant |
 | Light | `terracotta-light.json` | `#F4EEE4` | `vs` | Warm editorial parchment light |
-| Light Bright | `terracotta-light-bright.json` | `#FCFBF7` | `vs` | Cleaner daylight light |
+| Light Bright | `terracotta-light-bright.json` | `#F8FBFC` | `vs` | Cleaner daylight light |
 | High Contrast (CB) | `terracotta-high-contrast-cb.json` | `#000000` | `hc-dark` | WCAG AAA + color-blind safe |
 
-Version: `1.9.10` | Publisher: `terracotta-theme` | Author: Harsh Shah
+Version: `1.9.11` | Publisher: `terracotta-theme` | Author: Harsh Shah
 
 ---
 
@@ -85,6 +85,8 @@ npm test
 ```
 
 Always run `npm test` after modifying any theme JSON file.
+
+For manual usability review, use `examples/theme-analysis.html` first. It is the primary multi-surface regression harness for code, config, shell, markdown, diff, and log readability across all five variants.
 
 ### Generating Screenshots
 
@@ -275,7 +277,7 @@ Examples from history:
 ```json
 {
   "name": "terracotta-theme",
-  "version": "1.9.10",
+  "version": "1.9.11",
   "engines": { "vscode": "^1.85.0" },
   "contributes": {
     "themes": [ /* 5 theme entries, each pointing to themes/*.json */ ]

@@ -4,6 +4,16 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.9.11] - 2026-04-05
+
+### Changed
+- **Usability review pass across all 5 variants** — chrome surfaces, tabs, panels, and interaction states were tuned to improve orientation during long coding and review sessions without redefining the core palette lanes
+- **Working-state visibility increased** — selection, find match, active line, bracket match, and diff backgrounds now read more clearly in motion, especially in the dark and light flagship variants
+- **Light theme parameters rely less on italics alone** — `Light` and `Light Bright` now give parameters their own cocoa-adjacent color lane instead of depending primarily on italic styling
+- **Theme analysis page redesigned as the primary manual review harness** — `examples/theme-analysis.html` now covers TSX, Go, JSON, YAML, TOML, shell, markdown, diff, and log-like output in one theme-switchable surface
+- **Light Bright re-separated from Light** — the daylight variant now uses a cooler mineral canvas, clearer surface spacing, and a more neutral comment lane so it reads as a distinct working theme rather than a near-clone
+- Synced `PLAN.md`, playground surfaces, demo fixtures, and screenshot template values with the updated theme JSON files
+
 ## [1.9.10] - 2026-04-05
 
 ### Changed

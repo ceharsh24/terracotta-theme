@@ -72,13 +72,13 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Slate ope
 
 ### Terracotta Light Bright
 
-A daylight-oriented light variant with a mineral near-white canvas (`#FCFBF7`), cooler structure lane, brighter terracotta accent, and sharper separation between editor and chrome.
+A daylight-oriented light variant with a mineral near-white canvas (`#F8FBFC`), cooler structure lane, brighter terracotta accent, and sharper separation between editor and chrome.
 
 ![Terracotta Light Bright](screenshots/screenshot-light-bright.png)
 
 | Role        | Color                                                        | Hex       |
 |-------------|--------------------------------------------------------------|-----------|
-| Background  | ![#FCFBF7](https://placehold.co/16x16/FCFBF7/FCFBF7.png)   | `#FCFBF7` |
+| Background  | ![#F8FBFC](https://placehold.co/16x16/F8FBFC/F8FBFC.png)   | `#F8FBFC` |
 | Foreground  | ![#1F1F1F](https://placehold.co/16x16/1F1F1F/1F1F1F.png)   | `#1F1F1F` |
 | Accent      | ![#D8744E](https://placehold.co/16x16/D8744E/D8744E.png)   | `#D8744E` |
 | Keywords    | ![#8A3D24](https://placehold.co/16x16/8A3D24/8A3D24.png)   | `#8A3D24` |
@@ -229,7 +229,7 @@ A tiered system ensures the best balance of readability and color differentiatio
 
 **Deep grey backgrounds.** The dark variants use `#141414` and `#1A1A1A` rather than pure black. This reduces halation (the neon glow effect around bright text on black backgrounds) and is easier on eyes with astigmatism.
 
-**Distinct light personalities.** The Light variant keeps parchment surfaces (`#F4EEE4`) with warmer chrome and editorial warmth. Light Bright uses a cleaner mineral canvas (`#FCFBF7`), cooler slate structure, and a brighter terracotta accent so it reads as a separate daylight theme instead of a brighter clone.
+**Distinct light personalities.** The Light variant keeps parchment surfaces (`#F4EEE4`) with warmer chrome and editorial warmth. Light Bright uses a cleaner mineral canvas (`#F8FBFC`), cooler slate structure, and a brighter terracotta accent so it reads as a separate daylight theme instead of a brighter clone.
 
 **True inclusivity.** The high-contrast color-blind variant uses a research-backed palette ensuring zero red-green reliance and mathematically guarantees WCAG AAA standards across the board. Accessible to deuteranopia, protanopia, and tritanopia.
 
