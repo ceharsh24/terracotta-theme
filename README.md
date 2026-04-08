@@ -62,12 +62,12 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Slate ope
 | Background  | ![#F4EEE4](https://placehold.co/16x16/F4EEE4/F4EEE4.png)   | `#F4EEE4` |
 | Foreground  | ![#2A241F](https://placehold.co/16x16/2A241F/2A241F.png)   | `#2A241F` |
 | Accent      | ![#B66743](https://placehold.co/16x16/B66743/B66743.png)   | `#B66743` |
-| Keywords    | ![#752B20](https://placehold.co/16x16/752B20/752B20.png)   | `#752B20` |
-| Functions   | ![#1A574D](https://placehold.co/16x16/1A574D/1A574D.png)   | `#1A574D` |
-| Strings     | ![#6E6218](https://placehold.co/16x16/6E6218/6E6218.png)   | `#6E6218` |
-| Types       | ![#593F73](https://placehold.co/16x16/593F73/593F73.png)   | `#593F73` |
-| Numbers     | ![#7A3156](https://placehold.co/16x16/7A3156/7A3156.png)   | `#7A3156` |
-| Operators   | ![#334E69](https://placehold.co/16x16/334E69/334E69.png)   | `#334E69` |
+| Keywords    | ![#8C2A0E](https://placehold.co/16x16/752B20/752B20.png)   | `#8C2A0E` |
+| Functions   | ![#065840](https://placehold.co/16x16/1A574D/1A574D.png)   | `#065840` |
+| Strings     | ![#795600](https://placehold.co/16x16/6E6218/6E6218.png)   | `#795600` |
+| Types       | ![#572E82](https://placehold.co/16x16/593F73/593F73.png)   | `#572E82` |
+| Numbers     | ![#8A244E](https://placehold.co/16x16/7A3156/7A3156.png)   | `#8A244E` |
+| Operators   | ![#1B5078](https://placehold.co/16x16/334E69/334E69.png)   | `#1B5078` |
 | Decorators  | ![#7A4764](https://placehold.co/16x16/7A4764/7A4764.png)   | `#7A4764` |
 
 ### Terracotta Light Bright
@@ -81,12 +81,12 @@ A daylight-oriented light variant with a mineral near-white canvas (`#F8FBFC`), 
 | Background  | ![#F8FBFC](https://placehold.co/16x16/F8FBFC/F8FBFC.png)   | `#F8FBFC` |
 | Foreground  | ![#1F1F1F](https://placehold.co/16x16/1F1F1F/1F1F1F.png)   | `#1F1F1F` |
 | Accent      | ![#D8744E](https://placehold.co/16x16/D8744E/D8744E.png)   | `#D8744E` |
-| Keywords    | ![#8A3D24](https://placehold.co/16x16/8A3D24/8A3D24.png)   | `#8A3D24` |
-| Functions   | ![#0F503D](https://placehold.co/16x16/0F503D/0F503D.png)   | `#0F503D` |
-| Strings     | ![#876F24](https://placehold.co/16x16/876F24/876F24.png)   | `#876F24` |
-| Types       | ![#3C4A86](https://placehold.co/16x16/3C4A86/3C4A86.png)   | `#3C4A86` |
-| Numbers     | ![#96305F](https://placehold.co/16x16/96305F/96305F.png)   | `#96305F` |
-| Operators   | ![#3A5A6C](https://placehold.co/16x16/315978/315978.png)   | `#3A5A6C` |
+| Keywords    | ![#963014](https://placehold.co/16x16/8A3D24/8A3D24.png)   | `#963014` |
+| Functions   | ![#006050](https://placehold.co/16x16/0F503D/0F503D.png)   | `#006050` |
+| Strings     | ![#8A6200](https://placehold.co/16x16/876F24/876F24.png)   | `#8A6200` |
+| Types       | ![#2E3E98](https://placehold.co/16x16/3C4A86/3C4A86.png)   | `#2E3E98` |
+| Numbers     | ![#A02450](https://placehold.co/16x16/96305F/96305F.png)   | `#A02450` |
+| Operators   | ![#1A508C](https://placehold.co/16x16/315978/315978.png)   | `#1A508C` |
 
 ### Terracotta High Contrast (Color Blind)
 

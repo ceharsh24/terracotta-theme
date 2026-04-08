@@ -4,6 +4,15 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+- **Light + Light Bright chroma pass** — info, merge incoming, word highlight, range/symbol highlight, bracket match, peek, notifications, testing queue, charts, and debug “info” accents use a clearer cobalt blue family (`#2E5E98` / `#2D5E9A`) instead of the prior gray-tinged blue
+- **Operator and SCM “changed” alignment** — keyword operators and modified-line gutters/minimap/overview now track deeper blues (`#1B5078` / `#1A508C`) so structure reads consistently with the new info lane
+- **Git diff and success greens** — added lines, hints, merge current, and related UI greens shifted (`#407028` / `#387E28`) for cleaner separation from parchment and panel surfaces
+- **Terracotta accent emphasis** — keywords, storage, cursor, bracket colorization tier 1, and list focus highlights nudge warmer and more saturated (`#8C2A0E` parchment, `#963014` bright) without abandoning the flagship terracotta lane
+- **Callables, strings, and numbers** — function/method greens, string ochre, plum/magenta bracket tiers, and numeric berry literals retuned (`#186842` / `#006050`, `#795600` / `#8A6200`, `#8A244E` / `#A02450`) so scan paths stay separated at a glance
+- **Integrated terminal** — all 16 ANSI colors updated in both light variants to match the new workbench lanes
+- Synced README, `docs/index.html`, `examples/THEME-DEMO.html`, `examples/theme-analysis.html`, `examples/screenshot-gen.html`, and regenerated light variant preview PNGs
+
 ## [1.9.11] - 2026-04-05
 
 ### Changed
