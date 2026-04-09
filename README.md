@@ -65,7 +65,7 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Slate ope
 | Keywords    | ![#8C2A0E](https://placehold.co/16x16/752B20/752B20.png)   | `#8C2A0E` |
 | Functions   | ![#065840](https://placehold.co/16x16/1A574D/1A574D.png)   | `#065840` |
 | Strings     | ![#795600](https://placehold.co/16x16/6E6218/6E6218.png)   | `#795600` |
-| Types       | ![#572E82](https://placehold.co/16x16/593F73/593F73.png)   | `#572E82` |
+| Types       | ![#5E3490](https://placehold.co/16x16/593F73/593F73.png)   | `#5E3490` |
 | Numbers     | ![#8A244E](https://placehold.co/16x16/7A3156/7A3156.png)   | `#8A244E` |
 | Operators   | ![#1B5078](https://placehold.co/16x16/334E69/334E69.png)   | `#1B5078` |
 | Decorators  | ![#7A4764](https://placehold.co/16x16/7A4764/7A4764.png)   | `#7A4764` |
@@ -84,7 +84,7 @@ A daylight-oriented light variant with a mineral near-white canvas (`#F8FBFC`), 
 | Keywords    | ![#963014](https://placehold.co/16x16/8A3D24/8A3D24.png)   | `#963014` |
 | Functions   | ![#006050](https://placehold.co/16x16/0F503D/0F503D.png)   | `#006050` |
 | Strings     | ![#8A6200](https://placehold.co/16x16/876F24/876F24.png)   | `#8A6200` |
-| Types       | ![#2E3E98](https://placehold.co/16x16/3C4A86/3C4A86.png)   | `#2E3E98` |
+| Types       | ![#3548A6](https://placehold.co/16x16/3C4A86/3C4A86.png)   | `#3548A6` |
 | Numbers     | ![#A02450](https://placehold.co/16x16/96305F/96305F.png)   | `#A02450` |
 | Operators   | ![#1A508C](https://placehold.co/16x16/315978/315978.png)   | `#1A508C` |
 
