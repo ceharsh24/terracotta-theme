@@ -453,7 +453,7 @@
         "constant.numeric"
       ],
       "settings": {
-        "foreground": "#8A244E"
+        "foreground": "#84184A"
       }
     },
     {
@@ -1737,7 +1737,7 @@
     },
     "string": "#795600",
     "keyword": "#8C2A0E",
-    "number": "#8A244E",
+    "number": "#84184A",
     "regexp": "#8C5175",
     "operator": "#1B5078",
     "decorator": {

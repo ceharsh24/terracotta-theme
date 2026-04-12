@@ -295,7 +295,7 @@
     "terminal.ansiBrightWhite": "#DCD8CC",
     "terminal.selectionBackground": "#3A3A3A",
     "terminalCursor.foreground": "#C4785E",
-    "breadcrumb.foreground": "#868898",
+    "breadcrumb.foreground": "#888480",
     "breadcrumb.focusForeground": "#C8C4B8",
     "breadcrumb.activeSelectionForeground": "#C8C4B8",
     "breadcrumbPicker.background": "#232323",
@@ -566,7 +566,7 @@
         "meta.function-call entity.name.function"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -576,7 +576,7 @@
         "support.function"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -585,7 +585,7 @@
         "meta.method-call entity.name.function"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -840,7 +840,7 @@
         "entity.other.attribute-name.pseudo-element.css"
       ],
       "settings": {
-        "foreground": "#84BFDC",
+        "foreground": "#80C4B8",
         "fontStyle": "italic"
       }
     },
@@ -870,7 +870,7 @@
         "support.function.misc.css"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -1010,7 +1010,7 @@
         "string.other.link.description.markdown"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -1156,7 +1156,7 @@
         "markup.inserted"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -1194,7 +1194,7 @@
         "support.function.builtin.shell"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -1249,7 +1249,7 @@
         "support.macro.rust"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -1361,7 +1361,7 @@
         "entity.name.function.preprocessor"
       ],
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -1450,14 +1450,14 @@
       "name": "GraphQL directive",
       "scope": "entity.name.function.directive.graphql",
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
       "name": "GraphQL fragment",
       "scope": "entity.name.fragment.graphql",
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -1623,7 +1623,7 @@
       "name": "Shell function",
       "scope": "entity.name.function.shell",
       "settings": {
-        "foreground": "#84BFDC"
+        "foreground": "#80C4B8"
       }
     },
     {
@@ -1710,15 +1710,15 @@
     "property.modification": "#8DA56E",
     "enumMember": "#CCB86C",
     "event": "#CCB86C",
-    "function": "#84BFDC",
+    "function": "#80C4B8",
     "function.defaultLibrary": "#80C0AE",
     "function.declaration": {
-      "foreground": "#84BFDC"
+      "foreground": "#80C4B8"
     },
-    "method": "#84BFDC",
+    "method": "#80C4B8",
     "method.defaultLibrary": "#80C0AE",
     "method.static": {
-      "foreground": "#84BFDC"
+      "foreground": "#80C4B8"
     },
     "class.declaration": {
       "foreground": "#B8A6DE"
@@ -1726,7 +1726,7 @@
     "property.static": {
       "foreground": "#8DA56E"
     },
-    "macro": "#84BFDC",
+    "macro": "#80C4B8",
     "label": "#A8B4D8",
     "comment": {
       "foreground": "#818A86"

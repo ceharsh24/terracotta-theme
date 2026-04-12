@@ -413,7 +413,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#9A9488"
+        "foreground": "#A09488"
       }
     },
     {
@@ -423,7 +423,7 @@
         "comment.block.javadoc"
       ],
       "settings": {
-        "foreground": "#908A80",
+        "foreground": "#A8A090",
         "fontStyle": "italic"
       }
     },
@@ -1017,7 +1017,7 @@
         "markup.strikethrough"
       ],
       "settings": {
-        "foreground": "#9A9488",
+        "foreground": "#A09488",
         "fontStyle": "strikethrough"
       }
     },
@@ -1088,7 +1088,7 @@
         "markup.quote"
       ],
       "settings": {
-        "foreground": "#908A80",
+        "foreground": "#A8A090",
         "fontStyle": "italic"
       }
     },
@@ -1519,7 +1519,7 @@
       "name": "GraphQL comment",
       "scope": "comment.line.graphql, comment.block.graphql",
       "settings": {
-        "foreground": "#9A9488",
+        "foreground": "#A09488",
         "fontStyle": "italic"
       }
     },
@@ -1613,7 +1613,7 @@
       "name": "Dockerfile comment",
       "scope": "comment.line.number-sign.dockerfile",
       "settings": {
-        "foreground": "#9A9488",
+        "foreground": "#A09488",
         "fontStyle": "italic"
       }
     },
@@ -1760,7 +1760,7 @@
     "macro": "#00B4BD",
     "label": "#80BFFF",
     "comment": {
-      "foreground": "#9A9488"
+      "foreground": "#A09488"
     },
     "string": "#F0D050",
     "keyword": {

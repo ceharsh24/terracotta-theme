@@ -27,8 +27,8 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Keywords    | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
 | Functions   | ![#5AAFA0](https://placehold.co/16x16/5AAFA0/5AAFA0.png)   | `#5AAFA0` |
 | Strings     | ![#E8B830](https://placehold.co/16x16/E8B830/E8B830.png)   | `#E8B830` |
-| Types       | ![#CC90A2](https://placehold.co/16x16/CC90A2/CC90A2.png)   | `#CC90A2` |
-| Numbers     | ![#E0968C](https://placehold.co/16x16/E0968C/E0968C.png)   | `#E0968C` |
+| Types       | ![#C09ADC](https://placehold.co/16x16/C09ADC/C09ADC.png)   | `#C09ADC` |
+| Numbers     | ![#E090B0](https://placehold.co/16x16/E090B0/E090B0.png)   | `#E090B0` |
 | Operators   | ![#8DA4C4](https://placehold.co/16x16/8DA4C4/8DA4C4.png)   | `#8DA4C4` |
 | Decorators  | ![#B468A0](https://placehold.co/16x16/B468A0/B468A0.png)   | `#B468A0` |
 
@@ -44,7 +44,7 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Foreground  | ![#CCCCCC](https://placehold.co/16x16/CCCCCC/CCCCCC.png)   | `#CCCCCC` |
 | Accent      | ![#C4785E](https://placehold.co/16x16/C4785E/C4785E.png)   | `#C4785E` |
 | Keywords    | ![#DA956F](https://placehold.co/16x16/DA956F/DA956F.png)   | `#DA956F` |
-| Functions   | ![#84BFDC](https://placehold.co/16x16/84BFDC/84BFDC.png)   | `#84BFDC` |
+| Functions   | ![#80C4B8](https://placehold.co/16x16/80C4B8/80C4B8.png)   | `#80C4B8` |
 | Strings     | ![#C2A35A](https://placehold.co/16x16/C2A35A/C2A35A.png)   | `#C2A35A` |
 | Types       | ![#B8A6DE](https://placehold.co/16x16/B8A6DE/B8A6DE.png)   | `#B8A6DE` |
 | Numbers     | ![#D8929C](https://placehold.co/16x16/D8929C/D8929C.png)   | `#D8929C` |
@@ -66,7 +66,7 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Slate ope
 | Functions   | ![#065840](https://placehold.co/16x16/1A574D/1A574D.png)   | `#065840` |
 | Strings     | ![#795600](https://placehold.co/16x16/6E6218/6E6218.png)   | `#795600` |
 | Types       | ![#5E3490](https://placehold.co/16x16/593F73/593F73.png)   | `#5E3490` |
-| Numbers     | ![#8A244E](https://placehold.co/16x16/7A3156/7A3156.png)   | `#8A244E` |
+| Numbers     | ![#84184A](https://placehold.co/16x16/84184A/84184A.png)   | `#84184A` |
 | Operators   | ![#1B5078](https://placehold.co/16x16/334E69/334E69.png)   | `#1B5078` |
 | Decorators  | ![#7A4764](https://placehold.co/16x16/7A4764/7A4764.png)   | `#7A4764` |
 
@@ -84,7 +84,7 @@ A daylight-oriented light variant with a mineral near-white canvas (`#F8FBFC`), 
 | Keywords    | ![#963014](https://placehold.co/16x16/8A3D24/8A3D24.png)   | `#963014` |
 | Functions   | ![#006050](https://placehold.co/16x16/0F503D/0F503D.png)   | `#006050` |
 | Strings     | ![#8A6200](https://placehold.co/16x16/876F24/876F24.png)   | `#8A6200` |
-| Types       | ![#3548A6](https://placehold.co/16x16/3C4A86/3C4A86.png)   | `#3548A6` |
+| Types       | ![#4D44A2](https://placehold.co/16x16/4D44A2/4D44A2.png)   | `#4D44A2` |
 | Numbers     | ![#A02450](https://placehold.co/16x16/96305F/96305F.png)   | `#A02450` |
 | Operators   | ![#1A508C](https://placehold.co/16x16/315978/315978.png)   | `#1A508C` |
 
