@@ -84,7 +84,7 @@ A daylight-oriented light variant with a mineral near-white canvas (`#F8FBFC`), 
 | Keywords    | ![#963014](https://placehold.co/16x16/8A3D24/8A3D24.png)   | `#963014` |
 | Functions   | ![#006050](https://placehold.co/16x16/0F503D/0F503D.png)   | `#006050` |
 | Strings     | ![#8A6200](https://placehold.co/16x16/876F24/876F24.png)   | `#8A6200` |
-| Types       | ![#4D44A2](https://placehold.co/16x16/4D44A2/4D44A2.png)   | `#4D44A2` |
+| Types       | ![#3548A6](https://placehold.co/16x16/3548A6/3548A6.png)   | `#3548A6` |
 | Numbers     | ![#A02450](https://placehold.co/16x16/96305F/96305F.png)   | `#A02450` |
 | Operators   | ![#1A508C](https://placehold.co/16x16/315978/315978.png)   | `#1A508C` |
 

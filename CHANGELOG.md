@@ -4,6 +4,16 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.9.15] - 2026-04-13
+
+### Changed
+- **Light Bright type lane shifted from violet to blue** — types, classes, namespaces, and related tokens moved from purple-violet (`#4D44A2`/`#5248AA`) to a distinct blue family (`#3548A6`/`#4C3CB0`), improving separation from the interface lane and giving the daylight variant its own type identity
+- **Light Bright UI chrome cooled** — activity bar, sidebar, status bar, title bar, and tab header backgrounds shifted from warm beige (`#EDE5DA`/`#E5DBD0`) to cool mineral tones (`#E7EEF0`/`#E2EAEC`), reinforcing the clean daylight personality
+- **Light Bright comments neutralised** — comment color moved from olive-gray `#6C6A5E` to neutral `#72746C` for a cooler reading tone on the near-white canvas
+- **Light Bright punctuation and breadcrumbs cooled** — shifted from warm gray (`#5A5248`) to slate-blue gray (`#5A6672`) to match the cooled chrome surfaces
+- **Light Bright description and icon foregrounds aligned** — shifted from `#4C4841` to `#4C5961` for consistency with the cooler UI palette
+- Synced README, `docs/index.html`, `examples/THEME-DEMO.html`, `examples/theme-analysis.html`, `examples/screenshot-gen.html`, and regenerated preview PNGs
+
 ## [1.9.13] - 2026-04-08
 
 ### Changed

@@ -16,7 +16,7 @@ This file documents the codebase structure, conventions, and workflows for AI as
 | Light Bright | `terracotta-light-bright.json` | `#F8FBFC` | `vs` | Cleaner daylight light |
 | High Contrast (CB) | `terracotta-high-contrast-cb.json` | `#000000` | `hc-dark` | WCAG AAA + color-blind safe |
 
-Version: `1.9.11` | Publisher: `terracotta-theme` | Author: Harsh Shah
+Version: `1.9.15` | Publisher: `terracotta-theme` | Author: Harsh Shah
 
 ---
 
