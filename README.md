@@ -53,7 +53,7 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 
 ### Terracotta Light
 
-An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Slate operators, cocoa identifiers, olive properties, and a restrained terracotta accent keep earthy colors readable on a light canvas.
+An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Navy operators, purple variables, rust parameters, forest functions, and a restrained terracotta accent keep lanes separated on the warm canvas.
 
 ![Terracotta Light](screenshots/screenshot-light.png)
 
@@ -62,31 +62,31 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Slate ope
 | Background  | ![#F4EEE4](https://placehold.co/16x16/F4EEE4/F4EEE4.png)   | `#F4EEE4` |
 | Foreground  | ![#2A241F](https://placehold.co/16x16/2A241F/2A241F.png)   | `#2A241F` |
 | Accent      | ![#B66743](https://placehold.co/16x16/B66743/B66743.png)   | `#B66743` |
-| Keywords    | ![#8C2A0E](https://placehold.co/16x16/752B20/752B20.png)   | `#8C2A0E` |
-| Functions   | ![#065840](https://placehold.co/16x16/1A574D/1A574D.png)   | `#065840` |
-| Strings     | ![#795600](https://placehold.co/16x16/6E6218/6E6218.png)   | `#795600` |
-| Types       | ![#5E3490](https://placehold.co/16x16/593F73/593F73.png)   | `#5E3490` |
+| Keywords    | ![#8C2A0E](https://placehold.co/16x16/8C2A0E/8C2A0E.png)   | `#8C2A0E` |
+| Functions   | ![#064A26](https://placehold.co/16x16/064A26/064A26.png)   | `#064A26` |
+| Strings     | ![#6E4A00](https://placehold.co/16x16/6E4A00/6E4A00.png)   | `#6E4A00` |
+| Types       | ![#5A2FAE](https://placehold.co/16x16/5A2FAE/5A2FAE.png)   | `#5A2FAE` |
 | Numbers     | ![#84184A](https://placehold.co/16x16/84184A/84184A.png)   | `#84184A` |
-| Operators   | ![#1B5078](https://placehold.co/16x16/334E69/334E69.png)   | `#1B5078` |
-| Decorators  | ![#7A4764](https://placehold.co/16x16/7A4764/7A4764.png)   | `#7A4764` |
+| Operators   | ![#124878](https://placehold.co/16x16/124878/124878.png)   | `#124878` |
+| Decorators  | ![#6A2E90](https://placehold.co/16x16/6A2E90/6A2E90.png)   | `#6A2E90` |
 
 ### Terracotta Light Bright
 
-A daylight-oriented light variant with a mineral near-white canvas (`#F8FBFC`), cooler structure lane, brighter terracotta accent, and sharper separation between editor and chrome.
+A crisp neutral daylight variant: pure neutral editor (`#FAFAFA`), micro-warm near-neutral chrome, hero terracotta accent (`#D8744E`), and rust keywords so the family stays recognizable without cool-grey chrome.
 
 ![Terracotta Light Bright](screenshots/screenshot-light-bright.png)
 
 | Role        | Color                                                        | Hex       |
 |-------------|--------------------------------------------------------------|-----------|
-| Background  | ![#F8FBFC](https://placehold.co/16x16/F8FBFC/F8FBFC.png)   | `#F8FBFC` |
+| Background  | ![#FAFAFA](https://placehold.co/16x16/FAFAFA/FAFAFA.png)   | `#FAFAFA` |
 | Foreground  | ![#1F1F1F](https://placehold.co/16x16/1F1F1F/1F1F1F.png)   | `#1F1F1F` |
 | Accent      | ![#D8744E](https://placehold.co/16x16/D8744E/D8744E.png)   | `#D8744E` |
-| Keywords    | ![#963014](https://placehold.co/16x16/8A3D24/8A3D24.png)   | `#963014` |
-| Functions   | ![#006050](https://placehold.co/16x16/0F503D/0F503D.png)   | `#006050` |
-| Strings     | ![#8A6200](https://placehold.co/16x16/876F24/876F24.png)   | `#8A6200` |
-| Types       | ![#3548A6](https://placehold.co/16x16/3548A6/3548A6.png)   | `#3548A6` |
-| Numbers     | ![#A02450](https://placehold.co/16x16/96305F/96305F.png)   | `#A02450` |
-| Operators   | ![#1A508C](https://placehold.co/16x16/315978/315978.png)   | `#1A508C` |
+| Keywords    | ![#963014](https://placehold.co/16x16/963014/963014.png)   | `#963014` |
+| Functions   | ![#145A32](https://placehold.co/16x16/145A32/145A32.png)   | `#145A32` |
+| Strings     | ![#7A5600](https://placehold.co/16x16/7A5600/7A5600.png)   | `#7A5600` |
+| Types       | ![#213B67](https://placehold.co/16x16/213B67/213B67.png)   | `#213B67` |
+| Numbers     | ![#A02450](https://placehold.co/16x16/A02450/A02450.png)   | `#A02450` |
+| Operators   | ![#0E4F96](https://placehold.co/16x16/0E4F96/0E4F96.png)   | `#0E4F96` |
 
 ### Terracotta High Contrast (Color Blind)
 
@@ -229,7 +229,7 @@ A tiered system ensures the best balance of readability and color differentiatio
 
 **Deep grey backgrounds.** The dark variants use `#141414` and `#1A1A1A` rather than pure black. This reduces halation (the neon glow effect around bright text on black backgrounds) and is easier on eyes with astigmatism.
 
-**Distinct light personalities.** The Light variant keeps parchment surfaces (`#F4EEE4`) with warmer chrome and editorial warmth. Light Bright uses a cleaner mineral canvas (`#F8FBFC`), cooler slate structure, and a brighter terracotta accent so it reads as a separate daylight theme instead of a brighter clone.
+**Distinct light personalities.** The Light variant keeps parchment surfaces (`#F4EEE4`) with warmer biscuit chrome and editorial warmth. Light Bright uses a neutral daylight canvas (`#FAFAFA`), near-warm chrome, and the same hero terracotta accent so it reads as a separate crisp theme instead of a brighter clone.
 
 **True inclusivity.** The high-contrast color-blind variant uses a research-backed palette ensuring zero red-green reliance and mathematically guarantees WCAG AAA standards across the board. Accessible to deuteranopia, protanopia, and tritanopia.
 

@@ -4,6 +4,16 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.10.0] - 2026-04-14
+
+### Terracotta Light + Light Bright — dual identity rework
+- Reworked Light Bright from an icy cool-grey scheme into a crisp neutral daylight identity. Editor surface uses pure neutral `#FAFAFA` with near-warm chrome (`#EBE7E1`); Terracotta identity is carried by the hero accent (`#D8744E`) and warm keyword rust (`#963014`). Active tab stays a hair warmer at `#F0F0F0` so the daylight variant keeps enough surface separation under the palette-spacing checks.
+- Preserved Light's warm parchment surfaces while rebuilding its syntax palette to eliminate the muddy taupe/mauve/olive cluster it shared with Light Bright.
+- Across both variants, variables move to saturated purple, parameters to warm rust, decorators to violet, regex to clearer pink, and the working lanes are tuned to the highest-contrast values that still preserve the intended split. Light Bright class/type uses `#213B67` against operator navy `#0E4F96`; Light uses `#064A26` for callable greens on parchment.
+- Overhauled the terminal ANSI palette in both variants for stronger saturation on their respective terminal backgrounds. The validated release keeps the brighter ANSI uplift where it passes the automated checks and avoids the lower-contrast draft values from the original plan table.
+- Synced the plan, README, docs, demos, and screenshots to the validated final palette values.
+- Synced README, `docs/index.html`, `examples/THEME-DEMO.html`, `examples/theme-analysis.html`, and `examples/screenshot-gen.html`; regenerated `screenshot-light.png` and `screenshot-light-bright.png`.
+
 ## [1.9.15] - 2026-04-13
 
 ### Changed
