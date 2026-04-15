@@ -4,6 +4,16 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.10.2] - 2026-04-15
+
+### All variants — syntax quality pass
+- **Dark**: tamed string brightness (`#E8B830` → `#C49828`); shifted variable to golden-yellow (`#D9A06D` → `#D0C060`) to widen hue gap from keyword orange and prevent warmth bleed.
+- **Dark Dimmed**: separated string/constant lanes by hue — strings move to amber (`#C2A35A` → `#C4984A`), user constants to olive-yellow (`#BCA060` → `#A4A848`), a ~24° split that prevents the same-gold confusion in constant-heavy code.
+- **Light**: darkened comments by ~1.2 ratio points (`#78684F` → `#685848`, 4.68 → 5.91:1); shifted strings to olive-amber (`#6E4A00` → `#5C5200`) to break hue overlap with rust-red keywords.
+- **Light Bright**: moved namespace/type out of navy into indigo (`#213B67` → `#3828A8`), resolving the lane collision with keyword operator (`#14539E`); enlivened strings (`#7A5600` → `#8A5A00`); darkened comments (`#6F6D68` → `#605E5A`, 4.95 → 6.20:1).
+- **High Contrast CB**: differentiated strings from numbers by moving strings to the IBM/Wong reddish-purple branch (`#F0D050` → `#F0A8DC`); gave variables colour identity with light lavender (`#C8C4B4` → `#C0C0F0`).
+- All tokens continue to pass WCAG Tier 1 (≥7:1) or Tier 2 (≥4.5:1). Palette spacing floors unchanged.
+
 ## [1.10.0] - 2026-04-14
 
 ### Terracotta Light + Light Bright — dual identity rework

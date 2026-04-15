@@ -140,7 +140,7 @@
     "editorBracketMatch.border": "#8DA4C470",
     "editorBracketHighlight.foreground1": "#E98665",
     "editorBracketHighlight.foreground2": "#B0A090",
-    "editorBracketHighlight.foreground3": "#E8B830",
+    "editorBracketHighlight.foreground3": "#C49828",
     "editorBracketHighlight.foreground4": "#C09ADC",
     "editorBracketHighlight.foreground5": "#5AAFA0",
     "editorBracketHighlight.foreground6": "#E8A060",
@@ -368,13 +368,13 @@
     "editor.linkedEditingBackground": "#E9866530",
     "editorBracketPairGuide.background1": "#E9866520",
     "editorBracketPairGuide.background2": "#B0A09020",
-    "editorBracketPairGuide.background3": "#E8B83020",
+    "editorBracketPairGuide.background3": "#C4982820",
     "editorBracketPairGuide.background4": "#C09ADC20",
     "editorBracketPairGuide.background5": "#5AAFA020",
     "editorBracketPairGuide.background6": "#E8A06020",
     "editorBracketPairGuide.activeBackground1": "#E9866550",
     "editorBracketPairGuide.activeBackground2": "#B0A09050",
-    "editorBracketPairGuide.activeBackground3": "#E8B83050",
+    "editorBracketPairGuide.activeBackground3": "#C4982850",
     "editorBracketPairGuide.activeBackground4": "#C09ADC50",
     "editorBracketPairGuide.activeBackground5": "#5AAFA050",
     "editorBracketPairGuide.activeBackground6": "#E8A06050",
@@ -416,7 +416,7 @@
         "string.template"
       ],
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -444,7 +444,7 @@
         "punctuation.section.embedded"
       ],
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -677,7 +677,7 @@
         "variable.other"
       ],
       "settings": {
-        "foreground": "#D9A06D"
+        "foreground": "#D0C060"
       }
     },
     {
@@ -686,7 +686,7 @@
         "variable.parameter"
       ],
       "settings": {
-        "foreground": "#D9A06D"
+        "foreground": "#D0C060"
       }
     },
     {
@@ -752,7 +752,7 @@
         "punctuation.definition.string"
       ],
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -899,7 +899,7 @@
         "meta.structure.dictionary.value.json string.quoted"
       ],
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -927,7 +927,7 @@
         "variable.other.alias.yaml"
       ],
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -1031,7 +1031,7 @@
         "markup.raw"
       ],
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -1185,7 +1185,7 @@
         "variable.other.bracket.shell"
       ],
       "settings": {
-        "foreground": "#D9A06D"
+        "foreground": "#D0C060"
       }
     },
     {
@@ -1443,7 +1443,7 @@
       "name": "GraphQL field",
       "scope": "variable.graphql, variable.other.graphql",
       "settings": {
-        "foreground": "#D9A06D"
+        "foreground": "#D0C060"
       }
     },
     {
@@ -1479,7 +1479,7 @@
       "name": "GraphQL string",
       "scope": "string.quoted.double.graphql, string.quoted.triple.graphql",
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -1523,7 +1523,7 @@
       "name": "TOML string",
       "scope": "string.quoted.single.basic.toml, string.quoted.double.basic.toml, string.quoted.triple.basic.toml, string.quoted.single.literal.toml, string.quoted.triple.literal.toml",
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -1565,14 +1565,14 @@
       "name": "Dockerfile variable",
       "scope": "variable.other.dockerfile",
       "settings": {
-        "foreground": "#D9A06D"
+        "foreground": "#D0C060"
       }
     },
     {
       "name": "Dockerfile string",
       "scope": "string.quoted.double.dockerfile, string.quoted.single.dockerfile",
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -1595,7 +1595,7 @@
       "name": "Shell heredoc",
       "scope": "string.unquoted.heredoc.shell, string.unquoted.heredoc, meta.heredoc.shell",
       "settings": {
-        "foreground": "#E8B830"
+        "foreground": "#C49828"
       }
     },
     {
@@ -1696,14 +1696,14 @@
     "typeParameter": {
       "foreground": "#C098C0"
     },
-    "parameter": "#D9A06D",
-    "variable": "#D9A06D",
-    "variable.readonly": "#D9A06D",
+    "parameter": "#D0C060",
+    "variable": "#D0C060",
+    "variable.readonly": "#D0C060",
     "variable.defaultLibrary": "#C09ADC",
-    "variable.declaration": "#D9A06D",
-    "variable.modification": "#D9A06D",
-    "parameter.declaration": "#D9A06D",
-    "parameter.modification": "#D9A06D",
+    "variable.declaration": "#D0C060",
+    "variable.modification": "#D0C060",
+    "parameter.declaration": "#D0C060",
+    "parameter.modification": "#D0C060",
     "property": "#A8A060",
     "property.declaration": "#A8A060",
     "property.readonly": "#A8A060",
@@ -1731,7 +1731,7 @@
     "comment": {
       "foreground": "#86867E"
     },
-    "string": "#E8B830",
+    "string": "#C49828",
     "keyword": "#E98665",
     "number": "#E090B0",
     "regexp": "#9AC0C8",
@@ -1746,7 +1746,7 @@
     "lifetime": {
       "foreground": "#8DA4C4"
     },
-    "formatSpecifier": "#E8B830",
+    "formatSpecifier": "#C49828",
     "escapeSequence": {
       "foreground": "#D89050"
     },

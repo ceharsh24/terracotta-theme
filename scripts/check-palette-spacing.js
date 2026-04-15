@@ -9,6 +9,7 @@ const THEMES = {
   "dark-dimmed": "terracotta-dark-dimmed.json",
   light: "terracotta-light.json",
   "light-bright": "terracotta-light-bright.json",
+  "high-contrast-cb": "terracotta-high-contrast-cb.json",
 };
 
 const CORE_ROLES = [
@@ -44,7 +45,9 @@ const MIN_DISTINCT_SYNTAX_ROLES = 6;
 const LIGHT_PAIR_DRIFT_MIN = {
   bg: 5,
   accent: 10,
+  comment: 2,
   function: 6,
+  keyword: 3,
   number: 6,
   operator: 6,
 };
@@ -64,6 +67,8 @@ const DARK_PAIR_DRIFT_MIN = {
 const MIN_DARK_AVERAGE_SYNTAX_DRIFT = 7;
 const MIN_DARK_DISTINCT_ROLES = 7;
 const DARK_OPERATOR_VARIABLE_MIN = 16;
+const MAX_DECLARATION_DRIFT = 18;
+const MIN_CALLABLE_PROPERTY_DELTA = 18;
 
 const SURFACE_SPACING_MIN = {
   dark: {
@@ -85,6 +90,11 @@ const SURFACE_SPACING_MIN = {
     "sideBar.background": 5,
     "panel.background": 3.5,
     "tab.activeBackground": 3,
+  },
+  "high-contrast-cb": {
+    "sideBar.background": 4,
+    "panel.background": 4,
+    "tab.activeBackground": 5,
   },
 };
 
@@ -155,12 +165,16 @@ function loadTheme(themeId) {
       operator: normalizeHex(extractForeground(semantic.operator)),
       function: normalizeHex(extractForeground(semantic.function)),
       type: normalizeHex(extractForeground(semantic.type)),
+      class: normalizeHex(extractForeground(semantic.class)),
       string: normalizeHex(extractForeground(semantic.string)),
       number: normalizeHex(extractForeground(semantic.number)),
       variable: normalizeHex(extractForeground(semantic.variable)),
       property: normalizeHex(extractForeground(semantic.property)),
       parameter: normalizeHex(extractForeground(semantic.parameter)),
       decorator: normalizeHex(extractForeground(semantic.decorator)),
+      classDeclaration: normalizeHex(extractForeground(semantic["class.declaration"])),
+      functionDefaultLibrary: normalizeHex(extractForeground(semantic["function.defaultLibrary"])),
+      methodDefaultLibrary: normalizeHex(extractForeground(semantic["method.defaultLibrary"])),
       tag: normalizeHex(extractNamedToken(theme, "Tag name (HTML/XML/JSX)")),
     },
   };
@@ -319,6 +333,29 @@ function checkDarkPair(loaded, issues) {
   );
 }
 
+function checkSemanticConsistency(loaded, issues) {
+  for (const [themeId, { palette }] of Object.entries(loaded)) {
+    if (palette.classDeclaration) {
+      const classDeclarationDrift = deltaE(palette.class, palette.classDeclaration);
+      if (classDeclarationDrift > MAX_DECLARATION_DRIFT) {
+        issues.push(
+          `${themeId}: class/class.declaration drift is too large (ΔE ${formatDelta(classDeclarationDrift)} > ${MAX_DECLARATION_DRIFT})`
+        );
+      }
+    }
+
+    const callableLanes = [palette.functionDefaultLibrary, palette.methodDefaultLibrary].filter(Boolean);
+    for (const callableLane of callableLanes) {
+      const distance = deltaE(callableLane, palette.property);
+      if (distance < MIN_CALLABLE_PROPERTY_DELTA) {
+        issues.push(
+          `${themeId}: callable default-library lane is too close to property (ΔE ${formatDelta(distance)} < ${MIN_CALLABLE_PROPERTY_DELTA})`
+        );
+      }
+    }
+  }
+}
+
 function main() {
   const loaded = Object.fromEntries(
     Object.keys(THEMES).map((themeId) => [themeId, loadTheme(themeId)])
@@ -334,6 +371,7 @@ function main() {
 
   checkDarkPair(loaded, issues);
   checkLightPair(loaded, issues);
+  checkSemanticConsistency(loaded, issues);
 
   if (issues.length > 0) {
     console.error("\n❌ Palette spacing regressions detected:\n");
