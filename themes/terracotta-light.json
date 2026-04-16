@@ -70,18 +70,18 @@
     "listFilterWidget.noMatchesOutline": "#AD4545",
     "listFilterWidget.outline": "#B6674300",
     "tree.indentGuidesStroke": "#D6C8B8",
-    "activityBar.background": "#E2D8C9",
+    "activityBar.background": "#EADFCF",
     "activityBar.foreground": "#2E2A27",
     "activityBar.inactiveForeground": "#7A6F61",
     "activityBar.border": "#DBD0C1",
     "activityBar.activeBorder": "#B66743",
     "activityBarBadge.background": "#B66743",
     "activityBarBadge.foreground": "#000000",
-    "sideBar.background": "#E2D8C9",
+    "sideBar.background": "#EADFCF",
     "sideBar.foreground": "#4C4035",
     "sideBar.border": "#DBD0C1",
     "sideBarTitle.foreground": "#2E2A27",
-    "sideBarSectionHeader.background": "#EADFCF",
+    "sideBarSectionHeader.background": "#E0D4C0",
     "sideBarSectionHeader.foreground": "#2E2A27",
     "sideBarSectionHeader.border": "#D6CABA",
     "minimap.findMatchHighlight": "#B6674344",
@@ -212,7 +212,7 @@
     "panelTitle.activeForeground": "#2E2A27",
     "panelTitle.inactiveForeground": "#7A6F61",
     "panelInput.border": "#D6C8B8",
-    "statusBar.background": "#E2D8C9",
+    "statusBar.background": "#EADFCF",
     "statusBar.foreground": "#5F5D63",
     "statusBar.border": "#DBD0C1",
     "statusBar.debuggingBackground": "#B66743",
@@ -230,7 +230,7 @@
     "statusBarItem.errorForeground": "#FFFFFF",
     "statusBarItem.warningBackground": "#8A6420",
     "statusBarItem.warningForeground": "#FFFFFF",
-    "titleBar.activeBackground": "#E2D8C9",
+    "titleBar.activeBackground": "#EADFCF",
     "titleBar.activeForeground": "#2E2A27",
     "titleBar.inactiveBackground": "#F0E8DB",
     "titleBar.inactiveForeground": "#7A6F61",
@@ -404,7 +404,7 @@
         "comment.block.javadoc"
       ],
       "settings": {
-        "foreground": "#5E6E5E",
+        "foreground": "#4D6150",
         "fontStyle": "italic"
       }
     },
@@ -473,7 +473,7 @@
         "variable.other.enummember"
       ],
       "settings": {
-        "foreground": "#604010"
+        "foreground": "#8A4A00"
       }
     },
     {
@@ -677,7 +677,7 @@
         "variable.other"
       ],
       "settings": {
-        "foreground": "#552576"
+        "foreground": "#5A3E68"
       }
     },
     {
@@ -697,7 +697,7 @@
         "meta.object-literal.key"
       ],
       "settings": {
-        "foreground": "#366014"
+        "foreground": "#196878"
       }
     },
     {
@@ -802,7 +802,7 @@
         "support.type.vendored.property-name.css"
       ],
       "settings": {
-        "foreground": "#366014"
+        "foreground": "#196878"
       }
     },
     {
@@ -812,7 +812,7 @@
         "meta.property-value.css"
       ],
       "settings": {
-        "foreground": "#552576"
+        "foreground": "#5A3E68"
       }
     },
     {
@@ -917,7 +917,7 @@
         "string.unquoted.yaml"
       ],
       "settings": {
-        "foreground": "#552576"
+        "foreground": "#5A3E68"
       }
     },
     {
@@ -969,7 +969,7 @@
         "markup.bold"
       ],
       "settings": {
-        "foreground": "#552576",
+        "foreground": "#5A3E68",
         "fontStyle": "bold"
       }
     },
@@ -979,7 +979,7 @@
         "markup.italic"
       ],
       "settings": {
-        "foreground": "#552576",
+        "foreground": "#5A3E68",
         "fontStyle": "italic"
       }
     },
@@ -1059,7 +1059,7 @@
         "markup.quote"
       ],
       "settings": {
-        "foreground": "#124878",
+        "foreground": "#6B523A",
         "fontStyle": "italic"
       }
     },
@@ -1185,7 +1185,7 @@
         "variable.other.bracket.shell"
       ],
       "settings": {
-        "foreground": "#552576"
+        "foreground": "#5A3E68"
       }
     },
     {
@@ -1443,7 +1443,7 @@
       "name": "GraphQL field",
       "scope": "variable.graphql, variable.other.graphql",
       "settings": {
-        "foreground": "#552576"
+        "foreground": "#5A3E68"
       }
     },
     {
@@ -1565,7 +1565,7 @@
       "name": "Dockerfile variable",
       "scope": "variable.other.dockerfile",
       "settings": {
-        "foreground": "#552576"
+        "foreground": "#5A3E68"
       }
     },
     {
@@ -1699,21 +1699,21 @@
     "parameter": {
       "foreground": "#7A3F14"
     },
-    "variable": "#552576",
-    "variable.readonly": "#552576",
+    "variable": "#5A3E68",
+    "variable.readonly": "#5A3E68",
     "variable.defaultLibrary": "#983C5A",
-    "variable.declaration": "#552576",
-    "variable.modification": "#552576",
+    "variable.declaration": "#5A3E68",
+    "variable.modification": "#5A3E68",
     "parameter.declaration": {
       "foreground": "#7A3F14"
     },
     "parameter.modification": {
       "foreground": "#7A3F14"
     },
-    "property": "#366014",
-    "property.declaration": "#366014",
-    "property.readonly": "#366014",
-    "property.modification": "#366014",
+    "property": "#196878",
+    "property.declaration": "#196878",
+    "property.readonly": "#196878",
+    "property.modification": "#196878",
     "enumMember": "#A04080",
     "event": "#A04080",
     "function": "#064A26",
@@ -1729,7 +1729,7 @@
     "class.declaration": {
       "foreground": "#5A2FAE"
     },
-    "property.static": "#366014",
+    "property.static": "#196878",
     "macro": "#107046",
     "label": "#124878",
     "comment": {

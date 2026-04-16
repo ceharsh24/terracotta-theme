@@ -4,6 +4,15 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.10.3] - 2026-04-16
+
+### Changed
+- **Dark**: info and “editor info” UI lane moved off warm taupe onto oxidized teal (`#B0A090` → `#6ABAC8`) for input validation, overview ruler, inline info, and debug console; decorators/tags/SQL accent orchid lifted (`#B468A0` → `#C478B0`); `this`/self/special language variables warmed (`#C8B468` → `#D4A058`).
+- **Dark Dimmed**: punctuation and tag delimiters cooled to slate-blue gray (`#A49698` → `#8AABB8`); markup tags, SQL keywords, and shell specials nudged to clearer terracotta (`#D87A6A` → `#E0705C`).
+- **Light**: activity bar, sidebar, status bar, and title bar chrome lifted to warmer parchment (`#E2D8C9` → `#EADFCF`); section headers stepped for depth (`#EADFCF` → `#E0D4C0`); doc comments deepened for readability (`#5E6E5E` → `#4D6150`); enum members shifted to amber-brown (`#604010` → `#8A4A00`); variables and GraphQL/Dockerfile fields nudged plum (`#552576` → `#5A3E68`); object/CSS keys and semantic **property** lane moved to teal (`#366014` → `#196878`) to separate from function green; block quotes in markdown use earth brown instead of keyword-adjacent blue (`#124878` → `#6B523A`).
+- **Light Bright**: chrome surfaces and tabs retuned for clearer layering on `#FAFAFA` (e.g. activity/sidebar/status/title `#EBE7E1` → `#E4E1DC`, tab inactive/hover harmonized); bracket tier 4, chart purple, git submodule, and bracket-pair guides use saturated indigo (`#6638B0` → `#4A42C4`) aligned with type purple family; inlay hints use cooler slate (`#6E6A64` / `#75716B` → `#4A6878` / `#526070`); GraphQL fields and Dockerfile variables use navy (`#6A3A96` → `#2E4A70`); TOML keys and semantic **property** use the same teal as Light (`#386E1F` → `#196878`); JSX/components/builtin types and related scopes follow `#4A42C4`.
+- Synced README, `docs/index.html`, `examples/THEME-DEMO.html`, `examples/theme-analysis.html`, and `examples/screenshot-gen.html`; regenerated `screenshot-dark-dimmed.png`, `screenshot-light.png`, and `screenshot-light-bright.png`.
+
 ## [1.10.2] - 2026-04-15
 
 ### All variants — syntax quality pass

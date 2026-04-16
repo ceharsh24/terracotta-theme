@@ -40,8 +40,8 @@
     "inputOption.activeForeground": "#E0DCD0",
     "inputValidation.errorBackground": "#D4706A20",
     "inputValidation.errorBorder": "#D4706A",
-    "inputValidation.infoBackground": "#B0A09020",
-    "inputValidation.infoBorder": "#B0A090",
+    "inputValidation.infoBackground": "#6ABAC820",
+    "inputValidation.infoBorder": "#6ABAC8",
     "inputValidation.warningBackground": "#E8A06020",
     "inputValidation.warningBorder": "#E8A060",
     "scrollbar.shadow": "#00000030",
@@ -149,13 +149,13 @@
     "editorOverviewRuler.findMatchForeground": "#E9866566",
     "editorOverviewRuler.errorForeground": "#D4706A",
     "editorOverviewRuler.warningForeground": "#E8A060",
-    "editorOverviewRuler.infoForeground": "#B0A090",
+    "editorOverviewRuler.infoForeground": "#6ABAC8",
     "editorOverviewRuler.modifiedForeground": "#B0A09066",
     "editorOverviewRuler.addedForeground": "#7EC8A066",
     "editorOverviewRuler.deletedForeground": "#D4706A66",
     "editorError.foreground": "#D4706A",
     "editorWarning.foreground": "#E8A060",
-    "editorInfo.foreground": "#B0A090",
+    "editorInfo.foreground": "#6ABAC8",
     "editorHint.foreground": "#7EC8A0",
     "editorGutter.addedBackground": "#7EC8A0",
     "editorGutter.modifiedBackground": "#B0A090",
@@ -343,7 +343,7 @@
     "debugIcon.stepOutForeground": "#B0A090",
     "debugIcon.continueForeground": "#7EC8A0",
     "debugIcon.disconnectForeground": "#D4706A",
-    "debugConsole.infoForeground": "#B0A090",
+    "debugConsole.infoForeground": "#6ABAC8",
     "debugConsole.warningForeground": "#E8A060",
     "debugConsole.errorForeground": "#D4706A",
     "debugConsole.sourceForeground": "#B0ACA0",
@@ -709,7 +709,7 @@
         "variable.language.special"
       ],
       "settings": {
-        "foreground": "#C8B468"
+        "foreground": "#D4A058"
       }
     },
     {
@@ -722,7 +722,7 @@
         "storage.type.annotation"
       ],
       "settings": {
-        "foreground": "#B468A0"
+        "foreground": "#C478B0"
       }
     },
     {
@@ -773,7 +773,7 @@
         "entity.name.tag"
       ],
       "settings": {
-        "foreground": "#B468A0"
+        "foreground": "#C478B0"
       }
     },
     {
@@ -1098,7 +1098,7 @@
         "keyword.other.sql"
       ],
       "settings": {
-        "foreground": "#B468A0"
+        "foreground": "#C478B0"
       }
     },
     {
@@ -1127,7 +1127,7 @@
         "keyword.other.DML.II.sql"
       ],
       "settings": {
-        "foreground": "#B468A0"
+        "foreground": "#C478B0"
       }
     },
     {
@@ -1637,7 +1637,7 @@
       "name": "Shell special variable",
       "scope": "variable.language.special.shell",
       "settings": {
-        "foreground": "#B468A0",
+        "foreground": "#C478B0",
         "fontStyle": "italic"
       }
     },
@@ -1737,11 +1737,11 @@
     "regexp": "#9AC0C8",
     "operator": "#8DA4C4",
     "decorator": {
-      "foreground": "#B468A0"
+      "foreground": "#C478B0"
     },
     "builtinType": "#C09ADC",
     "selfKeyword": {
-      "foreground": "#C8B468"
+      "foreground": "#D4A058"
     },
     "lifetime": {
       "foreground": "#8DA4C4"

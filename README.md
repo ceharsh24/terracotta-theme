@@ -30,7 +30,7 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Types       | ![#C09ADC](https://placehold.co/16x16/C09ADC/C09ADC.png)   | `#C09ADC` |
 | Numbers     | ![#E090B0](https://placehold.co/16x16/E090B0/E090B0.png)   | `#E090B0` |
 | Operators   | ![#8DA4C4](https://placehold.co/16x16/8DA4C4/8DA4C4.png)   | `#8DA4C4` |
-| Decorators  | ![#B468A0](https://placehold.co/16x16/B468A0/B468A0.png)   | `#B468A0` |
+| Decorators  | ![#C478B0](https://placehold.co/16x16/C478B0/C478B0.png)   | `#C478B0` |
 
 ### Terracotta Dark Dimmed
 

@@ -731,7 +731,7 @@
         "punctuation"
       ],
       "settings": {
-        "foreground": "#A49698"
+        "foreground": "#8AABB8"
       }
     },
     {
@@ -743,7 +743,7 @@
         "meta.brace"
       ],
       "settings": {
-        "foreground": "#A49698"
+        "foreground": "#8AABB8"
       }
     },
     {
@@ -773,7 +773,7 @@
         "entity.name.tag"
       ],
       "settings": {
-        "foreground": "#D87A6A"
+        "foreground": "#E0705C"
       }
     },
     {
@@ -792,7 +792,7 @@
         "punctuation.definition.tag"
       ],
       "settings": {
-        "foreground": "#A49698"
+        "foreground": "#8AABB8"
       }
     },
     {
@@ -1069,7 +1069,7 @@
         "meta.separator.markdown"
       ],
       "settings": {
-        "foreground": "#A49698"
+        "foreground": "#8AABB8"
       }
     },
     {
@@ -1098,7 +1098,7 @@
         "keyword.other.sql"
       ],
       "settings": {
-        "foreground": "#D87A6A"
+        "foreground": "#E0705C"
       }
     },
     {
@@ -1127,7 +1127,7 @@
         "keyword.other.DML.II.sql"
       ],
       "settings": {
-        "foreground": "#D87A6A"
+        "foreground": "#E0705C"
       }
     },
     {
@@ -1537,7 +1537,7 @@
       "name": "TOML punctuation",
       "scope": "punctuation.definition.table.toml, punctuation.definition.array.toml, punctuation.separator.toml",
       "settings": {
-        "foreground": "#A49698"
+        "foreground": "#8AABB8"
       }
     },
     {
@@ -1637,7 +1637,7 @@
       "name": "Shell special variable",
       "scope": "variable.language.special.shell",
       "settings": {
-        "foreground": "#D87A6A",
+        "foreground": "#E0705C",
         "fontStyle": "italic"
       }
     },
