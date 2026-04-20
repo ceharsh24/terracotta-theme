@@ -4,6 +4,25 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.10.4] - 2026-04-19
+
+### Fixed
+
+- **Light Bright — command palette selection invisible**: `quickInputList.focusBackground` and `menu.selectionBackground` darkened to `#D4CBBA` (was `#F3F0EA`, ~1.01:1 vs input bg → now ~1.39:1), matching the visibility bar set by the dark variant.
+- **Light — command palette selection**: same fix applied (`#E6DCCD` → `#CEBBAA`).
+- **Light Bright — Markdown blockquote collides with operator**: `markup.quote` and `meta.separator.markdown` moved from operator blue `#14539E` to earth brown `#6E5A3A`, matching the approach used in Light and all dark variants.
+- **Light Bright — surfaces blend together**: `panel.background` darkened (`#F3F1ED` → `#EDEAE4`); `tree.indentGuidesStroke` darkened (`#D9D2C8` → `#B8B0A4`); `activityBar.inactiveForeground` strengthened (`#6E6A64` → `#585450`, now 5.75:1 AA).
+- **Light Bright — inherited class indistinguishable from functions**: `entity.other.inherited-class` moved from teal `#0E6B56` to indigo `#3E3F94` — now in the class/type hue family rather than the function green family.
+- **Light Bright — interface too close to operator**: `entity.name.type.interface` and semantic `interface` token shifted from medium blue `#275BAA` to purple-blue `#4A42C4`, aligning with the type/namespace lane.
+- **Light Bright — import/export too dominant**: `keyword.control.import/export/from/as` softened from rust `#8E351C` to terracotta brown `#9A572A` (7.52:1 → 5.34:1), reducing visual weight at file top.
+- **Light Bright — user constants too close to parameters**: `variable.other.constant` shifted from warm brown `#6E4A14` to amber `#7A5A00`, creating hue distance from parameter brown `#70521E`.
+- **Light Bright — language decorators collide with regex**: Python decorators, Java annotations, and Rust attributes changed from regex pink `#B24D8A` to general decorator purple `#7A3AA0`, eliminating the semantic→TextMate color flash.
+- **Light — same decorator/regex collision**: same fix applied (`#A04080` → `#6A2E90`).
+- **Light Bright — doc comments barely passing**: `comment.block.documentation` / `.javadoc` darkened (`#6A7568` → `#5E6A5C`, 4.62:1 → 5.45:1), adding headroom against monitor calibration variance.
+- **Light Bright — punctuation too close to comments**: punctuation shifted from warm grey-brown `#6E6458` to cool grey `#686870`, adding hue distance from comment taupe `#605E5A`.
+- **Light Bright — property lane split between tag attrs and data keys**: `entity.other.attribute-name` unified with JSON/YAML/TOML keys at teal `#196878` (was green `#386E1F`).
+- Synced `docs/index.html`, `examples/THEME-DEMO.html`, `examples/screenshot-gen.html`, and `examples/theme-analysis.html` with updated palette values.
+
 ## [1.10.3] - 2026-04-16
 
 ### Changed

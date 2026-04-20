@@ -69,10 +69,10 @@
     "listFilterWidget.background": "#F7E6DD",
     "listFilterWidget.noMatchesOutline": "#B83E3E",
     "listFilterWidget.outline": "#D8744E00",
-    "tree.indentGuidesStroke": "#D9D2C8",
+    "tree.indentGuidesStroke": "#B8B0A4",
     "activityBar.background": "#E4E1DC",
     "activityBar.foreground": "#1F2028",
-    "activityBar.inactiveForeground": "#6E6A64",
+    "activityBar.inactiveForeground": "#585450",
     "activityBar.border": "#E6E4E1",
     "activityBar.activeBorder": "#D8744E",
     "activityBarBadge.background": "#D8744E",
@@ -205,7 +205,7 @@
     "merge.border": "#D9D2C800",
     "merge.commonHeaderBackground": "#7F7B7422",
     "merge.commonContentBackground": "#7F7B7410",
-    "panel.background": "#F3F1ED",
+    "panel.background": "#EDEAE4",
     "panel.border": "#E4E0D8",
     "panel.dropBorder": "#D8744E",
     "panelTitle.activeBorder": "#D8744E",
@@ -237,10 +237,10 @@
     "titleBar.border": "#E6E4E1",
     "menu.background": "#FFFFFF",
     "menu.foreground": "#1F2028",
-    "menu.selectionBackground": "#F3F0EA",
+    "menu.selectionBackground": "#D4CBBA",
     "menu.selectionForeground": "#1F2028",
     "menu.separatorBackground": "#D9D2C8",
-    "menubar.selectionBackground": "#F3F0EA",
+    "menubar.selectionBackground": "#D4CBBA",
     "menubar.selectionForeground": "#1F2028",
     "commandCenter.foreground": "#4C5961",
     "commandCenter.activeForeground": "#1F2028",
@@ -267,7 +267,7 @@
     "pickerGroup.foreground": "#D8744E",
     "quickInput.background": "#F3F1ED",
     "quickInput.foreground": "#1F2028",
-    "quickInputList.focusBackground": "#F3F0EA",
+    "quickInputList.focusBackground": "#D4CBBA",
     "quickInputList.focusForeground": "#1F2028",
     "quickInputList.focusIconForeground": "#1F2028",
     "quickInputTitle.background": "#F3F1ED",
@@ -404,7 +404,7 @@
         "comment.block.javadoc"
       ],
       "settings": {
-        "foreground": "#6A7568",
+        "foreground": "#5E6A5C",
         "fontStyle": "italic"
       }
     },
@@ -473,7 +473,7 @@
         "variable.other.enummember"
       ],
       "settings": {
-        "foreground": "#6E4A14"
+        "foreground": "#7A5A00"
       }
     },
     {
@@ -615,7 +615,7 @@
         "entity.other.inherited-class"
       ],
       "settings": {
-        "foreground": "#0E6B56",
+        "foreground": "#3E3F94",
         "fontStyle": "italic"
       }
     },
@@ -625,7 +625,7 @@
         "entity.name.type.interface"
       ],
       "settings": {
-        "foreground": "#275BAA",
+        "foreground": "#4A42C4",
         "fontStyle": "italic"
       }
     },
@@ -731,7 +731,7 @@
         "punctuation"
       ],
       "settings": {
-        "foreground": "#6E6458"
+        "foreground": "#686870"
       }
     },
     {
@@ -743,7 +743,7 @@
         "meta.brace"
       ],
       "settings": {
-        "foreground": "#6E6458"
+        "foreground": "#686870"
       }
     },
     {
@@ -764,7 +764,7 @@
         "keyword.control.as"
       ],
       "settings": {
-        "foreground": "#8E351C"
+        "foreground": "#9A572A"
       }
     },
     {
@@ -782,7 +782,7 @@
         "entity.other.attribute-name"
       ],
       "settings": {
-        "foreground": "#386E1F",
+        "foreground": "#196878",
         "fontStyle": "italic"
       }
     },
@@ -1059,7 +1059,7 @@
         "markup.quote"
       ],
       "settings": {
-        "foreground": "#14539E",
+        "foreground": "#6E5A3A",
         "fontStyle": "italic"
       }
     },
@@ -1069,7 +1069,7 @@
         "meta.separator.markdown"
       ],
       "settings": {
-        "foreground": "#14539E"
+        "foreground": "#6E5A3A"
       }
     },
     {
@@ -1287,7 +1287,7 @@
         "punctuation.definition.attribute.rust"
       ],
       "settings": {
-        "foreground": "#B24D8A",
+        "foreground": "#7A3AA0",
         "fontStyle": "italic"
       }
     },
@@ -1308,7 +1308,7 @@
         "entity.name.function.decorator.python"
       ],
       "settings": {
-        "foreground": "#B24D8A",
+        "foreground": "#7A3AA0",
         "fontStyle": "italic"
       }
     },
@@ -1328,7 +1328,7 @@
         "punctuation.definition.annotation.java"
       ],
       "settings": {
-        "foreground": "#B24D8A",
+        "foreground": "#7A3AA0",
         "fontStyle": "italic"
       }
     },
@@ -1690,7 +1690,7 @@
     "class": "#3828A8",
     "enum": "#8A3A6A",
     "interface": {
-      "foreground": "#275BAA"
+      "foreground": "#4A42C4"
     },
     "struct": "#3828A8",
     "typeParameter": {

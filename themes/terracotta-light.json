@@ -237,10 +237,10 @@
     "titleBar.border": "#DBD0C1",
     "menu.background": "#FBF7F0",
     "menu.foreground": "#2E2A27",
-    "menu.selectionBackground": "#E6DCCD",
+    "menu.selectionBackground": "#CEBBAA",
     "menu.selectionForeground": "#2E2A27",
     "menu.separatorBackground": "#D6C8B8",
-    "menubar.selectionBackground": "#E6DCCD",
+    "menubar.selectionBackground": "#CEBBAA",
     "menubar.selectionForeground": "#2E2A27",
     "commandCenter.foreground": "#5F5D63",
     "commandCenter.activeForeground": "#2E2A27",
@@ -267,7 +267,7 @@
     "pickerGroup.foreground": "#B66743",
     "quickInput.background": "#EDE2D2",
     "quickInput.foreground": "#2E2A27",
-    "quickInputList.focusBackground": "#E6DCCD",
+    "quickInputList.focusBackground": "#CEBBAA",
     "quickInputList.focusForeground": "#2E2A27",
     "quickInputList.focusIconForeground": "#2E2A27",
     "quickInputTitle.background": "#E7DECF",
@@ -1287,7 +1287,7 @@
         "punctuation.definition.attribute.rust"
       ],
       "settings": {
-        "foreground": "#A04080",
+        "foreground": "#6A2E90",
         "fontStyle": "italic"
       }
     },
@@ -1308,7 +1308,7 @@
         "entity.name.function.decorator.python"
       ],
       "settings": {
-        "foreground": "#A04080",
+        "foreground": "#6A2E90",
         "fontStyle": "italic"
       }
     },
@@ -1328,7 +1328,7 @@
         "punctuation.definition.annotation.java"
       ],
       "settings": {
-        "foreground": "#A04080",
+        "foreground": "#6A2E90",
         "fontStyle": "italic"
       }
     },
