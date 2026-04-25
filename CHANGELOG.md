@@ -4,6 +4,60 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.11.0] - 2026-04-25
+
+### Light Bright — full palette redesign
+
+Goal: reduce the high-saturation "mixed colors" feel (especially in Java, where operators flooded the editor with vivid blue), align the family with Anthropic/Claude's warm-editorial aesthetic, and lift the chrome so it reads as a daylight variant rather than cream.
+
+#### Syntax — desaturated, low-chroma rework
+
+- **Operators** moved off vivid blue `#14539E` → muted slate-ink `#3A5578`. Single biggest change: kills the "too much bright blue" that dominated Java code with `=`, `->`, `<>`, `&&`, `||`, `>>>` etc.
+- **Class / type / struct** off electric indigo `#3828A8` → deep violet `#6A2091`.
+- **Interface** off `#4A42C4` → lighter violet `#8A4AB5` (italic) — distinct from class without re-introducing electric indigo.
+- **Namespace / module / package** off `#4A42C4` → muted ink-navy `#274E91` — own lane, not crammed into the class purple.
+- **builtinType / Java primitives / C/C++ primitives / Go builtin types** consolidated into the keyword/storage rust `#8E351C` (primitives are keyword-like in these languages).
+- **Variable** off `#2E4A70` → near-ink slate `#37383F`. Variables now recede instead of competing for attention.
+- **Parameter** off `#70521E` → deep umber `#6B4218`. Hue-separated from string olive so they no longer blur together.
+- **Property / JSON-YAML-TOML keys / HTML attributes** off `#196878` → deeper petrol `#0E6470`.
+- **String** off `#8A5A00` → editorial tan `#7A5220`.
+- **Number / built-in const / enumMember / event / CSS id-units-color / regex quantifier / Markdown list** consolidated to plum `#8A3458` (was a mix of `#A02450`, `#9E3C62`, `#A23B6D`, `#B24D8A`).
+- **Regex / regex char class** off `#B24D8A` → muted rose `#9A4078`.
+- **Decorator / Python decorator / Java annotation / Rust attribute** off `#7A3AA0` → `#803B9E` (slightly more violet, less blue).
+- **Enum** off `#8A3A6A` → `#7A2F60`.
+- **Type parameter** off `#38528F` → `#3F4F7E` (kept T1 AAA on `#FAFAFA`).
+- **Inherited class** off `#3E3F94` → `#5A4A9A` (italic).
+- **Tag (HTML/XML/JSX)** off `#B1484A` → muted brick `#9A3E3E`.
+- **Comment** lifted slightly `#605E5A` → `#6E6A62` (still 5.31:1 on `#FAFAFA`).
+- **User constants** unified with string family `#7A5A00` → `#7A5220`.
+- Bracket pair guide / bracket-match / overview ruler / minimap / debug console / git decorations / charts / input-validation info — all derived from the new operator/class/number/decorator values.
+
+#### Chrome — distinctly brighter, less cream
+
+- `sideBar.background` / `activityBar.background` / `statusBar.background` / `titleBar.activeBackground`: `#E4E1DC` → `#EFEDE7` (luminance lifted ~5 in LAB; warmth halved). Now reads as daylight rather than cream while still belonging to the Terracotta family.
+- `sideBarSectionHeader.background`: `#DCD8D2` → `#E8E5DE`.
+- `panel.background`: `#EDEAE4` → `#F2F0EA`.
+- `editorGroupHeader.tabsBackground`: `#ECEAE7` → `#F0EEE8`.
+- `tab.inactiveBackground` / `tab.unfocusedInactiveBackground`: `#ECEAE7` → `#EBE8E1` (steps darker than tab bar so the active tab pops more clearly).
+- `tab.activeBackground`: `#F0EFED` → `#F6F4EE`.
+- All chrome borders: `#E6E4E1` → `#E2DFD8`.
+- Editor / suggest / hover widgets, peek view, command center: `#F3F1ED` → `#F4F2EC`.
+- `titleBar.inactiveBackground` / `tab.unfocusedActiveBackground`: `#F2F1EF` → `#F8F6F0`.
+- `tab.hoverBackground`: `#F1F0EE` → `#F6F4EE`.
+- `commandCenter.activeBackground`: `#F3F0EA` → `#F6F4EE`.
+- Toolbar hover / keybinding label: `#E8E0D6` → `#EBE3D9`.
+- Block-quote background: `#F2EBE1` → `#F6EFE5`.
+- StatusBar.noFolder / debug toolbar: `#F3EBDD` → `#F8F2E5`.
+- Menu selection / quick input list focus: `#D4CBBA` → `#DDD5C6`.
+- Pushed up to the palette-spacing floor (`sideBar` ΔE ≈ 5.4 from editor `#FAFAFA`); to lift further we'd need to warm the editor or relax the floor — defer until validated visually.
+
+#### Notes
+
+- Editor `#FAFAFA` and accent `#D8744E` are unchanged.
+- All Tier 1 syntax tokens remain WCAG AAA (≥ 7:1); Tier 2 remain AA (≥ 4.5:1).
+- All palette-spacing floors hold (core lanes ΔE ≥ 18, sidebar ΔE ≥ 5 from editor, light-vs-bright drift ≥ floors).
+- Synced `README.md`, `docs/index.html`, `examples/THEME-DEMO.html`, `examples/screenshot-gen.html`, and `examples/theme-analysis.html`. Screenshot regeneration deferred (requires Puppeteer/Chrome).
+
 ## [1.10.4] - 2026-04-19
 
 ### Fixed
