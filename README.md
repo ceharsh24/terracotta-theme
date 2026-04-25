@@ -72,7 +72,7 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Navy oper
 
 ### Terracotta Light Bright
 
-A crisp neutral daylight variant: pure neutral editor (`#FAFAFA`), micro-warm near-neutral chrome, hero terracotta accent (`#D8744E`), and rust keywords so the family stays recognizable without cool-grey chrome.
+A daylight variant tuned for low chroma and warm-editorial calm: neutral editor (`#FAFAFA`), brightened warm-neutral chrome, hero terracotta accent (`#D8744E`), muted slate-ink operators, and a deep violet type lane that keeps Java and TypeScript readable without saturated blue.
 
 ![Terracotta Light Bright](screenshots/screenshot-light-bright.png)
 
@@ -83,10 +83,10 @@ A crisp neutral daylight variant: pure neutral editor (`#FAFAFA`), micro-warm ne
 | Accent      | ![#D8744E](https://placehold.co/16x16/D8744E/D8744E.png)   | `#D8744E` |
 | Keywords    | ![#8E351C](https://placehold.co/16x16/8E351C/8E351C.png)   | `#8E351C` |
 | Functions   | ![#0F5F46](https://placehold.co/16x16/0F5F46/0F5F46.png)   | `#0F5F46` |
-| Strings     | ![#8A5A00](https://placehold.co/16x16/8A5A00/8A5A00.png)   | `#8A5A00` |
-| Types       | ![#3828A8](https://placehold.co/16x16/3828A8/3828A8.png)   | `#3828A8` |
-| Numbers     | ![#A02450](https://placehold.co/16x16/A02450/A02450.png)   | `#A02450` |
-| Operators   | ![#14539E](https://placehold.co/16x16/14539E/14539E.png)   | `#14539E` |
+| Strings     | ![#7A5220](https://placehold.co/16x16/7A5220/7A5220.png)   | `#7A5220` |
+| Types       | ![#6A2091](https://placehold.co/16x16/6A2091/6A2091.png)   | `#6A2091` |
+| Numbers     | ![#8A3458](https://placehold.co/16x16/8A3458/8A3458.png)   | `#8A3458` |
+| Operators   | ![#3A5578](https://placehold.co/16x16/3A5578/3A5578.png)   | `#3A5578` |
 
 ### Terracotta High Contrast (Color Blind)
 
