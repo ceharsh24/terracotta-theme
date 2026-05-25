@@ -4,6 +4,51 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.12.0] - 2026-05-25
+
+### Brightness & contrast pass — Dark, Dark Dimmed, Light, Light Bright
+
+Goal: lift the syntax lanes that read as "dull" and sat right at the WCAG AAA 7:1 floor with no headroom, plus the muddy supporting lanes — without changing the warm Terracotta identity. High Contrast CB is intentionally untouched (already 8–17:1, validated Wong/IBM color-blind palette). All changes are color-only; no font-weight changes.
+
+#### Terracotta Dark (`#141414`)
+
+- **Function / method / macro** greyed teal `#5AAFA0` (7.08:1, at floor) → vivid teal `#5CC2AE` (8.58:1).
+- **String family** mustardy ochre `#C49828` (6.90:1) → clean gold `#D2A436` (7.99:1).
+- **Operator / label** slate-grey blue `#8DA4C4` (7.23:1) → cleaner blue `#92ACD0` (7.93:1).
+- **Property / HTML attribute / JSON-YAML-TOML keys** muddy olive `#A8A060` → more luminous `#B4AC66` (7.92:1).
+- Keyword `#E98665` left as-is (vivid coral already; signature accent).
+
+#### Terracotta Dark Dimmed (`#1A1A1A`)
+
+- **Keyword / storage** tan-grey `#D89A74` (7.29:1) → warmer terracotta `#E0976E` (7.31:1), still softer than Dark (dark↔dimmed ΔE ≥ 10).
+- **String family** muddy amber `#C4984A` (6.58:1) → cleaner amber `#CCA050` (7.22:1).
+- **Decorator / annotation** murky mauve `#AC749C` (4.75:1, near floor) → clearer mauve `#B47CA6` (5.28:1).
+- **Property / attribute** muddy olive-green `#8DA56E` (6.41:1) → fresher `#97AC74` (7.02:1).
+- **User constants** murky chartreuse `#A4A848` → cleaner `#AEB052` (7.57:1).
+
+#### Terracotta Light (`#F4EEE4`)
+
+- **Tag (HTML/XML/JSX)** washed rust `#A14A3A` (5.12:1) → richer `#9C3E2C` (5.80:1).
+- **Regex / regex char class** thin magenta `#A04080` (5.14:1) → deeper `#97356F` (5.96:1).
+- **Shared red** (diff-deleted / error / git / status / invalid) `#AD4545` (4.90:1) → deeper `#A23C3C` (5.60:1) for headroom; status-bar error white-on-red lifts to 6.47:1.
+
+#### Terracotta Light Bright (`#FAFAFA`)
+
+- **String / user constants** flat tan `#7A5220` (6.59:1) → richer amber `#7E4E14` (6.74:1).
+- **Regex** thin rose `#9A4078` (5.96:1) → deeper magenta `#92356E` (6.80:1).
+- **Tag (HTML/XML/JSX)** muted brick `#9A3E3E` → richer red `#A23030` (6.70:1).
+- **Operator / label** greyed navy `#3A5578` (7.31:1) → cleaner saturated blue `#2F5390` (7.29:1).
+- **Variable** near-black grey `#37383F` (barely separable from foreground) → faint indigo `#3A3A4E` (10.62:1) so the high-frequency lane has its own identity.
+- Keyword `#8E351C` left as-is (a richer rust drops below AAA 7:1 on near-white or collides with the Light variant's keyword).
+
+#### Notes
+
+- All editor backgrounds and brand accents unchanged.
+- All Tier 1 syntax tokens remain WCAG AAA (≥ 7:1); Tier 2 remain AA (≥ 4.5:1).
+- All palette-spacing floors hold (core lanes ΔE ≥ 18, dark↔dimmed and light↔bright drift floors, operator/variable ≥ 16).
+- Bracket-pair guides / bracket-match / overview ruler / minimap / debug console — all derived from the lifted syntax values.
+- Synced `README.md`, `docs/index.html`, `examples/THEME-DEMO.html`, `examples/screenshot-gen.html`, and `examples/theme-analysis.html`.
+
 ## [1.11.0] - 2026-04-25
 
 ### Light Bright — full palette redesign

@@ -25,11 +25,11 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Foreground  | ![#D4D4D4](https://placehold.co/16x16/D4D4D4/D4D4D4.png)   | `#D4D4D4` |
 | Accent      | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
 | Keywords    | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
-| Functions   | ![#5AAFA0](https://placehold.co/16x16/5AAFA0/5AAFA0.png)   | `#5AAFA0` |
-| Strings     | ![#C49828](https://placehold.co/16x16/C49828/C49828.png)   | `#C49828` |
+| Functions   | ![#5CC2AE](https://placehold.co/16x16/5CC2AE/5CC2AE.png)   | `#5CC2AE` |
+| Strings     | ![#D2A436](https://placehold.co/16x16/D2A436/D2A436.png)   | `#D2A436` |
 | Types       | ![#C09ADC](https://placehold.co/16x16/C09ADC/C09ADC.png)   | `#C09ADC` |
 | Numbers     | ![#E090B0](https://placehold.co/16x16/E090B0/E090B0.png)   | `#E090B0` |
-| Operators   | ![#8DA4C4](https://placehold.co/16x16/8DA4C4/8DA4C4.png)   | `#8DA4C4` |
+| Operators   | ![#92ACD0](https://placehold.co/16x16/92ACD0/92ACD0.png)   | `#92ACD0` |
 | Decorators  | ![#C478B0](https://placehold.co/16x16/C478B0/C478B0.png)   | `#C478B0` |
 
 ### Terracotta Dark Dimmed
@@ -43,13 +43,13 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Background  | ![#1A1A1A](https://placehold.co/16x16/1A1A1A/1A1A1A.png)   | `#1A1A1A` |
 | Foreground  | ![#CCCCCC](https://placehold.co/16x16/CCCCCC/CCCCCC.png)   | `#CCCCCC` |
 | Accent      | ![#B86E58](https://placehold.co/16x16/B86E58/B86E58.png)   | `#B86E58` |
-| Keywords    | ![#D89A74](https://placehold.co/16x16/D89A74/D89A74.png)   | `#D89A74` |
+| Keywords    | ![#E0976E](https://placehold.co/16x16/E0976E/E0976E.png)   | `#E0976E` |
 | Functions   | ![#7CBEB0](https://placehold.co/16x16/7CBEB0/7CBEB0.png)   | `#7CBEB0` |
-| Strings     | ![#C4984A](https://placehold.co/16x16/C4984A/C4984A.png)   | `#C4984A` |
+| Strings     | ![#CCA050](https://placehold.co/16x16/CCA050/CCA050.png)   | `#CCA050` |
 | Types       | ![#B8A6DE](https://placehold.co/16x16/B8A6DE/B8A6DE.png)   | `#B8A6DE` |
 | Numbers     | ![#D8929C](https://placehold.co/16x16/D8929C/D8929C.png)   | `#D8929C` |
 | Operators   | ![#A9BCDC](https://placehold.co/16x16/A9BCDC/A9BCDC.png)   | `#A9BCDC` |
-| Decorators  | ![#AC749C](https://placehold.co/16x16/AC749C/AC749C.png)   | `#AC749C` |
+| Decorators  | ![#B47CA6](https://placehold.co/16x16/B47CA6/B47CA6.png)   | `#B47CA6` |
 
 ### Terracotta Light
 
@@ -83,10 +83,10 @@ A daylight variant tuned for low chroma and warm-editorial calm: neutral editor 
 | Accent      | ![#D8744E](https://placehold.co/16x16/D8744E/D8744E.png)   | `#D8744E` |
 | Keywords    | ![#8E351C](https://placehold.co/16x16/8E351C/8E351C.png)   | `#8E351C` |
 | Functions   | ![#0F5F46](https://placehold.co/16x16/0F5F46/0F5F46.png)   | `#0F5F46` |
-| Strings     | ![#7A5220](https://placehold.co/16x16/7A5220/7A5220.png)   | `#7A5220` |
+| Strings     | ![#7E4E14](https://placehold.co/16x16/7E4E14/7E4E14.png)   | `#7E4E14` |
 | Types       | ![#6A2091](https://placehold.co/16x16/6A2091/6A2091.png)   | `#6A2091` |
 | Numbers     | ![#8A3458](https://placehold.co/16x16/8A3458/8A3458.png)   | `#8A3458` |
-| Operators   | ![#3A5578](https://placehold.co/16x16/3A5578/3A5578.png)   | `#3A5578` |
+| Operators   | ![#2F5390](https://placehold.co/16x16/2F5390/2F5390.png)   | `#2F5390` |
 
 ### Terracotta High Contrast (Color Blind)
 
@@ -225,7 +225,7 @@ A tiered system ensures the best balance of readability and color differentiatio
 
 **Warm color harmony with clear separation.** Each color family has a dedicated role: terracotta for keywords, teal for functions, ochre for strings, violet/indigo for types, berry for numbers, cocoa for identifiers, olive for properties, and slate for structural syntax. The two light variants now diverge intentionally: Light keeps warmer editorial surfaces, while Light Bright leans cleaner and cooler in its structure lane.
 
-**Distinct identifiers vs properties.** In the dark themes, variables and parameters share a warm sand (`#D0C060` Dark, `#CFAA86` Dimmed) while properties use an olive-clay accent (`#A8A060` Dark, `#8DA56E` Dimmed). That split improves scan speed in object-heavy JavaScript/TypeScript, JSON, YAML, and config files without breaking the warm terracotta identity.
+**Distinct identifiers vs properties.** In the dark themes, variables and parameters share a warm sand (`#D0C060` Dark, `#CFAA86` Dimmed) while properties use an olive-clay accent (`#B4AC66` Dark, `#97AC74` Dimmed). That split improves scan speed in object-heavy JavaScript/TypeScript, JSON, YAML, and config files without breaking the warm terracotta identity.
 
 **Deep grey backgrounds.** The dark variants use `#141414` and `#1A1A1A` rather than pure black. This reduces halation (the neon glow effect around bright text on black backgrounds) and is easier on eyes with astigmatism.
 
