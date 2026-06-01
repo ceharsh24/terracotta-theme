@@ -4,6 +4,39 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.13.0] - 2026-05-31
+
+### Token separation & off-brand selection — Dark, Dark Dimmed, Light, Light Bright
+
+Goal: stop the brand terracotta from doubling as the text-selection color, decouple terminal red from the keyword coral on the dark variants, and pull apart the syntax lanes that collapse in React/TSX and Java — especially on Light Bright. High Contrast CB is intentionally untouched. All changes are color-only; no font-weight changes.
+
+#### Editor selection — all four warm variants
+
+- Editor selection moved off the brand terracotta to a cool slate (Dark `#4A5A82`, Dark Dimmed `#4E5E86`, Light & Light Bright `#345C9E`), so selecting code no longer tints it orange and no longer competes with find-match. Covers `editor.selectionBackground`, `editor.selectionHighlightBackground`, `editor.inactiveSelectionBackground`, `selection.background`, and `minimap.selectionHighlight`.
+- Find-match stays terracotta (now the only orange fill in the editor); word-highlight stays blue. Sidebar/list selection keep the brand accent.
+
+#### Terracotta Dark (`#141414`)
+
+- **Property / object-member access** olive `#B4AC66` → sage green `#8FB46E` (7.83:1), so `obj.prop` separates from the chartreuse `variable` lane by hue, not just lightness. JSON/YAML/CSS keys and HTML attributes stay olive (different role).
+- **Terminal red** decoupled from the keyword coral: `ansiRed` `#E98665` → true red `#E85C50` (5.33:1), `ansiBrightRed` `#E8906A` → `#F4705F` (6.43:1), so error output reads as red.
+
+#### Terracotta Dark Dimmed (`#1A1A1A`)
+
+- **Terminal red** `ansiRed` `#E0976E` → `#E2625A` (5.08:1), `ansiBrightRed` `#E08A68` → `#EC6E64` (5.79:1).
+
+#### Terracotta Light Bright (`#FAFAFA`)
+
+- **Primitive types** (`int`, `void`, `boolean`, TS `number`/`string`, Go/C/C++ primitives) rust `#8E351C` → type-purple `#6A2091` (9.03:1): primitives no longer render identically to keywords (Java type-vs-keyword ΔE 0 → 83).
+- **Namespace / module / package** navy `#274E91` → steel-blue `#3D71B8` (4.73:1): distinct from the operator blue (ΔE 4.6 → 12.9) and adds a recede tier the flat light palette lacked.
+- **Decorator / annotation** purple `#803B9E` → magenta `#A62E76` (6.15:1): pulls `@Component`/`@Override` away from the class/interface purples (vs class ΔE 11.1 → 35.7, vs interface 7.3 → 34.2).
+
+#### Notes
+
+- All editor backgrounds and brand accents unchanged; High Contrast CB untouched.
+- All Tier 1 syntax tokens remain WCAG AAA (≥ 7:1); Tier 2 remain AA (≥ 4.5:1); terminal ANSI ≥ 4.5:1.
+- All palette-spacing floors hold (core lanes ΔE ≥ 18, callable/property ≥ 18, dark↔dimmed and light↔bright drift floors).
+- Corrected the stale Light Bright background in `CLAUDE.md` (`#F8FBFC` → `#FAFAFA`); synced `docs/index.html`, `examples/THEME-DEMO.html`, `examples/screenshot-gen.html`, and `examples/theme-analysis.html`.
+
 ## [1.12.0] - 2026-05-25
 
 ### Brightness & contrast pass — Dark, Dark Dimmed, Light, Light Bright
