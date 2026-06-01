@@ -9,7 +9,7 @@
     "descriptionForeground": "#4C5961",
     "errorForeground": "#B83E3E",
     "icon.foreground": "#4C5961",
-    "selection.background": "#D8744E28",
+    "selection.background": "#345C9E26",
     "widget.shadow": "#00000012",
     "sash.hoverBorder": "#D8744E",
     "textLink.foreground": "#1C6770",
@@ -85,7 +85,7 @@
     "sideBarSectionHeader.foreground": "#1F2028",
     "sideBarSectionHeader.border": "#E2DFD8",
     "minimap.findMatchHighlight": "#D8744E44",
-    "minimap.selectionHighlight": "#D8744E33",
+    "minimap.selectionHighlight": "#345C9E33",
     "minimap.errorHighlight": "#B83E3E",
     "minimap.warningHighlight": "#9E6B14",
     "minimapSlider.background": "#D9D2C820",
@@ -117,9 +117,9 @@
     "editorLineNumber.foreground": "#B3ADA5",
     "editorLineNumber.activeForeground": "#504A42",
     "editorCursor.foreground": "#D8744E",
-    "editor.selectionBackground": "#D8744E42",
-    "editor.selectionHighlightBackground": "#D8744E20",
-    "editor.inactiveSelectionBackground": "#D8744E28",
+    "editor.selectionBackground": "#345C9E3D",
+    "editor.selectionHighlightBackground": "#345C9E1F",
+    "editor.inactiveSelectionBackground": "#345C9E26",
     "editor.wordHighlightBackground": "#2F539024",
     "editor.wordHighlightStrongBackground": "#2F53903C",
     "editor.findMatchBackground": "#D8744E70",
@@ -657,7 +657,7 @@
         "entity.name.type.namespace"
       ],
       "settings": {
-        "foreground": "#274E91"
+        "foreground": "#3D71B8"
       }
     },
     {
@@ -667,7 +667,7 @@
         "support.type.primitive"
       ],
       "settings": {
-        "foreground": "#8E351C"
+        "foreground": "#6A2091"
       }
     },
     {
@@ -722,7 +722,7 @@
         "storage.type.annotation"
       ],
       "settings": {
-        "foreground": "#803B9E"
+        "foreground": "#A62E76"
       }
     },
     {
@@ -1203,7 +1203,7 @@
         "entity.name.package.go"
       ],
       "settings": {
-        "foreground": "#274E91"
+        "foreground": "#3D71B8"
       }
     },
     {
@@ -1217,7 +1217,7 @@
         "storage.type.rune.go"
       ],
       "settings": {
-        "foreground": "#8E351C"
+        "foreground": "#6A2091"
       }
     },
     {
@@ -1287,7 +1287,7 @@
         "punctuation.definition.attribute.rust"
       ],
       "settings": {
-        "foreground": "#803B9E",
+        "foreground": "#A62E76",
         "fontStyle": "italic"
       }
     },
@@ -1308,7 +1308,7 @@
         "entity.name.function.decorator.python"
       ],
       "settings": {
-        "foreground": "#803B9E",
+        "foreground": "#A62E76",
         "fontStyle": "italic"
       }
     },
@@ -1318,7 +1318,7 @@
         "storage.type.primitive.java"
       ],
       "settings": {
-        "foreground": "#8E351C"
+        "foreground": "#6A2091"
       }
     },
     {
@@ -1328,7 +1328,7 @@
         "punctuation.definition.annotation.java"
       ],
       "settings": {
-        "foreground": "#803B9E",
+        "foreground": "#A62E76",
         "fontStyle": "italic"
       }
     },
@@ -1382,7 +1382,7 @@
         "storage.type.built-in.primitive.cpp"
       ],
       "settings": {
-        "foreground": "#8E351C"
+        "foreground": "#6A2091"
       }
     },
     {
@@ -1551,7 +1551,7 @@
       "name": "Dockerfile FROM image",
       "scope": "constant.other.image.dockerfile, entity.name.image.dockerfile",
       "settings": {
-        "foreground": "#274E91"
+        "foreground": "#3D71B8"
       }
     },
     {
@@ -1685,7 +1685,7 @@
     }
   ],
   "semanticTokenColors": {
-    "namespace": "#274E91",
+    "namespace": "#3D71B8",
     "type": "#6A2091",
     "class": "#6A2091",
     "enum": "#7A2F60",
@@ -1741,9 +1741,9 @@
     "regexp": "#92356E",
     "operator": "#2F5390",
     "decorator": {
-      "foreground": "#803B9E"
+      "foreground": "#A62E76"
     },
-    "builtinType": "#8E351C",
+    "builtinType": "#6A2091",
     "selfKeyword": {
       "foreground": "#6B4218"
     },
@@ -1754,6 +1754,6 @@
     "escapeSequence": {
       "foreground": "#6E3A10"
     },
-    "module": "#274E91"
+    "module": "#3D71B8"
   }
 }

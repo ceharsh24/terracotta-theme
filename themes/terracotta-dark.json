@@ -9,7 +9,7 @@
     "descriptionForeground": "#A09D93",
     "errorForeground": "#D4706A",
     "icon.foreground": "#B0ACA0",
-    "selection.background": "#E9866544",
+    "selection.background": "#4A5A8255",
     "widget.shadow": "#00000040",
     "sash.hoverBorder": "#E98665",
     "textLink.foreground": "#C8A088",
@@ -85,7 +85,7 @@
     "sideBarSectionHeader.foreground": "#E0DCD0",
     "sideBarSectionHeader.border": "#1D1D1D00",
     "minimap.findMatchHighlight": "#E9866566",
-    "minimap.selectionHighlight": "#E9866544",
+    "minimap.selectionHighlight": "#4A5A8255",
     "minimap.errorHighlight": "#D4706A",
     "minimap.warningHighlight": "#E8A060",
     "minimapSlider.background": "#3D3D3D20",
@@ -117,9 +117,9 @@
     "editorLineNumber.foreground": "#646464",
     "editorLineNumber.activeForeground": "#B2ACA3",
     "editorCursor.foreground": "#E98665",
-    "editor.selectionBackground": "#E9866552",
-    "editor.selectionHighlightBackground": "#E9866525",
-    "editor.inactiveSelectionBackground": "#E9866530",
+    "editor.selectionBackground": "#4A5A8260",
+    "editor.selectionHighlightBackground": "#4A5A8233",
+    "editor.inactiveSelectionBackground": "#4A5A8244",
     "editor.wordHighlightBackground": "#92ACD024",
     "editor.wordHighlightStrongBackground": "#92ACD03A",
     "editor.findMatchBackground": "#E9866598",
@@ -278,7 +278,7 @@
     "terminal.background": "#141414",
     "terminal.foreground": "#E0DCD0",
     "terminal.ansiBlack": "#2A2A2A",
-    "terminal.ansiRed": "#E98665",
+    "terminal.ansiRed": "#E85C50",
     "terminal.ansiGreen": "#40D4A6",
     "terminal.ansiYellow": "#E8BE58",
     "terminal.ansiBlue": "#8CAAB8",
@@ -286,7 +286,7 @@
     "terminal.ansiCyan": "#6EC4D4",
     "terminal.ansiWhite": "#D4D4D4",
     "terminal.ansiBrightBlack": "#616161",
-    "terminal.ansiBrightRed": "#E8906A",
+    "terminal.ansiBrightRed": "#F4705F",
     "terminal.ansiBrightGreen": "#5CDDB8",
     "terminal.ansiBrightYellow": "#EFCE6C",
     "terminal.ansiBrightBlue": "#A8D8F8",
@@ -697,7 +697,7 @@
         "meta.object-literal.key"
       ],
       "settings": {
-        "foreground": "#B4AC66"
+        "foreground": "#8FB46E"
       }
     },
     {
@@ -1704,10 +1704,10 @@
     "variable.modification": "#D0C060",
     "parameter.declaration": "#D0C060",
     "parameter.modification": "#D0C060",
-    "property": "#B4AC66",
-    "property.declaration": "#B4AC66",
-    "property.readonly": "#B4AC66",
-    "property.modification": "#B4AC66",
+    "property": "#8FB46E",
+    "property.declaration": "#8FB46E",
+    "property.readonly": "#8FB46E",
+    "property.modification": "#8FB46E",
     "enumMember": "#C8B468",
     "event": "#C8B468",
     "function": "#5CC2AE",
@@ -1724,7 +1724,7 @@
       "foreground": "#C09ADC"
     },
     "property.static": {
-      "foreground": "#B4AC66"
+      "foreground": "#8FB46E"
     },
     "macro": "#5CC2AE",
     "label": "#92ACD0",

@@ -13,7 +13,7 @@ This file documents the codebase structure, conventions, and workflows for AI as
 | Dark | `terracotta-dark.json` | `#141414` | `vs-dark` | Primary warm dark |
 | Dark Dimmed | `terracotta-dark-dimmed.json` | `#1A1A1A` | `vs-dark` | Softer night variant |
 | Light | `terracotta-light.json` | `#F4EEE4` | `vs` | Warm editorial parchment light |
-| Light Bright | `terracotta-light-bright.json` | `#F8FBFC` | `vs` | Cleaner daylight light |
+| Light Bright | `terracotta-light-bright.json` | `#FAFAFA` | `vs` | Cleaner daylight light |
 | High Contrast (CB) | `terracotta-high-contrast-cb.json` | `#000000` | `hc-dark` | WCAG AAA + color-blind safe |
 
 Version: `1.10.0` | Publisher: `terracotta-theme` | Author: Harsh Shah
