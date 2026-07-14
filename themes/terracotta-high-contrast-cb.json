@@ -151,7 +151,7 @@
     "editorBracketHighlight.foreground2": "#50D0F0",
     "editorBracketHighlight.foreground3": "#F0CE78",
     "editorBracketHighlight.foreground4": "#BEAAEC",
-    "editorBracketHighlight.foreground5": "#8AA8E0",
+    "editorBracketHighlight.foreground5": "#7194E4",
     "editorBracketHighlight.foreground6": "#EF8FBF",
     "editorBracketHighlight.unexpectedBracket.foreground": "#DC267F",
     "editorOverviewRuler.border": "#3A3A4A",
@@ -389,13 +389,13 @@
     "editorBracketPairGuide.background2": "#50D0F030",
     "editorBracketPairGuide.background3": "#F0CE7830",
     "editorBracketPairGuide.background4": "#BEAAEC30",
-    "editorBracketPairGuide.background5": "#8AA8E030",
+    "editorBracketPairGuide.background5": "#7194E430",
     "editorBracketPairGuide.background6": "#EF8FBF30",
     "editorBracketPairGuide.activeBackground1": "#FFA54466",
     "editorBracketPairGuide.activeBackground2": "#50D0F066",
     "editorBracketPairGuide.activeBackground3": "#F0CE7866",
     "editorBracketPairGuide.activeBackground4": "#BEAAEC66",
-    "editorBracketPairGuide.activeBackground5": "#8AA8E066",
+    "editorBracketPairGuide.activeBackground5": "#7194E466",
     "editorBracketPairGuide.activeBackground6": "#EF8FBF66",
     "notebook.cellBorderColor": "#444444",
     "notebook.focusedCellBorder": "#FE6100",
@@ -481,7 +481,7 @@
         "constant.language"
       ],
       "settings": {
-        "foreground": "#FF9070",
+        "foreground": "#FFB000",
         "fontStyle": "italic"
       }
     },
@@ -702,7 +702,7 @@
         "variable.other"
       ],
       "settings": {
-        "foreground": "#C0C0F0"
+        "foreground": "#B9B4FF"
       }
     },
     {
@@ -722,7 +722,7 @@
         "meta.object-literal.key"
       ],
       "settings": {
-        "foreground": "#8AA8E0"
+        "foreground": "#7194E4"
       }
     },
     {
@@ -747,7 +747,7 @@
         "storage.type.annotation"
       ],
       "settings": {
-        "foreground": "#FF9070"
+        "foreground": "#FF8AC8"
       }
     },
     {
@@ -808,7 +808,7 @@
         "entity.other.attribute-name"
       ],
       "settings": {
-        "foreground": "#8AA8E0",
+        "foreground": "#7194E4",
         "fontStyle": "italic"
       }
     },
@@ -838,7 +838,7 @@
         "meta.property-value.css"
       ],
       "settings": {
-        "foreground": "#C0C0F0"
+        "foreground": "#B9B4FF"
       }
     },
     {
@@ -856,7 +856,7 @@
         "entity.other.attribute-name.class.css"
       ],
       "settings": {
-        "foreground": "#8AA8E0"
+        "foreground": "#7194E4"
       }
     },
     {
@@ -916,7 +916,7 @@
         "support.type.property-name.json"
       ],
       "settings": {
-        "foreground": "#8AA8E0"
+        "foreground": "#7194E4"
       }
     },
     {
@@ -934,7 +934,7 @@
         "entity.name.tag.yaml"
       ],
       "settings": {
-        "foreground": "#8AA8E0"
+        "foreground": "#7194E4"
       }
     },
     {
@@ -1138,7 +1138,7 @@
         "entity.name.function.sql"
       ],
       "settings": {
-        "foreground": "#8AA8E0"
+        "foreground": "#7194E4"
       }
     },
     {
@@ -1216,7 +1216,7 @@
         "variable.other.bracket.shell"
       ],
       "settings": {
-        "foreground": "#C0C0F0"
+        "foreground": "#B9B4FF"
       }
     },
     {
@@ -1328,7 +1328,7 @@
         "support.function.magic.python"
       ],
       "settings": {
-        "foreground": "#8AA8E0",
+        "foreground": "#7194E4",
         "fontStyle": "italic"
       }
     },
@@ -1475,7 +1475,7 @@
       "name": "GraphQL field",
       "scope": "variable.graphql, variable.other.graphql",
       "settings": {
-        "foreground": "#C0C0F0"
+        "foreground": "#B9B4FF"
       }
     },
     {
@@ -1535,7 +1535,7 @@
       "name": "TOML key",
       "scope": "variable.key.toml, support.type.property-name.toml",
       "settings": {
-        "foreground": "#8AA8E0"
+        "foreground": "#7194E4"
       }
     },
     {
@@ -1599,7 +1599,7 @@
       "name": "Dockerfile variable",
       "scope": "variable.other.dockerfile",
       "settings": {
-        "foreground": "#C0C0F0"
+        "foreground": "#B9B4FF"
       }
     },
     {
@@ -1731,16 +1731,16 @@
       "foreground": "#D580FF"
     },
     "parameter": "#DDB880",
-    "variable": "#C0C0F0",
-    "variable.readonly": "#C0C0F0",
+    "variable": "#B9B4FF",
+    "variable.readonly": "#B9B4FF",
     "variable.defaultLibrary": "#D580FF",
-    "variable.declaration": "#C0C0F0",
-    "variable.modification": "#C0C0F0",
+    "variable.declaration": "#B9B4FF",
+    "variable.modification": "#B9B4FF",
     "parameter.declaration": "#DDB880",
     "parameter.modification": "#DDB880",
-    "property": "#8AA8E0",
-    "property.readonly": "#8AA8E0",
-    "property.modification": "#8AA8E0",
+    "property": "#7194E4",
+    "property.readonly": "#7194E4",
+    "property.modification": "#7194E4",
     "enumMember": "#FFD060",
     "event": "#FFD060",
     "function": "#00B4BD",
@@ -1756,7 +1756,7 @@
     "class.declaration": {
       "foreground": "#D580FF"
     },
-    "property.static": "#8AA8E0",
+    "property.static": "#7194E4",
     "macro": "#00B4BD",
     "label": "#80BFFF",
     "comment": {
@@ -1770,7 +1770,7 @@
     "regexp": "#E1D4F2",
     "operator": "#80BFFF",
     "decorator": {
-      "foreground": "#FF9070"
+      "foreground": "#FF8AC8"
     },
     "builtinType": "#D580FF",
     "selfKeyword": {
@@ -1784,7 +1784,7 @@
     "escapeSequence": {
       "foreground": "#F0A8DC"
     },
-    "property.declaration": "#8AA8E0",
+    "property.declaration": "#7194E4",
     "module": "#D580FF"
   }
 }

@@ -453,7 +453,7 @@
         "constant.numeric"
       ],
       "settings": {
-        "foreground": "#D8929C"
+        "foreground": "#E58FA5"
       }
     },
     {
@@ -850,7 +850,7 @@
         "keyword.other.unit.css"
       ],
       "settings": {
-        "foreground": "#D8929C"
+        "foreground": "#E58FA5"
       }
     },
     {
@@ -860,7 +860,7 @@
         "punctuation.definition.constant.css"
       ],
       "settings": {
-        "foreground": "#D8929C"
+        "foreground": "#E58FA5"
       }
     },
     {
@@ -1509,7 +1509,7 @@
       "name": "TOML datetime",
       "scope": "constant.other.datetime.toml, constant.other.date.toml, constant.other.time.toml",
       "settings": {
-        "foreground": "#D8929C"
+        "foreground": "#E58FA5"
       }
     },
     {
@@ -1530,7 +1530,7 @@
       "name": "TOML number",
       "scope": "constant.numeric.toml, constant.numeric.integer.toml, constant.numeric.float.toml, constant.numeric.hex.toml, constant.numeric.oct.toml, constant.numeric.bin.toml, constant.numeric.inf.toml, constant.numeric.nan.toml",
       "settings": {
-        "foreground": "#D8929C"
+        "foreground": "#E58FA5"
       }
     },
     {
@@ -1673,7 +1673,7 @@
       "name": "YAML number",
       "scope": "constant.numeric.yaml, constant.numeric.integer.yaml, constant.numeric.float.yaml",
       "settings": {
-        "foreground": "#D8929C"
+        "foreground": "#E58FA5"
       }
     },
     {
@@ -1708,8 +1708,8 @@
     "property.declaration": "#97AC74",
     "property.readonly": "#97AC74",
     "property.modification": "#97AC74",
-    "enumMember": "#CCB86C",
-    "event": "#CCB86C",
+    "enumMember": "#7CC694",
+    "event": "#7CC694",
     "function": "#7CBEB0",
     "function.defaultLibrary": "#76B3A5",
     "function.declaration": {
@@ -1733,7 +1733,7 @@
     },
     "string": "#CCA050",
     "keyword": "#E0976E",
-    "number": "#D8929C",
+    "number": "#E58FA5",
     "regexp": "#C8A4B4",
     "operator": "#A9BCDC",
     "decorator": {

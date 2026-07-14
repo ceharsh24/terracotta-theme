@@ -25,12 +25,12 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Foreground  | ![#D4D4D4](https://placehold.co/16x16/D4D4D4/D4D4D4.png)   | `#D4D4D4` |
 | Accent      | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
 | Keywords    | ![#E98665](https://placehold.co/16x16/E98665/E98665.png)   | `#E98665` |
-| Functions   | ![#5CC2AE](https://placehold.co/16x16/5CC2AE/5CC2AE.png)   | `#5CC2AE` |
+| Functions   | ![#3FD2B3](https://placehold.co/16x16/5CC2AE/5CC2AE.png)   | `#3FD2B3` |
 | Strings     | ![#D2A436](https://placehold.co/16x16/D2A436/D2A436.png)   | `#D2A436` |
-| Types       | ![#C09ADC](https://placehold.co/16x16/C09ADC/C09ADC.png)   | `#C09ADC` |
-| Numbers     | ![#E090B0](https://placehold.co/16x16/E090B0/E090B0.png)   | `#E090B0` |
-| Operators   | ![#92ACD0](https://placehold.co/16x16/92ACD0/92ACD0.png)   | `#92ACD0` |
-| Decorators  | ![#C478B0](https://placehold.co/16x16/C478B0/C478B0.png)   | `#C478B0` |
+| Types       | ![#C893F2](https://placehold.co/16x16/C09ADC/C09ADC.png)   | `#C893F2` |
+| Numbers     | ![#F287B2](https://placehold.co/16x16/E090B0/E090B0.png)   | `#F287B2` |
+| Operators   | ![#82B4E8](https://placehold.co/16x16/92ACD0/92ACD0.png)   | `#82B4E8` |
+| Decorators  | ![#D673C4](https://placehold.co/16x16/C478B0/C478B0.png)   | `#D673C4` |
 
 ### Terracotta Dark Dimmed
 
@@ -47,7 +47,7 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Functions   | ![#7CBEB0](https://placehold.co/16x16/7CBEB0/7CBEB0.png)   | `#7CBEB0` |
 | Strings     | ![#CCA050](https://placehold.co/16x16/CCA050/CCA050.png)   | `#CCA050` |
 | Types       | ![#B8A6DE](https://placehold.co/16x16/B8A6DE/B8A6DE.png)   | `#B8A6DE` |
-| Numbers     | ![#D8929C](https://placehold.co/16x16/D8929C/D8929C.png)   | `#D8929C` |
+| Numbers     | ![#E58FA5](https://placehold.co/16x16/D8929C/D8929C.png)   | `#E58FA5` |
 | Operators   | ![#A9BCDC](https://placehold.co/16x16/A9BCDC/A9BCDC.png)   | `#A9BCDC` |
 | Decorators  | ![#B47CA6](https://placehold.co/16x16/B47CA6/B47CA6.png)   | `#B47CA6` |
 
@@ -63,10 +63,10 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Navy oper
 | Foreground  | ![#2A241F](https://placehold.co/16x16/2A241F/2A241F.png)   | `#2A241F` |
 | Accent      | ![#B66743](https://placehold.co/16x16/B66743/B66743.png)   | `#B66743` |
 | Keywords    | ![#8C2A0E](https://placehold.co/16x16/8C2A0E/8C2A0E.png)   | `#8C2A0E` |
-| Functions   | ![#064A26](https://placehold.co/16x16/064A26/064A26.png)   | `#064A26` |
-| Strings     | ![#5C5200](https://placehold.co/16x16/5C5200/5C5200.png)   | `#5C5200` |
+| Functions   | ![#0A5A30](https://placehold.co/16x16/064A26/064A26.png)   | `#0A5A30` |
+| Strings     | ![#6A5D00](https://placehold.co/16x16/5C5200/5C5200.png)   | `#6A5D00` |
 | Types       | ![#5A2FAE](https://placehold.co/16x16/5A2FAE/5A2FAE.png)   | `#5A2FAE` |
-| Numbers     | ![#84184A](https://placehold.co/16x16/84184A/84184A.png)   | `#84184A` |
+| Numbers     | ![#930E4F](https://placehold.co/16x16/84184A/84184A.png)   | `#930E4F` |
 | Operators   | ![#124878](https://placehold.co/16x16/124878/124878.png)   | `#124878` |
 | Decorators  | ![#6A2E90](https://placehold.co/16x16/6A2E90/6A2E90.png)   | `#6A2E90` |
 
@@ -81,11 +81,11 @@ A daylight variant tuned for low chroma and warm-editorial calm: neutral editor 
 | Background  | ![#FAFAFA](https://placehold.co/16x16/FAFAFA/FAFAFA.png)   | `#FAFAFA` |
 | Foreground  | ![#1F1F1F](https://placehold.co/16x16/1F1F1F/1F1F1F.png)   | `#1F1F1F` |
 | Accent      | ![#D8744E](https://placehold.co/16x16/D8744E/D8744E.png)   | `#D8744E` |
-| Keywords    | ![#8E351C](https://placehold.co/16x16/8E351C/8E351C.png)   | `#8E351C` |
-| Functions   | ![#0F5F46](https://placehold.co/16x16/0F5F46/0F5F46.png)   | `#0F5F46` |
-| Strings     | ![#7E4E14](https://placehold.co/16x16/7E4E14/7E4E14.png)   | `#7E4E14` |
+| Keywords    | ![#97300D](https://placehold.co/16x16/8E351C/8E351C.png)   | `#97300D` |
+| Functions   | ![#03604A](https://placehold.co/16x16/0F5F46/0F5F46.png)   | `#03604A` |
+| Strings     | ![#8C5300](https://placehold.co/16x16/7E4E14/7E4E14.png)   | `#8C5300` |
 | Types       | ![#6A2091](https://placehold.co/16x16/6A2091/6A2091.png)   | `#6A2091` |
-| Numbers     | ![#8A3458](https://placehold.co/16x16/8A3458/8A3458.png)   | `#8A3458` |
+| Numbers     | ![#A5104E](https://placehold.co/16x16/8A3458/8A3458.png)   | `#A5104E` |
 | Operators   | ![#2F5390](https://placehold.co/16x16/2F5390/2F5390.png)   | `#2F5390` |
 
 ### Terracotta High Contrast (Color Blind)
