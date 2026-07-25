@@ -4,6 +4,64 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.14.0] - 2026-07-13
+
+### Vibrancy & separation pass — all five variants
+
+Goal: address the two standing complaints — syntax colors reading dull/muted, and token lanes sitting too close together in real code. Every variant got a chroma lift on its washed-out lanes plus targeted moves for the worst ΔE collisions, without touching the deliberate identities (olive variable, sage property, slate selection, terracotta keyword/accent). All changes are color-only; no font-weight changes.
+
+#### Terracotta Dark (`#141414`)
+
+- **Function / method / macro** teal `#5CC2AE` → `#3FD2B3` (chroma 35 → 46, 9.72:1): the most-read lane no longer looks washed out.
+- **Operator** slate-blue `#92ACD0` → `#82B4E8` (chroma 21 → 31, 8.46:1); word-highlight/bracket-match fills move with it.
+- **Regex** `#9AC0C8` → `#5CC8E0` (chroma 14 → 32): was the dullest lane in the theme; now a real cyan, and operator/regex ΔE 17.5 → 23.5.
+- **Number** `#E090B0` → `#F287B2` (chroma 35 → 46, 7.79:1); number/decorator ΔE 16.0 → 22.4.
+- **Type / class / namespace** `#C09ADC` → `#C893F2` (chroma 39 → 55, 7.82:1).
+- **Decorator / HTML tag** `#C478B0` → `#D673C4` (chroma 42 → 56, 6.24:1).
+- **Enum member** khaki `#C8B468` → spring green `#58C88C` (8.82:1): it sat ΔE 10.1 from the chartreuse `variable` lane (`Color.RED` vs locals were near-identical); now ΔE 49.0, occupying the previously empty green slot between sage property and teal function.
+
+#### Terracotta Dark Dimmed (`#1A1A1A`)
+
+Kept deliberately soft; only the two real collisions moved:
+
+- **Number** `#D8929C` → `#E58FA5` (7.30:1): clears the muted regex pink (ΔE 15.2 → 20.4).
+- **Enum member / event** khaki `#CCB86C` → soft green `#7CC694` (8.59:1): was ΔE 13.7 from the gold string lane; now ΔE 50.8. `self`/`this` keeps the original khaki (`selfKeyword` split from `enumMember`).
+
+#### Terracotta Light (`#F4EEE4`)
+
+- **Variable** dull plum `#5A3E68` → `#63377C` (chroma 29 → 45, 7.68:1).
+- **Property** muted teal `#196878` → `#0C6E86` (chroma 23 → 26, 5.07:1, brighter/cleaner hue).
+- **Function / method** near-black green `#064A26` → `#0A5A30` (7.23:1): keeps AAA while no longer reading as black ink.
+- **Number** `#84184A` → `#930E4F` (chroma 48 → 55, 7.53:1) and **enum member / regex** `#97356F` → `#A03378`: pulls the crowded magenta corner apart (number/enumMember ΔE 13.6 → 16.4).
+- **String** `#5C5200` → `#6A5D00` (chroma 43 → 47, 5.72:1); `charts.yellow` and debug string values move with it.
+- Closest core-lane pair improved from ΔE 22.9 (operator/variable) to ΔE 25.3.
+
+#### Terracotta Light Bright (`#FAFAFA`)
+
+The 1.11.0 low-chroma redesign overshot into dullness; this restores color identity while keeping the clean daylight character:
+
+- **String / user constant** brown `#7E4E14` → golden `#8C5300` (6.00:1): string/parameter was the worst collision in any variant (ΔE 10.2 → 20.5); `terminal.ansiYellow` moves with it (still AA).
+- **Variable** near-gray `#3A3A4E` (chroma 13) → indigo ink `#3B3178` (chroma 46, 10.61:1); inherited-class nudged `#5A4A9A` → `#5F4AAC` to stay clear (ΔE 19.0).
+- **Decorator** `#A62E76` → `#C01F82` (5.35:1): decorator/enumMember ΔE 10.1 → 22.9.
+- **Number / built-in constant** `#8A3458` → `#A5104E` (7.23:1): number/enumMember ΔE 11.7 → 22.8, and keeps ΔE 8.7 drift from Light's number.
+- **Namespace / module** `#3D71B8` → `#2A62CE` (5.38:1): operator/namespace ΔE 12.9 → 28.1.
+- **Keyword** `#8E351C` → `#97300D` (chroma 50 → 60, 7.33:1) and **function** `#0F5F46` → `#03604A` (7.25:1).
+
+#### Terracotta High Contrast CB (`#000000`)
+
+Same IBM/Wong color-blind-safe hue set; fixes were within-family lightness/hue spacing:
+
+- **Decorator** split from built-in constants: salmon `#FF9070` → pink `#FF8AC8` (9.72:1): keyword/decorator ΔE 9.0 → 57.3 (`@Override` no longer reads as a keyword).
+- **Built-in constants** (`true`/`false`/`null`) `#FF9070` → gold `#FFB000`, joining the number/literal family and leaving the keyword-orange slot unambiguous.
+- **Property / attribute** `#8AA8E0` → `#7194E4` (7.06:1): operator/property ΔE 11.3 → 19.8.
+- **Variable** `#C0C0F0` → `#B9B4FF` (11.04:1): variable/regex ΔE 13.1 → 26.8, variable/property 14.6 → 18.1.
+
+#### Notes
+
+- All backgrounds, chrome, selection, and brand accents unchanged.
+- All Tier 1 tokens remain WCAG AAA (≥ 7:1), Tier 2 AA (≥ 4.5:1), terminal ANSI ≥ 4.5:1; all palette-spacing floors and cross-variant drift floors hold.
+- Synced `README.md`, `docs/index.html`, `examples/THEME-DEMO.html`, `examples/screenshot-gen.html`, `examples/theme-analysis.html`, `examples/java-preview.html`; regenerated all five screenshots.
+
 ## [1.13.0] - 2026-05-31
 
 ### Token separation & off-brand selection — Dark, Dark Dimmed, Light, Light Bright
