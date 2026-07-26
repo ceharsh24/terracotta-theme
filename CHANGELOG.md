@@ -4,6 +4,46 @@ All notable changes to the Terracotta theme will be documented in this file.
 
 ## [Unreleased]
 
+## [1.16.0] - 2026-07-26
+
+### Lane separation pass — Dark, Dark Dimmed, Light, Light Bright
+
+Goal: make the theme skimmable for a full working day. 1.14.0 raised chroma, but it did not raise the *number* of distinguishable lanes — several unrelated roles still shared one color, so structure blurred exactly where you scan fastest. This pass splits the collapsed lanes and rebalances which tokens are allowed to shout. High Contrast CB is intentionally untouched (its merges are a deliberate consequence of color-blind safety, where only ~6 hues stay reliably distinct). All changes are color-only; no font-weight changes.
+
+#### The two structural problems
+
+**The type blob.** `type`, `class`, `struct`, `builtinType`, `namespace`, and often `typeParameter` and `interface` were the same or near-same purple. In TypeScript, Java, Go, C# and Rust that turned every structural line into one wash — `Map<string, T>`, qualified names, and imports had no internal shape. `namespace` and `typeParameter` now have their own identity in all four variants, and `interface` is a clearly separated sibling rather than a near-duplicate.
+
+**The literal blob.** `enum`, `enumMember`, `number`, `regexp`, `event` and `decorator` crowded the same magenta band; on the light variants `regexp` was literally the same hex as `enumMember`. `regexp` now has its own lane, and `enumMember` moves to green on the light variants — matching the deliberate green already used in Dark/Dimmed.
+
+#### Salience rebalance
+
+- **Operators calmed (Dark, Dark Dimmed).** `=`, `=>`, `&&`, `->` are among the highest-frequency glyphs on screen and are never what you search for, yet they carried more chroma than most identifiers. Dark `#82B4E8` → slate `#A7BED4`, Dimmed `#A9BCDC` → `#8EB0C5`. Identifiers now carry the color. The vivid blue is reassigned to `namespace`; diff-changed, Go channels, and Rust lifetimes/borrows keep a saturated blue rather than following operators into slate.
+- **Variables recede on the light variants.** Light `#63377C` → near-ink `#3A3841`, Light Bright `#3B3178` → `#33343D`. The most frequent identifier lane no longer competes with types for attention.
+- **Parameters split from variables (Dark).** `#D0C060` → warm sand `#D5AE93`, so a function body shows at a glance which names came from the signature. Dark Dimmed keeps them merged (`#CCBB80`) — at that variant's deliberately low chroma there is no clean slot left, and forcing one would collide with the keyword.
+
+#### Readability on the light backgrounds
+
+Contrast budget is now spent where the eye spends its time. The high-frequency lanes were lifted off the bottom of the range: Light `string` 5.72 → 7.02, `property` 5.07 → 6.55; Light Bright `string` 6.00 → 7.20, `comment` 5.16 → 5.76. Rare lanes trade absolute contrast for separation, which is what buys room at all — the AAA 7:1 floor pins every token on a light background to L≈30-40, compressing the space hue has to work in.
+
+#### Per-variant values
+
+Dark: `namespace` `#C893F2`→`#72A2E8`, `interface` `#B890C0`→`#C0B3F5`, `typeParameter` `#C098C0`→`#D7CDE7`, `parameter` `#D0C060`→`#D5AE93`, `operator`/`label` `#82B4E8`→`#A7BED4`, `enum` `#D898A0`→`#EBAEBA`.
+
+Dark Dimmed: `namespace` `#B8A6DE`→`#699FD7`, `interface` `#BC94C4`→`#8A8ECE`, `typeParameter` `#C49CC4`→`#D9D1E7`, `variable`/`parameter` `#CFAA86`→`#CCBB80` (fixes a keyword↔variable collision at ΔE00 9.4), `operator`/`label` `#A9BCDC`→`#8EB0C5`, `regexp` `#C8A4B4`→`#89CCD1`, `enum` `#DC9CA4`→`#E6B8C0`.
+
+Light: `namespace` `#5A2FAE`→`#066496`, `interface` `#275BAA`→`#5D54A0`, `typeParameter` `#3B4B7A`→`#4B4865`, `variable` `#63377C`→`#3A3841`, `string` `#6A5D00`→`#5B5001`, `property` `#0C6E86`→`#035A6F`, `enumMember` `#A03378`→`#486D29`, `regexp` `#A03378`→`#036763`, `decorator` `#6A2E90`→`#943A8D`, `parameter` `#7A3F14`→`#7A482B`, `enum` `#883868`→`#64397C`.
+
+Light Bright: `namespace` `#2A62CE`→`#066492`, `interface` `#8A4AB5`→`#774E9E`, `typeParameter` `#3F4F7E`→`#4D4B67`, `variable` `#3B3178`→`#33343D`, `string` `#8C5300`→`#794A00`, `property` `#0E6470`→`#026371`, `enumMember` `#92356E`→`#4B732B`, `regexp` `#92356E`→`#036763`, `decorator` `#C01F82`→`#9C3E8F`, `parameter` `#6B4218`→`#673C1F`, `comment` `#6E6A62`→`#6A6256`, `enum` `#7A2F60`→`#6E3879`.
+
+#### Notes
+
+- All editor backgrounds, brand accents, keyword hues, and terminal ANSI colors unchanged.
+- All Tier 1 syntax tokens remain WCAG AAA (≥ 7:1); Tier 2 remain AA (≥ 4.5:1); terminal ANSI ≥ 4.5:1.
+- All palette-spacing floors hold (core lanes ΔE ≥ 18, callable/property ≥ 18, dark↔dimmed and light↔bright drift floors).
+- Remaining close pairs are deliberate same-family siblings: class/interface, function/enumMember, string/variable.
+- Synced `README.md`, `docs/index.html`, `examples/THEME-DEMO.html`, `examples/screenshot-gen.html`, and `examples/theme-analysis.html`.
+
 ## [1.14.0] - 2026-07-13
 
 ### Vibrancy & separation pass — all five variants
