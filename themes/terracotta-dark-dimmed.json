@@ -434,7 +434,7 @@
         "string.regexp"
       ],
       "settings": {
-        "foreground": "#C8A4B4"
+        "foreground": "#89CCD1"
       }
     },
     {
@@ -504,7 +504,7 @@
         "keyword.operator"
       ],
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -516,7 +516,7 @@
         "keyword.operator.ternary"
       ],
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -526,7 +526,7 @@
         "keyword.operator.arithmetic"
       ],
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -625,7 +625,7 @@
         "entity.name.type.interface"
       ],
       "settings": {
-        "foreground": "#BC94C4",
+        "foreground": "#8A8ECE",
         "fontStyle": "italic"
       }
     },
@@ -635,7 +635,7 @@
         "entity.name.type.enum"
       ],
       "settings": {
-        "foreground": "#DC9CA4"
+        "foreground": "#E6B8C0"
       }
     },
     {
@@ -645,7 +645,7 @@
         "variable.parameter.type"
       ],
       "settings": {
-        "foreground": "#C49CC4",
+        "foreground": "#D9D1E7",
         "fontStyle": "italic"
       }
     },
@@ -657,7 +657,7 @@
         "entity.name.type.namespace"
       ],
       "settings": {
-        "foreground": "#B8A6DE"
+        "foreground": "#699FD7"
       }
     },
     {
@@ -677,7 +677,7 @@
         "variable.other"
       ],
       "settings": {
-        "foreground": "#CFAA86"
+        "foreground": "#CCBB80"
       }
     },
     {
@@ -686,7 +686,7 @@
         "variable.parameter"
       ],
       "settings": {
-        "foreground": "#CFAA86"
+        "foreground": "#CCBB80"
       }
     },
     {
@@ -1087,7 +1087,7 @@
         "keyword.operator.quantifier.regexp"
       ],
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -1147,7 +1147,7 @@
         "keyword.operator.comparison.sql"
       ],
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -1185,7 +1185,7 @@
         "variable.other.bracket.shell"
       ],
       "settings": {
-        "foreground": "#CFAA86"
+        "foreground": "#CCBB80"
       }
     },
     {
@@ -1203,7 +1203,7 @@
         "entity.name.package.go"
       ],
       "settings": {
-        "foreground": "#B8A6DE"
+        "foreground": "#699FD7"
       }
     },
     {
@@ -1372,7 +1372,7 @@
         "keyword.operator.arrow.cpp"
       ],
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -1422,7 +1422,7 @@
       "name": "JSX spread operator",
       "scope": "keyword.operator.spread.tsx, keyword.operator.spread.jsx",
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -1443,7 +1443,7 @@
       "name": "GraphQL field",
       "scope": "variable.graphql, variable.other.graphql",
       "settings": {
-        "foreground": "#CFAA86"
+        "foreground": "#CCBB80"
       }
     },
     {
@@ -1472,7 +1472,7 @@
       "name": "GraphQL operator",
       "scope": "keyword.operator.graphql",
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -1558,14 +1558,14 @@
       "name": "Dockerfile flag",
       "scope": "keyword.operator.flag.dockerfile, entity.name.variable.parameter.dockerfile",
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
       "name": "Dockerfile variable",
       "scope": "variable.other.dockerfile",
       "settings": {
-        "foreground": "#CFAA86"
+        "foreground": "#CCBB80"
       }
     },
     {
@@ -1609,14 +1609,14 @@
       "name": "Shell redirect operator",
       "scope": "keyword.operator.redirect.shell, keyword.operator.pipe.shell, keyword.operator.herestring.shell",
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
       "name": "Shell logical operator",
       "scope": "keyword.operator.logical.shell",
       "settings": {
-        "foreground": "#A9BCDC"
+        "foreground": "#8EB0C5"
       }
     },
     {
@@ -1685,25 +1685,25 @@
     }
   ],
   "semanticTokenColors": {
-    "namespace": "#B8A6DE",
+    "namespace": "#699FD7",
     "type": "#B8A6DE",
     "class": "#B8A6DE",
-    "enum": "#DC9CA4",
+    "enum": "#E6B8C0",
     "interface": {
-      "foreground": "#BC94C4"
+      "foreground": "#8A8ECE"
     },
     "struct": "#B8A6DE",
     "typeParameter": {
-      "foreground": "#C49CC4"
+      "foreground": "#D9D1E7"
     },
-    "parameter": "#CFAA86",
-    "variable": "#CFAA86",
-    "variable.readonly": "#CFAA86",
+    "parameter": "#CCBB80",
+    "variable": "#CCBB80",
+    "variable.readonly": "#CCBB80",
     "variable.defaultLibrary": "#B8A6DE",
-    "variable.declaration": "#CFAA86",
-    "variable.modification": "#CFAA86",
-    "parameter.declaration": "#CFAA86",
-    "parameter.modification": "#CFAA86",
+    "variable.declaration": "#CCBB80",
+    "variable.modification": "#CCBB80",
+    "parameter.declaration": "#CCBB80",
+    "parameter.modification": "#CCBB80",
     "property": "#97AC74",
     "property.declaration": "#97AC74",
     "property.readonly": "#97AC74",
@@ -1727,15 +1727,15 @@
       "foreground": "#97AC74"
     },
     "macro": "#7CBEB0",
-    "label": "#A9BCDC",
+    "label": "#8EB0C5",
     "comment": {
       "foreground": "#91867B"
     },
     "string": "#CCA050",
     "keyword": "#E0976E",
     "number": "#E58FA5",
-    "regexp": "#C8A4B4",
-    "operator": "#A9BCDC",
+    "regexp": "#89CCD1",
+    "operator": "#8EB0C5",
     "decorator": {
       "foreground": "#B47CA6"
     },
@@ -1750,6 +1750,6 @@
     "escapeSequence": {
       "foreground": "#D89A56"
     },
-    "module": "#B8A6DE"
+    "module": "#699FD7"
   }
 }

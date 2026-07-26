@@ -29,7 +29,7 @@ The primary variant. A deep, neutral dark theme for daily coding. Pure dark back
 | Strings     | ![#D2A436](https://placehold.co/16x16/D2A436/D2A436.png)   | `#D2A436` |
 | Types       | ![#C893F2](https://placehold.co/16x16/C09ADC/C09ADC.png)   | `#C893F2` |
 | Numbers     | ![#F287B2](https://placehold.co/16x16/E090B0/E090B0.png)   | `#F287B2` |
-| Operators   | ![#82B4E8](https://placehold.co/16x16/92ACD0/92ACD0.png)   | `#82B4E8` |
+| Operators   | ![#A7BED4](https://placehold.co/16x16/92ACD0/92ACD0.png)   | `#A7BED4` |
 | Decorators  | ![#D673C4](https://placehold.co/16x16/C478B0/C478B0.png)   | `#D673C4` |
 
 ### Terracotta Dark Dimmed
@@ -48,7 +48,7 @@ Lower contrast for prolonged night sessions. Built on a softer grey (`#1A1A1A`) 
 | Strings     | ![#CCA050](https://placehold.co/16x16/CCA050/CCA050.png)   | `#CCA050` |
 | Types       | ![#B8A6DE](https://placehold.co/16x16/B8A6DE/B8A6DE.png)   | `#B8A6DE` |
 | Numbers     | ![#E58FA5](https://placehold.co/16x16/D8929C/D8929C.png)   | `#E58FA5` |
-| Operators   | ![#A9BCDC](https://placehold.co/16x16/A9BCDC/A9BCDC.png)   | `#A9BCDC` |
+| Operators   | ![#8EB0C5](https://placehold.co/16x16/A9BCDC/A9BCDC.png)   | `#8EB0C5` |
 | Decorators  | ![#B47CA6](https://placehold.co/16x16/B47CA6/B47CA6.png)   | `#B47CA6` |
 
 ### Terracotta Light
@@ -64,11 +64,11 @@ An editorial warm light theme built on parchment surfaces (`#F4EEE4`). Navy oper
 | Accent      | ![#B66743](https://placehold.co/16x16/B66743/B66743.png)   | `#B66743` |
 | Keywords    | ![#8C2A0E](https://placehold.co/16x16/8C2A0E/8C2A0E.png)   | `#8C2A0E` |
 | Functions   | ![#0A5A30](https://placehold.co/16x16/064A26/064A26.png)   | `#0A5A30` |
-| Strings     | ![#6A5D00](https://placehold.co/16x16/5C5200/5C5200.png)   | `#6A5D00` |
+| Strings     | ![#5B5001](https://placehold.co/16x16/5C5200/5C5200.png)   | `#5B5001` |
 | Types       | ![#5A2FAE](https://placehold.co/16x16/5A2FAE/5A2FAE.png)   | `#5A2FAE` |
 | Numbers     | ![#930E4F](https://placehold.co/16x16/84184A/84184A.png)   | `#930E4F` |
 | Operators   | ![#124878](https://placehold.co/16x16/124878/124878.png)   | `#124878` |
-| Decorators  | ![#6A2E90](https://placehold.co/16x16/6A2E90/6A2E90.png)   | `#6A2E90` |
+| Decorators  | ![#943A8D](https://placehold.co/16x16/6A2E90/6A2E90.png)   | `#943A8D` |
 
 ### Terracotta Light Bright
 
@@ -83,7 +83,7 @@ A daylight variant tuned for low chroma and warm-editorial calm: neutral editor 
 | Accent      | ![#D8744E](https://placehold.co/16x16/D8744E/D8744E.png)   | `#D8744E` |
 | Keywords    | ![#97300D](https://placehold.co/16x16/8E351C/8E351C.png)   | `#97300D` |
 | Functions   | ![#03604A](https://placehold.co/16x16/0F5F46/0F5F46.png)   | `#03604A` |
-| Strings     | ![#8C5300](https://placehold.co/16x16/7E4E14/7E4E14.png)   | `#8C5300` |
+| Strings     | ![#794A00](https://placehold.co/16x16/7E4E14/7E4E14.png)   | `#794A00` |
 | Types       | ![#6A2091](https://placehold.co/16x16/6A2091/6A2091.png)   | `#6A2091` |
 | Numbers     | ![#A5104E](https://placehold.co/16x16/8A3458/8A3458.png)   | `#A5104E` |
 | Operators   | ![#2F5390](https://placehold.co/16x16/2F5390/2F5390.png)   | `#2F5390` |
@@ -225,7 +225,7 @@ A tiered system ensures the best balance of readability and color differentiatio
 
 **Warm color harmony with clear separation.** Each color family has a dedicated role: terracotta for keywords, teal for functions, ochre for strings, violet/indigo for types, berry for numbers, cocoa for identifiers, olive for properties, and slate for structural syntax. The two light variants now diverge intentionally: Light keeps warmer editorial surfaces, while Light Bright leans cleaner and cooler in its structure lane.
 
-**Distinct identifiers vs properties.** In the dark themes, variables and parameters share a warm sand (`#D0C060` Dark, `#CFAA86` Dimmed) while properties use an olive-clay accent (`#B4AC66` Dark, `#97AC74` Dimmed). That split improves scan speed in object-heavy JavaScript/TypeScript, JSON, YAML, and config files without breaking the warm terracotta identity.
+**Distinct identifiers vs properties.** Terracotta Dark separates all three: variables keep the chartreuse (`#D0C060`), parameters move to a warm sand (`#D5AE93`), and member access reads sage (`#8FB46E`), so a function body tells you at a glance which names came from the signature. Dark Dimmed deliberately keeps variables and parameters on one khaki (`#CCBB80`) against an olive property (`#97AC74`) — at that variant's lower chroma there is not enough separation left to split them cleanly. Config keys (JSON, YAML, TOML) stay olive-clay (`#B4AC66` Dark) since they never collide with variables.
 
 **Deep grey backgrounds.** The dark variants use `#141414` and `#1A1A1A` rather than pure black. This reduces halation (the neon glow effect around bright text on black backgrounds) and is easier on eyes with astigmatism.
 
